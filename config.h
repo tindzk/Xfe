@@ -138,7 +138,7 @@
 /* Define to 1 if you have the `getuid' function. */
 #define HAVE_GETUID 1
 
-/* Define if you have the iconv() function. */
+/* Define if you have the iconv() function and it works. */
 #define HAVE_ICONV 1
 
 /* Define if you have the 'intmax_t' type in <stdint.h> or <inttypes.h>. */
@@ -169,9 +169,6 @@
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
 
-/* Define if you have the 'long double' type. */
-#define HAVE_LONG_DOUBLE 1
-
 /* Define to 1 if the system has the type `long long int'. */
 #define HAVE_LONG_LONG_INT 1
 
@@ -182,6 +179,9 @@
 /* Define to 1 if your system has a GNU libc compatible `malloc' function, and
    to 0 otherwise. */
 #define HAVE_MALLOC 1
+
+/* Define to 1 if you have the `mbrtowc' function. */
+#define HAVE_MBRTOWC 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -210,9 +210,8 @@
 /* Define to 1 if you have the <ndir.h> header file, and it defines `DIR'. */
 /* #undef HAVE_NDIR_H */
 
-/* Define if you have <langinfo.h> and it defines the NL_LOCALE_NAME macro if
-   _GNU_SOURCE is defined. */
-#define HAVE_NL_LOCALE_NAME 1
+/* Define to 1 if you have the `newlocale' function. */
+#define HAVE_NEWLOCALE 1
 
 /* Define if your printf() function supports format strings with positions. */
 #define HAVE_POSIX_PRINTF 1
@@ -286,6 +285,9 @@
 /* Define to 1 if you have the <string.h> header file. */
 #define HAVE_STRING_H 1
 
+/* Define to 1 if you have the `strnlen' function. */
+#define HAVE_STRNLEN 1
+
 /* Define to 1 if you have the `strstr' function. */
 #define HAVE_STRSTR 1
 
@@ -298,7 +300,7 @@
 /* Define to 1 if you have the `strtoull' function. */
 #define HAVE_STRTOULL 1
 
-/* Define to 1 if `st_rdev' is member of `struct stat'. */
+/* Define to 1 if `st_rdev' is a member of `struct stat'. */
 #define HAVE_STRUCT_STAT_ST_RDEV 1
 
 /* Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
@@ -339,11 +341,11 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #define HAVE_UNISTD_H 1
 
-/* Define if you have the 'unsigned long long' type. */
-#define HAVE_UNSIGNED_LONG_LONG 1
-
 /* Define to 1 if the system has the type `unsigned long long int'. */
 #define HAVE_UNSIGNED_LONG_LONG_INT 1
+
+/* Define to 1 if you have the `uselocale' function. */
+#define HAVE_USELOCALE 1
 
 /* Define to 1 if you have the `utime' function. */
 #define HAVE_UTIME 1
@@ -367,14 +369,26 @@
 /* Define if you have the 'wchar_t' type. */
 #define HAVE_WCHAR_T 1
 
+/* Define to 1 if you have the `wcrtomb' function. */
+#define HAVE_WCRTOMB 1
+
 /* Define to 1 if you have the `wcslen' function. */
 #define HAVE_WCSLEN 1
+
+/* Define to 1 if you have the `wcsnlen' function. */
+#define HAVE_WCSNLEN 1
 
 /* Define if you have the 'wint_t' type. */
 #define HAVE_WINT_T 1
 
 /* Define to 1 if `fork' works. */
 #define HAVE_WORKING_FORK 1
+
+/* Define to 1 if O_NOATIME works. */
+#define HAVE_WORKING_O_NOATIME 1
+
+/* Define to 1 if O_NOFOLLOW works. */
+#define HAVE_WORKING_O_NOFOLLOW 1
 
 /* Define to 1 if `vfork' works. */
 #define HAVE_WORKING_VFORK 1
@@ -410,6 +424,9 @@
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "xfe"
 
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
+
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "1.32.1"
 
@@ -421,7 +438,9 @@
 
 /* Define as the maximum value of type 'size_t', if the system doesn't define
    it. */
-/* #undef SIZE_MAX */
+#ifndef SIZE_MAX
+/* # undef SIZE_MAX */
+#endif
 
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
@@ -461,26 +480,36 @@
    made weak. */
 /* #undef USE_SOLARIS_THREADS_WEAK */
 
+/* Enable extensions on AIX 3, Interix.  */
+#ifndef _ALL_SOURCE
+# define _ALL_SOURCE 1
+#endif
+/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+# define _GNU_SOURCE 1
+#endif
+/* Enable threading extensions on Solaris.  */
+#ifndef _POSIX_PTHREAD_SEMANTICS
+# define _POSIX_PTHREAD_SEMANTICS 1
+#endif
+/* Enable extensions on HP NonStop.  */
+#ifndef _TANDEM_SOURCE
+# define _TANDEM_SOURCE 1
+#endif
+/* Enable general extensions on Solaris.  */
+#ifndef __EXTENSIONS__
+# define __EXTENSIONS__ 1
+#endif
+
+
 /* Define if the Win32 multithreading API can be used. */
 /* #undef USE_WIN32_THREADS */
 
 /* Version number of package */
 #define VERSION "1.32.1"
 
-/* Define to 1 if on AIX 3.
-   System headers sometimes define this.
-   We just want to avoid a redefinition error message.  */
-#ifndef _ALL_SOURCE
-/* # undef _ALL_SOURCE */
-#endif
-
 /* Number of bits in a file offset, on hosts where this is settable. */
 #define _FILE_OFFSET_BITS 64
-
-/* Enable GNU extensions on systems that have them.  */
-#ifndef _GNU_SOURCE
-# define _GNU_SOURCE 1
-#endif
 
 /* Define for large files, on AIX-style hosts. */
 /* #undef _LARGE_FILES */
@@ -494,17 +523,6 @@
 
 /* Define to 1 if you need to in order for `stat' and other things to work. */
 /* #undef _POSIX_SOURCE */
-
-/* Enable extensions on Solaris.  */
-#ifndef __EXTENSIONS__
-# define __EXTENSIONS__ 1
-#endif
-#ifndef _POSIX_PTHREAD_SEMANTICS
-# define _POSIX_PTHREAD_SEMANTICS 1
-#endif
-#ifndef _TANDEM_SOURCE
-# define _TANDEM_SOURCE 1
-#endif
 
 /* Define to empty if `const' does not conform to ANSI C. */
 /* #undef const */
@@ -561,20 +579,29 @@
 #define __libc_lock_lock_recursive                gl_recursive_lock_lock
 #define __libc_lock_unlock_recursive              gl_recursive_lock_unlock
 #define glthread_in_use  libintl_thread_in_use
-#define glthread_lock_init     libintl_lock_init
-#define glthread_lock_lock     libintl_lock_lock
-#define glthread_lock_unlock   libintl_lock_unlock
-#define glthread_lock_destroy  libintl_lock_destroy
-#define glthread_rwlock_init     libintl_rwlock_init
-#define glthread_rwlock_rdlock   libintl_rwlock_rdlock
-#define glthread_rwlock_wrlock   libintl_rwlock_wrlock
-#define glthread_rwlock_unlock   libintl_rwlock_unlock
-#define glthread_rwlock_destroy  libintl_rwlock_destroy
-#define glthread_recursive_lock_init     libintl_recursive_lock_init
-#define glthread_recursive_lock_lock     libintl_recursive_lock_lock
-#define glthread_recursive_lock_unlock   libintl_recursive_lock_unlock
-#define glthread_recursive_lock_destroy  libintl_recursive_lock_destroy
-#define glthread_once                 libintl_once
-#define glthread_once_call            libintl_once_call
+#define glthread_lock_init_func     libintl_lock_init_func
+#define glthread_lock_lock_func     libintl_lock_lock_func
+#define glthread_lock_unlock_func   libintl_lock_unlock_func
+#define glthread_lock_destroy_func  libintl_lock_destroy_func
+#define glthread_rwlock_init_multithreaded     libintl_rwlock_init_multithreaded
+#define glthread_rwlock_init_func              libintl_rwlock_init_func
+#define glthread_rwlock_rdlock_multithreaded   libintl_rwlock_rdlock_multithreaded
+#define glthread_rwlock_rdlock_func            libintl_rwlock_rdlock_func
+#define glthread_rwlock_wrlock_multithreaded   libintl_rwlock_wrlock_multithreaded
+#define glthread_rwlock_wrlock_func            libintl_rwlock_wrlock_func
+#define glthread_rwlock_unlock_multithreaded   libintl_rwlock_unlock_multithreaded
+#define glthread_rwlock_unlock_func            libintl_rwlock_unlock_func
+#define glthread_rwlock_destroy_multithreaded  libintl_rwlock_destroy_multithreaded
+#define glthread_rwlock_destroy_func           libintl_rwlock_destroy_func
+#define glthread_recursive_lock_init_multithreaded     libintl_recursive_lock_init_multithreaded
+#define glthread_recursive_lock_init_func              libintl_recursive_lock_init_func
+#define glthread_recursive_lock_lock_multithreaded     libintl_recursive_lock_lock_multithreaded
+#define glthread_recursive_lock_lock_func              libintl_recursive_lock_lock_func
+#define glthread_recursive_lock_unlock_multithreaded   libintl_recursive_lock_unlock_multithreaded
+#define glthread_recursive_lock_unlock_func            libintl_recursive_lock_unlock_func
+#define glthread_recursive_lock_destroy_multithreaded  libintl_recursive_lock_destroy_multithreaded
+#define glthread_recursive_lock_destroy_func           libintl_recursive_lock_destroy_func
+#define glthread_once_func            libintl_once_func
 #define glthread_once_singlethreaded  libintl_once_singlethreaded
+#define glthread_once_multithreaded   libintl_once_multithreaded
 

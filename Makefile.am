@@ -1,19 +1,19 @@
-man_MANS=xfe.1 xfv.1 xfi.1 xfp.1 xfw.1
+man_MANS=xfe.1
 SUBDIRS = intl po m4 src icons
 DIST_SUBDIRS = intl po m4 src icons
 
 rcdir = $(prefix)/share/xfe
 rc_DATA = xferc
 
-EXTRA_DIST = autogen.sh makesfx.sh sfx.sh header.sh iconslink.sh config.h i18n.h xfe.1 xfv.1 xfi.1 xfp.1 xfw.1 \
+EXTRA_DIST = autogen.sh makesfx.sh sfx.sh header.sh iconslink.sh config.h i18n.h xfe.1 \
              ABOUT-NLS TODO BUGS xfe.spec.in xferc.in xfe.spec *.desktop.in.in *.png *.xpm *.svg \
 	         $(top_srcdir)/icons/* $(top_srcdir)/debian
 
 icondir = $(prefix)/share/pixmaps
-icon_DATA = xfe.png xfv.png xfi.png xfp.png xfw.png xfe.xpm xfv.xpm xfi.xpm xfp.xpm xfw.xpm
+icon_DATA = xfe.png xfe.xpm
 
 desktopdir = $(prefix)/share/applications
-desktop_in_files = xfe.desktop.in xfw.desktop.in xfi.desktop.in xfv.desktop.in xfp.desktop.in
+desktop_in_files = xfe.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
