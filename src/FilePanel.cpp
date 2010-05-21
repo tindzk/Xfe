@@ -60,8 +60,6 @@ extern FXint FilterNum;
 #if defined(linux)
 extern FXStringDict* fsdevices;
 extern FXStringDict* mtdevices;
-extern FXbool deb_based;
-extern FXbool rpm_based;
 #endif
 
 extern FXbool allowPopupScroll;
@@ -146,10 +144,6 @@ FXDEFMAP(FilePanel) FilePanelMap[]=
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_UMOUNT,FilePanel::onCmdMount),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_MOUNT,FilePanel::onUpdMount),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_UMOUNT,FilePanel::onUpdUnmount),
-	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_PKG_QUERY,FilePanel::onCmdPkgQuery),
-	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_PKG_INSTALL,FilePanel::onCmdPkgInstall),
-	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_PKG_UNINSTALL,FilePanel::onCmdPkgUninstall),
-	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_PKG_QUERY,FilePanel::onUpdPkgQuery),
 #endif
 };
 
@@ -3418,15 +3412,6 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 				new FXMenuCommand(menu,extract_to_folder,archexticon,current,FilePanel::ID_EXTRACT_TO_FOLDER);
 				new FXMenuCommand(menu,_("E&xtract to..."),archexticon,current,FilePanel::ID_EXTRACT);
 			}
-#if defined(linux)
-			else if(num==1 && (ext1=="rpm" || ext1=="deb"))
-			{
-				ar=TRUE;
-				new FXMenuCommand(menu,_("&View"),packageicon,current,FilePanel::ID_VIEW);
-				new FXMenuCommand(menu,_("Install/Up&grade"),packageicon,current,ID_PKG_INSTALL);
-				new FXMenuCommand(menu,_("Un&install"),packageicon,current,ID_PKG_UNINSTALL);
-			}
-#endif
 			// Not archive nor package
 			if(!ar)
 			{
@@ -3436,10 +3421,6 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
         }
         if(!ar)
             new FXMenuCommand(menu,_("&Add to archive..."),archaddicon,current,FilePanel::ID_ADD_TO_ARCH);
-#if defined(linux)
-        if (!ar)
-			new FXMenuCommand(menu,_("Packages &query "),packageicon,current,FilePanel::ID_PKG_QUERY);
-#endif
         new FXMenuSeparator(menu);
         new FXMenuCommand(menu,_("&Copy"),copy_clpicon,current,FilePanel::ID_COPY_CLIPBOARD);
         new FXMenuCommand(menu,_("C&ut"),cut_clpicon,current,FilePanel::ID_CUT_CLIPBOARD);
@@ -3898,101 +3879,6 @@ long FilePanel::onCmdExtractHere(FXObject*,FXSelector,void*)
     return 1;
 }
 
-#if defined(linux)
-// Install/Upgrade package
-long FilePanel::onCmdPkgInstall(FXObject*,FXSelector,void*)
-{
-    FXString name, path, cmd, dir, cdir;
-	File *f;
-
-    cdir=current->list->getDirectory();
-
-    FXint num, itm;	
-	num=current->list->getNumSelectedItems(&itm);
-    if (current->list->getItem (itm))
-	{
-        name=current->list->getItemText(itm).text();
-		name=name.section('\t',0);
-		path=::quote(cdir + PATHSEPSTRING + name);
-
-		// Command to perform
-		FXString ext=FXPath::extension(name);
-		if(comparecase(ext,"rpm")==0)
-			cmd="rpm -Uvh " + path;
-		else if(comparecase(ext,"deb")==0)
-			cmd="dpkg -i "+ path;
-                   
-		// Wait cursor
-		getApp()->beginWaitCursor();
-		
-		// File object
-		f=new File(this,_("Package Install/Upgrade"),PKG_INSTALL);
-		f->create();
-				   
-		// Install/Upgrade package
-		f->pkgInstall(name,cmd);
-
-		getApp()->endWaitCursor();
-		delete f; 
-      }
-    
-	// Force panel refresh
-	onCmdRefresh(0,0,0);
-	
-	return 1;
-}
-
-// Uninstall package based on its name (package version is ignored)
-long FilePanel::onCmdPkgUninstall(FXObject*,FXSelector,void*)
-{
-    FXString name, cmd, dir, cdir;
-	File *f;
-
-    cdir=current->list->getDirectory();
-
-    FXint num, itm;	
-	num=current->list->getNumSelectedItems(&itm);
-    if (current->list->getItem (itm))
-	{
-        name=current->list->getItemText(itm).text();
-		name=name.section('\t',0);
-
-		// Command to perform
-		FXString ext=FXPath::extension(name);
-		if(comparecase(ext,"rpm")==0)
-		{
-			name=name.section('-',0);
-			cmd="rpm -e " + name;
-		}
-		else if(comparecase(ext,"deb")==0)
-		{
-			name=name.section('_',0);
-			cmd="dpkg -r "+ name;
-		}
-		
-		// Wait cursor
-		getApp()->beginWaitCursor();
-
-		// File object
-		f=new File(this,_("Package Uninstall"),PKG_UNINSTALL);
-		f->create();
-
-		// Uninstall package
-		f->pkgUninstall(name,cmd);
-
-		getApp()->endWaitCursor();
-		delete f; 
-      }
-    
-	// Force panel refresh
-	onCmdRefresh(0,0,0);
-	
-	return 1;
-}
-
-#endif
-
-
 // Force FilePanel and DirPanel refresh
 long FilePanel::onCmdRefresh(FXObject*,FXSelector,void*)
 {	
@@ -4247,92 +4133,6 @@ long FilePanel::onUpdUnmount(FXObject* o,FXSelector sel,void*)
     return 1;
 }
 
-
-// Query packages data base
-long FilePanel::onCmdPkgQuery(FXObject* o,FXSelector sel,void*)
-{
-	FXString cmd;
-	
-	// Name of the current selected file
-	FXString file=current->list->getCurrentFile();
-
-    // Command to perform
-	if (rpm_based)
-		cmd="rpm -qf " + ::quote(file);
-	else if(deb_based)
-		cmd="dpkg -S " + ::quote(file);
-	else
-	{
-		MessageBox::error(this,BOX_OK,_("Error"),_("No compatible package manager (rpm or dpkg) found!"));
-		return 0;
-	}
-
-	// Query command
-   	cmd+=" 2>&1";
-
-	// Wait cursor
-	getApp()->beginWaitCursor();
-
-	// Perform the command
-	FILE *pcmd=popen(cmd.text(),"r");
-	if(!pcmd)
-	{
-		MessageBox::error(this,BOX_OK,_("Error"),_("Failed command: %s"),cmd.text());
-		return 0;
-	}
-
-	// Get command output
-	char text[10000]={0};
-	FXString buf;
-	while(fgets(text,sizeof(text),pcmd))
-		buf+=text;
-	snprintf(text,sizeof(text)-1,"%s",buf.text());
-
-	// Close the stream and display error message if any
-	if(pclose(pcmd))
-	{
-		getApp()->endWaitCursor();
-		MessageBox::error(this,BOX_OK,_("Error"),"%s",text);
-		return 0;
-	}
-	getApp()->endWaitCursor();
-	
-	// Get package name (depends on the package manager)
-	FXString package=text;
-	if (deb_based)
-		package=package.section(':',0);
-
-	// Output message
-	FXString message;
-	message.format(_("File %s belongs to the package: %s"),file.text(),package.text());	
-	MessageBox::information(this,BOX_OK,_("Information"),"%s",message.text());
-
-   	return 1;
-}
-
-
-// Update the package query menu 
-long FilePanel::onUpdPkgQuery(FXObject* o, FXSelector sel, void*)
-{
-   	// Menu item is disabled when nothing is selected or multiple selection
-	// or when unique selection and the selected item is a directory
-
-	FXint num;
-	num=current->list->getNumSelectedItems();
-	
-	if (num==0 || num>1)
-		o->handle(this,FXSEL(SEL_COMMAND,FXWindow::ID_DISABLE),NULL);
-	else // num=1
-	{
-		FXint item=current->list->getCurrentItem();
-		if (item>=0 && current->list->isItemDirectory(item))
-			o->handle(this,FXSEL(SEL_COMMAND,FXWindow::ID_DISABLE),NULL);
-		else
-			o->handle(this,FXSEL(SEL_COMMAND,FXWindow::ID_ENABLE),NULL);
-	}
-			
-	return 1;
-}
 #endif // End #if defined(linux)
 
 

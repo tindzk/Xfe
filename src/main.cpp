@@ -190,10 +190,6 @@ bool FXApp::runOneEvent(bool blocking)
 
 // Global variables
 char **args;
-#if defined(linux)
-FXbool deb_based=FALSE;
-FXbool rpm_based=FALSE;
-#endif
 
 // Used to force panel view mode from command line
 FXint panel_mode=-1;
@@ -270,50 +266,6 @@ int main(int argc,char *argv[])
   	bindtextdomain(PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(PACKAGE,"utf-8");
   	textdomain(PACKAGE);
-#endif
-
-#if defined(linux)
-
-    // Test the existence of dpkg to see if the Linux distro is Debian based
-	// This is done by checking the existence of the string 'Debian'
-	// in the response to the command 'dpkg' (with --version argument)
-	FXString cmd="dpkg --version 2>&1";
-    FILE *debcmd=popen(cmd.text(),"r");
-    if(!debcmd)
-    {
-        perror("popen");
-        exit(1);
-    }
-    char textdeb[10000]={0};
-    FXString bufdeb;
-    while(fgets(textdeb,sizeof(textdeb),debcmd))
-        bufdeb+=textdeb;
-    snprintf(textdeb,sizeof(textdeb)-1,"%s",bufdeb.text());
-	if (strstr(textdeb,"Debian")!=NULL)
-		deb_based=TRUE;
-	pclose(debcmd);
-	
-	// If the distro is not Debian based, test if it is Redhat based
-	// This is done by checking the existence of the string 'RPM'
-	// in the response to the command 'rpm --version'	
-	if (!deb_based)
-	{
-		cmd="rpm --version 2>&1";
-		FILE *rpmcmd=popen(cmd.text(),"r");
-		if(!rpmcmd)
-		{
-			perror("popen");
-			exit(1);
-		}
-		char textrpm[10000]={0};
-		FXString bufrpm;
-		while(fgets(textrpm,sizeof(textrpm),rpmcmd))
-			bufrpm+=textrpm;
-		snprintf(textrpm,sizeof(textrpm)-1,"%s",bufrpm.text());
-		if (strstr(textrpm,"RPM")!=NULL)
-			rpm_based=TRUE;
-		pclose(rpmcmd);
-	}
 #endif
 
 	// Parse basic arguments

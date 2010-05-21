@@ -19,8 +19,6 @@ enum
 	EXTRACT,
 	ARCHIVE,
 #if defined(linux)
-	PKG_INSTALL,
-	PKG_UNINSTALL,
 	MOUNT,
 	UNMOUNT
 #endif
@@ -118,8 +116,6 @@ public:
 
 #if defined(linux)
 	FXint mount(const FXString dir, const FXString msg, const FXString cmd, const  FXuint op);
-	FXint pkgInstall(const FXString name, const FXString cmd);
-	FXint pkgUninstall(const FXString name, const FXString cmd);
 #endif
 	long onCmdCancel(FXObject*, FXSelector,void*);
     long onTimeout(FXObject*,FXSelector,void*);

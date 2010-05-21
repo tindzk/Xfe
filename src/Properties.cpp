@@ -237,10 +237,6 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
 		is_ar = TRUE; // archive
 		viewlbl = _("Extract:");
 	}
-#if defined(linux)
-	else if(extension=="rpm")
-		editlbl = _("Install/Upgrade:");
-#endif	
     new FXLabel(matrix,viewlbl,NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
     view = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
     new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_VIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);

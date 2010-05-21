@@ -125,9 +125,6 @@ FilePanel(FXWindow *owner, const FXchar*,FXComposite*, DirPanel*, FXuint name_si
 #if defined(linux)
         ID_MOUNT,
         ID_UMOUNT,
-		ID_PKG_QUERY,
-		ID_PKG_INSTALL,
-		ID_PKG_UNINSTALL,
 #endif
         ID_LAST,
     };

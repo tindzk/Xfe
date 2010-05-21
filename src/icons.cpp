@@ -28,7 +28,7 @@ FXIcon *minichardevicon, *minidocicon, *miniexecicon, *minifolderclosedicon;
 FXIcon *minifolderlockedicon, *minifolderopenicon, *minifoldericon, *minifolderupicon, *minilinkicon;
 FXIcon *minipipeicon, *minishellicon, *minisocketicon;
 FXIcon *move_bigicon, *moveiticon, *newfileicon, *newfoldericon, *nfsdriveicon, *nfsdriveumticon;
-FXIcon *onepanelicon, *packageicon, *paste_clpicon, *prefsicon, *printbigicon, *printicon;
+FXIcon *onepanelicon, *paste_clpicon, *prefsicon, *printbigicon, *printicon;
 FXIcon *questionbigicon, *quiticon, *redoicon, *reloadicon, *renameiticon, *replaceicon;
 FXIcon *reverticon, *rotatelefticon, *rotaterighticon, *runicon, *saveasicon, *savefileicon;
 FXIcon *searchnexticon, *searchicon, *searchprevicon, *selallicon, *setbookicon, *shellicon;
@@ -171,7 +171,6 @@ FXbool loadAppIcons(FXApp *app)
 	success=( (nfsdriveicon=loadiconfile(app,iconpath,"nfsdrive.png")) != NULL ) & success;
 	success=( (nfsdriveumticon=loadiconfile(app,iconpath,"nfsdriveumt.png")) != NULL ) & success;
 	success=( (onepanelicon=loadiconfile(app,iconpath,"onepanel.png")) != NULL ) & success;
-	success=( (packageicon=loadiconfile(app,iconpath,"package.png")) != NULL ) & success;
 	success=( (paste_clpicon=loadiconfile(app,iconpath,"paste_clp.png")) != NULL ) & success;
 	success=( (prefsicon=loadiconfile(app,iconpath,"prefs.png")) != NULL ) & success;
 	success=( (printbigicon=loadiconfile(app,iconpath,"printbig.png")) != NULL ) & success;

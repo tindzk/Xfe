@@ -159,7 +159,7 @@ File::File(FXWindow *owner, FXString title, const FXuint operation):DialogBox(ow
 			break;
 #endif
 
-		default: // Other : RENAME, SYMLINK, ARCHIVE, EXTRACT, PKG_INSTALL, PKG_UNINSTALL
+		default: // Other : RENAME, SYMLINK, ARCHIVE, EXTRACT
 			// Progress dialog not used
 			uplabel=NULL;
     		downlabel=NULL;
@@ -1573,38 +1573,6 @@ FXint File::mount(const FXString dir, const FXString msg, const FXString cmd, co
 	return 1;
 }
 
-
-// Install / Upgrade package
-FXint File::pkgInstall(const FXString name, const FXString cmd)
-{
-    // Make and show command window
-	CommandWindow *cmdwin=new CommandWindow(getApp(),_("Install/Upgrade package"),cmd,10,80);			
-	cmdwin->create();
-	
-	FXString msg;
-	msg.format(_("Installing package: %s \n"),name.text());
-	cmdwin->appendText(msg.text());
-
-	// The command window object deletes itself after closing the window!
-
-    return 1;
-}
-
-// Uninstall package
-FXint File::pkgUninstall(const FXString name, const FXString cmd)
-{
-    // Make and show command window
-	CommandWindow *cmdwin=new CommandWindow(getApp(),_("Uninstall package"),cmd,10,80);			
-	cmdwin->create();
-	
-	FXString msg;
-	msg.format(_("Uninstalling package: %s \n"),name.text());
-	cmdwin->appendText(msg.text());
-
-	// The command window object deletes itself after closing the window!
-
-    return 1;
-}
 #endif
 
 

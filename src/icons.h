@@ -92,7 +92,6 @@ extern FXIcon *newfoldericon;
 extern FXIcon *nfsdriveicon;
 extern FXIcon *nfsdriveumticon;
 extern FXIcon *onepanelicon;
-extern FXIcon *packageicon;
 extern FXIcon *paste_clpicon;
 extern FXIcon *prefsicon;
 extern FXIcon *printbigicon;
