@@ -37,23 +37,35 @@ host_triplet = @host@
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(srcdir)/header.sh.in $(srcdir)/makesfx.sh.in \
-	$(srcdir)/sfx.sh.in $(srcdir)/xfe.desktop.in.in \
-	$(srcdir)/xfe.spec.in $(srcdir)/xferc.in \
-	$(top_srcdir)/configure $(top_srcdir)/intl/Makefile.in \
-	ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL NEWS TODO \
-	config.guess config.rpath config.sub depcomp install-sh \
-	ltmain.sh missing mkinstalldirs
+	$(srcdir)/xfe.desktop.in.in $(srcdir)/xfe.spec.in \
+	$(srcdir)/xferc.in $(top_srcdir)/configure \
+	$(top_srcdir)/intl/Makefile.in ABOUT-NLS AUTHORS COPYING \
+	ChangeLog INSTALL NEWS TODO config.guess config.rpath \
+	config.sub depcomp install-sh ltmain.sh missing mkinstalldirs
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/m4/codeset.m4 \
+	$(top_srcdir)/m4/gettext.m4 $(top_srcdir)/m4/glibc2.m4 \
+	$(top_srcdir)/m4/glibc21.m4 $(top_srcdir)/m4/iconv.m4 \
+	$(top_srcdir)/m4/intdiv0.m4 $(top_srcdir)/m4/intl.m4 \
+	$(top_srcdir)/m4/intmax.m4 $(top_srcdir)/m4/inttypes-pri.m4 \
+	$(top_srcdir)/m4/inttypes_h.m4 $(top_srcdir)/m4/lcmessage.m4 \
+	$(top_srcdir)/m4/lib-ld.m4 $(top_srcdir)/m4/lib-link.m4 \
+	$(top_srcdir)/m4/lib-prefix.m4 $(top_srcdir)/m4/lock.m4 \
+	$(top_srcdir)/m4/longdouble.m4 $(top_srcdir)/m4/longlong.m4 \
+	$(top_srcdir)/m4/nls.m4 $(top_srcdir)/m4/po.m4 \
+	$(top_srcdir)/m4/printf-posix.m4 $(top_srcdir)/m4/progtest.m4 \
+	$(top_srcdir)/m4/size_max.m4 $(top_srcdir)/m4/stdint_h.m4 \
+	$(top_srcdir)/m4/uintmax_t.m4 $(top_srcdir)/m4/ulonglong.m4 \
+	$(top_srcdir)/m4/visibility.m4 $(top_srcdir)/m4/wchar_t.m4 \
+	$(top_srcdir)/m4/wint_t.m4 $(top_srcdir)/m4/xsize.m4 \
+	$(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = intl/Makefile xfe.spec xferc xfe.desktop.in \
-	makesfx.sh sfx.sh header.sh
+CONFIG_CLEAN_FILES = intl/Makefile xfe.spec xferc xfe.desktop.in
 CONFIG_CLEAN_VPATH_FILES =
 SOURCES =
 DIST_SOURCES =
@@ -165,7 +177,6 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FOX_CONFIG = @FOX_CONFIG@
 GENCAT = @GENCAT@
-GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIBC2 = @GLIBC2@
 GLIBC21 = @GLIBC21@
@@ -173,7 +184,6 @@ GMSGFMT = @GMSGFMT@
 GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 HAVE_ASPRINTF = @HAVE_ASPRINTF@
-HAVE_NEWLOCALE = @HAVE_NEWLOCALE@
 HAVE_POSIX_PRINTF = @HAVE_POSIX_PRINTF@
 HAVE_SNPRINTF = @HAVE_SNPRINTF@
 HAVE_VISIBILITY = @HAVE_VISIBILITY@
@@ -191,7 +201,6 @@ INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
 INTLTOOL_MERGE = @INTLTOOL_MERGE@
 INTLTOOL_PERL = @INTLTOOL_PERL@
 INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
-INTL_DEFAULT_VERBOSITY = @INTL_DEFAULT_VERBOSITY@
 INTL_LIBTOOL_SUFFIX_PREFIX = @INTL_LIBTOOL_SUFFIX_PREFIX@
 INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 LDFLAGS = @LDFLAGS@
@@ -200,11 +209,9 @@ LIBINTL = @LIBINTL@
 LIBMULTITHREAD = @LIBMULTITHREAD@
 LIBOBJS = @LIBOBJS@
 LIBPTH = @LIBPTH@
-LIBPTH_PREFIX = @LIBPTH_PREFIX@
 LIBS = @LIBS@
 LIBTHREAD = @LIBTHREAD@
 LN_S = @LN_S@
-LTLIBC = @LTLIBC@
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBMULTITHREAD = @LTLIBMULTITHREAD@
@@ -235,12 +242,9 @@ STRIP = @STRIP@
 USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
-WINDRES = @WINDRES@
-WOE32 = @WOE32@
 WOE32DLL = @WOE32DLL@
 XGETTEXT = @XGETTEXT@
 XGETTEXT_015 = @XGETTEXT_015@
-XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 XMKMF = @XMKMF@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
@@ -373,12 +377,6 @@ xfe.spec: $(top_builddir)/config.status $(srcdir)/xfe.spec.in
 xferc: $(top_builddir)/config.status $(srcdir)/xferc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 xfe.desktop.in: $(top_builddir)/config.status $(srcdir)/xfe.desktop.in.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
-makesfx.sh: $(top_builddir)/config.status $(srcdir)/makesfx.sh.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
-sfx.sh: $(top_builddir)/config.status $(srcdir)/sfx.sh.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
-header.sh: $(top_builddir)/config.status $(srcdir)/header.sh.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-man1: $(man_MANS)
 	@$(NORMAL_INSTALL)

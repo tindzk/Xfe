@@ -312,26 +312,6 @@
 
 
 
- Build a self extracting package
- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- 
-  You first need the correct FOX libraries 1.6.x installed and working on your system.
- 
-  First, extract the sources and enter the source directory:
-    tar zxvf xfe-VVV.tar.gz
-    cd xfe-VVV
- 
-  Create the required shell scripts makesfx.sh, header.sh and sfx.sh:
-    ./configure
- 
-  Create the self extracting binary package:
-    sh makesfx.sh
- 
-  And finally, install it to /usr/local (as root):
-    sh xfe-VVV-i386.sh
-
-
-
  Bugs
  =-=-=
  

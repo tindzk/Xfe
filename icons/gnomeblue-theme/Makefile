@@ -37,7 +37,22 @@ host_triplet = i686-pc-linux-gnu
 subdir = icons/gnomeblue-theme
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/m4/codeset.m4 \
+	$(top_srcdir)/m4/gettext.m4 $(top_srcdir)/m4/glibc2.m4 \
+	$(top_srcdir)/m4/glibc21.m4 $(top_srcdir)/m4/iconv.m4 \
+	$(top_srcdir)/m4/intdiv0.m4 $(top_srcdir)/m4/intl.m4 \
+	$(top_srcdir)/m4/intmax.m4 $(top_srcdir)/m4/inttypes-pri.m4 \
+	$(top_srcdir)/m4/inttypes_h.m4 $(top_srcdir)/m4/lcmessage.m4 \
+	$(top_srcdir)/m4/lib-ld.m4 $(top_srcdir)/m4/lib-link.m4 \
+	$(top_srcdir)/m4/lib-prefix.m4 $(top_srcdir)/m4/lock.m4 \
+	$(top_srcdir)/m4/longdouble.m4 $(top_srcdir)/m4/longlong.m4 \
+	$(top_srcdir)/m4/nls.m4 $(top_srcdir)/m4/po.m4 \
+	$(top_srcdir)/m4/printf-posix.m4 $(top_srcdir)/m4/progtest.m4 \
+	$(top_srcdir)/m4/size_max.m4 $(top_srcdir)/m4/stdint_h.m4 \
+	$(top_srcdir)/m4/uintmax_t.m4 $(top_srcdir)/m4/ulonglong.m4 \
+	$(top_srcdir)/m4/visibility.m4 $(top_srcdir)/m4/wchar_t.m4 \
+	$(top_srcdir)/m4/wint_t.m4 $(top_srcdir)/m4/xsize.m4 \
+	$(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -101,7 +116,6 @@ EGREP = /bin/grep -E
 EXEEXT = 
 FOX_CONFIG = fox-config
 GENCAT = gencat
-GETTEXT_MACRO_VERSION = 0.18
 GETTEXT_PACKAGE = xfe
 GLIBC2 = yes
 GLIBC21 = yes
@@ -109,7 +123,6 @@ GMSGFMT = /usr/bin/msgfmt
 GMSGFMT_015 = /usr/bin/msgfmt
 GREP = /bin/grep
 HAVE_ASPRINTF = 1
-HAVE_NEWLOCALE = 1
 HAVE_POSIX_PRINTF = 1
 HAVE_SNPRINTF = 1
 HAVE_VISIBILITY = 1
@@ -127,7 +140,6 @@ INTLTOOL_EXTRACT = /usr/bin/intltool-extract
 INTLTOOL_MERGE = /usr/bin/intltool-merge
 INTLTOOL_PERL = /usr/bin/perl
 INTLTOOL_UPDATE = /usr/bin/intltool-update
-INTL_DEFAULT_VERBOSITY = 1
 INTL_LIBTOOL_SUFFIX_PREFIX = 
 INTL_MACOSX_LIBS = 
 LDFLAGS =  -lfreetype -lz -lXft -lX11 -lfreetype -lfontconfig -lXrender -lX11
@@ -136,11 +148,9 @@ LIBINTL =
 LIBMULTITHREAD = -lpthread
 LIBOBJS = 
 LIBPTH = 
-LIBPTH_PREFIX = 
 LIBS = -lpng -lFOX-1.6 
 LIBTHREAD = 
 LN_S = ln -s
-LTLIBC = -lc
 LTLIBICONV = 
 LTLIBINTL = 
 LTLIBMULTITHREAD = -lpthread
@@ -171,12 +181,9 @@ STRIP =
 USE_INCLUDED_LIBINTL = no
 USE_NLS = yes
 VERSION = 1.32.1
-WINDRES = 
-WOE32 = no
 WOE32DLL = no
 XGETTEXT = /usr/bin/xgettext
 XGETTEXT_015 = /usr/bin/xgettext
-XGETTEXT_EXTRA_OPTIONS = 
 XMKMF = 
 abs_builddir = /home/tim/xfe-git/icons/gnomeblue-theme
 abs_srcdir = /home/tim/xfe-git/icons/gnomeblue-theme

@@ -202,7 +202,7 @@ fi
 
 # Output
 AC_OUTPUT(Makefile intl/Makefile m4/Makefile po/Makefile.in xfe.spec xferc xfe.desktop.in
-          makesfx.sh sfx.sh header.sh src/Makefile
+          src/Makefile
           icons/Makefile icons/xfe-theme/Makefile icons/gnome-theme/Makefile
           icons/xfce-theme/Makefile icons/gnomeblue-theme/Makefile
 		  icons/windows-theme/Makefile icons/brown-theme/Makefile icons/blue-theme/Makefile
