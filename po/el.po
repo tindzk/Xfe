@@ -1,0 +1,5787 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the xfe package.
+# nikos papadopoulos <231036448@freemail.gr>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfe 1.32\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-09 17:19+0100\n"
+"PO-Revision-Date: 2009-10-11 10:56+0200\n"
+"Last-Translator: nikos papadopoulos <231036448@freemail.gr>\n"
+"Language-Team: GREEK <aGnuLinuxWiki>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+
+#. Usage message
+#: ../src/main.cpp:234
+msgid ""
+"\n"
+"Usage: xfe [options] [startdir] \n"
+"\n"
+"    [options] can be any of the following:\n"
+"\n"
+"        -h,   --help         Print (this) help screen and exit.\n"
+"        -v,   --version      Print version information and exit.\n"
+"        -i,   --iconic       Start iconified.\n"
+"        -m,   --maximized    Start maximized.\n"
+"        -p n, --panels n     Force panel view mode to n (n=0 => Tree and one "
+"panel,\n"
+"                             n=1 => One panel, n=2 => Two panels, n=3 => "
+"Tree and two panels).\n"
+"\n"
+"    [startdir] is the path to the initial directory you want to\n"
+"    open on start up.\n"
+"\n"
+msgstr ""
+"\n"
+"Χρήση: xfe [επιλογές] [startdir] \n"
+"\n"
+"    [επιλογές] μπορεί να είναι οποιαδήποτε από τις ακόλουθες:\n"
+"\n"
+"        -h,   --help         Εκτύπωση (αυτής) της οθόνης βοήθειας, και μετά "
+"κλείσιμο.\n"
+"        -v,   --version      Εκτύπωση των πληροφοριών έκδοσης, και μετά "
+"κλείσιμο.\n"
+"        -i,   --iconic       Εκκίνηση σε κατάσταση εικονιδίου.\n"
+"        -m,   --maximized    Εκκίνηση μεγιστοποιημένο.\n"
+"        -p n, --panels n     Εξαναγκαστική χρήση της κατάστασης προβολής των "
+"πλαισίων κατά n (όπου, n=0 => Δένδρο και ένα πλαίσιο,\n"
+"                             n=1 => Ένα πλαίσιο, n=2 => Δύο πλαίσια, n=3 => "
+"Δένδρο και τρία πλαίσια).\n"
+"\n"
+"    [startdir] είναι η διαδρομή του αρχικού καταλόγου,\n"
+"    ο οποίος θα ήθελες να ανοιχτεί κατά την εκκίνηση.\n"
+"\n"
+
+#: ../src/main.cpp:345
+#, c-format
+msgid "Warning: Unknown panel mode, revert to last saved panel mode\n"
+msgstr ""
+"Προειδοποίηση: Άγνωστη κατάσταση λειτουργίας των πλαισίων. Θα εφαρμοστεί η "
+"τελευταία αποθηκευμένη διάταξη\n"
+
+#: ../src/main.cpp:413 ../src/XFileView.cpp:212 ../src/XFilePackage.cpp:716
+#: ../src/XFileImage.cpp:2078 ../src/XFileWrite.cpp:209
+msgid "Error loading icons"
+msgstr "Σφάλμα στη φόρτωση των εικονιδίων"
+
+#: ../src/main.cpp:413 ../src/XFileView.cpp:212 ../src/XFilePackage.cpp:716
+#: ../src/XFileImage.cpp:2078 ../src/XFileWrite.cpp:209
+msgid "Unable to load some icons. Please check your icons path!"
+msgstr ""
+"Αδυναμία φόρτωσης κάποιων εικονιδίων. Παρακαλώ, έλεγξε την διαδρομή των "
+"εικονιδίων."
+
+#. Permissions
+#: ../src/Properties.cpp:55 ../src/Properties.cpp:74 ../src/FileList.cpp:146
+msgid "User"
+msgstr "Χρήστης"
+
+#: ../src/Properties.cpp:56 ../src/Properties.cpp:60 ../src/Properties.cpp:64
+msgid "Read"
+msgstr "Ανάγνωση"
+
+#: ../src/Properties.cpp:57 ../src/Properties.cpp:61 ../src/Properties.cpp:65
+msgid "Write"
+msgstr "Εγγραφή"
+
+#: ../src/Properties.cpp:58 ../src/Properties.cpp:62 ../src/Properties.cpp:66
+msgid "Execute"
+msgstr "Εκτέλεση"
+
+#: ../src/Properties.cpp:59 ../src/Properties.cpp:77 ../src/FileList.cpp:147
+msgid "Group"
+msgstr "Ομάδα"
+
+#: ../src/Properties.cpp:63
+msgid "Others"
+msgstr "Άλλα"
+
+#: ../src/Properties.cpp:67
+msgid "Special"
+msgstr "Ειδικό"
+
+#: ../src/Properties.cpp:68
+msgid "Set UID"
+msgstr "Ορισμός UID"
+
+#: ../src/Properties.cpp:69
+msgid "Set GID"
+msgstr "Ορισμός GID"
+
+#: ../src/Properties.cpp:70
+msgid "Sticky"
+msgstr "Κολλημένο"
+
+#. Owner
+#: ../src/Properties.cpp:73
+msgid "Owner"
+msgstr "Ιδιοκτήτης"
+
+#. Command
+#: ../src/Properties.cpp:98
+msgid "Command"
+msgstr "Εντολή"
+
+#: ../src/Properties.cpp:101
+msgid "Set marked"
+msgstr "Ορισμός μαρκαρισμένου"
+
+#: ../src/Properties.cpp:102
+msgid "Recursively"
+msgstr "Και στους υποφακέλους"
+
+#: ../src/Properties.cpp:103
+msgid "Clear marked"
+msgstr "Καθαρισμός μαρκαρισμένου"
+
+#: ../src/Properties.cpp:105
+msgid "Files and folders"
+msgstr "Αρχεία και φάκελοι"
+
+#: ../src/Properties.cpp:106
+msgid "Add marked"
+msgstr "Προσθήκη μαρκαρισμένου"
+
+#: ../src/Properties.cpp:107
+msgid "Folders only"
+msgstr "Μόνο φάκελοι"
+
+#: ../src/Properties.cpp:108
+msgid "Owner only"
+msgstr "Μόνο ο ιδιοκτήτης"
+
+#: ../src/Properties.cpp:109
+msgid "Files only"
+msgstr "Μόνο αρχεία "
+
+#. Construct window for one file
+#. Construct window for multiple files
+#: ../src/Properties.cpp:152 ../src/Properties.cpp:551
+#: ../src/Properties.cpp:750 ../src/Properties.cpp:778
+msgid "Properties"
+msgstr "Ιδιότητες"
+
+#. Accept
+#. Accept button
+#. Accept
+#: ../src/Properties.cpp:183 ../src/Properties.cpp:766
+#: ../src/FontDialog.cpp:44 ../src/HistInputDialog.cpp:50
+#: ../src/InputDialog.cpp:30 ../src/BrowseInputDialog.cpp:40
+#: ../src/ArchInputDialog.cpp:36 ../src/Preferences.cpp:153
+#: ../src/EditWindow.cpp:188 ../src/Keybindings.cpp:77
+#: ../src/KeybindingsDialog.cpp:30
+msgid "&Accept"
+msgstr "&Αποδοχή"
+
+#. Cancel
+#. Cancel Button
+#. Cancel
+#. Cancel button
+#. Cancel
+#: ../src/Properties.cpp:188 ../src/Properties.cpp:770 ../src/File.cpp:58
+#: ../src/FileDialog.cpp:121 ../src/FontDialog.cpp:45 ../src/MessageBox.cpp:87
+#: ../src/MessageBox.cpp:99 ../src/MessageBox.cpp:106
+#: ../src/MessageBox.cpp:112 ../src/MessageBox.cpp:119
+#: ../src/CommandWindow.cpp:53 ../src/CommandWindow.cpp:74
+#: ../src/HistInputDialog.cpp:53 ../src/InputDialog.cpp:33
+#: ../src/BrowseInputDialog.cpp:43 ../src/ArchInputDialog.cpp:39
+#: ../src/Preferences.cpp:157 ../src/OverwriteBox.cpp:38
+#: ../src/EditWindow.cpp:192 ../src/ViewWindow.cpp:709 ../src/foxhacks.cpp:495
+#: ../src/foxhacks.cpp:564 ../src/Keybindings.cpp:81
+#: ../src/KeybindingsDialog.cpp:33
+msgid "&Cancel"
+msgstr "&Ακύρωση"
+
+#. First item is General
+#. First tab - General options
+#: ../src/Properties.cpp:194 ../src/Properties.cpp:776
+#: ../src/Preferences.cpp:164
+msgid "&General"
+msgstr "&Γενικά"
+
+#. Second item is Access Permissions
+#: ../src/Properties.cpp:200 ../src/Properties.cpp:794
+#: ../src/FileDialog.cpp:1431 ../src/XFileExplorer.cpp:798
+#: ../src/XFileExplorer.cpp:828 ../src/XFileImage.cpp:650
+msgid "&Permissions"
+msgstr "&Δικαιώματα"
+
+#. Third tab - file associations
+#: ../src/Properties.cpp:208
+msgid "&File Associations"
+msgstr "&Συσχετίσεις αρχείων"
+
+#: ../src/Properties.cpp:214
+msgid "Extension:"
+msgstr "Επέκταση:"
+
+#: ../src/Properties.cpp:218
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: ../src/Properties.cpp:222
+msgid "Open:"
+msgstr "Άνοιγμα:"
+
+#: ../src/Properties.cpp:224 ../src/Properties.cpp:246
+#: ../src/Properties.cpp:252 ../src/Properties.cpp:259
+#: ../src/Properties.cpp:263 ../src/Preferences.cpp:319
+#: ../src/Preferences.cpp:325 ../src/Preferences.cpp:331
+#: ../src/Preferences.cpp:337 ../src/Preferences.cpp:343
+#: ../src/Preferences.cpp:349 ../src/Preferences.cpp:355
+#: ../src/Preferences.cpp:361 ../src/Preferences.cpp:367
+msgid "\tSelect file..."
+msgstr "\tΕπιλογή αρχείου..."
+
+#: ../src/Properties.cpp:228
+msgid "View:"
+msgstr "Προβολή:"
+
+#: ../src/Properties.cpp:229
+msgid "Edit:"
+msgstr "Επεξεργασία:"
+
+#. archive
+#: ../src/Properties.cpp:238
+msgid "Extract:"
+msgstr "Εξαγωγή:"
+
+#: ../src/Properties.cpp:242
+msgid "Install/Upgrade:"
+msgstr "Εγκατάσταση/Αναβάθμιση:"
+
+#: ../src/Properties.cpp:257
+msgid "Big Icon:"
+msgstr "Μεγάλο Εικονίδιο:"
+
+#: ../src/Properties.cpp:261
+msgid "Mini Icon:"
+msgstr "Μικρό Εικονίδιο:"
+
+#. Label
+#: ../src/Properties.cpp:266 ../src/FileList.cpp:139
+msgid "Name"
+msgstr "Όνομα"
+
+#: ../src/Properties.cpp:279 ../src/HistInputDialog.cpp:81
+#: ../src/BrowseInputDialog.cpp:72 ../src/ArchInputDialog.cpp:57
+msgid "=> Warning: file name is not UTF-8 encoded!"
+msgstr "=> Προσοχή: το όνομα του αρχείου δεν είναι σε κωδικοποίηση UTF-8."
+
+#: ../src/Properties.cpp:346
+#, c-format
+msgid "Filesystem (%s)"
+msgstr "Σύστημα Αρχείων (%s)"
+
+#. Default folder type
+#. Folder or mount point
+#: ../src/Properties.cpp:377 ../src/Properties.cpp:454
+#: ../src/Properties.cpp:902 ../src/DirList.cpp:1518 ../src/IconList.cpp:2152
+#: ../src/FileList.cpp:4485 ../src/FileList.cpp:4491 ../src/FileList.cpp:4575
+msgid "Folder"
+msgstr "Φάκελος"
+
+#: ../src/Properties.cpp:381 ../src/Properties.cpp:473
+#: ../src/FileList.cpp:4498 ../src/FileList.cpp:4577
+msgid "Character Device"
+msgstr "Συσκευή Χαρακτήρων"
+
+#: ../src/Properties.cpp:383 ../src/Properties.cpp:475
+#: ../src/FileList.cpp:4504 ../src/FileList.cpp:4579
+msgid "Block Device"
+msgstr "Συσκευή Μπλοκ"
+
+#: ../src/Properties.cpp:385 ../src/Properties.cpp:477
+#: ../src/FileList.cpp:4510 ../src/FileList.cpp:4581
+msgid "Named Pipe"
+msgstr "Επώνυμη Διασωλήνωση"
+
+#: ../src/Properties.cpp:387 ../src/Properties.cpp:479
+#: ../src/FileList.cpp:4516 ../src/FileList.cpp:4583
+msgid "Socket"
+msgstr "Υποδοχή"
+
+#: ../src/Properties.cpp:407 ../src/Properties.cpp:430
+#: ../src/Properties.cpp:482 ../src/FileList.cpp:4522 ../src/FileList.cpp:4585
+msgid "Executable"
+msgstr "Εκτελέσιμο"
+
+#: ../src/Properties.cpp:411 ../src/Properties.cpp:435
+#: ../src/Properties.cpp:486 ../src/Properties.cpp:880
+#: ../src/Properties.cpp:893 ../src/FileList.cpp:4530 ../src/FileList.cpp:4587
+msgid "Document"
+msgstr "Έγγραφο"
+
+#: ../src/Properties.cpp:444 ../src/FileList.cpp:4560
+#: ../src/FilePanel.cpp:4398
+msgid "Broken link"
+msgstr "Κομμένος δεσμός"
+
+#: ../src/Properties.cpp:490 ../src/FileList.cpp:4569 ../src/FileList.cpp:4589
+msgid "Link to "
+msgstr "Δεσμός στο "
+
+#: ../src/Properties.cpp:536 ../src/DirList.cpp:1551 ../src/DirList.cpp:1568
+#: ../src/IconList.cpp:2152 ../src/FileList.cpp:4673 ../src/FileList.cpp:4690
+msgid "Mount point"
+msgstr "Σημείο σύνδεσης"
+
+#: ../src/Properties.cpp:538
+msgid "Mount type:"
+msgstr "Τύπος προσάρτησης:"
+
+#: ../src/Properties.cpp:540
+msgid "Used:"
+msgstr "Σε χρήση:"
+
+#: ../src/Properties.cpp:542
+msgid "Free:"
+msgstr "Ελεύθερο:"
+
+#: ../src/Properties.cpp:544
+msgid "File system:"
+msgstr "Σύστημα αρχείων:"
+
+#. Location bar
+#: ../src/Properties.cpp:546 ../src/Properties.cpp:559
+#: ../src/Properties.cpp:790 ../src/XFileExplorer.cpp:557
+msgid "Location:"
+msgstr "Τοποθεσία:"
+
+#: ../src/Properties.cpp:553 ../src/Properties.cpp:784
+msgid "Type:"
+msgstr "Τύπος:"
+
+#: ../src/Properties.cpp:555 ../src/Properties.cpp:786
+msgid "Total size:"
+msgstr "Συνολικό μέγεθος:"
+
+#: ../src/Properties.cpp:563
+msgid "Link to:"
+msgstr "Δεσμός στο:"
+
+#: ../src/Properties.cpp:568
+msgid "Broken link to:"
+msgstr "Σπασμένος σύνδεσμος προς:"
+
+#: ../src/Properties.cpp:577
+msgid "Original location:"
+msgstr "Αρχική τοποθεσία:"
+
+#: ../src/Properties.cpp:581
+msgid "File Time"
+msgstr "Ώρα Αρχείου"
+
+#: ../src/Properties.cpp:583
+msgid "Last Modified:"
+msgstr "Τελευταία Τροποποίηση:"
+
+#: ../src/Properties.cpp:585
+msgid "Last Changed:"
+msgstr "Τελευταία Αλλαγή:"
+
+#: ../src/Properties.cpp:587
+msgid "Last Accessed:"
+msgstr "Τελευταία Προσπέλαση:"
+
+#: ../src/Properties.cpp:592
+msgid "Startup Notification"
+msgstr "Ειδοποίηση Εκκίνησης"
+
+#: ../src/Properties.cpp:593
+msgid "Disable startup notification for this file"
+msgstr "Απενεργοποίηση της ειδοποίηση εκκίνησης, για αυτό το αρχείο"
+
+#: ../src/Properties.cpp:619
+msgid "Deletion Date:"
+msgstr "Ημερομηνία Διαγραφής:"
+
+#: ../src/Properties.cpp:660 ../src/Properties.cpp:1571
+#: ../src/Properties.cpp:1624
+#, c-format
+msgid "%s (%llu bytes)"
+msgstr "%s (%llu bytes)"
+
+#: ../src/Properties.cpp:661
+msgid "Size:"
+msgstr "Μέγεθος:"
+
+#: ../src/Properties.cpp:780
+msgid "Selection:"
+msgstr "Επιλογή:"
+
+#: ../src/Properties.cpp:889 ../src/Properties.cpp:894
+#: ../src/Properties.cpp:905
+msgid "Multiple types"
+msgstr "Πολλαπλοί τύποι"
+
+#. Number of selected files
+#: ../src/Properties.cpp:908
+#, c-format
+msgid "%d items"
+msgstr "%d αντικείμενα"
+
+#: ../src/Properties.cpp:910
+#, c-format
+msgid "%d files, %d folders"
+msgstr "%d φάκελοι, %d αρχεία"
+
+#: ../src/Properties.cpp:1077 ../src/Properties.cpp:1181
+#: ../src/Properties.cpp:1326 ../src/DirList.cpp:1140 ../src/DirPanel.cpp:808
+#: ../src/FilePanel.cpp:1336 ../src/FilePanel.cpp:2793
+#: ../src/FilePanel.cpp:3067 ../src/FilePanel.cpp:3526 ../src/Bookmarks.cpp:87
+#: ../src/XFileExplorer.cpp:1431 ../src/XFileExplorer.cpp:1448
+msgid "Warning"
+msgstr "Προσοχή"
+
+#: ../src/Properties.cpp:1077 ../src/DirPanel.cpp:808
+#: ../src/FilePanel.cpp:1336 ../src/FilePanel.cpp:2793
+#: ../src/FilePanel.cpp:3067 ../src/FilePanel.cpp:3526
+msgid "File name is empty, operation cancelled"
+msgstr "Το όνομα του αρχείου είναι κενό· η διαδικασία ακυρώθηκε"
+
+#. Error
+#: ../src/Properties.cpp:1087 ../src/Properties.cpp:1092
+#: ../src/Properties.cpp:1097 ../src/Properties.cpp:1155
+#: ../src/Properties.cpp:1167 ../src/Properties.cpp:1169
+#: ../src/Properties.cpp:1222 ../src/Properties.cpp:1234
+#: ../src/Properties.cpp:1236 ../src/Properties.cpp:1299
+#: ../src/Properties.cpp:1310 ../src/Properties.cpp:1312
+#: ../src/Properties.cpp:1371 ../src/Properties.cpp:1382
+#: ../src/Properties.cpp:1384 ../src/DirList.cpp:610 ../src/DirList.cpp:618
+#: ../src/DirList.cpp:655 ../src/DirList.cpp:663 ../src/DirPanel.cpp:511
+#: ../src/DirPanel.cpp:1415 ../src/DirPanel.cpp:1422 ../src/DirPanel.cpp:1429
+#: ../src/DirPanel.cpp:1436 ../src/DirPanel.cpp:1443 ../src/DirPanel.cpp:1450
+#: ../src/DirPanel.cpp:1457 ../src/DirPanel.cpp:1510 ../src/DirPanel.cpp:1517
+#: ../src/DirPanel.cpp:1574 ../src/DirPanel.cpp:1581 ../src/DirPanel.cpp:1679
+#: ../src/DirPanel.cpp:1687 ../src/DirPanel.cpp:1727 ../src/DirPanel.cpp:1735
+#: ../src/DirPanel.cpp:1747 ../src/DirPanel.cpp:1755 ../src/DirPanel.cpp:1794
+#: ../src/DirPanel.cpp:1849 ../src/DirPanel.cpp:1877 ../src/DirPanel.cpp:1906
+#: ../src/DirPanel.cpp:1952 ../src/DirPanel.cpp:1959 ../src/DirPanel.cpp:1985
+#: ../src/DirPanel.cpp:1992 ../src/DirPanel.cpp:2074 ../src/DirPanel.cpp:2099
+#: ../src/DirPanel.cpp:2101 ../src/DirPanel.cpp:2114 ../src/DirPanel.cpp:2127
+#: ../src/DirPanel.cpp:2177 ../src/DirPanel.cpp:2179 ../src/DirPanel.cpp:2259
+#: ../src/File.cpp:361 ../src/File.cpp:363 ../src/File.cpp:412
+#: ../src/File.cpp:414 ../src/File.cpp:442 ../src/File.cpp:444
+#: ../src/File.cpp:547 ../src/File.cpp:579 ../src/File.cpp:581
+#: ../src/File.cpp:657 ../src/File.cpp:665 ../src/File.cpp:679
+#: ../src/File.cpp:802 ../src/File.cpp:838 ../src/File.cpp:856
+#: ../src/File.cpp:863 ../src/File.cpp:912 ../src/File.cpp:932
+#: ../src/File.cpp:940 ../src/File.cpp:955 ../src/File.cpp:1033
+#: ../src/File.cpp:1053 ../src/File.cpp:1061 ../src/File.cpp:1122
+#: ../src/File.cpp:1124 ../src/File.cpp:1545 ../src/File.cpp:1559
+#: ../src/FileDialog.cpp:270 ../src/FileDialog.cpp:327
+#: ../src/FileDialog.cpp:893 ../src/FileDialog.cpp:895
+#: ../src/FileDialog.cpp:931 ../src/FileDialog.cpp:939
+#: ../src/FileDialog.cpp:941 ../src/FileDialog.cpp:952
+#: ../src/FileDialog.cpp:954 ../src/MessageBox.cpp:179 ../src/FileList.cpp:601
+#: ../src/FileList.cpp:609 ../src/FileList.cpp:645 ../src/FileList.cpp:653
+#: ../src/FilePanel.cpp:831 ../src/FilePanel.cpp:979 ../src/FilePanel.cpp:1346
+#: ../src/FilePanel.cpp:1353 ../src/FilePanel.cpp:1360
+#: ../src/FilePanel.cpp:1367 ../src/FilePanel.cpp:1374
+#: ../src/FilePanel.cpp:1381 ../src/FilePanel.cpp:1388
+#: ../src/FilePanel.cpp:1438 ../src/FilePanel.cpp:1445
+#: ../src/FilePanel.cpp:1502 ../src/FilePanel.cpp:1509
+#: ../src/FilePanel.cpp:1605 ../src/FilePanel.cpp:1613
+#: ../src/FilePanel.cpp:1653 ../src/FilePanel.cpp:1661
+#: ../src/FilePanel.cpp:1673 ../src/FilePanel.cpp:1681
+#: ../src/FilePanel.cpp:1734 ../src/FilePanel.cpp:1741
+#: ../src/FilePanel.cpp:1868 ../src/FilePanel.cpp:1895
+#: ../src/FilePanel.cpp:1903 ../src/FilePanel.cpp:2046
+#: ../src/FilePanel.cpp:2070 ../src/FilePanel.cpp:2072
+#: ../src/FilePanel.cpp:2087 ../src/FilePanel.cpp:2100
+#: ../src/FilePanel.cpp:2138 ../src/FilePanel.cpp:2314
+#: ../src/FilePanel.cpp:2660 ../src/FilePanel.cpp:2662
+#: ../src/FilePanel.cpp:2718 ../src/FilePanel.cpp:2726
+#: ../src/FilePanel.cpp:2728 ../src/FilePanel.cpp:2741
+#: ../src/FilePanel.cpp:2743 ../src/FilePanel.cpp:2803
+#: ../src/FilePanel.cpp:2818 ../src/FilePanel.cpp:3703
+#: ../src/FilePanel.cpp:3751 ../src/FilePanel.cpp:3753
+#: ../src/FilePanel.cpp:3892 ../src/FilePanel.cpp:4178
+#: ../src/FilePanel.cpp:4266 ../src/FilePanel.cpp:4280
+#: ../src/FilePanel.cpp:4295 ../src/XFileExplorer.cpp:1473
+#: ../src/XFileExplorer.cpp:1475 ../src/XFileExplorer.cpp:1522
+#: ../src/XFileExplorer.cpp:1524 ../src/XFileExplorer.cpp:1540
+#: ../src/XFileExplorer.cpp:1542 ../src/XFileExplorer.cpp:2704
+#: ../src/XFileExplorer.cpp:2749 ../src/XFileExplorer.cpp:2751
+#: ../src/XFileExplorer.cpp:2764 ../src/XFileExplorer.cpp:2766
+#: ../src/XFileExplorer.cpp:2809 ../src/XFilePackage.cpp:256
+#: ../src/XFilePackage.cpp:271 ../src/XFilePackage.cpp:298
+#: ../src/XFilePackage.cpp:321 ../src/XFilePackage.cpp:403
+#: ../src/XFilePackage.cpp:461 ../src/XFilePackage.cpp:487
+#: ../src/XFilePackage.cpp:763 ../src/XFileImage.cpp:1438
+#: ../src/XFileImage.cpp:1479 ../src/Keybindings.cpp:814
+#: ../src/Keybindings.cpp:832 ../src/Keybindings.cpp:850
+#: ../src/Keybindings.cpp:868 ../src/Keybindings.cpp:954
+#: ../src/Keybindings.cpp:972 ../src/Keybindings.cpp:1058
+#: ../src/Keybindings.cpp:1076 ../src/Keybindings.cpp:1162
+#: ../src/Keybindings.cpp:1180
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: ../src/Properties.cpp:1087 ../src/Properties.cpp:1097
+#: ../src/DirPanel.cpp:1415 ../src/DirPanel.cpp:1436 ../src/DirPanel.cpp:1443
+#: ../src/DirPanel.cpp:1794 ../src/DirPanel.cpp:1906 ../src/FilePanel.cpp:1346
+#: ../src/FilePanel.cpp:1367 ../src/FilePanel.cpp:1374
+#: ../src/FilePanel.cpp:1734 ../src/FilePanel.cpp:2138
+#: ../src/FilePanel.cpp:3703 ../src/FilePanel.cpp:3892
+#, c-format
+msgid "Can't write to %s: Permission denied"
+msgstr "Αδυναμία εγγραφής στο %s: Άρνηση πρόσβασης"
+
+#: ../src/Properties.cpp:1092 ../src/DirPanel.cpp:1422
+#: ../src/DirPanel.cpp:1450 ../src/FilePanel.cpp:1353
+#: ../src/FilePanel.cpp:1381
+#, c-format
+msgid "Folder %s doesn't exist"
+msgstr "Ο φάκελος %s δεν υπάρχει"
+
+#: ../src/Properties.cpp:1105 ../src/DirPanel.cpp:1522
+#: ../src/FilePanel.cpp:1450
+msgid "File rename"
+msgstr "Μετονομασία αρχείου"
+
+#: ../src/Properties.cpp:1126 ../src/Properties.cpp:1263
+msgid "File owner"
+msgstr "Ιδιοκτήτης του αρχείου"
+
+#: ../src/Properties.cpp:1155 ../src/Properties.cpp:1299
+msgid "Change owner cancelled!"
+msgstr "Ακυρώθηκε η αλλαγή του ιδιοκτήτη."
+
+#: ../src/Properties.cpp:1167 ../src/Properties.cpp:1310
+#, c-format
+msgid "Chown in %s failed: %s"
+msgstr "Απέτυχε το chown στο %s: %s"
+
+#: ../src/Properties.cpp:1169 ../src/Properties.cpp:1312
+#, c-format
+msgid "Chown in %s failed"
+msgstr "Απέτυχε το chown στο %s"
+
+#: ../src/Properties.cpp:1181 ../src/Properties.cpp:1326
+msgid ""
+"Setting special permissions could be unsafe! Is that you really want to do?"
+msgstr ""
+"Ο ορισμός ειδικών δικαιωμάτων μπορεί να είναι μη ασφαλής επιλογή. Θέλεις "
+"πράγματι να το κάνεις αυτό;"
+
+#: ../src/Properties.cpp:1191 ../src/Properties.cpp:1330
+msgid "File permissions"
+msgstr "Δικαιώματα στο αρχείο:"
+
+#: ../src/Properties.cpp:1222
+msgid "Change file permissions cancelled!"
+msgstr "Ακυρώθηκε η αλλαγή στα δικαιώματα του αρχείου."
+
+#: ../src/Properties.cpp:1234 ../src/Properties.cpp:1382
+#, c-format
+msgid "Chmod in %s failed: %s"
+msgstr "Απέτυχε το chmod στο %s: %s"
+
+#: ../src/Properties.cpp:1236 ../src/Properties.cpp:1384
+#, c-format
+msgid "Chmod in %s failed"
+msgstr "Απέτυχε το chmod στο %s"
+
+#: ../src/Properties.cpp:1371
+msgid "Change file(s) permissions cancelled!"
+msgstr "Ακυρώθηκε η αλλαγή των δικαιωμάτων στο αρχείο (-α)."
+
+#: ../src/Properties.cpp:1483 ../src/HistInputDialog.cpp:137
+#: ../src/Preferences.cpp:498
+msgid "Select an executable file"
+msgstr "Επέλεξε ένα εκτελέσιμο αρχείο"
+
+#: ../src/Properties.cpp:1486 ../src/Preferences.cpp:501
+msgid "All files"
+msgstr "Όλα τα αρχεία"
+
+#: ../src/Properties.cpp:1523
+msgid "PNG Images"
+msgstr "Εικόνες PNG"
+
+#: ../src/Properties.cpp:1524
+msgid "GIF Images"
+msgstr "Εικόνες GIF"
+
+#: ../src/Properties.cpp:1525
+msgid "BMP Images"
+msgstr "BMP Εικόνα"
+
+#: ../src/Properties.cpp:1527
+msgid "Select an icon file"
+msgstr "Επέλεξε ένα αρχείο εικονιδίου"
+
+#: ../src/Properties.cpp:1573 ../src/Properties.cpp:1626
+#, c-format
+msgid "%u files, %u subfolders"
+msgstr "%u αρχεία, %u υποφάκελοι"
+
+#: ../src/DirList.cpp:466 ../src/FileList.cpp:457
+msgid "Copy here"
+msgstr "Αντιγραφή εδώ"
+
+#: ../src/DirList.cpp:467 ../src/FileList.cpp:458
+msgid "Move here"
+msgstr "Μεταφορά εδώ"
+
+#: ../src/DirList.cpp:468 ../src/FileList.cpp:459
+msgid "Link here"
+msgstr "Δεσμός εδώ"
+
+#: ../src/DirList.cpp:470 ../src/FileList.cpp:461
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: ../src/DirList.cpp:506 ../src/DirPanel.cpp:1481 ../src/DirPanel.cpp:1606
+#: ../src/FileList.cpp:499 ../src/FilePanel.cpp:1408 ../src/FilePanel.cpp:1534
+msgid "File copy"
+msgstr "Αντιγραφή αρχείου"
+
+#: ../src/DirList.cpp:508 ../src/DirPanel.cpp:1537 ../src/DirPanel.cpp:1608
+#: ../src/FileList.cpp:501 ../src/FilePanel.cpp:1465 ../src/FilePanel.cpp:1536
+msgid "File move"
+msgstr "Μεταφορά αρχείου"
+
+#: ../src/DirList.cpp:510 ../src/FileList.cpp:503
+msgid "File symlink"
+msgstr "Εσωτερικός δεσμός σε αρχείο"
+
+#: ../src/DirList.cpp:533 ../src/DirPanel.cpp:1316 ../src/DirPanel.cpp:1344
+#: ../src/FileList.cpp:526 ../src/FilePanel.cpp:1222 ../src/FilePanel.cpp:1250
+msgid "Copy "
+msgstr "Αντιγραφή "
+
+#: ../src/DirList.cpp:538 ../src/FileList.cpp:531
+#, c-format
+msgid ""
+"Copy %s files/folders.\n"
+"From: %s"
+msgstr ""
+"Αντιγραφή %s αρχείων/φακέλων.\n"
+"Από:  %s"
+
+#: ../src/DirList.cpp:542 ../src/DirPanel.cpp:1357 ../src/DirPanel.cpp:1371
+#: ../src/FileList.cpp:535 ../src/FilePanel.cpp:1263 ../src/FilePanel.cpp:1277
+msgid "Move "
+msgstr "Μεταφορά "
+
+#: ../src/DirList.cpp:547 ../src/FileList.cpp:540
+#, c-format
+msgid ""
+"Move %s files/folders.\n"
+"From: %s"
+msgstr ""
+"Μεταφορά %s αρχείων/φακέλων.\n"
+"Από:  %s"
+
+#: ../src/DirList.cpp:551 ../src/DirPanel.cpp:1385 ../src/FileList.cpp:544
+#: ../src/FilePanel.cpp:1291
+msgid "Symlink "
+msgstr "Εσωτερικός Δεσμός"
+
+#: ../src/DirList.cpp:556 ../src/DirPanel.cpp:1396 ../src/FileList.cpp:549
+#: ../src/FilePanel.cpp:1304
+msgid "To:"
+msgstr "Στο:"
+
+#: ../src/DirList.cpp:610 ../src/DirPanel.cpp:1574 ../src/DirPanel.cpp:1727
+#: ../src/FileList.cpp:601 ../src/FilePanel.cpp:1502 ../src/FilePanel.cpp:1653
+msgid "An error has occurred during the move file operation!"
+msgstr "Παρουσιάστηκε κάποιο σφάλμα, κατά τη προσπάθεια μεταφοράς του αρχείου."
+
+#: ../src/DirList.cpp:618 ../src/DirPanel.cpp:1581 ../src/DirPanel.cpp:1735
+#: ../src/FileList.cpp:609 ../src/FilePanel.cpp:1509 ../src/FilePanel.cpp:1661
+msgid "Move file operation cancelled!"
+msgstr "Η διαδικασία μεταφοράς του αρχείου ακυρώθηκε."
+
+#: ../src/DirList.cpp:655 ../src/DirPanel.cpp:1510 ../src/DirPanel.cpp:1679
+#: ../src/FileList.cpp:645 ../src/FilePanel.cpp:1438 ../src/FilePanel.cpp:1605
+msgid "An error has occurred during the copy file operation!"
+msgstr ""
+"Παρουσιάστηκε κάποιο σφάλμα, κατά τη προσπάθεια αντιγραφής του αρχείου."
+
+#: ../src/DirList.cpp:663 ../src/DirPanel.cpp:1517 ../src/DirPanel.cpp:1687
+#: ../src/FileList.cpp:653 ../src/FilePanel.cpp:1445 ../src/FilePanel.cpp:1613
+msgid "Copy file operation cancelled!"
+msgstr "Η διαδικασία αντιγραφής του αρχείου ακυρώθηκε."
+
+#: ../src/DirList.cpp:1140 ../src/XFileExplorer.cpp:1448
+#, c-format
+msgid "Mount point %s is not responding..."
+msgstr "Το σημείο προσάρτησης %s δεν ανταποκρίνεται..."
+
+#: ../src/DirList.cpp:1606
+msgid "Link to Folder"
+msgstr "Δεσμός σε Φάκελο"
+
+#: ../src/DirPanel.cpp:366
+msgid "Folders"
+msgstr "Φάκελοι"
+
+#: ../src/DirPanel.cpp:383
+msgid "Show hidden folders"
+msgstr "Εμφάνιση κρυφών φακέλων"
+
+#: ../src/DirPanel.cpp:383
+msgid "Hide hidden folders"
+msgstr "Απόκρυψη κρυφών φακέλων"
+
+#: ../src/DirPanel.cpp:386 ../src/DirPanel.cpp:2492
+msgid "0 bytes in root"
+msgstr "0 bytes στο root"
+
+#: ../src/DirPanel.cpp:465 ../src/FilePanel.cpp:337
+msgid "Panel has focus"
+msgstr "Η εστίαση είναι στο πλάισιο"
+
+#: ../src/DirPanel.cpp:480 ../src/FilePanel.cpp:360
+msgid "Panel does not have focus"
+msgstr "Η εστίαση δεν είναι στο πλάισιο"
+
+#: ../src/DirPanel.cpp:511 ../src/FileDialog.cpp:270 ../src/FileDialog.cpp:327
+#: ../src/FilePanel.cpp:831 ../src/FilePanel.cpp:979
+#: ../src/XFileImage.cpp:1438 ../src/XFileImage.cpp:1479
+#, c-format
+msgid " Permission to: %s denied."
+msgstr " Άδεια για: άρνηση για %s ."
+
+#. Panel menu items
+#: ../src/DirPanel.cpp:630 ../src/DirPanel.cpp:644
+msgid "New &folder..."
+msgstr "Νέος &φάκελος..."
+
+#: ../src/DirPanel.cpp:633 ../src/DirPanel.cpp:647
+msgid "&Hidden folders"
+msgstr "Κρυ&φοί φάκελοι"
+
+#: ../src/DirPanel.cpp:634 ../src/DirPanel.cpp:648 ../src/FileDialog.cpp:1433
+#: ../src/FilePanel.cpp:3322 ../src/FilePanel.cpp:3363
+#: ../src/XFileImage.cpp:652
+msgid "Ignore c&ase"
+msgstr "&Χωρίς διάκριση πεζών/κεφαλαίων"
+
+#: ../src/DirPanel.cpp:635 ../src/DirPanel.cpp:649
+msgid "&Reverse order"
+msgstr "Αντί&στροφη σειρά"
+
+#: ../src/DirPanel.cpp:636 ../src/DirPanel.cpp:650
+msgid "E&xpand tree"
+msgstr "Ε&πέκταση του δέντρου"
+
+#: ../src/DirPanel.cpp:637 ../src/DirPanel.cpp:651
+msgid "Collap&se tree"
+msgstr "Σύμ&πτυξη του δένδρου"
+
+#: ../src/DirPanel.cpp:653 ../src/FilePanel.cpp:3366
+msgid "Pane&l"
+msgstr "Π&λαίσιο"
+
+#: ../src/DirPanel.cpp:661
+msgid "M&ount"
+msgstr "Προσάρτ&ηση"
+
+#: ../src/DirPanel.cpp:662
+msgid "Unmoun&t"
+msgstr "&Αποπροσάρτηση"
+
+#: ../src/DirPanel.cpp:666 ../src/FilePanel.cpp:3438
+msgid "&Add to archive..."
+msgstr "Προσ&θήκη σε αρχειοθήκη..."
+
+#: ../src/DirPanel.cpp:668 ../src/FilePanel.cpp:3444
+#: ../src/XFileExplorer.cpp:672 ../src/EditWindow.cpp:775
+#: ../src/EditWindow.cpp:816 ../src/ViewWindow.cpp:209
+msgid "&Copy"
+msgstr "&Αντιγραφή"
+
+#: ../src/DirPanel.cpp:669 ../src/FilePanel.cpp:3445
+#: ../src/XFileExplorer.cpp:678
+msgid "C&ut"
+msgstr "Αποκ&οπή"
+
+#: ../src/DirPanel.cpp:670 ../src/FilePanel.cpp:3299 ../src/FilePanel.cpp:3340
+#: ../src/FilePanel.cpp:3446 ../src/XFileExplorer.cpp:684
+#: ../src/EditWindow.cpp:787 ../src/EditWindow.cpp:818
+msgid "&Paste"
+msgstr "Επι&κόλληση"
+
+#: ../src/DirPanel.cpp:672 ../src/FilePanel.cpp:3448
+#: ../src/XFileExplorer.cpp:611
+msgid "Re&name..."
+msgstr "&Μετονομασία..."
+
+#: ../src/DirPanel.cpp:673
+msgid "Cop&y to..."
+msgstr "Α&ντιγραφή στο..."
+
+#: ../src/DirPanel.cpp:674 ../src/FilePanel.cpp:3450
+#: ../src/XFileExplorer.cpp:623
+msgid "&Move to..."
+msgstr "&Μεταφορά στο..."
+
+#: ../src/DirPanel.cpp:675 ../src/FilePanel.cpp:3451
+msgid "Symlin&k to..."
+msgstr "Εσωτερικός &δεσμός στο ..."
+
+#: ../src/DirPanel.cpp:676 ../src/FilePanel.cpp:3452
+#: ../src/XFileExplorer.cpp:635
+msgid "Mo&ve to trash"
+msgstr "Μετακίνηση στα απο&ρρίμματα"
+
+#: ../src/DirPanel.cpp:677 ../src/XFileExplorer.cpp:641
+msgid "R&estore from trash"
+msgstr "Απο&κατάσταση από τον κάδο απορριμμάτων"
+
+#: ../src/DirPanel.cpp:678 ../src/FilePanel.cpp:3454
+#: ../src/XFileExplorer.cpp:647
+msgid "&Delete"
+msgstr "&Διαγραφή"
+
+#: ../src/DirPanel.cpp:680
+msgid "Prop&erties"
+msgstr "Ι&διότητες"
+
+#. File object
+#: ../src/DirPanel.cpp:865 ../src/FilePanel.cpp:3595
+msgid "Create archive"
+msgstr "Δημιουργία αρχειοθήκης"
+
+#: ../src/DirPanel.cpp:1312 ../src/FilePanel.cpp:1218
+#: ../src/FilePanel.cpp:1246 ../src/EditWindow.cpp:652
+#: ../src/ViewWindow.cpp:155
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: ../src/DirPanel.cpp:1320 ../src/DirPanel.cpp:1348 ../src/FilePanel.cpp:1226
+#: ../src/FilePanel.cpp:1254
+#, c-format
+msgid "Copy %s items from: %s"
+msgstr "Αντιγραφή %s αντικειμένων από: %s"
+
+#: ../src/DirPanel.cpp:1325 ../src/DirPanel.cpp:1332 ../src/FilePanel.cpp:1231
+#: ../src/FilePanel.cpp:1238
+msgid "Rename"
+msgstr "Μετονομασία"
+
+#: ../src/DirPanel.cpp:1329 ../src/FilePanel.cpp:1235
+msgid "Rename "
+msgstr "Μετονομασία"
+
+#: ../src/DirPanel.cpp:1340
+msgid "Copy to"
+msgstr "Αντιγραφή σε"
+
+#: ../src/DirPanel.cpp:1353 ../src/DirPanel.cpp:1359 ../src/DirPanel.cpp:1367
+#: ../src/DirPanel.cpp:1373 ../src/FilePanel.cpp:1259
+#: ../src/FilePanel.cpp:1265 ../src/FilePanel.cpp:1273
+#: ../src/FilePanel.cpp:1279
+msgid "Move"
+msgstr "Μεταφορά"
+
+#: ../src/DirPanel.cpp:1362 ../src/DirPanel.cpp:1376 ../src/FilePanel.cpp:1268
+#: ../src/FilePanel.cpp:1282
+#, c-format
+msgid "Move %s items from: %s"
+msgstr "Μεταφορά  %s αντικειμένων από: %s"
+
+#: ../src/DirPanel.cpp:1381 ../src/DirPanel.cpp:1586 ../src/DirPanel.cpp:1610
+#: ../src/FilePanel.cpp:1287 ../src/FilePanel.cpp:1514
+#: ../src/FilePanel.cpp:1538 ../src/FilePanel.cpp:2822
+msgid "Symlink"
+msgstr "Εσωτερικός Δεσμός"
+
+#: ../src/DirPanel.cpp:1389 ../src/FilePanel.cpp:1295
+#, c-format
+msgid "Symlink %s items from: %s"
+msgstr "Εσωτερικός δεσμός %s αντικειμένων από: %s"
+
+#: ../src/DirPanel.cpp:1429 ../src/DirPanel.cpp:1457 ../src/FilePanel.cpp:1360
+#: ../src/FilePanel.cpp:1388
+#, c-format
+msgid "%s is not a folder"
+msgstr "το %s δεν είναι φάκελος"
+
+#: ../src/DirPanel.cpp:1747 ../src/FilePanel.cpp:1673
+msgid "An error has occurred during the symlink operation!"
+msgstr "Δημιουργήθηκε ένα σφάλμα κατά τη λειτουργία εσωτερικού δεσμού."
+
+#: ../src/DirPanel.cpp:1755 ../src/FilePanel.cpp:1681
+msgid "Symlink operation cancelled!"
+msgstr "Ακυρώθηκε η λειτουργία εσωτερικού δεσμού."
+
+#: ../src/DirPanel.cpp:1804
+#, c-format
+msgid "Definitively delete folder %s ?"
+msgstr "Οριστική διαγραφή του φακέλου %s ;"
+
+#: ../src/DirPanel.cpp:1805 ../src/DirPanel.cpp:1823 ../src/DirPanel.cpp:1838
+#: ../src/FilePanel.cpp:2163 ../src/FilePanel.cpp:2218
+#: ../src/FilePanel.cpp:2261
+msgid "Confirm Delete"
+msgstr "Επιβεβαίωση Διαγραφής"
+
+#. File object
+#. Delete trash can info folder
+#: ../src/DirPanel.cpp:1811 ../src/FilePanel.cpp:2171
+#: ../src/XFileExplorer.cpp:2729 ../src/XFileExplorer.cpp:2735
+msgid "File delete"
+msgstr "Διαγραφή αρχείου"
+
+#: ../src/DirPanel.cpp:1822 ../src/FilePanel.cpp:2217
+#, c-format
+msgid "Folder %s is not empty, delete it anyway?"
+msgstr "Ο φάκελος %s δεν είναι άδειος. Να διαγραφεί, έτσι κι αλλιώς;"
+
+#: ../src/DirPanel.cpp:1837
+#, c-format
+msgid "Folder %s is write-protected, definitively delete it anyway?"
+msgstr ""
+"Ο φάκελος %s έχει προστασία διαγραφής. Να διαγραφεί οριστικά , έτσι κι "
+"αλλιώς;"
+
+#: ../src/DirPanel.cpp:1849 ../src/DirPanel.cpp:1877
+msgid "Delete folder operation cancelled!"
+msgstr "Ακυρώθηκε η διαδικασία διαγραφής του φακέλου."
+
+#: ../src/DirPanel.cpp:1915
+#, c-format
+msgid "Move folder %s to trash can?"
+msgstr "Μεταφορά του φακέλου %s στα απορρίμματα;"
+
+#: ../src/DirPanel.cpp:1916 ../src/DirPanel.cpp:1932 ../src/FilePanel.cpp:1767
+#: ../src/FilePanel.cpp:1819
+msgid "Confirm Trash"
+msgstr "Επιβεβαίωση των Απορριμμάτων"
+
+#. File object
+#: ../src/DirPanel.cpp:1922 ../src/FilePanel.cpp:1776
+msgid "Move to trash"
+msgstr "Μεταφορά στα απορρίμματα"
+
+#: ../src/DirPanel.cpp:1931
+#, c-format
+msgid "Folder %s is write-protected, move it to trash can anyway?"
+msgstr ""
+"Ο φάκελος %s έχει προστασία εγγραφής. Να μεταφερθεί στα απορρίμματα, έτσι κι "
+"αλλιώς;"
+
+#: ../src/DirPanel.cpp:1952 ../src/DirPanel.cpp:1985 ../src/FilePanel.cpp:1868
+#: ../src/FilePanel.cpp:1895
+msgid "An error has occurred during the move to trash operation!"
+msgstr ""
+"Παρουσιάστηκε κάποιο σφάλμα, κατά τη προσπάθεια μεταφοράς του αρχείου στα "
+"απορρίμματα."
+
+#: ../src/DirPanel.cpp:1959 ../src/DirPanel.cpp:1992
+msgid "Move to trash folder operation cancelled!"
+msgstr "Η διαδικασία μεταφοράς του αρχείου στα απορρίμματα ακυρώθηκε."
+
+#. File object
+#: ../src/DirPanel.cpp:2018 ../src/FilePanel.cpp:1955
+msgid "Restore from trash"
+msgstr "Αποκατάσταση από τον κάδο απορριμμάτων"
+
+#: ../src/DirPanel.cpp:2057 ../src/FilePanel.cpp:2026
+#, c-format
+msgid "Restore folder %s to its original location %s ?"
+msgstr "Να γίνει αποκατάσταση του φακέλου %s στην αρχική του τοποθεσία %s;"
+
+#: ../src/DirPanel.cpp:2059 ../src/DirPanel.cpp:2086 ../src/FilePanel.cpp:2033
+#: ../src/FilePanel.cpp:2058
+msgid "Confirm Restore"
+msgstr "Επιβεβαίωση Αποκατάστασης"
+
+#: ../src/DirPanel.cpp:2074 ../src/FilePanel.cpp:2046
+#, c-format
+msgid "Restore information not available for %s"
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες αποκατάστασης για το %s"
+
+#: ../src/DirPanel.cpp:2085 ../src/FilePanel.cpp:2057
+#, c-format
+msgid "Parent directory %s does not exist, do you want to create it?"
+msgstr "Ο μητρικός κατάλογος %s δεν υπάρχει. Θέλεις να δημιουργηθεί;"
+
+#: ../src/DirPanel.cpp:2099
+#, c-format
+msgid "Can't create folder %s : %s"
+msgstr "Αδυναμία δημιουργίας του φακέλου %s : %s"
+
+#: ../src/DirPanel.cpp:2101 ../src/FilePanel.cpp:2072
+#, c-format
+msgid "Can't create folder %s"
+msgstr "Αδυναμία δημιουργίας του φακέλου %s"
+
+#: ../src/DirPanel.cpp:2114 ../src/FilePanel.cpp:2087
+msgid "An error has occurred during the restore from trash operation!"
+msgstr ""
+"Παρουσιάστηκε κάποιο σφάλμα, κατά τη διαδικασίας αποκατάστασης από τον κάδο "
+"απορριμμάτων."
+
+#: ../src/DirPanel.cpp:2127 ../src/FilePanel.cpp:2100
+msgid "Restore from trash file operation cancelled!"
+msgstr "Ακυρώθηκε η διαδικασίας αποκατάστασης από τον κάδο απορριμμάτων."
+
+#: ../src/DirPanel.cpp:2158 ../src/FilePanel.cpp:2639
+msgid "Create new folder:"
+msgstr "Δημιουργία νέου φακέλου:"
+
+#: ../src/DirPanel.cpp:2158 ../src/FileDialog.cpp:874
+#: ../src/FilePanel.cpp:2639
+msgid "New Folder"
+msgstr "Νέος Φάκελος"
+
+#: ../src/DirPanel.cpp:2227 ../src/FilePanel.cpp:4147
+msgid "Mount"
+msgstr "Προσάρτηση"
+
+#: ../src/DirPanel.cpp:2233 ../src/FilePanel.cpp:3374
+#: ../src/FilePanel.cpp:4153
+msgid "Unmount"
+msgstr "Αποπροσάρτηση"
+
+#. File object
+#: ../src/DirPanel.cpp:2244 ../src/FilePanel.cpp:4164
+msgid " file system..."
+msgstr " σύστημα αρχείων..."
+
+#. Mount/unmount file system
+#: ../src/DirPanel.cpp:2249 ../src/FilePanel.cpp:4169
+msgid " the folder:"
+msgstr " ο φάκελος:"
+
+#: ../src/DirPanel.cpp:2258 ../src/FilePanel.cpp:4177
+msgid " operation cancelled!"
+msgstr " η λειτουργία ακυρώθηκε."
+
+#. Refresh the status label
+#: ../src/DirPanel.cpp:2520
+msgid " in root"
+msgstr " στο root"
+
+#. Labels and progress bar
+#: ../src/File.cpp:97 ../src/File.cpp:110
+msgid "Source:"
+msgstr "Πηγή:"
+
+#: ../src/File.cpp:98 ../src/File.cpp:111
+msgid "Target:"
+msgstr "Προορισμός:"
+
+#. Labels
+#: ../src/File.cpp:123
+msgid "Delete:"
+msgstr "Διαγραφή:"
+
+#: ../src/File.cpp:124
+msgid "From:"
+msgstr "Από:"
+
+#. Labels
+#. Set labels for progress dialog
+#: ../src/File.cpp:132 ../src/File.cpp:1164 ../src/File.cpp:1188
+#: ../src/File.cpp:1239
+msgid "Changing permissions..."
+msgstr "Αλλαγή των αδειών..."
+
+#: ../src/File.cpp:133 ../src/File.cpp:142
+msgid "File:"
+msgstr "Αρχείο:"
+
+#. Labels
+#. Set labels for progress dialog
+#: ../src/File.cpp:141 ../src/File.cpp:1320 ../src/File.cpp:1345
+#: ../src/File.cpp:1393
+msgid "Changing owner..."
+msgstr "Αλλαγή του ιδιοκτήτη..."
+
+#. Labels
+#: ../src/File.cpp:151
+msgid "Mount file system..."
+msgstr "Προσάρτηση συστήματος αρχείων..."
+
+#: ../src/File.cpp:152
+msgid "Mount the folder:"
+msgstr "Προσάρτηση του φακέλου:"
+
+#. Labels
+#: ../src/File.cpp:157
+msgid "Unmount file system..."
+msgstr "Αποπροσάρτηση του συστήματος αρχείων..."
+
+#: ../src/File.cpp:158
+msgid "Unmount the folder:"
+msgstr "Αποπροσάρτηση του φακέλου:"
+
+#: ../src/File.cpp:262
+#, c-format
+msgid ""
+"Folder %s already exists. Overwrite?\n"
+"=> Caution, all files within this directory will be definitively lost!"
+msgstr ""
+"Ο φάκελος %sυπάρχει, ήδη. Να αντικατασταθεί;\n"
+"=> ΠΡΟΣΟΧΗ: Όλα τα αρχεία σε αυτόν τον κατάλογο θα χαθούν, οριστικά."
+
+#: ../src/File.cpp:264 ../src/File.cpp:1471
+#, c-format
+msgid "File %s already exists. Overwrite?"
+msgstr "Το αρχείο %s υπάρχει ήδη. Να αντικατασταθεί;"
+
+#: ../src/File.cpp:309
+#, c-format
+msgid "Source size: %s - Modified date: %s"
+msgstr "Μέγεθος πηγής: %s - Ημερομηνία τροποποίησης: %s"
+
+#: ../src/File.cpp:310
+#, c-format
+msgid "Target size: %s - Modified date: %s"
+msgstr "Μέγεθος προορισμού: %s - Ημερομηνία τροποποίησης: %s"
+
+#. Overwrite dialog
+#: ../src/File.cpp:315 ../src/File.cpp:1472
+msgid "Confirm Overwrite"
+msgstr "Επιβεβαίωση της Αντικατάστασης"
+
+#: ../src/File.cpp:361 ../src/File.cpp:412
+#, c-format
+msgid "Can't copy file %s: %s"
+msgstr "Αδυναμία αντιγραφής του αρχείου  %s: %s"
+
+#: ../src/File.cpp:363 ../src/File.cpp:414
+#, c-format
+msgid "Can't copy file %s"
+msgstr "Αδυναμία αντιγραφής του αρχείου  %s"
+
+#. Set labels for progress dialog
+#: ../src/File.cpp:391 ../src/File.cpp:689 ../src/File.cpp:967
+msgid "Source: "
+msgstr "Πηγή: "
+
+#: ../src/File.cpp:393 ../src/File.cpp:691 ../src/File.cpp:969
+msgid "Target: "
+msgstr "Προορισμός: "
+
+#: ../src/File.cpp:442
+#, c-format
+msgid "Can't preserve date when copying file %s : %s"
+msgstr ""
+"Αδυναμία διατήρησης της ημερομηνίας μετά την αντιγραφή του αρχείου %s : %s"
+
+#: ../src/File.cpp:444
+#, c-format
+msgid "Can't preserve date when copying file %s"
+msgstr "Αδυναμία διατήρησης της ημερομηνίας μετά την αντιγραφή του αρχείου %s"
+
+#: ../src/File.cpp:543
+#, c-format
+msgid "Can't copy folder %s : Permission denied"
+msgstr "Αδυναμία αντιγραφής του φακέλου %s: Άρνηση πρόσβασης"
+
+#: ../src/File.cpp:545
+#, c-format
+msgid "Can't copy file %s : Permission denied"
+msgstr "Αδυναμία αντιγραφής του αρχείου %s: Άρνηση πρόσβασης"
+
+#: ../src/File.cpp:579
+#, c-format
+msgid "Can't preserve date when copying folder %s : %s"
+msgstr ""
+"Αδυναμία διατήρησης της ημερομηνίας μετά την αντιγραφή του φακέλου %s : %s"
+
+#: ../src/File.cpp:581
+#, c-format
+msgid "Can't preserve date when copying folder %s"
+msgstr "Αδυναμία διατήρησης της ημερομηνίας κατά την αντιγραφή του φακέλου %s"
+
+#: ../src/File.cpp:657 ../src/File.cpp:856 ../src/File.cpp:932
+#: ../src/File.cpp:1053
+#, c-format
+msgid "Source %s doesn't exist"
+msgstr "Δεν υπάρχει η πηγή %s"
+
+#: ../src/File.cpp:665 ../src/File.cpp:679 ../src/File.cpp:863
+#: ../src/File.cpp:940 ../src/File.cpp:955 ../src/File.cpp:1061
+#, c-format
+msgid "Source %s is identical to target"
+msgstr "Η πηγή %s είναι ίδια με τον προορισμό"
+
+#. Set labels for progress dialog
+#: ../src/File.cpp:769
+msgid "Delete folder: "
+msgstr "Διαγραφή του φακέλου: "
+
+#: ../src/File.cpp:773 ../src/File.cpp:826
+msgid "From: "
+msgstr "Από: "
+
+#: ../src/File.cpp:802
+#, c-format
+msgid "Can't delete folder %s"
+msgstr "Αδυναμία διαγραφής του φακέλου %s"
+
+#. Set labels for progress dialog
+#: ../src/File.cpp:822
+msgid "Delete: "
+msgstr "Διαγραφή: "
+
+#: ../src/File.cpp:838
+#, c-format
+msgid "Can't delete file %s"
+msgstr "Αδυναμία διαγραφής του αρχείου %s"
+
+#: ../src/File.cpp:912 ../src/File.cpp:1033
+#, c-format
+msgid "Can't rename to target %s"
+msgstr "Αδυναμία μετονομασίας στον προορισμό %s"
+
+#: ../src/File.cpp:1122
+#, c-format
+msgid "Can't symlink %s: %s"
+msgstr "Αδυναμία δημιουργίας του εσωτερικού δεσμού %s : %s"
+
+#: ../src/File.cpp:1124
+#, c-format
+msgid "Can't symlink %s"
+msgstr "Αδυναμία δημιουργίας του εσωτερικού δεσμού %s"
+
+#: ../src/File.cpp:1166 ../src/File.cpp:1241 ../src/File.cpp:1322
+#: ../src/File.cpp:1395
+msgid "File: "
+msgstr "Αρχείο: "
+
+#: ../src/File.cpp:1190 ../src/File.cpp:1347
+msgid "Folder: "
+msgstr "Φάκελος: "
+
+#. Make and show command window
+#. File object
+#: ../src/File.cpp:1448 ../src/FilePanel.cpp:3693 ../src/FilePanel.cpp:3801
+#: ../src/FilePanel.cpp:3882
+msgid "Extract archive"
+msgstr "Αποσυμπίεση αρχειοθήκης"
+
+#. Make and show command window
+#: ../src/File.cpp:1508
+msgid "Add to archive"
+msgstr "Προσθήκη σε αρχειoθήκη"
+
+#: ../src/File.cpp:1545 ../src/FilePanel.cpp:4280
+#, c-format
+msgid "Failed command: %s"
+msgstr "Αποτυχιμένη εντολή: %s"
+
+#: ../src/File.cpp:1569 ../src/File.cpp:1571
+msgid "Success"
+msgstr "Επιτυχία"
+
+#: ../src/File.cpp:1569
+#, c-format
+msgid "Folder %s was successfully mounted."
+msgstr "Επιτυχής προσάρτηση του φακέλου  %s."
+
+#: ../src/File.cpp:1571
+#, c-format
+msgid "Folder %s was successfully unmounted."
+msgstr "Επιτυχής αποπροσάρτηση του φακέλου  %s."
+
+#. Make and show command window
+#: ../src/File.cpp:1581
+msgid "Install/Upgrade package"
+msgstr "Εγκατάσταση/Απεγκατάσταση πακέτου"
+
+#: ../src/File.cpp:1585 ../src/XFilePackage.cpp:280
+#, c-format
+msgid "Installing package: %s \n"
+msgstr "Εγκατάσταση πακέτου: %s \n"
+
+#. Make and show command window
+#: ../src/File.cpp:1597
+msgid "Uninstall package"
+msgstr "Απεγκατάσταση πακέτου"
+
+#: ../src/File.cpp:1601 ../src/XFilePackage.cpp:330
+#, c-format
+msgid "Uninstalling package: %s \n"
+msgstr "Απεγκατάσταση του πακέτου: %s \n"
+
+#: ../src/FileDialog.cpp:111
+msgid "&File Name:"
+msgstr "&Όνομα Αρχείου:"
+
+#: ../src/FileDialog.cpp:113 ../src/MessageBox.cpp:66 ../src/MessageBox.cpp:71
+#: ../src/MessageBox.cpp:88 ../src/foxhacks.cpp:563
+msgid "&OK"
+msgstr "&Εντάξει"
+
+#: ../src/FileDialog.cpp:115
+msgid "File F&ilter:"
+msgstr "&Φίλτρο Αρχείων:"
+
+#: ../src/FileDialog.cpp:120
+msgid "Read Only"
+msgstr "Μόνο για Ανάγνωση"
+
+#: ../src/FileDialog.cpp:132 ../src/Preferences.cpp:596
+#: ../src/XFileExplorer.cpp:423
+msgid "Go to previous directory"
+msgstr "Μετάβαση στον προηγούμενο κατάλογο"
+
+#: ../src/FileDialog.cpp:139 ../src/Preferences.cpp:600
+#: ../src/XFileExplorer.cpp:430
+msgid "Go to next directory"
+msgstr "Μετάβαση στον επόμενο κατάλογο"
+
+#: ../src/FileDialog.cpp:145 ../src/Preferences.cpp:604
+#: ../src/XFileExplorer.cpp:437
+msgid "Go to parent directory"
+msgstr "Μετάβαση στον πατρικό κατάλογο"
+
+#: ../src/FileDialog.cpp:150 ../src/Preferences.cpp:608
+#: ../src/XFileExplorer.cpp:444
+msgid "Go to home directory"
+msgstr "Μετάβαση στον κεντρικό κατάλογο"
+
+#: ../src/FileDialog.cpp:155 ../src/Preferences.cpp:676
+msgid "Go to working directory"
+msgstr "Μετάβαση στον κατάλογο εργασίας"
+
+#: ../src/FileDialog.cpp:160
+msgid "New folder"
+msgstr "Νέος φάκελος"
+
+#: ../src/FileDialog.cpp:165 ../src/Preferences.cpp:632
+#: ../src/XFileExplorer.cpp:542
+msgid "Big icon list"
+msgstr "Λίστα με μεγάλα εικονίδια"
+
+#: ../src/FileDialog.cpp:170 ../src/Preferences.cpp:636
+#: ../src/XFileExplorer.cpp:547
+msgid "Small icon list"
+msgstr "Λίστα με μικρά εικονίδια"
+
+#: ../src/FileDialog.cpp:175 ../src/Preferences.cpp:640
+#: ../src/XFileExplorer.cpp:552
+msgid "Detailed file list"
+msgstr "Λεπτομερής λίστα αρχείων"
+
+#: ../src/FileDialog.cpp:180 ../src/FilePanel.cpp:216
+#: ../src/XFileImage.cpp:374
+msgid "Show hidden files"
+msgstr "Εμφάνιση κρυφών αρχείων"
+
+#: ../src/FileDialog.cpp:180 ../src/FilePanel.cpp:216
+#: ../src/XFileImage.cpp:374
+msgid "Hide hidden files"
+msgstr "Απόκρυψη κρυφών αρχείων"
+
+#: ../src/FileDialog.cpp:185 ../src/FilePanel.cpp:220
+#: ../src/XFileImage.cpp:378
+msgid "Show thumbnails"
+msgstr "Εμφάνιση εικόνων επισκόπησης"
+
+#: ../src/FileDialog.cpp:185 ../src/FilePanel.cpp:220
+#: ../src/XFileImage.cpp:378
+msgid "Hide thumbnails"
+msgstr "Απόκρυψη εικόνων επισκόπησης"
+
+#: ../src/FileDialog.cpp:874
+msgid "Create new folder..."
+msgstr "Δημιουργία νέου φακέλου..."
+
+#: ../src/FileDialog.cpp:918
+msgid "Create new file..."
+msgstr "Δημιουργία νέου αρχείου..."
+
+#: ../src/FileDialog.cpp:918 ../src/FilePanel.cpp:2705
+msgid "New File"
+msgstr "Νέο Αρχείο"
+
+#: ../src/FileDialog.cpp:931 ../src/FilePanel.cpp:2718
+#: ../src/FilePanel.cpp:2803
+#, c-format
+msgid "File or folder %s already exists"
+msgstr "Το αρχείο ή φάκελος %s υπάρχει ήδη"
+
+#: ../src/FileDialog.cpp:1408 ../src/XFileImage.cpp:629
+msgid "Go ho&me"
+msgstr "Μετάβαση στην αρχή"
+
+#: ../src/FileDialog.cpp:1409 ../src/XFileImage.cpp:630
+msgid "Go &work"
+msgstr "Μετάβαση στην εργασία"
+
+#: ../src/FileDialog.cpp:1410 ../src/XFileExplorer.cpp:573
+msgid "New &file..."
+msgstr "Νέο &αρχείο..."
+
+#: ../src/FileDialog.cpp:1411 ../src/FilePanel.cpp:3295
+#: ../src/FilePanel.cpp:3336
+msgid "New f&older..."
+msgstr "Νέος &φάκελος..."
+
+#: ../src/FileDialog.cpp:1413 ../src/FilePanel.cpp:3301
+#: ../src/FilePanel.cpp:3342 ../src/XFileExplorer.cpp:780
+#: ../src/XFileExplorer.cpp:810 ../src/XFileImage.cpp:518
+#: ../src/XFileImage.cpp:632
+msgid "&Hidden files"
+msgstr "Κρυφά &αρχεία"
+
+#: ../src/FileDialog.cpp:1414 ../src/FilePanel.cpp:3302
+#: ../src/FilePanel.cpp:3343 ../src/XFileImage.cpp:633
+msgid "Thum&bnails"
+msgstr "Εικόνες &προεπισκόπησης"
+
+#: ../src/FileDialog.cpp:1416 ../src/FilePanel.cpp:3304
+#: ../src/FilePanel.cpp:3345 ../src/XFileImage.cpp:635
+msgid "B&ig icons"
+msgstr "Με&γάλα εικονίδια"
+
+#: ../src/FileDialog.cpp:1417 ../src/FilePanel.cpp:3305
+#: ../src/FilePanel.cpp:3346 ../src/XFileExplorer.cpp:784
+#: ../src/XFileExplorer.cpp:814 ../src/XFileImage.cpp:538
+#: ../src/XFileImage.cpp:636
+msgid "&Small icons"
+msgstr "Μικ&ρά εικονίδια"
+
+#: ../src/FileDialog.cpp:1418 ../src/XFileImage.cpp:637
+msgid "Fu&ll file list"
+msgstr "&Πλήρης λίστα αρχείων"
+
+#: ../src/FileDialog.cpp:1420 ../src/FilePanel.cpp:3308
+#: ../src/FilePanel.cpp:3349 ../src/XFileExplorer.cpp:787
+#: ../src/XFileExplorer.cpp:817 ../src/XFileImage.cpp:550
+#: ../src/XFileImage.cpp:639
+msgid "&Rows"
+msgstr "&Γραμμές"
+
+#: ../src/FileDialog.cpp:1421 ../src/FilePanel.cpp:3309
+#: ../src/FilePanel.cpp:3350 ../src/XFileExplorer.cpp:788
+#: ../src/XFileExplorer.cpp:818 ../src/XFileImage.cpp:551
+#: ../src/XFileImage.cpp:640
+msgid "&Columns"
+msgstr "&Στήλες"
+
+#: ../src/FileDialog.cpp:1422 ../src/FilePanel.cpp:3310
+#: ../src/FilePanel.cpp:3351 ../src/XFileExplorer.cpp:789
+#: ../src/XFileExplorer.cpp:819 ../src/XFileImage.cpp:641
+msgid "Autosize"
+msgstr "Αυτόματο μέγεθος"
+
+#: ../src/FileDialog.cpp:1424 ../src/FilePanel.cpp:3312
+#: ../src/FilePanel.cpp:3353 ../src/XFileExplorer.cpp:791
+#: ../src/XFileExplorer.cpp:821 ../src/XFileImage.cpp:643
+msgid "&Name"
+msgstr "Ό&νομα"
+
+#: ../src/FileDialog.cpp:1425 ../src/FilePanel.cpp:3313
+#: ../src/FilePanel.cpp:3354 ../src/XFileExplorer.cpp:792
+#: ../src/XFileExplorer.cpp:822 ../src/XFileImage.cpp:644
+msgid "Si&ze"
+msgstr "&Μέγεθος"
+
+#: ../src/FileDialog.cpp:1426 ../src/FilePanel.cpp:3314
+#: ../src/FilePanel.cpp:3355 ../src/XFileImage.cpp:645
+msgid "&Type"
+msgstr "&Τύπος"
+
+#: ../src/FileDialog.cpp:1427 ../src/FilePanel.cpp:3315
+#: ../src/FilePanel.cpp:3356 ../src/XFileExplorer.cpp:794
+#: ../src/XFileExplorer.cpp:824 ../src/XFileImage.cpp:646
+msgid "E&xtension"
+msgstr "Ε&πέκταση"
+
+#: ../src/FileDialog.cpp:1428 ../src/FilePanel.cpp:3316
+#: ../src/FilePanel.cpp:3357 ../src/XFileImage.cpp:647
+msgid "&Date"
+msgstr "&Ημερομηνία"
+
+#: ../src/FileDialog.cpp:1429 ../src/FilePanel.cpp:3317
+#: ../src/FilePanel.cpp:3358 ../src/XFileImage.cpp:648
+msgid "&User"
+msgstr "&Χρήστης"
+
+#: ../src/FileDialog.cpp:1430 ../src/FilePanel.cpp:3318
+#: ../src/FilePanel.cpp:3359 ../src/XFileImage.cpp:649
+msgid "&Group"
+msgstr "&Ομάδα"
+
+#: ../src/FileDialog.cpp:1434 ../src/FilePanel.cpp:3323
+#: ../src/FilePanel.cpp:3364 ../src/XFileImage.cpp:653
+msgid "Dir&ectories first"
+msgstr "Πρώτα οι κατά&λογοι"
+
+#: ../src/FileDialog.cpp:1435 ../src/FilePanel.cpp:3324
+#: ../src/FilePanel.cpp:3365 ../src/XFileExplorer.cpp:804
+#: ../src/XFileExplorer.cpp:834 ../src/XFileImage.cpp:654
+msgid "Re&verse order"
+msgstr "Α&ντίστροφη σειρά"
+
+#. Font families, to be filled later
+#: ../src/FontDialog.cpp:51
+msgid "&Family:"
+msgstr "&Οικογένεια:"
+
+#. Font weights
+#: ../src/FontDialog.cpp:60
+msgid "&Weight:"
+msgstr "&Βάρος:"
+
+#. Font styles
+#: ../src/FontDialog.cpp:66
+msgid "&Style:"
+msgstr "&Στυλ:"
+
+#. Font sizes, to be filled later
+#: ../src/FontDialog.cpp:72
+msgid "Si&ze:"
+msgstr "&Μέγεθος:"
+
+#. Character set choice
+#: ../src/FontDialog.cpp:80
+msgid "Character Set:"
+msgstr "Σύνολο Χαρακτήρων:"
+
+#: ../src/FontDialog.cpp:83 ../src/FontDialog.cpp:115
+#: ../src/FontDialog.cpp:131
+msgid "Any"
+msgstr "Οποιοδήποτε"
+
+#: ../src/FontDialog.cpp:84
+msgid "West European"
+msgstr "Δυτικής Ευρώπης"
+
+#: ../src/FontDialog.cpp:85
+msgid "East European"
+msgstr "Ανατολικής Ευρώπης"
+
+#: ../src/FontDialog.cpp:86
+msgid "South European"
+msgstr "Νότιας Ευρώπης"
+
+#: ../src/FontDialog.cpp:87
+msgid "North European"
+msgstr "Βόρειας Ευρώπης"
+
+#: ../src/FontDialog.cpp:88
+msgid "Cyrillic"
+msgstr "Κυριλλικά"
+
+#: ../src/FontDialog.cpp:89
+msgid "Arabic"
+msgstr "Αραβικά"
+
+#: ../src/FontDialog.cpp:90
+msgid "Greek"
+msgstr "Ελληνικά"
+
+#: ../src/FontDialog.cpp:91
+msgid "Hebrew"
+msgstr "Εβραϊκά"
+
+#: ../src/FontDialog.cpp:92
+msgid "Turkish"
+msgstr "Τουρκικά"
+
+#: ../src/FontDialog.cpp:93
+msgid "Nordic"
+msgstr "Σκανδιναβικά"
+
+#: ../src/FontDialog.cpp:94
+msgid "Thai"
+msgstr "Ταϊλανδέζικη"
+
+#: ../src/FontDialog.cpp:95
+msgid "Baltic"
+msgstr "Βαλτικής"
+
+#: ../src/FontDialog.cpp:96
+msgid "Celtic"
+msgstr "Celtic"
+
+#: ../src/FontDialog.cpp:97
+msgid "Russian"
+msgstr "Ρώσικα"
+
+#: ../src/FontDialog.cpp:98
+msgid "Central European (cp1250)"
+msgstr "Κεντρικής Ευρώπης (cp1250)"
+
+#: ../src/FontDialog.cpp:99
+msgid "Russian (cp1251)"
+msgstr "Ρωσικό (cp1251)"
+
+#: ../src/FontDialog.cpp:100
+msgid "Latin1 (cp1252)"
+msgstr "Λατινικά1 (cp1252)"
+
+#: ../src/FontDialog.cpp:101
+msgid "Greek (cp1253)"
+msgstr "Ελληνικά (cp1253)"
+
+#: ../src/FontDialog.cpp:102
+msgid "Turkish (cp1254)"
+msgstr "Τουρκικά (cp1254)"
+
+#: ../src/FontDialog.cpp:103
+msgid "Hebrew (cp1255)"
+msgstr "Εβραϊκά (cp1255)"
+
+#: ../src/FontDialog.cpp:104
+msgid "Arabic (cp1256)"
+msgstr "Αραβικά (cp1256)"
+
+#: ../src/FontDialog.cpp:105
+msgid "Baltic (cp1257)"
+msgstr "Βαλτικής (cp1257)"
+
+#: ../src/FontDialog.cpp:106
+msgid "Vietnam (cp1258)"
+msgstr "Βιετναμέζικα (cp1258)"
+
+#: ../src/FontDialog.cpp:107
+msgid "Thai (cp874)"
+msgstr "Τϊλανδέζικα (cp874)"
+
+#: ../src/FontDialog.cpp:108
+msgid "UNICODE"
+msgstr "UNICODE"
+
+#. Set width
+#: ../src/FontDialog.cpp:112
+msgid "Set Width:"
+msgstr "Καθορισμός Πλάτους:"
+
+#: ../src/FontDialog.cpp:116
+msgid "Ultra condensed"
+msgstr "Υπερβολικά συμπτυγμένα"
+
+#: ../src/FontDialog.cpp:117
+msgid "Extra condensed"
+msgstr "Επιπλέον συμπτυγμένα"
+
+#: ../src/FontDialog.cpp:118
+msgid "Condensed"
+msgstr "Συμπτυγμένα"
+
+#: ../src/FontDialog.cpp:119
+msgid "Semi condensed"
+msgstr "Ημι συμπτυγμένα"
+
+#: ../src/FontDialog.cpp:120
+msgid "Normal"
+msgstr "Κανονικά"
+
+#: ../src/FontDialog.cpp:121
+msgid "Semi expanded"
+msgstr "Ημι ανεπτυγμένα"
+
+#: ../src/FontDialog.cpp:122
+msgid "Expanded"
+msgstr "Ανεπτυγμένα"
+
+#: ../src/FontDialog.cpp:123
+msgid "Extra expanded"
+msgstr "Επιπλέον ανεπτυγμένα"
+
+#: ../src/FontDialog.cpp:124
+msgid "Ultra expanded"
+msgstr "Υπερβολικά ανεπτυγμένα"
+
+# For fixed-pitch (or monospaced) fonts, pitch refers to the number of 
+# characters printed per inch. Pitch is one characteristic of a monospaced 
+# font. Common pitch values are 10 and 12.
+#. Pitch
+#: ../src/FontDialog.cpp:128
+msgid "Pitch:"
+msgstr "Χαρακτήρες ανά ίντσα:"
+
+#: ../src/FontDialog.cpp:132
+msgid "Fixed"
+msgstr "Σταθερό"
+
+#: ../src/FontDialog.cpp:133
+msgid "Variable"
+msgstr "Μεταβλητή"
+
+#: ../src/FontDialog.cpp:138
+msgid "Scalable:"
+msgstr "Κλιμακούμενο:"
+
+#: ../src/FontDialog.cpp:142
+msgid "All Fonts:"
+msgstr "Όλες οι Γραμματοσειρές:"
+
+#: ../src/FontDialog.cpp:146
+msgid "Preview:"
+msgstr "Προεπισκόπιση:"
+
+#. Space before tab is used to set the correct button height
+#: ../src/MessageBox.cpp:79 ../src/XFileExplorer.cpp:489
+msgid "Launch Xfe as root"
+msgstr "Εκκίνηση του Xfe σαν υπερχρήστης"
+
+#: ../src/MessageBox.cpp:93 ../src/MessageBox.cpp:101
+#: ../src/MessageBox.cpp:121
+msgid "&No"
+msgstr "Ό&χι"
+
+#: ../src/MessageBox.cpp:94 ../src/MessageBox.cpp:100
+#: ../src/MessageBox.cpp:120 ../src/OverwriteBox.cpp:41
+msgid "&Yes"
+msgstr "Ν&αι"
+
+#: ../src/MessageBox.cpp:107 ../src/MessageBox.cpp:113
+#: ../src/XFileExplorer.cpp:661 ../src/XFilePackage.cpp:141
+#: ../src/XFileImage.cpp:465 ../src/EditWindow.cpp:753
+#: ../src/ViewWindow.cpp:202
+msgid "&Quit"
+msgstr "&Τερματισμός"
+
+#: ../src/MessageBox.cpp:114 ../src/EditWindow.cpp:718
+msgid "&Save"
+msgstr "&Αποθήκευση"
+
+#: ../src/MessageBox.cpp:122 ../src/OverwriteBox.cpp:42
+msgid "Yes for &All"
+msgstr "Ναι για &Όλα"
+
+#: ../src/MessageBox.cpp:152 ../src/XFileExplorer.cpp:2676
+msgid "Enter the user password:"
+msgstr "Εισήγαγε τον κωδικό πρόσβασης για τον χρήστη:"
+
+#: ../src/MessageBox.cpp:157 ../src/XFileExplorer.cpp:2681
+msgid "Enter the root password:"
+msgstr "Εισήγαγε τον κωδικό πρόσβασης του υπερχρήστη:"
+
+#: ../src/MessageBox.cpp:179 ../src/XFileExplorer.cpp:2704
+#, fuzzy
+msgid "An error has occurred!"
+msgstr "Δημιουργήθηκε ένα σφάλμα κατά τη λειτουργία εσωτερικού δεσμού."
+
+#: ../src/IconList.cpp:2162 ../src/IconList.cpp:2166 ../src/IconList.cpp:2177
+#: ../src/IconList.cpp:2181 ../src/foxhacks.cpp:61 ../src/foxhacks.cpp:65
+msgid "Name: "
+msgstr "Όνομα: "
+
+#: ../src/IconList.cpp:2162 ../src/IconList.cpp:2168 ../src/foxhacks.cpp:61
+#: ../src/foxhacks.cpp:65
+msgid "Size in root: "
+msgstr "Μέγεθος στο root: "
+
+#: ../src/IconList.cpp:2162 ../src/IconList.cpp:2168 ../src/IconList.cpp:2177
+#: ../src/IconList.cpp:2183 ../src/foxhacks.cpp:61 ../src/foxhacks.cpp:65
+msgid "Type: "
+msgstr "Τύπος: "
+
+#: ../src/IconList.cpp:2163 ../src/IconList.cpp:2169 ../src/IconList.cpp:2178
+#: ../src/IconList.cpp:2184 ../src/foxhacks.cpp:62 ../src/foxhacks.cpp:66
+msgid "Modified date: "
+msgstr "Ημερομηνία τροποποίησης:"
+
+#: ../src/IconList.cpp:2163 ../src/IconList.cpp:2171 ../src/IconList.cpp:2178
+#: ../src/IconList.cpp:2186 ../src/foxhacks.cpp:62 ../src/foxhacks.cpp:66
+msgid "User: "
+msgstr "Χρήστης: "
+
+#: ../src/IconList.cpp:2163 ../src/IconList.cpp:2171 ../src/IconList.cpp:2178
+#: ../src/IconList.cpp:2186 ../src/foxhacks.cpp:62 ../src/foxhacks.cpp:66
+msgid "Group: "
+msgstr "Ομάδα: "
+
+#: ../src/IconList.cpp:2164 ../src/IconList.cpp:2171 ../src/IconList.cpp:2179
+#: ../src/IconList.cpp:2186 ../src/foxhacks.cpp:63 ../src/foxhacks.cpp:67
+msgid "Permissions: "
+msgstr "Δικαιώματα"
+
+#: ../src/IconList.cpp:2167 ../src/IconList.cpp:2182
+msgid "Original path: "
+msgstr "Αρχική διαδρομή:"
+
+#: ../src/IconList.cpp:2170 ../src/IconList.cpp:2185 ../src/foxhacks.cpp:66
+msgid "Deletion date: "
+msgstr "Ημερομηνία διαγραφής:"
+
+#: ../src/IconList.cpp:2177 ../src/IconList.cpp:2183
+msgid "Size: "
+msgstr "Μέγεθος: "
+
+#: ../src/FileList.cpp:141
+msgid "Directory name"
+msgstr "Όνομα του καταλόγου"
+
+#: ../src/FileList.cpp:142
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: ../src/FileList.cpp:143
+msgid "Type"
+msgstr "Τύπος"
+
+#: ../src/FileList.cpp:144
+msgid "Extension"
+msgstr "Επέκταση"
+
+#: ../src/FileList.cpp:145
+msgid "Modified date"
+msgstr "Ημερομηνία τροποποίησης"
+
+#: ../src/FileList.cpp:148
+msgid "Permissions"
+msgstr "Δικαιώματα"
+
+#: ../src/FileList.cpp:4232 ../src/XFileExplorer.cpp:800
+#: ../src/XFileExplorer.cpp:830
+msgid "Original path"
+msgstr "Αρχική διαδρομή"
+
+#: ../src/FileList.cpp:4233 ../src/FilePanel.cpp:3320
+#: ../src/FilePanel.cpp:3361 ../src/XFileExplorer.cpp:799
+#: ../src/XFileExplorer.cpp:829
+msgid "Deletion date"
+msgstr "Ημερομηνία διαγραφής"
+
+#: ../src/FileList.cpp:4639 ../src/XFileImage.cpp:1112
+#: ../src/XFileImage.cpp:1583 ../src/XFileImage.cpp:1626
+#: ../src/XFileImage.cpp:1698
+msgid "Unable to load image"
+msgstr "Αδυναμία φόρτωσης της εικόνας"
+
+#: ../src/FilePanel.cpp:224 ../src/FilePanel.cpp:3199
+msgid "Filter"
+msgstr "Φίλτρο"
+
+#: ../src/FilePanel.cpp:228
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: ../src/FilePanel.cpp:1319
+msgid "To folder:"
+msgstr "Στο φάκελο:"
+
+#: ../src/FilePanel.cpp:1741
+#, c-format
+msgid "Can't write to trash location %s: Permission denied"
+msgstr ""
+"Αδυναμία εγγραφής στην τοποθεσία του κάδου ανακύκλωσης %s: Άρνηση πρόσβασης"
+
+#: ../src/FilePanel.cpp:1763
+msgid "Move the selected item to trash can?"
+msgstr "Μεταφορά του επιλεγμένου αντικειμένου, στα απορρίμματα;"
+
+#: ../src/FilePanel.cpp:1765
+#, c-format
+msgid "Move %s selected items to trash can?"
+msgstr "Μεταφορά των %s επιλεγμένων αντικειμένων, στα απορρίμματα;"
+
+#: ../src/FilePanel.cpp:1818
+#, c-format
+msgid "File %s is write-protected, move it anyway to trash can?"
+msgstr ""
+"Ο φάκελος %s έχει προστασία εγγραφής. Να μεταφερθεί στο κάδο απορριμμάτων, "
+"έτσι κι αλλιώς;"
+
+#: ../src/FilePanel.cpp:1903
+msgid "Move to trash file operation cancelled!"
+msgstr "Ακυρώθηκε η διαδικασίας μεταφοράς του αρχείου στο κάδο απορριμμάτων."
+
+#: ../src/FilePanel.cpp:2028
+#, c-format
+msgid "Restore file %s to its original location %s ?"
+msgstr "Αποκατάσταση του αρχείου %s στην αρχική του τοποθεσία %s ;"
+
+#: ../src/FilePanel.cpp:2031
+#, c-format
+msgid "Restore %s selected items to their original locations?"
+msgstr ""
+"Αποκατάσταση των %s επιλεγμένων αντικειμένων, στην αρχική τους τοποθεσία;"
+
+#: ../src/FilePanel.cpp:2070
+#, c-format
+msgid "Can't create folder %s: %s"
+msgstr "Αδυναμία δημιουργίας του φακέλου %s: %s"
+
+#: ../src/FilePanel.cpp:2160
+msgid "Definitively delete the selected item?"
+msgstr "Οριστική διαγραφή του επιλεγμένου αντικειμένου;"
+
+#: ../src/FilePanel.cpp:2162
+#, c-format
+msgid "Definitely delete %s selected items?"
+msgstr "Οριστική διαγραφή των %s επιλεγμένων αντικειμένων;"
+
+#: ../src/FilePanel.cpp:2260
+#, c-format
+msgid "File %s is write-protected, delete it anyway?"
+msgstr "Το αρχείο %s έχει προστασία εγγραφής. Να διαγραφεί, έτσι κι αλλιώς;"
+
+#: ../src/FilePanel.cpp:2314
+msgid "Delete file operation cancelled!"
+msgstr "Ακυρώθηκε η διαδικασία διαγραφής του φακέλου."
+
+#: ../src/FilePanel.cpp:2705
+msgid "Create new file:"
+msgstr "Δημιουργία νέου αρχείου:"
+
+#: ../src/FilePanel.cpp:2785
+msgid "Create new symbolic link:"
+msgstr "Δημιουργία νέου εσωτερικού δεσμού:"
+
+#: ../src/FilePanel.cpp:2785
+msgid "New Symlink"
+msgstr "Νέος Εσωτερικός Δεσμός"
+
+#. Select target
+#: ../src/FilePanel.cpp:2808
+msgid "Select the symlink refered file or folder"
+msgstr "Επέλεξε το φάκελο ή το αρχείο αναφοράς του εσωτερικού δεσμού"
+
+#: ../src/FilePanel.cpp:2818
+#, c-format
+msgid "Symlink source %s does not exist"
+msgstr "Η πηγή του εσωτερικού δεσμού %s δεν υπάρχει"
+
+#: ../src/FilePanel.cpp:3052
+msgid "Open selected file(s) with:"
+msgstr "Άνοιγμα των επιλεγμένων αρχείων με:"
+
+#: ../src/FilePanel.cpp:3052
+msgid "Open With"
+msgstr "Άνοιγμα Με"
+
+#: ../src/FilePanel.cpp:3052
+msgid "A&ssociate"
+msgstr "Συσ&χέτιση"
+
+#: ../src/FilePanel.cpp:3199
+msgid "Show files:"
+msgstr "Εμφάνιση των αρχείων:"
+
+#. Menu items
+#: ../src/FilePanel.cpp:3294
+msgid "New& file..."
+msgstr "&Νέο αρχείο..."
+
+#: ../src/FilePanel.cpp:3296 ../src/FilePanel.cpp:3337
+#: ../src/XFileExplorer.cpp:585
+msgid "New s&ymlink..."
+msgstr "Νέος εσωτερικός &δεσμός...."
+
+#: ../src/FilePanel.cpp:3297 ../src/FilePanel.cpp:3338
+msgid "Fi&lter..."
+msgstr "Φί&λτρο..."
+
+#: ../src/FilePanel.cpp:3306 ../src/FilePanel.cpp:3347
+msgid "&Full file list"
+msgstr "&Πλήρης λίστα αρχείων"
+
+#: ../src/FilePanel.cpp:3319 ../src/FilePanel.cpp:3360
+msgid "Per&missions"
+msgstr "&Δικαιώματα"
+
+#: ../src/FilePanel.cpp:3335
+msgid "Ne&w file..."
+msgstr "Νέο Α&ρχείο..."
+
+#: ../src/FilePanel.cpp:3373 ../src/XFileExplorer.cpp:881
+msgid "&Mount"
+msgstr "&Προσάρτηση"
+
+#: ../src/FilePanel.cpp:3382
+msgid "Open &with..."
+msgstr "Ά&νοιγμα με..."
+
+#: ../src/FilePanel.cpp:3383
+msgid "&Open"
+msgstr "Άν&οιγμα"
+
+#: ../src/FilePanel.cpp:3397 ../src/FilePanel.cpp:3399
+msgid "Extr&act to folder "
+msgstr "Ε&ξαγωγή στο φάκελο "
+
+#: ../src/FilePanel.cpp:3405 ../src/FilePanel.cpp:3412
+#: ../src/FilePanel.cpp:3417
+msgid "&Extract here"
+msgstr "&Αποσυμπίεση εδώ"
+
+#: ../src/FilePanel.cpp:3407 ../src/FilePanel.cpp:3419
+msgid "E&xtract to..."
+msgstr "Ε&ξαγωγή στο ..."
+
+#: ../src/FilePanel.cpp:3425 ../src/FilePanel.cpp:3433
+#: ../src/XFileExplorer.cpp:775 ../src/XFileImage.cpp:229
+#: ../src/EditWindow.cpp:578
+msgid "&View"
+msgstr "&Προβολή"
+
+#: ../src/FilePanel.cpp:3426
+msgid "Install/Up&grade"
+msgstr "Εγκατάσταση/Ανα&βάθμιση"
+
+#: ../src/FilePanel.cpp:3427
+msgid "Un&install"
+msgstr "Απεγκατάσταση"
+
+#: ../src/FilePanel.cpp:3434 ../src/XFileExplorer.cpp:713
+#: ../src/EditWindow.cpp:566 ../src/ViewWindow.cpp:97
+msgid "&Edit"
+msgstr "&Επεξεργασία"
+
+#: ../src/FilePanel.cpp:3441
+msgid "Packages &query "
+msgstr "&Διερεύνηση πακέτων"
+
+#: ../src/FilePanel.cpp:3449
+msgid "Copy &to..."
+msgstr "&Αντιγραφή σε..."
+
+#: ../src/FilePanel.cpp:3453
+msgid "Re&store from trash"
+msgstr "Απο&κατάσταση από τον κάδο απορριμμάτων"
+
+#: ../src/FilePanel.cpp:3456
+msgid "P&roperties..."
+msgstr "&Ιδιότητες..."
+
+#. File selection dialog
+#. File dialog
+#: ../src/FilePanel.cpp:3622 ../src/HistInputDialog.cpp:133
+#: ../src/BrowseInputDialog.cpp:119 ../src/ArchInputDialog.cpp:115
+msgid "Select a destination folder"
+msgstr "Επέλεξε ένα φάκελο προορισμού"
+
+#: ../src/FilePanel.cpp:3625 ../src/HistInputDialog.cpp:146
+#: ../src/BrowseInputDialog.cpp:130 ../src/ArchInputDialog.cpp:119
+#: ../src/XFilePackage.cpp:226 ../src/XFileImage.cpp:91
+#: ../src/EditWindow.cpp:1447 ../src/ViewWindow.cpp:475
+msgid "All Files"
+msgstr "Όλα τα Αρχεία"
+
+#. File object
+#: ../src/FilePanel.cpp:3929
+msgid "Package Install/Upgrade"
+msgstr "Εγκατάσταση/Αναβάθμιση Πακέτου"
+
+#. File object
+#: ../src/FilePanel.cpp:3977
+msgid "Package Uninstall"
+msgstr "Απεγκατάσταση Πακέτου"
+
+#: ../src/FilePanel.cpp:4266 ../src/XFilePackage.cpp:763
+msgid "No compatible package manager (rpm or dpkg) found!"
+msgstr "Δεν βρέθηκε συμβατός διαχειριστής πακέτων (rpm ή dpkg)"
+
+#: ../src/FilePanel.cpp:4307
+#, c-format
+msgid "File %s belongs to the package: %s"
+msgstr "Το αρχείο %s ανήκει στο πακέτο: %s"
+
+#: ../src/FilePanel.cpp:4308
+msgid "Information"
+msgstr "Πληροφορίες"
+
+#: ../src/FilePanel.cpp:4347
+msgid "0 bytes"
+msgstr "0 bytes"
+
+#: ../src/FilePanel.cpp:4375
+#, c-format
+msgid "%s in %s selected items"
+msgstr "%s σε %s επιλεγμένα αντικείμενα"
+
+#: ../src/FilePanel.cpp:4383
+msgid "1 item"
+msgstr "1 αντικείμενο"
+
+#: ../src/FilePanel.cpp:4385
+msgid " items"
+msgstr "αντικείμενα"
+
+#: ../src/FilePanel.cpp:4401 ../src/FilePanel.cpp:4407
+#: ../src/FilePanel.cpp:4422
+msgid " in one selected item"
+msgstr " σε ένα επιλεγμένο αντικείμενο"
+
+#: ../src/FilePanel.cpp:4404
+msgid "Link"
+msgstr "Δεσμός"
+
+#: ../src/FilePanel.cpp:4433
+#, c-format
+msgid " - Filter: %s"
+msgstr " - Φίλτρο: %s"
+
+#: ../src/Bookmarks.cpp:88
+msgid "Bookmarks limit number reached. The last bookmark will be deleted..."
+msgstr ""
+"Συμπληρώθηκε το όριο των σελιδοδεικτών. Ο τελευταίος σελιδοδείκτης θα "
+"διαγραφεί..."
+
+#: ../src/CommandWindow.cpp:52 ../src/CommandWindow.cpp:73
+msgid "Cl&ose"
+msgstr "Κ&λείσιμο"
+
+#: ../src/CommandWindow.cpp:245
+msgid ""
+"\n"
+">>>> COMMAND CANCELLED <<<<"
+msgstr ""
+"\n"
+">>>> Η ΕΝΤΟΛΗ ΑΚΥΡΩΘΗΚΕ <<<<"
+
+#: ../src/CommandWindow.cpp:247
+msgid ""
+"\n"
+">>>> END OF COMMAND <<<<"
+msgstr ""
+"\n"
+">>>> ΤΕΛΟΣ ΤΗΣ ΕΝΤΟΛΗΣ <<<<"
+
+#: ../src/HistInputDialog.cpp:79 ../src/BrowseInputDialog.cpp:70
+#: ../src/ArchInputDialog.cpp:58
+msgid "\tSelect destination..."
+msgstr "\tΕπέλεξε προορισμό..."
+
+#: ../src/HistInputDialog.cpp:135 ../src/BrowseInputDialog.cpp:121
+msgid "Select a file"
+msgstr "Επιλογή ενός αρχείου"
+
+#: ../src/HistInputDialog.cpp:139 ../src/BrowseInputDialog.cpp:123
+msgid "Select a file or a destination folder"
+msgstr "Επέλεξε ένα αρχείο ή ένα φάκελο προορισμού"
+
+#: ../src/ArchInputDialog.cpp:30
+msgid "Add To Archive"
+msgstr "Προσθήκη σε Αρχειοθήκη"
+
+#: ../src/ArchInputDialog.cpp:50
+msgid "New archive name:"
+msgstr "Το όνομα της νέας αρχειοθήκης"
+
+#: ../src/ArchInputDialog.cpp:62
+msgid "Format:"
+msgstr "Μορφή:"
+
+#: ../src/ArchInputDialog.cpp:64
+msgid "tar.gz\tArchive format is tar.gz"
+msgstr "tar.gz\tΗ μορφή της αρχειοθήκης είναι tar.gz"
+
+#: ../src/ArchInputDialog.cpp:65
+msgid "zip\tArchive format is zip"
+msgstr "zip\tΗ μορφή της αρχειοθήκης είναι zip"
+
+#: ../src/ArchInputDialog.cpp:66
+msgid "7z\tArchive format is 7z"
+msgstr "7z\tΗ μορφή της αρχειοθήκης είναι 7z"
+
+#: ../src/ArchInputDialog.cpp:67
+msgid "tar.bz2\tArchive format is tar.bz2"
+msgstr "tar.bz2\tΗ μορφή της αρχειοθήκης είναι tar.bz2"
+
+#: ../src/ArchInputDialog.cpp:68
+msgid "tar\tArchive format is tar"
+msgstr "tar\tΗ μορφή της αρχειοθήκης είναι tar"
+
+#: ../src/ArchInputDialog.cpp:69
+msgid "tar.Z\tArchive format is tar.Z"
+msgstr "tar.Z\tΗ μορφή της αρχειοθήκης είναι tar.Z"
+
+#: ../src/ArchInputDialog.cpp:70
+msgid "gz\tArchive format is gz"
+msgstr "gz\tΗ μορφή της αρχειοθήκης είναι gz"
+
+#: ../src/ArchInputDialog.cpp:71
+msgid "bz2\tArchive format is bz2"
+msgstr "bz2\tΗ μορφή της αρχειοθήκης είναι bz2"
+
+#: ../src/ArchInputDialog.cpp:72
+msgid "Z\tArchive format is Z"
+msgstr "Z\tΗ μορφή της αρχειοθήκης είναι Z"
+
+#: ../src/ArchInputDialog.cpp:73
+msgid "rar\tArchive format is rar"
+msgstr "rar\tΗ μορφή της αρχειοθήκης είναι rar"
+
+#: ../src/ArchInputDialog.cpp:74
+msgid "lzh\tArchive format is lzh"
+msgstr "lzh\tΗ μορφή της αρχειοθήκης είναι lzh"
+
+#: ../src/ArchInputDialog.cpp:75
+#, fuzzy
+msgid "arj\tArchive format is arj"
+msgstr "tar\tΗ μορφή της αρχειοθήκης είναι tar"
+
+#. Construct window
+#: ../src/Preferences.cpp:117
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: ../src/Preferences.cpp:119
+msgid "Current Theme"
+msgstr "Τρέχον Θέμα"
+
+#: ../src/Preferences.cpp:167
+msgid "Options"
+msgstr "Επιλογές"
+
+#: ../src/Preferences.cpp:168
+msgid "Use trash can for file deletion (safe delete)"
+msgstr ""
+"Χρήση κάδου απορριμμάτων για τη διαγραφή των αρχείων (ασφαλής διαγραφή)"
+
+#: ../src/Preferences.cpp:169
+msgid "Include a command to bypass the trash can (permanent delete)"
+msgstr ""
+"Να περιλαμβάνεται μία εντολή για τον παραμερισμό του κάδου απορριμμάτων "
+"(μόνιμη διαγραφή)"
+
+#: ../src/Preferences.cpp:170
+msgid "Auto save layout"
+msgstr "Αυτόματη αποθήκευση της διάταξης"
+
+#: ../src/Preferences.cpp:171
+msgid "Save window position"
+msgstr "Αποθήκευση της θέσης του παραθύρου"
+
+#: ../src/Preferences.cpp:172
+msgid "Single click directory open"
+msgstr "Μονό κλικ για το άνοιγμα των καταλόγων"
+
+#: ../src/Preferences.cpp:173
+msgid "Single click file open"
+msgstr "Μονό κλικ για το άνοιγμα των αρχείων"
+
+#: ../src/Preferences.cpp:174
+msgid "Display tooltips in file and directory lists"
+msgstr "Προβολή συμβουλών εργαλείου στις λίστες αρχείων και φακέλων"
+
+#: ../src/Preferences.cpp:175
+msgid "Relative resizing of file lists"
+msgstr "Σχετική αλλαγή μεγέθους της λίστας αχείων"
+
+#: ../src/Preferences.cpp:176
+msgid "Display a path linker above file lists"
+msgstr "Προβολή ενός συνδέσμου διαδρομής, πάνω από τις λίστες αρχείων"
+
+#: ../src/Preferences.cpp:178
+msgid "Notify when applications start up"
+msgstr "Να εμφανίζεται ειδοποίηση, όταν ξεκινούν οι εφαρμογές"
+
+#: ../src/Preferences.cpp:180
+msgid "Mouse"
+msgstr "Ποντίκι"
+
+#: ../src/Preferences.cpp:181
+msgid "Smooth scrolling in file lists and text windows"
+msgstr "Ομαλή κύλισης στις λίστες αρχείων και στα παράθυρα κειμένου"
+
+#: ../src/Preferences.cpp:183
+msgid "Mouse scrolling speed:"
+msgstr "Ταχύτητα κύλισης του ποντικού:"
+
+#: ../src/Preferences.cpp:189
+msgid "Root mode"
+msgstr "Κατάσταση λειτουργίας υπερχρήστη"
+
+#: ../src/Preferences.cpp:190
+msgid "Allow root mode"
+msgstr "Να επιτρέπεται η λειτουργία σε κατάσταση υπερχρήστη"
+
+#: ../src/Preferences.cpp:191
+msgid "Authentication using su (uses root password)"
+msgstr "Αυθεντικοποίηση με τη χρήση του su (χρησιμοποιεί τον κωδικό του root)"
+
+#: ../src/Preferences.cpp:192
+msgid "Authentication using sudo (uses user password)"
+msgstr ""
+"Αυθεντικοποίηση με τη χρήση του sudo (χρησιμοποιεί τον κωδικό του χρήστη)"
+
+#. Second tab - Dialogs
+#: ../src/Preferences.cpp:265
+msgid "&Dialogs"
+msgstr "&Διάλογοι"
+
+#: ../src/Preferences.cpp:267
+msgid "Confirmations"
+msgstr "Επιβεβαιώσεις"
+
+#: ../src/Preferences.cpp:268
+msgid "Confirm copy/move/rename/symlink"
+msgstr "Επιβεβαίωση αντιγραφής/μεταφοράς/μετονομασίας/εσωτερικού δεσμού"
+
+#: ../src/Preferences.cpp:269
+msgid "Confirm drag and drop"
+msgstr "Επιβεβαίωση αρπαγής και μετακίνησης"
+
+#: ../src/Preferences.cpp:270
+msgid "Confirm move to trash/restore from trash"
+msgstr ""
+"Επιβεβαίωση της μεταφοράς στα απορρίμματα, και της επαναφοράς από τα "
+"απορρίμματα"
+
+#: ../src/Preferences.cpp:271
+msgid "Confirm delete"
+msgstr "Επιβεβαίωση των διαγραφών"
+
+#: ../src/Preferences.cpp:272
+msgid "Confirm delete non empty directories"
+msgstr "Επιβεβαίωση διαγραφής μη άδειων καταλόγων"
+
+#: ../src/Preferences.cpp:273
+msgid "Confirm overwrite"
+msgstr "Επιβεβαίωση της αντικατάστασης"
+
+#: ../src/Preferences.cpp:274
+msgid "Confirm quit"
+msgstr "Επιβεβαίωση του τερματισμού"
+
+#: ../src/Preferences.cpp:276
+msgid "Warnings"
+msgstr "Προειδοποιήσεις"
+
+#: ../src/Preferences.cpp:278
+msgid "Warn when mount points are not responding"
+msgstr "Επισήμανση όταν τα σημεία προσάρτησης δεν ανταποκρίνονται"
+
+#: ../src/Preferences.cpp:279
+msgid "Display mount/umount success messages"
+msgstr "Εμφάνιση μηνυμάτων επιτυχίας για την προσάρτηση και την αποπροσάρτηση"
+
+#: ../src/Preferences.cpp:281
+msgid "Warn if running as root"
+msgstr "Επισήμανση αν εκτελείται με δικαιώματα υπερχρήστη"
+
+#. Third tab - Programs
+#: ../src/Preferences.cpp:312
+msgid "&Programs"
+msgstr "&Προγράμματα"
+
+#: ../src/Preferences.cpp:314
+msgid "Default programs"
+msgstr "Προεπιλεγμένα προγράμματα"
+
+#: ../src/Preferences.cpp:317
+msgid "Text editor:"
+msgstr "Επεξεργαστής κειμένου:"
+
+#: ../src/Preferences.cpp:323
+msgid "Text viewer:"
+msgstr "Προβολέας κειμένου:"
+
+#: ../src/Preferences.cpp:329
+msgid "Image editor:"
+msgstr "Επεξεργαστής εικόνας:"
+
+#: ../src/Preferences.cpp:335
+msgid "Image viewer:"
+msgstr "Προβολέας εικόνων:"
+
+#: ../src/Preferences.cpp:341
+msgid "Archiver:"
+msgstr "Συμπιεστής αρχείων:"
+
+#: ../src/Preferences.cpp:347
+msgid "Pdf viewer:"
+msgstr "Προβολέας αρχείων PDF:"
+
+#: ../src/Preferences.cpp:353
+msgid "Audio player:"
+msgstr "Αναπαραγωγός ήχου:"
+
+#: ../src/Preferences.cpp:359
+msgid "Video player:"
+msgstr "Αναπαραγωγός βίντεο:"
+
+#: ../src/Preferences.cpp:365
+msgid "Terminal:"
+msgstr "Τερματικό:"
+
+#. Fourth tab - Visual
+#: ../src/Preferences.cpp:372
+msgid "&Themes"
+msgstr "&Θέματα"
+
+#: ../src/Preferences.cpp:374
+msgid "Color theme"
+msgstr "Θέμα χρωμάτων"
+
+#: ../src/Preferences.cpp:382
+msgid "Custom colors"
+msgstr "Προσαρμοσμένα χρώματα"
+
+#: ../src/Preferences.cpp:387
+msgid "Double click to customize the color"
+msgstr "Διπλό κλικ για την προσαρμογή του χρώματος"
+
+#: ../src/Preferences.cpp:389
+msgid "Base color"
+msgstr "Κύριο χρώμα"
+
+#: ../src/Preferences.cpp:390
+msgid "Border color"
+msgstr "Χρώμα περιγράμματος"
+
+#: ../src/Preferences.cpp:391
+msgid "Background color"
+msgstr "Χρώμα παρασκηνίου"
+
+#: ../src/Preferences.cpp:392
+msgid "Text color"
+msgstr "Χρώμα κειμένου"
+
+#: ../src/Preferences.cpp:393
+msgid "Selection background color"
+msgstr "Χρώμα παρασκηνίου της επιλογής"
+
+#: ../src/Preferences.cpp:394
+msgid "Selection text color"
+msgstr "Χρώμα της γραμματοσειράς της επιλογής"
+
+#: ../src/Preferences.cpp:395
+msgid "File list background color"
+msgstr "Χρώμα παρασκηνίου της λίστας αρχείων"
+
+#: ../src/Preferences.cpp:396
+msgid "File list text color"
+msgstr "Χρώμα της γραμματοσειράς της λίστας αρχείων"
+
+#: ../src/Preferences.cpp:397
+msgid "File list highlight color"
+msgstr "Χρώμα επισήμανσης της λίστας αρχείων"
+
+#: ../src/Preferences.cpp:398
+msgid "Progress bar color"
+msgstr "Χρώμα ένδειξης προόδου"
+
+#: ../src/Preferences.cpp:399
+msgid "Attention color"
+msgstr "Χρώμα προσοχής"
+
+#. Controls theme
+#: ../src/Preferences.cpp:403
+msgid "Controls"
+msgstr "Χειριστήρια"
+
+#: ../src/Preferences.cpp:405
+msgid "Standard (classic controls)"
+msgstr "Προεπιλεγμένη (κλασικά χειριστήρια)"
+
+#: ../src/Preferences.cpp:406
+msgid "Clearlooks (modern looking controls)"
+msgstr "Καθαρή Εμφάνιση [ Clearlooks ] ( χειριστήρια μοντέρνας εμφάνισης)"
+
+#. Find iconpath from the Xfe registry settings or set it to DEFAULTICONPATH
+#: ../src/Preferences.cpp:409
+msgid "Icon theme path"
+msgstr "Η διαδρομή για το Θέμα των εικονιδίων"
+
+#: ../src/Preferences.cpp:412
+msgid "\tSelect path..."
+msgstr "\tΕπέλεξε διαδρομή..."
+
+#. Fifth tab - Fonts
+#: ../src/Preferences.cpp:417
+msgid "&Fonts"
+msgstr "&Γραμματοσειρές"
+
+#: ../src/Preferences.cpp:419
+msgid "Fonts"
+msgstr "Γραμματοσειρές"
+
+#: ../src/Preferences.cpp:422
+msgid "Normal font:"
+msgstr "Κανονική γραμματοσειρά:"
+
+#: ../src/Preferences.cpp:424 ../src/Preferences.cpp:430
+msgid " Select..."
+msgstr " Επιλογή..."
+
+#: ../src/Preferences.cpp:428
+msgid "Text font:"
+msgstr "Χρώμα κειμένου:"
+
+#. Sixth tab - Key bindings
+#: ../src/Preferences.cpp:435
+msgid "&Key Bindings"
+msgstr "&Συντομεύσεις Πληκτρολογίου"
+
+#: ../src/Preferences.cpp:437 ../src/Keybindings.cpp:63
+msgid "Key Bindings"
+msgstr "Συντομεύσεις Πληκτρολογίου"
+
+#: ../src/Preferences.cpp:440
+msgid "Modify key bindings..."
+msgstr "Μετατροπή των συντομεύσεων πληκτρολογίου..."
+
+#. ,0,0,0,0,20,20);
+#: ../src/Preferences.cpp:441
+msgid "Restore default key bindings..."
+msgstr "Αποκατάσταση των προεπιλεγμένων συντομεύσεων πληκτρολογίου..."
+
+#: ../src/Preferences.cpp:481
+msgid "Select an icon theme folder or an icon file"
+msgstr "Επέλεξε ένα αρχείο ή ένα φάκελο που περιέχει ένα θέμα εικονιδίων"
+
+#: ../src/Preferences.cpp:544
+msgid "Change Normal Font"
+msgstr "Αλλαγή της Κανονικής Γραμματοσειράς"
+
+#: ../src/Preferences.cpp:567
+msgid "Change Text Font"
+msgstr "Τροποποίηση της Γραμματοσειράς του Κειμένου"
+
+#: ../src/Preferences.cpp:612 ../src/XFileExplorer.cpp:452
+msgid "Create new file"
+msgstr "Δημιουργία νέου αρχείου"
+
+#: ../src/Preferences.cpp:616 ../src/XFileExplorer.cpp:455
+msgid "Create new folder"
+msgstr "Δημιουργία νέου φακέλου"
+
+#: ../src/Preferences.cpp:620
+msgid "Copy to clipboard"
+msgstr "Αντιγραφή στο πρόχειρο"
+
+#: ../src/Preferences.cpp:624
+msgid "Cut to clipboard"
+msgstr "Αποκοπή στο πρόχειρο"
+
+#: ../src/Preferences.cpp:628 ../src/XFileExplorer.cpp:469
+msgid "Paste from clipboard"
+msgstr "Επικόλληση από το πρόχειρο"
+
+#: ../src/Preferences.cpp:644
+msgid "Open file"
+msgstr "Άνοιγμα αρχείου"
+
+#: ../src/Preferences.cpp:648
+msgid "Quit application"
+msgstr "Τερματισμός της εφαρμογής"
+
+#: ../src/Preferences.cpp:652
+msgid "Select all"
+msgstr "Επιλογή όλων"
+
+#: ../src/Preferences.cpp:656
+msgid "Deselect all"
+msgstr "Αποεπιλογή όλων"
+
+#: ../src/Preferences.cpp:660
+msgid "Invert selection"
+msgstr "Αντιστροφή επιλογής"
+
+#: ../src/Preferences.cpp:664
+msgid "Display help"
+msgstr "Εμφάνιση της βοήθειας"
+
+#: ../src/Preferences.cpp:668
+msgid "Toggle display hidden files"
+msgstr "Εναλλαγή της εμφάνισης των κρυφών αρχείων"
+
+#: ../src/Preferences.cpp:672
+msgid "Toggle display thumbnails"
+msgstr "Εναλλαγή της εμφάνισης των εικόνων προεπισκόπησης"
+
+#: ../src/Preferences.cpp:680
+msgid "Close window"
+msgstr "Κλείσιμο παραθύρου"
+
+#: ../src/Preferences.cpp:684
+msgid "Print file"
+msgstr "Εκτύπωση του αρχείου"
+
+#: ../src/Preferences.cpp:688 ../src/EditWindow.cpp:682
+#: ../src/EditWindow.cpp:1898
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: ../src/Preferences.cpp:692
+msgid "Search previous"
+msgstr "Αναζήτηση προηγούμενου"
+
+#: ../src/Preferences.cpp:696
+msgid "Search next"
+msgstr "Αναζήτηση επόμενου"
+
+#: ../src/Preferences.cpp:705 ../src/XFileExplorer.cpp:447
+msgid "Refresh panels"
+msgstr "Ανανέωση των πλαισίων"
+
+#: ../src/Preferences.cpp:709
+msgid "Create new symbolic link"
+msgstr "Δημιουργία νέου εσωτερικού δεσμού:"
+
+#: ../src/Preferences.cpp:713
+msgid "File properties"
+msgstr "Ιδιότητες αρχείου"
+
+#: ../src/Preferences.cpp:717
+msgid "Move files to trash"
+msgstr "Μεταφορά των αρχείων στα απορρίμματα"
+
+#: ../src/Preferences.cpp:721
+msgid "Restore files from trash"
+msgstr "Αποκατάσταση των αρχείων από τον κάδο απορριμμάτων"
+
+#: ../src/Preferences.cpp:725
+msgid "Delete files"
+msgstr "Διαγραφή των αρχείων"
+
+#: ../src/Preferences.cpp:729
+msgid "Create new window"
+msgstr "Δημιουργία νέου παραθύρου"
+
+#: ../src/Preferences.cpp:733
+msgid "Create new root window"
+msgstr "Δημιουργία νέου παραθύρου υπερχρήστη"
+
+#: ../src/Preferences.cpp:737 ../src/XFileExplorer.cpp:492
+#: ../src/XFileExplorer.cpp:2594
+msgid "Execute command"
+msgstr "Εκτέλεση εντολής"
+
+#: ../src/Preferences.cpp:741 ../src/XFileExplorer.cpp:495
+msgid "Launch terminal"
+msgstr "Εκκίνηση τερματικού"
+
+#: ../src/Preferences.cpp:746
+msgid "Mount file system (Linux only)"
+msgstr "Προσάρτηση συστήματος αρχείων (μόνο για Λίνουξ)"
+
+#: ../src/Preferences.cpp:750
+msgid "Unmount file system (Linux only)"
+msgstr "Αποπροσάρτηση του συστήματος αρχείων (μόνο για Λίνουξ)"
+
+#: ../src/Preferences.cpp:755
+msgid "One panel mode"
+msgstr "Κατάστασης λειτουργίας ενός πλαισίου"
+
+#: ../src/Preferences.cpp:759
+msgid "Tree and panel mode"
+msgstr "Κατάσταση προβολής με δένδρο και ένα πλαίσιο"
+
+#: ../src/Preferences.cpp:763
+msgid "Two panels mode"
+msgstr "Κατάστασης λειτουργίας δύο πλαισίων"
+
+#: ../src/Preferences.cpp:767
+msgid "Tree and two panels mode"
+msgstr "Κατάσταση προβολής με δένδρο και δύο πλαίσια"
+
+#: ../src/Preferences.cpp:771
+msgid "Clear location bar"
+msgstr "Καθαρισμός γραμμής τοποθεσίας"
+
+#: ../src/Preferences.cpp:775
+msgid "Rename file"
+msgstr "Μετονομασία αρχείου"
+
+#: ../src/Preferences.cpp:779
+msgid "Copy files to location"
+msgstr "Αντιγραφή των αρχείων στην τοποθεσία"
+
+#: ../src/Preferences.cpp:783
+msgid "Move files to location"
+msgstr "Μεταφορά των αρχείων στην τοποθεσία"
+
+#: ../src/Preferences.cpp:787
+msgid "Symlink files to location"
+msgstr "Εσωτερική σύνδεση των αρχείων στην τοποθεσία"
+
+#: ../src/Preferences.cpp:791
+msgid "Add bookmark"
+msgstr "Προσθήκη σελιδοδείκτη"
+
+#: ../src/Preferences.cpp:795
+msgid "Synchronize panels"
+msgstr "Συγχρονισμός πλαισίων"
+
+#: ../src/Preferences.cpp:799
+msgid "Switch panels"
+msgstr "Εναλλαγή πλαισίων"
+
+#: ../src/Preferences.cpp:803
+msgid "Go to trash can"
+msgstr "Μετάβαση στον κάδο απορριμάτων"
+
+#: ../src/Preferences.cpp:807 ../src/XFileExplorer.cpp:2720
+msgid "Empty trash can"
+msgstr "Άδειασμα του κάδου απορριμάτων"
+
+#: ../src/Preferences.cpp:811
+msgid "View"
+msgstr "Προβολή"
+
+#: ../src/Preferences.cpp:815
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: ../src/Preferences.cpp:819
+msgid "Toggle display hidden directories"
+msgstr "Εναλλαγή της εμφάνισης των κρυφών καταλόγων"
+
+#: ../src/Preferences.cpp:823
+msgid "Filter files"
+msgstr "Φιλτράρισμα των αρχείων"
+
+#: ../src/Preferences.cpp:832
+msgid "Zoom image to 100%"
+msgstr "Εστίαση της εικόνας στο 100%"
+
+#: ../src/Preferences.cpp:836
+msgid "Zoom to fit window"
+msgstr "Εστίαση για να ταιριάζει στο παράθυρο"
+
+#: ../src/Preferences.cpp:840
+msgid "Rotate image to left"
+msgstr "Περιστροφή της εικόνας στα αριστερά"
+
+#: ../src/Preferences.cpp:844
+msgid "Rotate image to right"
+msgstr "Περιστροφή της εικόνας στα δεξιά"
+
+#: ../src/Preferences.cpp:848
+msgid "Mirror image horizontally"
+msgstr "Οριζόντιος καθρεπτισμός εικόνας"
+
+#: ../src/Preferences.cpp:852
+msgid "Mirror image vertically"
+msgstr "Κατακόρυφος καθρεπτισμός εικόνας"
+
+#: ../src/Preferences.cpp:861
+msgid "Create new document"
+msgstr "Δημιουργία ενός νέου εγγράφου"
+
+#: ../src/Preferences.cpp:865
+msgid "Save changes to file"
+msgstr "Αποθήκευση των αλλαγών του αρχείου"
+
+#: ../src/Preferences.cpp:869 ../src/EditWindow.cpp:665
+msgid "Goto line"
+msgstr "Μετάβαση στη γραμμή"
+
+#: ../src/Preferences.cpp:873
+msgid "Undo last change"
+msgstr "Αναίρεση τελευταίας αλλαγής"
+
+#: ../src/Preferences.cpp:877
+msgid "Redo last change"
+msgstr "Επανάληψη τελευταίας αλλαγής"
+
+#: ../src/Preferences.cpp:881
+msgid "Replace string"
+msgstr "Αντικατάσταση στίχου"
+
+#: ../src/Preferences.cpp:885
+msgid "Toggle word wrap mode"
+msgstr "Εναλλαγή της κατάστασης λειτουργίας της αναδίπλωσης λέξεων."
+
+#: ../src/Preferences.cpp:889
+msgid "Toggle line numbers mode"
+msgstr "Εναλλαγή της κατάστασης λειτουργίας αρίθμησης των γραμμών"
+
+#: ../src/Preferences.cpp:893
+msgid "Toggle lower case mode"
+msgstr "Εναλλαγή της κατάστασης λειτουργίας πεζών"
+
+#: ../src/Preferences.cpp:897
+msgid "Toggle upper case mode"
+msgstr "Εναλλαγή της κατάστασης λειτουργίας κεφαλαίων"
+
+#. Confirmation message
+#: ../src/Preferences.cpp:914
+msgid ""
+"Do you really want to restore the default key bindings?\n"
+"\n"
+"All your customizations will be lost!"
+msgstr ""
+"Θέλεις πραγματικά να επαναφέρεις τις προεπιλεγμένες συντομεύσεις "
+"πληκτρολογίου;\n"
+"\n"
+"Όλες οι προσαρμοσμένες ρυθμίσεις σου θα χαθούν."
+
+#: ../src/Preferences.cpp:915
+msgid "Restore default key bindings"
+msgstr "Αποκατάσταση των προεπιλεγμένων συντομεύσεων πληκτρολογίου"
+
+#. Ask the user if he wants to restart Xfe
+#: ../src/Preferences.cpp:1007 ../src/Preferences.cpp:1532
+#: ../src/Preferences.cpp:1537 ../src/Preferences.cpp:1543
+#: ../src/Preferences.cpp:1549 ../src/Preferences.cpp:1555
+#: ../src/Preferences.cpp:1561 ../src/Keybindings.cpp:266
+msgid "Restart"
+msgstr "Επανεκκίνηση"
+
+#: ../src/Preferences.cpp:1007 ../src/Keybindings.cpp:266
+msgid ""
+"Key bindings will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Οι συντομεύσεις πληκτρολογίου θα αλλάξουν μετά από επανεκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/Preferences.cpp:1532
+msgid ""
+"Scrolling mode will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Η κατάσταση λειτουργίας κύλισης θα αλλάξει μετά από νέα εκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/Preferences.cpp:1537
+msgid ""
+"Theme will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Το θέμα θα αλλάξει μετά από νέα εκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/Preferences.cpp:1543
+msgid ""
+"Path linker will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Ο σύνδεσμος των διαδρομών θα αλλάξει μετά από νέα εκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/Preferences.cpp:1549
+msgid ""
+"Button style will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Η μορφή των κουμπιών θα αλλάξει μετά από νέα εκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/Preferences.cpp:1555
+msgid ""
+"Normal font will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Η κανονική γραμματοσειρά θα αλλάξει μετά από νέα εκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/Preferences.cpp:1561
+msgid ""
+"Text font will be changed after restart.\n"
+"Restart X File Explorer now?"
+msgstr ""
+"Η γραμματοσειρά του κειμένου θα αλλάξει μετά από νέα εκκίνηση.\n"
+"Να γίνει επανεκκίνηση του X File Explorer, τώρα;"
+
+#: ../src/OverwriteBox.cpp:39
+msgid "&Skip"
+msgstr "&Παράβλεψη"
+
+#: ../src/OverwriteBox.cpp:40
+msgid "Skip A&ll"
+msgstr "Παράβλεψη Ό&λων"
+
+#. Close
+#: ../src/TextWindow.cpp:29 ../src/TextWindow.cpp:47
+#: ../src/XFilePackage.cpp:170 ../src/EditWindow.cpp:726
+#: ../src/ViewWindow.cpp:176
+msgid "&Close"
+msgstr "&Κλείσιμο"
+
+#: ../src/XFileExplorer.cpp:458
+msgid "Create new symlink"
+msgstr "Δημιουργία νέου εσωτερικού δεσμού"
+
+#: ../src/XFileExplorer.cpp:463
+msgid "Copy selected files to clipboard"
+msgstr "Αντιγραφή των επιλεγμένων αρχείων στο πρόχειρο"
+
+#: ../src/XFileExplorer.cpp:466
+msgid "Cut selected files to clipboard"
+msgstr "Αποκοπή των επιλεγμένων αρχείων στο πρόχειρο"
+
+#: ../src/XFileExplorer.cpp:472
+msgid "Show properties of selected files"
+msgstr "Εμφάνιση των ιδιοτήτων των επιλεγμένων αρχείων"
+
+#: ../src/XFileExplorer.cpp:477
+msgid "Move selected files to trash can"
+msgstr "Μεταφορά των επιλεγμένων αρχείων στον κάδο απορριμμάτων"
+
+#: ../src/XFileExplorer.cpp:480
+msgid "Restore selected files from trash can"
+msgstr "Αποκατάσταση των επιλεγμένων αρχείων από κάδο απορριμμάτων"
+
+#: ../src/XFileExplorer.cpp:483
+msgid "Delete selected files"
+msgstr "Διαγραφή των επιλεγμένων αρχείων"
+
+#: ../src/XFileExplorer.cpp:486
+msgid "Launch Xfe"
+msgstr "Εκκίνηση του Xfe"
+
+#: ../src/XFileExplorer.cpp:502
+msgid "Mount (Linux only)"
+msgstr "Προσάρτηση (μόνο στα Λίνουξ)"
+
+#: ../src/XFileExplorer.cpp:507
+msgid "Unmount (Linux only)"
+msgstr "Αποπροσάρτηση (μόνο στα Λίνουξ)"
+
+#: ../src/XFileExplorer.cpp:516
+msgid "Show one panel"
+msgstr "Προβολή ενός πλαισίου"
+
+#: ../src/XFileExplorer.cpp:522
+msgid "Show tree and panel"
+msgstr "Προβολή δένδρου και πλαισίου"
+
+#: ../src/XFileExplorer.cpp:528
+msgid "Show two panels"
+msgstr "Εμφάνιση δύο πλαισίων"
+
+#: ../src/XFileExplorer.cpp:534
+msgid "Show tree and two panels"
+msgstr "Προβολή δένδρου και δύο πλαισίων"
+
+#: ../src/XFileExplorer.cpp:559
+msgid "Clear location"
+msgstr "Καθαρισμός τοποθεσίας"
+
+#: ../src/XFileExplorer.cpp:564
+msgid "Go to location"
+msgstr "Μετάβαση στην τοποθεσία"
+
+#: ../src/XFileExplorer.cpp:579
+msgid "New fo&lder..."
+msgstr "Νέος &φάκελος..."
+
+#: ../src/XFileExplorer.cpp:591
+msgid "Go &home"
+msgstr "Μετάβαση στον αρ&χικό κατάλογο"
+
+#: ../src/XFileExplorer.cpp:597
+msgid "&Refresh"
+msgstr "Α&νανέωση"
+
+#: ../src/XFileExplorer.cpp:605 ../src/XFilePackage.cpp:135
+#: ../src/XFileImage.cpp:439 ../src/EditWindow.cpp:712
+#: ../src/ViewWindow.cpp:170
+msgid "&Open..."
+msgstr "Ά&νοιγμα..."
+
+#: ../src/XFileExplorer.cpp:617
+msgid "&Copy to..."
+msgstr "Αντι&γραφή σε..."
+
+#: ../src/XFileExplorer.cpp:629
+msgid "&Symlink to..."
+msgstr "Ε&σωτερικός δεσμός στο..."
+
+#: ../src/XFileExplorer.cpp:653
+msgid "&Properties..."
+msgstr "&Ιδιότητες..."
+
+#: ../src/XFileExplorer.cpp:667 ../src/XFilePackage.cpp:118
+#: ../src/XFileImage.cpp:217 ../src/EditWindow.cpp:562
+#: ../src/ViewWindow.cpp:93
+msgid "&File"
+msgstr "&Αρχείο"
+
+#: ../src/XFileExplorer.cpp:692
+msgid "&Select all"
+msgstr "Επιλογή &όλων"
+
+#: ../src/XFileExplorer.cpp:698
+msgid "&Deselect all"
+msgstr "Α&ποεπιλογή όλων"
+
+#: ../src/XFileExplorer.cpp:704
+msgid "&Invert selection"
+msgstr "Α&ντιστροφή επιλογής"
+
+#: ../src/XFileExplorer.cpp:711
+msgid "P&references"
+msgstr "&Προτιμήσεις"
+
+#: ../src/XFileExplorer.cpp:717
+msgid "&Add bookmark"
+msgstr "Προσθήκη σελι&δοδείκτη"
+
+#: ../src/XFileExplorer.cpp:745
+msgid "&Clear bookmarks"
+msgstr "Εκκα&θάριση των σελιδοδεικτών"
+
+#: ../src/XFileExplorer.cpp:747
+msgid "&Bookmarks"
+msgstr "&Σελιδοδείκτες"
+
+#: ../src/XFileExplorer.cpp:751
+msgid "&General toolbar"
+msgstr "&Γενική γραμμή εργαλείων"
+
+#: ../src/XFileExplorer.cpp:752
+msgid "&Tools toolbar"
+msgstr "&Γραμμή εργαλείων"
+
+#: ../src/XFileExplorer.cpp:753
+msgid "&Panel toolbar"
+msgstr "&Γραμμή εργαλείων πλαισίου"
+
+#: ../src/XFileExplorer.cpp:754
+msgid "&Location bar"
+msgstr "&Γραμμή εργαλείων τοποθεσίας"
+
+#: ../src/XFileExplorer.cpp:755 ../src/ViewWindow.cpp:229
+msgid "&Status bar"
+msgstr "&Γραμμή εργαλείων κατάστασης"
+
+#: ../src/XFileExplorer.cpp:759
+msgid "&One panel"
+msgstr "&Ένα πλαίσιο"
+
+#: ../src/XFileExplorer.cpp:763
+msgid "T&ree and panel"
+msgstr "&Δένδρο και πλαίσιο"
+
+#: ../src/XFileExplorer.cpp:767
+msgid "Two &panels"
+msgstr "&Δύο πλαίσια"
+
+#: ../src/XFileExplorer.cpp:771
+msgid "Tr&ee and two panels"
+msgstr "Δένδρο &και δύο πλαίσια"
+
+#: ../src/XFileExplorer.cpp:779
+msgid "&Filter..."
+msgstr "&Φίλτρο..."
+
+#: ../src/XFileExplorer.cpp:781 ../src/XFileExplorer.cpp:811
+#: ../src/XFileImage.cpp:524
+msgid "&Thumbnails"
+msgstr "Εικόνες &προεπισκόπησης"
+
+#: ../src/XFileExplorer.cpp:783 ../src/XFileExplorer.cpp:813
+#: ../src/XFileImage.cpp:532
+msgid "&Big icons"
+msgstr "&Μεγάλα εικονίδια"
+
+#: ../src/XFileExplorer.cpp:785 ../src/XFileExplorer.cpp:815
+msgid "F&ull file list"
+msgstr "&Πλήρης λίστα αρχείων"
+
+#: ../src/XFileExplorer.cpp:793 ../src/XFileExplorer.cpp:823
+msgid "T&ype"
+msgstr "Τύ&πος"
+
+#: ../src/XFileExplorer.cpp:795 ../src/XFileExplorer.cpp:825
+msgid "D&ate"
+msgstr "Ημερομην&ία"
+
+#: ../src/XFileExplorer.cpp:796 ../src/XFileExplorer.cpp:826
+msgid "Us&er"
+msgstr "&Χρήστης"
+
+#: ../src/XFileExplorer.cpp:797 ../src/XFileExplorer.cpp:827
+msgid "Gr&oup"
+msgstr "Ομά&δα"
+
+#: ../src/XFileExplorer.cpp:802 ../src/XFileExplorer.cpp:832
+msgid "I&gnore case"
+msgstr "&Αγνόηση πεζών κεφαλαίων"
+
+#: ../src/XFileExplorer.cpp:803 ../src/XFileExplorer.cpp:833
+msgid "&Directories first"
+msgstr "Πρ&ώτα οι κατάλογοι"
+
+#: ../src/XFileExplorer.cpp:805 ../src/XFileExplorer.cpp:2435
+#: ../src/XFileExplorer.cpp:2478
+msgid "&Left panel"
+msgstr "Αριστ&ερό πλαίσιο"
+
+#: ../src/XFileExplorer.cpp:809
+msgid "&Filter"
+msgstr "&Φίλτρο"
+
+#: ../src/XFileExplorer.cpp:835 ../src/XFileExplorer.cpp:2434
+#: ../src/XFileExplorer.cpp:2477
+msgid "&Right panel"
+msgstr "Δε&ξί πλαίσιο"
+
+#: ../src/XFileExplorer.cpp:840
+msgid "New &window"
+msgstr "Νέο &παράθυρο"
+
+#: ../src/XFileExplorer.cpp:846
+msgid "New &root window"
+msgstr "Νέο παράθυρο &υπερχρήστη"
+
+#: ../src/XFileExplorer.cpp:854
+msgid "E&xecute command..."
+msgstr "Εκ&τέλεση εντολής..."
+
+#: ../src/XFileExplorer.cpp:860
+msgid "&Terminal"
+msgstr "&Τερματικό"
+
+#: ../src/XFileExplorer.cpp:866
+msgid "&Synchronize panels"
+msgstr "&Συγχρονισμός πλαισίων"
+
+#: ../src/XFileExplorer.cpp:872
+msgid "Sw&itch panels"
+msgstr "&Εναλλαγή πλαισίων"
+
+#: ../src/XFileExplorer.cpp:885
+msgid "&Unmount"
+msgstr "&Αποπροσάρτηση"
+
+#: ../src/XFileExplorer.cpp:890
+msgid "&Tools"
+msgstr "Ερ&γαλεία"
+
+#: ../src/XFileExplorer.cpp:895
+msgid "&Go to trash"
+msgstr "&Μετάβαση στα απορρίμματα"
+
+#: ../src/XFileExplorer.cpp:901
+msgid "&Trash size"
+msgstr "&Μέγεθος του κάδου απορριμμάτων"
+
+#: ../src/XFileExplorer.cpp:903
+msgid "&Empty trash can"
+msgstr "&Άδειασμα του κάδου απορριμμάτων"
+
+#: ../src/XFileExplorer.cpp:910 ../src/XFileExplorer.cpp:2965
+msgid "T&rash"
+msgstr "Απο&ρρίμματα"
+
+#: ../src/XFileExplorer.cpp:915 ../src/XFileExplorer.cpp:922
+#: ../src/XFileExplorer.cpp:2968 ../src/XFileExplorer.cpp:2979
+#: ../src/XFilePackage.cpp:126 ../src/XFileImage.cpp:233
+#: ../src/EditWindow.cpp:586 ../src/ViewWindow.cpp:113
+msgid "&Help"
+msgstr "&Βοήθεια"
+
+#: ../src/XFileExplorer.cpp:921
+msgid "&About X File Explorer"
+msgstr "&Σχετικά με τον X File Explorer"
+
+#: ../src/XFileExplorer.cpp:1431
+msgid "Running Xfe as root!"
+msgstr "Εκτέλεση του Xfe σαν υπερχρήστης."
+
+#: ../src/XFileExplorer.cpp:1473
+#, c-format
+msgid "Can't create Xfe config folder %s : %s"
+msgstr "Αδυναμία δημιουργίας του φακέλου ρυθμίσεων του Xfe %s : %s"
+
+#: ../src/XFileExplorer.cpp:1475
+#, c-format
+msgid "Can't create Xfe config folder %s"
+msgstr "Αδυναμία δημιουργίας του φακέλου ρυθμίσεων του Xfe %s"
+
+#: ../src/XFileExplorer.cpp:1490
+msgid "No global xferc file found! Please select a configuration file..."
+msgstr ""
+"Δεν βρέθηκε ένα καθολικό αρχείο xferc. Παρακαλώ, επέλεξε ένα αρχείο "
+"ρυθμίσεων..."
+
+#: ../src/XFileExplorer.cpp:1494
+msgid "XFE configuration file"
+msgstr "Αρχείο ρυθμίσεων του XFE"
+
+#: ../src/XFileExplorer.cpp:1522
+#, c-format
+msgid "Can't create trash can 'files' folder %s : %s"
+msgstr ""
+"Αδυναμία δημιουργίας του φακέλου για τα αρχεία του κάδου απορριμμάτων %s: %s"
+
+#: ../src/XFileExplorer.cpp:1524 ../src/XFileExplorer.cpp:2751
+#, c-format
+msgid "Can't create trash can 'files' folder %s"
+msgstr "Αδυναμία  δημιουργίας του φακέλου «αρχείων», του κάδου απορριμμάτων, %s"
+
+#: ../src/XFileExplorer.cpp:1540 ../src/XFileExplorer.cpp:2764
+#, c-format
+msgid "Can't create trash can 'info' folder %s: %s"
+msgstr ""
+"Αδυναμία δημιουργίας του φακέλου για τις πληροφορίες του κάδου απορριμμάτων %"
+"s : %s"
+
+#: ../src/XFileExplorer.cpp:1542 ../src/XFileExplorer.cpp:2766
+#, c-format
+msgid "Can't create trash can 'info' folder %s"
+msgstr ""
+"Αδυναμία  δημιουργίας του φακέλου «πληροφοριών», του κάδου απορριμμάτων, %s"
+
+#: ../src/XFileExplorer.cpp:1759
+msgid "Quitting Xfe"
+msgstr "Κλείσιμο του Xfe"
+
+#: ../src/XFileExplorer.cpp:1759
+msgid "Do you really want to quit Xfe?"
+msgstr "Θέλεις πραγματικά να κλείσεις τον Xfe;"
+
+#: ../src/XFileExplorer.cpp:2181
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: ../src/XFileExplorer.cpp:2209
+#, c-format
+msgid "X File Explorer Version %s"
+msgstr "X File Explorer Έκδοση  %s"
+
+#: ../src/XFileExplorer.cpp:2210
+msgid "Based on X WinCommander by Maxim Baranov\n"
+msgstr "Βασίζετααι στον X WinCommander του Maxim Baranov\n"
+
+#: ../src/XFileExplorer.cpp:2212
+msgid ""
+"\n"
+"Translators\n"
+"-------------\n"
+"Argentinian Spanish: Bruno Gilberto Luciani\n"
+"Brazilian Portuguese: Eduardo R.B.S., Jose Carlos Medeiros,\n"
+"Phantom X, Tomas Acauan Schertel\n"
+"Catalan: muzzol\n"
+"Chinese: Xin Li\n"
+"Czech: David Vachulka\n"
+"Danish: Jonas Bardino, Vidar Jon Bauge\n"
+"French: Claude Leo Mercier, Roland Baudin\n"
+"German: Bastian Kleineidam, Joo Martin, Tim Benke\n"
+"Greek: Nikos Papadopoulos\n"
+"Hungarian: Attila Szervac, Sandor Sipos\n"
+"Italian: Claudio Fontana, Giorgio Moscardi\n"
+"Japanese: Karl Skewes\n"
+"Norwegian: Vidar Jon Bauge\n"
+"Polish: Jacek Dziura\n"
+"Portuguese: Miguel Santinho\n"
+"Russian: Dimitri Sertolov\n"
+"Spanish: Felix Medrano Sanz, Lucas 'Basurero' Vieites,\n"
+"Martin Carr\n"
+"Swedish: Anders F. Bjorklund\n"
+"Turkish: erkaN\n"
+msgstr ""
+"\n"
+"Μεταφραστές\n"
+"-------------\n"
+"Αργεντίνικα Ισπανικά: Bruno Gilberto Luciani\n"
+"Βραζιλιάνικα Πορτογαλικά: Eduardo R.B.S., Jose Carlos Medeiros,\n"
+"Phantom X, Tomas Acauan Schertel\n"
+"Καταλανικά: muzzol\n"
+"Κινεζικά: Xin Li\n"
+"Τσέχικα: David Vachulka\n"
+"Δανέζικα: Jonas Bardino, Vidar Jon Bauge\n"
+"Γαλλικά: Claude Leo Mercier, Roland Baudin\n"
+"Γερμανικά: Bastian Kleineidam, Joo Martin, Tim Benke\n"
+"Ελληνικά: Nikos Papadopoulos\n"
+"Ουγγρικά: Attila Szervac, Sandor Sipos\n"
+"Ιταλικά: Claudio Fontana, Giorgio Moscardi\n"
+"Ιαπωνικά: Karl Skewes\n"
+"Νορβηγικά: Vidar Jon Bauge\n"
+"Πολωνικά: Jacek Dziura\n"
+"Πορτογαλικά: Miguel Santinho\n"
+"Ρωσσικά: Dimitri Sertolov\n"
+"Ισπανικά: Felix Medrano Sanz, Lucas 'Basurero' Vieites,\n"
+"Martin Carr\n"
+"Σουηδικά: Anders F. Bjorklund\n"
+"Τουρκικά: erkaN\n"
+
+#: ../src/XFileExplorer.cpp:2238
+msgid "About X File Explorer"
+msgstr "Σχετικά με τον X File Explorer"
+
+#: ../src/XFileExplorer.cpp:2414 ../src/XFileExplorer.cpp:2454
+msgid "&Panel"
+msgstr "&Πίνακας"
+
+#: ../src/XFileExplorer.cpp:2594
+msgid "Execute the command:"
+msgstr "Εκτέλεση της εντολής:"
+
+#: ../src/XFileExplorer.cpp:2594
+msgid "Console mode"
+msgstr "Κατάσταση λειτουργίας κονσόλας"
+
+#. Make and show command window
+#: ../src/XFileExplorer.cpp:2614
+msgid "Command log"
+msgstr "Καταγραφή εντολών"
+
+#. Confirmation message
+#: ../src/XFileExplorer.cpp:2719
+msgid ""
+"Do you really want to empty the trash can?\n"
+"\n"
+"All items will be definitively lost!"
+msgstr ""
+"Θέλεις πραγματικά να αδειάσεις τον κάδο απορριμμάτων;\n"
+"\n"
+"Όλα τα αντικείμενα θα χαθούν..."
+
+#: ../src/XFileExplorer.cpp:2749
+#, c-format
+msgid "Can't create trash can 'files' folder %s: %s"
+msgstr ""
+"Αδυναμία δημιουργίας του φακέλου για τα αρχεία του κάδου απορριμμάτων %s : %s"
+
+#: ../src/XFileExplorer.cpp:2800
+#, c-format
+msgid ""
+"Trash size: %s (%s files, %s subfolders)\n"
+"\n"
+"Modified date: %s"
+msgstr ""
+"Μέγεθος του κάδου απορριμμάτων: %s (%s αρχεία, %s υποφάκελοι)\n"
+"\n"
+"Μετατράπηκε την ημερομηνία: %s"
+
+#: ../src/XFileExplorer.cpp:2802
+msgid "Trash size"
+msgstr "Μέγεθος του κάδου απορριμμάτων"
+
+#: ../src/XFileExplorer.cpp:2809
+#, c-format
+msgid "Trash can 'files' folder %s is not readable!"
+msgstr "Ο φάκελος των αρχείων του κάδου απορριμμάτων %s δεν είναι αναγνώσιμος."
+
+#. Usage message
+#: ../src/XFileView.cpp:126
+msgid ""
+"\n"
+"Usage: xfv [options] [file1] [file2] [file3]...\n"
+"\n"
+"    [options] can be any of the following:\n"
+"\n"
+"        -h, --help         Print (this) help screen and exit.\n"
+"        -v, --version      Print version information and exit.\n"
+"\n"
+"    [file1] [file2] [file3]... are the path(s) to the file(s) you want to "
+"open on start up.\n"
+"\n"
+msgstr ""
+"\n"
+"Χρήση: xfv [επιλογές] [αρχείο1] [αρχείο2] [αρχείο3]...\n"
+"\n"
+"    [επιλογές] μπορεί να είναι οποιαδήποτε από τις ακόλουθες:\n"
+"\n"
+"        -h, --help         Εκτύπωση (αυτής) της οθόνης βοήθειας, και μετά "
+"κλείσιμο.\n"
+"        -v, --version      Εκτύπωση των πληροφοριών έκδοσης, και μετά "
+"κλείσιμο.\n"
+"\n"
+"    [αρχείο1] [αρχείο2] [αρχείο3]... είναι οι διαδρομές των αρχείων, τα "
+"οποία θα ήθελες να ανοίξουν κατά την εκκίνηση.\n"
+"\n"
+
+#: ../src/XFileView.cpp:238 ../src/XFileView.cpp:252
+#: ../src/EditWindow.cpp:1164 ../src/ViewWindow.cpp:800
+#: ../src/XFileWrite.cpp:235 ../src/XFileWrite.cpp:249
+msgid "untitled"
+msgstr "χωρίς τίτλο"
+
+#: ../src/XFilePackage.cpp:122 ../src/XFileImage.cpp:225
+#: ../src/EditWindow.cpp:574 ../src/ViewWindow.cpp:105
+msgid "&Preferences"
+msgstr "&Προτιμήσεις"
+
+#: ../src/XFilePackage.cpp:130
+msgid "Open package file"
+msgstr "Άνοιγμα αρχείου πακέτου"
+
+#. Preferences menu
+#. View Menu entries
+#. Preferences menu
+#: ../src/XFilePackage.cpp:148 ../src/XFileImage.cpp:511
+#: ../src/EditWindow.cpp:867 ../src/ViewWindow.cpp:228
+msgid "&Toolbar"
+msgstr "Γραμμή &Εργαλείων"
+
+#: ../src/XFilePackage.cpp:148
+msgid "Display toolbar"
+msgstr "Εμφάνιση γραμμής εργαλείων"
+
+#. Help Menu entries
+#: ../src/XFilePackage.cpp:151
+msgid "&About X File Package"
+msgstr "&Σχετικά με τον X File Package"
+
+#. Uninstall
+#: ../src/XFilePackage.cpp:173
+msgid "&Uninstall"
+msgstr "&Απεγκατάσταση"
+
+#. Install/Upgrade
+#: ../src/XFilePackage.cpp:176
+msgid "&Install/Upgrade"
+msgstr "&Εγκατάσταση/Αναβάθμιση"
+
+#. First item is Description
+#: ../src/XFilePackage.cpp:182
+msgid "&Description"
+msgstr "&Περιγραφή"
+
+#. Second item is File List
+#: ../src/XFilePackage.cpp:188
+msgid "File &List"
+msgstr "&Λίστα Αρχείων"
+
+#: ../src/XFilePackage.cpp:213
+#, c-format
+msgid ""
+"X File Package Version %s is a simple rpm or deb package manager.\n"
+"\n"
+msgstr ""
+"Ο X File Package, Έκδοσης %s, είναι ένας απλός διαχειριστής πακέτων rpm ή "
+"deb.\n"
+"\n"
+
+#: ../src/XFilePackage.cpp:215
+msgid "About X File Package"
+msgstr "Σχετικά με τον X File Package"
+
+#: ../src/XFilePackage.cpp:227
+msgid "RPM source packages"
+msgstr "RPM πακέτα πηγών"
+
+#: ../src/XFilePackage.cpp:228
+msgid "RPM packages"
+msgstr "Πακέτα RPM"
+
+#: ../src/XFilePackage.cpp:229
+msgid "DEB packages"
+msgstr "DEB πακέτα"
+
+#: ../src/XFilePackage.cpp:233 ../src/EditWindow.cpp:1459
+#: ../src/ViewWindow.cpp:487
+msgid "Open Document"
+msgstr "Άνοιγμα Εγγράφου"
+
+#: ../src/XFilePackage.cpp:256 ../src/XFilePackage.cpp:298
+msgid "No package loaded"
+msgstr "Δεν φορτώθηκαν κάποια πακέτα"
+
+#: ../src/XFilePackage.cpp:271 ../src/XFilePackage.cpp:321
+msgid "Unknown package format"
+msgstr "Άγνωστη μορφή πακέτου"
+
+#. Make and show command window
+#: ../src/XFilePackage.cpp:276
+msgid "Install/Upgrade Package"
+msgstr "Εγκατάσταση/Αναβάθμιση Πακέτου"
+
+#. Make and show command window
+#: ../src/XFilePackage.cpp:326
+msgid "Uninstall Package"
+msgstr "Απεγκατάσταση Πακέτου"
+
+#: ../src/XFilePackage.cpp:403
+msgid "File list: Unknown package format"
+msgstr "Λίστα αρχείων: Άγνωστη μορφή πακέτων"
+
+#: ../src/XFilePackage.cpp:452
+msgid "[RPM package]\n"
+msgstr "[Πακέτο RPM]\n"
+
+#: ../src/XFilePackage.cpp:456
+msgid "[DEB package]\n"
+msgstr "[Πακέτο DEB]\n"
+
+#: ../src/XFilePackage.cpp:461
+msgid "Description: Unknown package format"
+msgstr "Περιγραφή: Άγνωστη μορφή πακέτων"
+
+#: ../src/XFilePackage.cpp:487
+#, c-format
+msgid "Query of %s failed!"
+msgstr "Η διερεύνηση του %s απέτυχε."
+
+#: ../src/XFilePackage.cpp:511 ../src/XFilePackage.cpp:521
+#: ../src/XFileImage.cpp:1001 ../src/XFileImage.cpp:1009
+#: ../src/EditWindow.cpp:1033 ../src/EditWindow.cpp:1043
+#: ../src/EditWindow.cpp:1055 ../src/ViewWindow.cpp:430
+#: ../src/ViewWindow.cpp:436
+msgid "Error Loading File"
+msgstr "Σφάλμα Φόρτωσης του Αρχείου"
+
+#: ../src/XFilePackage.cpp:511 ../src/XFileImage.cpp:1001
+#: ../src/ViewWindow.cpp:430
+#, c-format
+msgid "Non-existing file: %s"
+msgstr "Μη υπάρχον αρχείο: %s"
+
+#: ../src/XFilePackage.cpp:521 ../src/XFileImage.cpp:1009
+#: ../src/EditWindow.cpp:1033 ../src/EditWindow.cpp:1116
+#: ../src/ViewWindow.cpp:436
+#, c-format
+msgid "Unable to open file: %s"
+msgstr "Αδυναμία ανοίγματος του αρχείου: %s"
+
+#. Usage message
+#: ../src/XFilePackage.cpp:596
+msgid ""
+"\n"
+"Usage: xfp [options] [package] \n"
+"\n"
+"    [options] can be any of the following:\n"
+"\n"
+"        -h, --help         Print (this) help screen and exit.\n"
+"        -v, --version      Print version information and exit.\n"
+"\n"
+"    [package] is the path to the rpm or deb package you want to open on "
+"start up.\n"
+"\n"
+msgstr ""
+"\n"
+"Χρήση: xfp [επιλογές] [πακέτο] \n"
+"\n"
+"    [επιλογές] μπορεί να είναι οποιαδήποτε από τις ακόλουθες:\n"
+"\n"
+"        -h, --help         Εκτύπωση (αυτής) της οθόνης βοήθειας, και μετά "
+"κλείσιμο.\n"
+"        -v, --version      Εκτύπωση των πληροφοριών έκδοσης, και μετά "
+"κλείσιμο.\n"
+"\n"
+"    [πακέτο] είναι η διαδρομή του πακέτου rpm ή deb, το οποίο θα ήθελες να "
+"ανοίξει κατά την εκκίνηση.\n"
+"\n"
+
+#: ../src/XFileImage.cpp:92
+msgid "GIF Image"
+msgstr "Εικόνα GIF"
+
+#: ../src/XFileImage.cpp:93
+msgid "BMP Image"
+msgstr "Εικόνα BMP"
+
+#: ../src/XFileImage.cpp:94
+msgid "XPM Image"
+msgstr "Εικόνα XPM"
+
+#: ../src/XFileImage.cpp:95
+msgid "PCX Image"
+msgstr "Εικόνα PCX"
+
+#: ../src/XFileImage.cpp:96
+msgid "ICO Image"
+msgstr "ICO εικόνα"
+
+#: ../src/XFileImage.cpp:97
+msgid "RGB Image"
+msgstr "Εικόνα RGB"
+
+#: ../src/XFileImage.cpp:98
+msgid "XBM Image"
+msgstr "XBM εικόνα"
+
+#: ../src/XFileImage.cpp:99
+msgid "TARGA Image"
+msgstr "Εικόνα TARGA"
+
+#: ../src/XFileImage.cpp:100
+msgid "PPM Image"
+msgstr "Εικόνα PPM"
+
+#: ../src/XFileImage.cpp:101
+msgid "PNG Image"
+msgstr "Εικόνα PNG"
+
+#: ../src/XFileImage.cpp:102 ../src/XFileImage.cpp:103
+msgid "JPEG Image"
+msgstr "Εικόνα JPEG"
+
+#: ../src/XFileImage.cpp:104 ../src/XFileImage.cpp:105
+msgid "TIFF Image"
+msgstr "Εικόνα TIFF"
+
+#: ../src/XFileImage.cpp:221
+msgid "&Image"
+msgstr "&Εικόνα"
+
+#: ../src/XFileImage.cpp:272
+msgid "Go back"
+msgstr "Μετάβαση πίσω"
+
+#: ../src/XFileImage.cpp:272
+msgid "Move to previous folder."
+msgstr "Μετάβαση στον προηγούμενο φάκελο."
+
+#: ../src/XFileImage.cpp:274
+msgid "Go forward"
+msgstr "Μετάβαση εμπρός"
+
+#: ../src/XFileImage.cpp:274
+msgid "Move to next folder."
+msgstr "Μετάβαση στον επόμενο φάκελο."
+
+#: ../src/XFileImage.cpp:276
+msgid "Go up one folder"
+msgstr "Μετάβαση πάνω, κατά ένα φάκελο."
+
+#: ../src/XFileImage.cpp:276
+msgid "Move up to higher folder."
+msgstr "Μετάβαση πάνω, σε υψηλότερο φάκελο."
+
+#: ../src/XFileImage.cpp:277
+msgid "Go to home folder"
+msgstr "Μετάβαση στον αρχικό κατάλογο"
+
+#: ../src/XFileImage.cpp:277
+msgid "Back to home folder."
+msgstr "Πίσω στον αρχικό φάκελο."
+
+#: ../src/XFileImage.cpp:278
+msgid "Go to working folder"
+msgstr "Μετάβαση στον φάκελο εργασίας"
+
+#: ../src/XFileImage.cpp:278
+msgid "Back to working folder."
+msgstr "Πίσω στο φάκελο εργασίας."
+
+#: ../src/XFileImage.cpp:279
+msgid "Show icons"
+msgstr "Εμφάνιση εικονιδίων"
+
+#: ../src/XFileImage.cpp:279
+msgid "Display folder with big icons."
+msgstr "Προβολή του φακέλου με μεγάλα εικονίδια."
+
+#: ../src/XFileImage.cpp:280
+msgid "Show list"
+msgstr "Εμφάνιση λίστας"
+
+#: ../src/XFileImage.cpp:280
+msgid "Display folder with small icons."
+msgstr "Προβολή  του φακέλου με μικρά εικονίδια."
+
+#: ../src/XFileImage.cpp:281
+msgid "Show details"
+msgstr "Εμφάνιση λεπτομερειών"
+
+#: ../src/XFileImage.cpp:281 ../src/XFileImage.cpp:544
+msgid "Display detailed folder listing."
+msgstr "Προβολή του φακέλου με λεπτομέρειες."
+
+#: ../src/XFileImage.cpp:386 ../src/EditWindow.cpp:629
+#: ../src/ViewWindow.cpp:137
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: ../src/XFileImage.cpp:386 ../src/XFileImage.cpp:439
+msgid "Open image file."
+msgstr "Άνοιγμα αρχείου εικόνας."
+
+#: ../src/XFileImage.cpp:390 ../src/XFileImage.cpp:1226
+#: ../src/EditWindow.cpp:642 ../src/EditWindow.cpp:1715
+#: ../src/ViewWindow.cpp:146 ../src/ViewWindow.cpp:564
+msgid "Print"
+msgstr "Εκτύπωση"
+
+#: ../src/XFileImage.cpp:390 ../src/XFileImage.cpp:445
+msgid "Print image file."
+msgstr "Εκτύπωση του αρχείου εικόνας."
+
+#. Note : Ctrl+ and Ctrl- cannot be changed from the registry!
+#. Toolbar button: Zoom in
+#: ../src/XFileImage.cpp:398
+msgid "Zoom in"
+msgstr "Μεγέθυνση"
+
+#: ../src/XFileImage.cpp:398 ../src/XFileImage.cpp:471
+msgid "Zoom in image."
+msgstr "Μεγέθυνση της εικόνας."
+
+#. Toolbar button: Zoom out
+#: ../src/XFileImage.cpp:403
+msgid "Zoom out"
+msgstr "Σμίκρυνση"
+
+#: ../src/XFileImage.cpp:403 ../src/XFileImage.cpp:472
+msgid "Zoom out image."
+msgstr "Σμίκρυνση της εικόνας."
+
+#: ../src/XFileImage.cpp:409
+msgid "Zoom 100%"
+msgstr "Εστίαση 100%"
+
+#: ../src/XFileImage.cpp:409 ../src/XFileImage.cpp:475
+msgid "Zoom image to 100%."
+msgstr "Εστίαση της εικόνας στο 100%."
+
+#: ../src/XFileImage.cpp:413
+msgid "Zoom to fit"
+msgstr "Εστίαση προσαρμογής"
+
+#: ../src/XFileImage.cpp:413 ../src/XFileImage.cpp:481
+msgid "Zoom to fit window."
+msgstr "Εστίαση για να ταιριάζει στο παράθυρο."
+
+#: ../src/XFileImage.cpp:420
+msgid "Rotate left"
+msgstr "Περιστροφή αριστερά"
+
+#: ../src/XFileImage.cpp:420
+msgid "Rotate left image."
+msgstr "Περιστροφή της εικόνας αριστερά."
+
+#: ../src/XFileImage.cpp:424
+msgid "Rotate right"
+msgstr "Περιστροφή δεξιά"
+
+#: ../src/XFileImage.cpp:424
+msgid "Rotate right image."
+msgstr "Περιστροφή της εικόνας δεξιά."
+
+#: ../src/XFileImage.cpp:428
+msgid "Mirror horizontally"
+msgstr "Κατοπτρισμός οριζόντια"
+
+#: ../src/XFileImage.cpp:428
+msgid "Mirror image horizontally."
+msgstr "Οριζόντιος καθρεπτισμός της εικόνας."
+
+#: ../src/XFileImage.cpp:432
+msgid "Mirror vertically"
+msgstr "Κατοπτρισμός κατακόρυφα"
+
+#: ../src/XFileImage.cpp:432
+msgid "Mirror image vertically."
+msgstr "Κατακόρυφος καθρεπτισμός της εικόνας."
+
+#: ../src/XFileImage.cpp:445 ../src/EditWindow.cpp:733
+#: ../src/ViewWindow.cpp:182
+msgid "&Print..."
+msgstr "&Εκτύπωση..."
+
+#: ../src/XFileImage.cpp:459
+msgid "&Clear recent files"
+msgstr "Κα&θαρισμός προσφάτων αρχείων"
+
+#: ../src/XFileImage.cpp:459
+msgid "Clear recent file menu."
+msgstr "Καθαρισμός της Λίστας των Προσφάτων Αρχείων."
+
+#: ../src/XFileImage.cpp:465
+msgid "Quit Xfi."
+msgstr "Κλείσιμο του Xfi."
+
+#. Image Menu entries
+#: ../src/XFileImage.cpp:471
+msgid "Zoom &in"
+msgstr "Μεγέ&θυνση"
+
+#: ../src/XFileImage.cpp:472
+msgid "Zoom &out"
+msgstr "Σμίκ&ρυνση"
+
+#: ../src/XFileImage.cpp:475
+msgid "Zoo&m 100%"
+msgstr "Ε&στίαση 100%"
+
+#: ../src/XFileImage.cpp:481
+msgid "Zoom to fit &window"
+msgstr "Εστίαση για να ταιριάζει στο παρά&θυρο."
+
+#: ../src/XFileImage.cpp:487
+msgid "Rotate &right"
+msgstr "Περιστροφή &δεξιά"
+
+#: ../src/XFileImage.cpp:487
+msgid "Rotate right."
+msgstr "Περιστροφή δεξιά."
+
+#: ../src/XFileImage.cpp:493
+msgid "Rotate &left"
+msgstr "Περιστροφή &αριστερά"
+
+#: ../src/XFileImage.cpp:493
+msgid "Rotate left."
+msgstr "Περιστροφή αριστερά."
+
+#: ../src/XFileImage.cpp:499
+msgid "Mirror &horizontally"
+msgstr "Κατοπτρισμός &οριζόντια"
+
+#: ../src/XFileImage.cpp:499
+msgid "Mirror horizontally."
+msgstr "Κατοπτρισμός οριζόντια"
+
+#: ../src/XFileImage.cpp:505
+msgid "Mirror &vertically"
+msgstr "Κατοπτρισμός &κατακόρυφα"
+
+#: ../src/XFileImage.cpp:505
+msgid "Mirror vertically."
+msgstr "Κατοπτρισμός κατακόρυφα."
+
+#: ../src/XFileImage.cpp:511 ../src/EditWindow.cpp:867
+msgid "Display toolbar."
+msgstr "Εμφάνιση γραμμής εργαλείων."
+
+#: ../src/XFileImage.cpp:512
+msgid "&File list"
+msgstr "&Λίστα αρχείων"
+
+#: ../src/XFileImage.cpp:512
+msgid "Display file list."
+msgstr "Προβολή της λίστας αρχείων."
+
+#: ../src/XFileImage.cpp:513
+msgid "&Filter images"
+msgstr "&Φιλτράρισμα εικόνων"
+
+#: ../src/XFileImage.cpp:513
+msgid "List only image files."
+msgstr "Καταλόγιση μόνο των αρχείων εικόνων."
+
+#: ../src/XFileImage.cpp:514
+msgid "Fit &window when opening"
+msgstr "Εστίαση για να ταιριάζει στο παράθυρο κατά το άνοιγμα"
+
+#: ../src/XFileImage.cpp:514
+msgid "Zoom to fit window when opening an image."
+msgstr ""
+"Κατάλληλη εστίαση των εικόνων, ώστε να ταιριάζουν στο παράθυρο, κατά το "
+"άνοιγμά τους."
+
+#: ../src/XFileImage.cpp:518
+msgid "Show hidden files and directories."
+msgstr "Προβολή των κρυφών αρχείων και των καταλόγων."
+
+#: ../src/XFileImage.cpp:524
+msgid "Show image thumbnails."
+msgstr "Προβολή εικόνων επισκόπησης."
+
+#: ../src/XFileImage.cpp:532
+msgid "Display folders with big icons."
+msgstr "Προβολή των φακέλων με μεγάλα εικονίδια."
+
+#: ../src/XFileImage.cpp:538
+msgid "Display folders with small icons."
+msgstr "Προβολή  του φακέλου με μικρά εικονίδια."
+
+#: ../src/XFileImage.cpp:544
+msgid "&Detailed file list"
+msgstr "&Λεπτομερής λίστα αρχείων"
+
+#: ../src/XFileImage.cpp:550
+msgid "View icons row-wise."
+msgstr "Προβολή των εικονιδίων ανά σειρά."
+
+#: ../src/XFileImage.cpp:551
+msgid "View icons column-wise."
+msgstr "Προβολή των εικονιδίων ανά στήλη."
+
+#: ../src/XFileImage.cpp:552
+msgid "&Autosize"
+msgstr "Α&υτόματο μέγεθος"
+
+#: ../src/XFileImage.cpp:552
+msgid "Autosize icon names."
+msgstr "Αυτόματο μέγεθος των ονομάτων των εικονιδίων."
+
+#: ../src/XFileImage.cpp:556
+msgid "&About X File Image"
+msgstr "&Σχετικά με το X File Image"
+
+#: ../src/XFileImage.cpp:556
+msgid "About X File Image."
+msgstr "Σχετικά με το X File Image."
+
+#: ../src/XFileImage.cpp:981
+#, c-format
+msgid ""
+"X File Image Version %s is a simple image viewer.\n"
+"\n"
+msgstr ""
+"Ο X File Image, Έκδοσης %s, είναι ένας απλός προβολέας εικόνων.\n"
+"\n"
+
+#: ../src/XFileImage.cpp:983
+msgid "About X File Image"
+msgstr "Σχετικά με το X File Image"
+
+#: ../src/XFileImage.cpp:1090 ../src/XFileImage.cpp:1106
+msgid "Error Loading Image"
+msgstr "Σφάλμα Κατά την Φόρτωση της Εικόνας"
+
+#: ../src/XFileImage.cpp:1090
+#, c-format
+msgid "Unsupported type: %s"
+msgstr "Μη υποστηριζόμενος τύπος: %s"
+
+#: ../src/XFileImage.cpp:1106
+msgid "Unable to load image, the file may be corrupted"
+msgstr "Αδυναμία φόρτωσης της εικόνας· ίσως το αρχείο να είναι αλλοιωμένο"
+
+#: ../src/XFileImage.cpp:1200
+msgid "Open Image"
+msgstr "Άνοιγμα Εικόνας"
+
+#: ../src/XFileImage.cpp:1226 ../src/EditWindow.cpp:1715
+#: ../src/ViewWindow.cpp:564
+msgid ""
+"Print command: \n"
+"(ex: lpr -P <printer>)"
+msgstr ""
+"Εντολή εκτύπωσης: \n"
+"(ex: lpr -P <printer>)"
+
+#. Usage message
+#: ../src/XFileImage.cpp:1948
+msgid ""
+"\n"
+"Usage: xfi [options] [image] \n"
+"\n"
+"    [options] can be any of the following:\n"
+"\n"
+"        -h, --help         Print (this) help screen and exit.\n"
+"        -v, --version      Print version information and exit.\n"
+"\n"
+"    [image] is the path to the image file you want to open on start up.\n"
+"\n"
+msgstr ""
+"\n"
+"Χρήση: xfi [επιλογές] [εικόνα] \n"
+"\n"
+"    [επιλογές] μπορεί να είναι οποιαδήποτε από τις ακόλουθες:\n"
+"\n"
+"        -h, --help         Εκτύπωση (αυτής) της οθόνης βοήθειας, και μετά "
+"κλείσιμο.\n"
+"        -v, --version      Εκτύπωση των πληροφοριών έκδοσης, και μετά "
+"κλείσιμο.\n"
+"\n"
+"    [εικόνα] είναι η διαδρομή του αρχείου εικόνας, το οποίο θα ήθελες να "
+"ανοίξει κατά την εκκίνηση.\n"
+"\n"
+
+#. Construct
+#. Set title
+#: ../src/EditWindow.cpp:172 ../src/EditWindow.cpp:179
+msgid "XFileWrite Preferences"
+msgstr "XFileWrite Προτιμήσεις"
+
+#. First tab - Editor
+#: ../src/EditWindow.cpp:198
+msgid "&Editor"
+msgstr "&Επεξεργαστής"
+
+#: ../src/EditWindow.cpp:200 ../src/EditWindow.cpp:221
+msgid "Text"
+msgstr "Κείμενο"
+
+#: ../src/EditWindow.cpp:203
+msgid "Wrap margin:"
+msgstr "Περιθώριο αναδίπλωσης:"
+
+#: ../src/EditWindow.cpp:208
+msgid "Tabulation size:"
+msgstr "Μέγεθος ανάρτησης σε πίνακα:"
+
+# This means that, when loading a file in the editor, carriage return 
+# characters (denoted as ^M) are suppressed (ignored). These ^M characters 
+# are used in the Windows world.
+#: ../src/EditWindow.cpp:213
+msgid "Strip carriage returns:"
+msgstr "Αγνόηση ενδείξεων νέας γραμμής (carriage returns):"
+
+#. Second tab - Colors
+#: ../src/EditWindow.cpp:219
+msgid "&Colors"
+msgstr "&Χρώματα"
+
+#: ../src/EditWindow.cpp:223
+msgid "Lines"
+msgstr "Γραμμές"
+
+#: ../src/EditWindow.cpp:226
+msgid "Background:"
+msgstr "Φόντο:"
+
+#: ../src/EditWindow.cpp:229
+msgid "Text:"
+msgstr "Κείμενο:"
+
+#: ../src/EditWindow.cpp:232
+msgid "Selected text background:"
+msgstr "Χρώμα παρασκηνίου του επιλεγμένου κειμένου:"
+
+#: ../src/EditWindow.cpp:235
+msgid "Selected text:"
+msgstr "Επιλεγμένο κείμενο:"
+
+#: ../src/EditWindow.cpp:238
+msgid "Highlighted text background:"
+msgstr "Χρώμα παρασκηνίου του επισημασμένου κειμένου:"
+
+#: ../src/EditWindow.cpp:241
+msgid "Highlighted text:"
+msgstr "Τονισμένο κείμενο:"
+
+#: ../src/EditWindow.cpp:244
+msgid "Cursor:"
+msgstr "Δρομέας:"
+
+#: ../src/EditWindow.cpp:247
+msgid "Line numbers background:"
+msgstr "Χρώμα παρασκηνίου των αριθμών των γραμμών:"
+
+#: ../src/EditWindow.cpp:250
+msgid "Line numbers foreground:"
+msgstr "Χρώμα προσκηνίου των αριθμών των γραμμών:"
+
+#: ../src/EditWindow.cpp:570 ../src/ViewWindow.cpp:101 ../src/foxhacks.cpp:548
+msgid "&Search"
+msgstr "&Αναζήτηση"
+
+#: ../src/EditWindow.cpp:582 ../src/ViewWindow.cpp:109
+msgid "&Window"
+msgstr "&Παράθυρο"
+
+#. Caption before number
+#: ../src/EditWindow.cpp:608
+msgid "  Lines:"
+msgstr "Γραμμές:"
+
+#. Caption before number
+#: ../src/EditWindow.cpp:615
+msgid "  Col:"
+msgstr "  Στήλη:"
+
+#. Caption before number
+#: ../src/EditWindow.cpp:622
+msgid "  Line:"
+msgstr "Γραμμή:"
+
+#: ../src/EditWindow.cpp:626
+msgid "New"
+msgstr "Νέο"
+
+#: ../src/EditWindow.cpp:626 ../src/EditWindow.cpp:706
+msgid "Create new document."
+msgstr "Δημιουργία νέου εγγράφου."
+
+#: ../src/EditWindow.cpp:629 ../src/EditWindow.cpp:712
+msgid "Open document file."
+msgstr "Άνοιγμα αρχείου εγγράφου."
+
+#: ../src/EditWindow.cpp:632
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: ../src/EditWindow.cpp:632
+msgid "Save document."
+msgstr "Αποθήκευση του εγγράφου."
+
+#: ../src/EditWindow.cpp:635 ../src/ViewWindow.cpp:141
+msgid "Close"
+msgstr "Κλείσιμο"
+
+#: ../src/EditWindow.cpp:635
+msgid "Close document file."
+msgstr "Κλείσιμο του εγγράφου."
+
+#: ../src/EditWindow.cpp:642 ../src/EditWindow.cpp:733
+#: ../src/ViewWindow.cpp:146 ../src/ViewWindow.cpp:182
+msgid "Print document."
+msgstr "Εκτύπωση του εγγράφου"
+
+#: ../src/EditWindow.cpp:645 ../src/ViewWindow.cpp:150
+msgid "Quit"
+msgstr "Τερματισμός"
+
+#: ../src/EditWindow.cpp:645 ../src/EditWindow.cpp:753
+msgid "Quit X File Write."
+msgstr "Τερματισμός του X File Write."
+
+#: ../src/EditWindow.cpp:652 ../src/EditWindow.cpp:775
+#: ../src/ViewWindow.cpp:155 ../src/ViewWindow.cpp:209
+msgid "Copy selection to clipboard."
+msgstr "Αντιγραφή της επιλογής στο πρόχειρο."
+
+#: ../src/EditWindow.cpp:655
+msgid "Cut"
+msgstr "Αποκοπή"
+
+#: ../src/EditWindow.cpp:655 ../src/EditWindow.cpp:781
+msgid "Cut selection to clipboard."
+msgstr "Αποκοπή  της επιλογής στο πρόχειρο."
+
+#: ../src/EditWindow.cpp:658
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: ../src/EditWindow.cpp:658
+msgid "Paste clipboard."
+msgstr "Επικόλληση του προχείρου."
+
+#: ../src/EditWindow.cpp:665 ../src/EditWindow.cpp:806
+msgid "Goto line number."
+msgstr "Μετάβαση στη γραμμή με το αντίστοιχο νούμερο."
+
+#: ../src/EditWindow.cpp:672
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#: ../src/EditWindow.cpp:672 ../src/EditWindow.cpp:760
+msgid "Undo last change."
+msgstr "Αναίρεση τελευταίας αλλαγής."
+
+#: ../src/EditWindow.cpp:675
+msgid "Redo"
+msgstr "Επαναφορά"
+
+#: ../src/EditWindow.cpp:675 ../src/EditWindow.cpp:766
+msgid "Redo last undo."
+msgstr "Επαναφορά της τελευταίας αναίρεσης."
+
+#: ../src/EditWindow.cpp:682
+msgid "Search text."
+msgstr "Αναζήτηση κειμένου."
+
+#: ../src/EditWindow.cpp:685
+msgid "Search selection backward"
+msgstr "Αναζήτηση της επιλογής προς τα πίσω"
+
+#: ../src/EditWindow.cpp:685 ../src/EditWindow.cpp:836
+msgid "Search backward for selected text."
+msgstr "Αναζήτηση για το επιλεγμένο κείμενο, προς τα πίσω."
+
+#: ../src/EditWindow.cpp:688
+msgid "Search selection forward"
+msgstr "Αναζήτηση της επιλογής προς τα εμπρός"
+
+#: ../src/EditWindow.cpp:688 ../src/EditWindow.cpp:842
+msgid "Search forward for selected text."
+msgstr "Αναζήτηση, προς τα εμπρός, για το επιλεγμένο κείμενο."
+
+#: ../src/EditWindow.cpp:695
+msgid "Word wrap on"
+msgstr "Αναδίπλωση των λέξεων ενεργοποιημένη"
+
+#: ../src/EditWindow.cpp:695
+msgid "Set word wrap on."
+msgstr "Ενεργοποίησε την αναδίπλωση των λέξεων."
+
+#: ../src/EditWindow.cpp:695
+msgid "Word wrap off"
+msgstr "Αναδίπλωση των λέξεων απενεργοποιημένη"
+
+#: ../src/EditWindow.cpp:695
+msgid "Set word wrap off."
+msgstr "Απενεργοποίησε την αναδίπλωση των λέξεων."
+
+#: ../src/EditWindow.cpp:698
+msgid "Show line numbers"
+msgstr "Εμφάνιση των αριθμών γραμμής"
+
+#: ../src/EditWindow.cpp:698
+msgid "Show line numbers."
+msgstr "Εμφάνιση των αριθμών γραμμής."
+
+#: ../src/EditWindow.cpp:698
+msgid "Hide line numbers"
+msgstr "Απόκρυψη των αριθμών γραμμής"
+
+#: ../src/EditWindow.cpp:698
+msgid "Hide line numbers."
+msgstr "Απόκρυψη των αριθμών γραμμής."
+
+#: ../src/EditWindow.cpp:706
+msgid "&New..."
+msgstr "&Νέο..."
+
+#: ../src/EditWindow.cpp:718
+msgid "Save changes to file."
+msgstr "Αποθήκευση των αλλαγών στο αρχείο."
+
+#: ../src/EditWindow.cpp:723
+msgid "Save &As..."
+msgstr "Αποθήκευση  &Ως..."
+
+#: ../src/EditWindow.cpp:723
+msgid "Save document to another file."
+msgstr "Αποθήκευση του εγγράφου σαν ένα διαφορετικό αρχείο."
+
+#: ../src/EditWindow.cpp:726 ../src/ViewWindow.cpp:141
+#: ../src/ViewWindow.cpp:176
+msgid "Close document."
+msgstr "Κλείσιμο του εγγράφου."
+
+#: ../src/EditWindow.cpp:747 ../src/ViewWindow.cpp:196
+msgid "&Clear Recent Files"
+msgstr "&Καθαρισμός της Λίστας των Προσφάτων Αρχείων"
+
+#: ../src/EditWindow.cpp:760 ../src/EditWindow.cpp:813
+msgid "&Undo"
+msgstr "Α&ναίρεση"
+
+#: ../src/EditWindow.cpp:766 ../src/EditWindow.cpp:814
+msgid "&Redo"
+msgstr "&Επαναφορά"
+
+#: ../src/EditWindow.cpp:771
+msgid "Revert to &saved"
+msgstr "Επαναφορά από το αποθηκευμένο"
+
+#: ../src/EditWindow.cpp:771
+msgid "Revert to saved document."
+msgstr "Επαναφορά από το αποθηκευμένο."
+
+#: ../src/EditWindow.cpp:781 ../src/EditWindow.cpp:817
+msgid "Cu&t"
+msgstr "Α&ποκοπή"
+
+#: ../src/EditWindow.cpp:787
+msgid "Paste from clipboard."
+msgstr "Επικόλληση από το πρόχειρο."
+
+#: ../src/EditWindow.cpp:794
+msgid "Lo&wer-case"
+msgstr "Πε&ζά"
+
+#: ../src/EditWindow.cpp:794
+msgid "Change to lower case."
+msgstr "Μετατροπή σε πεζά"
+
+#: ../src/EditWindow.cpp:800
+msgid "Upp&er-case"
+msgstr "Κε&φαλαία"
+
+#: ../src/EditWindow.cpp:800
+msgid "Change to upper case."
+msgstr "Αλλαγή σε κεφαλαία."
+
+#: ../src/EditWindow.cpp:806
+msgid "&Goto line..."
+msgstr "&Μετάβαση στη γραμμή..."
+
+#: ../src/EditWindow.cpp:819
+msgid "Select &All"
+msgstr "Επιλογή Ό&λων"
+
+#: ../src/EditWindow.cpp:824
+msgid "&Search..."
+msgstr "&Αναζήτηση..."
+
+#: ../src/EditWindow.cpp:824
+msgid "Search for a string."
+msgstr "Αναζήτηση για κάποιο στίχο."
+
+#: ../src/EditWindow.cpp:830
+msgid "&Replace..."
+msgstr "&Αντικατάσταση..."
+
+#: ../src/EditWindow.cpp:830
+msgid "Search for a string and replace with another."
+msgstr "Αναζήτηση για κάποιο στίχο, και αντικατάστασή του από έναν άλλο."
+
+#: ../src/EditWindow.cpp:836
+msgid "Search sel. &backward"
+msgstr "Αναζήτηση επιλεγμένων προς τα &πίσω"
+
+#: ../src/EditWindow.cpp:842
+msgid "Search sel. &forward"
+msgstr "Αναζήτηση επιλ. &μπροστά"
+
+#: ../src/EditWindow.cpp:850
+msgid "&Word wrap"
+msgstr "Ανα&δίπλωση λέξεων"
+
+#: ../src/EditWindow.cpp:850
+msgid "Toggle word wrap mode."
+msgstr "Εναλλαγή της κατάστασης λειτουργίας της αναδίπλωσης λέξεων."
+
+#: ../src/EditWindow.cpp:856
+msgid "&Line numbers"
+msgstr "Αρί&θμηση γραμμών"
+
+#: ../src/EditWindow.cpp:856
+msgid "Toggle line numbers mode."
+msgstr "Εναλλαγή της λειτουργίας αρίθμησης των γραμμών."
+
+#: ../src/EditWindow.cpp:861
+msgid "&Overstrike"
+msgstr "&Διακριτή διαγραφή"
+
+#: ../src/EditWindow.cpp:861
+msgid "Toggle overstrike mode."
+msgstr "Εναλλαγή της κατάστασης λειτουργίας της διακριτής διαγραφής."
+
+#: ../src/EditWindow.cpp:863 ../src/ViewWindow.cpp:230
+msgid "&Font..."
+msgstr "&Γραμματοσειρές..."
+
+#: ../src/EditWindow.cpp:863 ../src/ViewWindow.cpp:230
+msgid "Change text font."
+msgstr "Τροποποίηση της Γραμματοσειράς του Κειμένου."
+
+#: ../src/EditWindow.cpp:864
+msgid "&More preferences..."
+msgstr "&Επιπλέον προτιμήσεις..."
+
+#: ../src/EditWindow.cpp:864
+msgid "Change other options."
+msgstr "Αλλαγή άλλων επιλογών."
+
+#: ../src/EditWindow.cpp:868
+msgid "&Status line"
+msgstr "Γραμμή &κατάστασης"
+
+#: ../src/EditWindow.cpp:868
+msgid "Display status line."
+msgstr "Προβολή της γραμμής κατάστασης."
+
+#: ../src/EditWindow.cpp:924
+msgid "&About X File Write..."
+msgstr "&Σχετικά με το X File Write..."
+
+#: ../src/EditWindow.cpp:924
+msgid "About X File Write."
+msgstr "Σχετικά με το X File Write."
+
+#: ../src/EditWindow.cpp:1043
+#, c-format
+msgid "File is too big: %s (%d bytes)"
+msgstr "Το αρχείο είναι πολύ μεγάλο: %s (%d bytes)"
+
+#: ../src/EditWindow.cpp:1055
+#, c-format
+msgid "Unable to read file: %s"
+msgstr "Αδυναμία ανάγνωσης του αρχείου: %s"
+
+#: ../src/EditWindow.cpp:1116 ../src/EditWindow.cpp:1126
+#: ../src/EditWindow.cpp:1148
+msgid "Error Saving File"
+msgstr "Σφάλμα Κατά την Αποθήκευση του Αρχείου"
+
+#: ../src/EditWindow.cpp:1126
+#, c-format
+msgid "File is too big: %s"
+msgstr "Το αρχείο είναι πολύ μεγάλο: %s"
+
+#: ../src/EditWindow.cpp:1148
+#, c-format
+msgid "File: %s truncated."
+msgstr "Αρχείο: %s περικομμένο."
+
+#: ../src/EditWindow.cpp:1169 ../src/ViewWindow.cpp:805
+#, c-format
+msgid "untitled%d"
+msgstr "χωρίς_τίτλο%d"
+
+#: ../src/EditWindow.cpp:1388
+#, c-format
+msgid ""
+"X File Write Version %s is a simple text editor.\n"
+"\n"
+msgstr ""
+"Ο X File Write, Έκδοσης %s, είναι ένας απλός επεξεργαστής κειμένου.\n"
+"\n"
+
+#: ../src/EditWindow.cpp:1390
+msgid "About X File Write"
+msgstr "Σχετικά με το X File Write"
+
+#: ../src/EditWindow.cpp:1409 ../src/ViewWindow.cpp:588
+msgid "Change Font"
+msgstr "Τροποποίηση των Γραμματοσειρών"
+
+#: ../src/EditWindow.cpp:1448 ../src/ViewWindow.cpp:476
+msgid "Text Files"
+msgstr "Αρχεία Κειμένου"
+
+#: ../src/EditWindow.cpp:1449 ../src/ViewWindow.cpp:477
+msgid "C Source Files"
+msgstr "Πηγαίας C Αρχεία"
+
+#: ../src/EditWindow.cpp:1450 ../src/EditWindow.cpp:1451
+#: ../src/EditWindow.cpp:1452 ../src/ViewWindow.cpp:478
+#: ../src/ViewWindow.cpp:479 ../src/ViewWindow.cpp:480
+msgid "C++ Source Files"
+msgstr "Πηγαίας C++ Αρχεία"
+
+#: ../src/EditWindow.cpp:1453 ../src/ViewWindow.cpp:481
+msgid "C/C++ Header Files"
+msgstr "C/C++  Κεφαλίδας Αρχεία"
+
+#: ../src/EditWindow.cpp:1454 ../src/EditWindow.cpp:1455
+#: ../src/ViewWindow.cpp:482 ../src/ViewWindow.cpp:483
+msgid "HTML Files"
+msgstr "Αρχεία HTML"
+
+#: ../src/EditWindow.cpp:1456 ../src/ViewWindow.cpp:484
+msgid "PHP Files"
+msgstr "Αρχεία PHP"
+
+#: ../src/EditWindow.cpp:1569
+msgid "Unsaved Document"
+msgstr "Μη αποθηκευμένο Έγγραφο"
+
+#: ../src/EditWindow.cpp:1569
+#, c-format
+msgid "Save %s to file?"
+msgstr "Να γίνει αποθήκευση του %s στο αρχείο;"
+
+#: ../src/EditWindow.cpp:1577 ../src/EditWindow.cpp:1615
+msgid "Save Document"
+msgstr "Αποθήκευση του Εγγράφου"
+
+#: ../src/EditWindow.cpp:1584 ../src/EditWindow.cpp:1624
+msgid "Overwrite Document"
+msgstr "Αντικατάσταση του Εγγράφου"
+
+#: ../src/EditWindow.cpp:1584 ../src/EditWindow.cpp:1624
+#, c-format
+msgid "Overwrite existing document: %s?"
+msgstr "Αντικατάσταση του υπάρχοντος εγγράφου: %s ;"
+
+#: ../src/EditWindow.cpp:1696
+msgid " (changed)"
+msgstr "(τροποποιημένο)"
+
+#: ../src/EditWindow.cpp:1785
+msgid "OVR"
+msgstr "OVR"
+
+#: ../src/EditWindow.cpp:1785
+msgid "INS"
+msgstr "INS"
+
+#: ../src/EditWindow.cpp:1880
+msgid "File Was Changed"
+msgstr "Το Αρχείο Τροποποιήθηκε"
+
+#: ../src/EditWindow.cpp:1880
+#, c-format
+msgid ""
+"%s\n"
+"was changed by another program. Reload this file from disk?"
+msgstr ""
+"Το αρχείο %s\n"
+"μετατράπηκε από ένα άλλο πρόγραμμα. Θα ήθελες να ξανανοίξει από το δίσκο;"
+
+#: ../src/EditWindow.cpp:1934
+msgid "Replace"
+msgstr "Αντικατάσταση"
+
+#: ../src/EditWindow.cpp:2079
+msgid "Goto Line"
+msgstr "Μετάβαση στη Γραμμή"
+
+#: ../src/EditWindow.cpp:2079
+msgid "&Goto line number:"
+msgstr "&Μετάβαση στη γραμμή με το αντίστοιχο νούμερο:"
+
+#. Caption before number
+#: ../src/ViewWindow.cpp:126
+msgid "Col:"
+msgstr "Στήλη:"
+
+#. Caption before number
+#: ../src/ViewWindow.cpp:133
+msgid "Line:"
+msgstr "Γραμμή:"
+
+#: ../src/ViewWindow.cpp:137 ../src/ViewWindow.cpp:170
+msgid "Open document."
+msgstr "Άνοιγμα εγγράφου."
+
+#: ../src/ViewWindow.cpp:150 ../src/ViewWindow.cpp:202
+msgid "Quit Xfv."
+msgstr "Κλείσιμο Xfv."
+
+#: ../src/ViewWindow.cpp:160 ../src/ViewWindow.cpp:704
+msgid "Find"
+msgstr "Αναζήτηση"
+
+#: ../src/ViewWindow.cpp:160
+msgid "Find string in document."
+msgstr "Αναζήτηση για στίχο στο έγγραφο."
+
+#: ../src/ViewWindow.cpp:163
+msgid "Find again"
+msgstr "Εύρεση εκ νέου"
+
+#: ../src/ViewWindow.cpp:163 ../src/ViewWindow.cpp:222
+msgid "Find string again."
+msgstr "Αναζήτηση για στίχο, ξανά."
+
+#: ../src/ViewWindow.cpp:216
+msgid "&Find..."
+msgstr "&Αναζήτηση..."
+
+#: ../src/ViewWindow.cpp:216
+msgid "Find a string in a document."
+msgstr "Αναζήτηση για κάποιο στίχο στο έγγραφο."
+
+#: ../src/ViewWindow.cpp:222
+msgid "Find &again"
+msgstr "Εύρεση εκ &νέου"
+
+#: ../src/ViewWindow.cpp:228
+msgid "Display or hide toolbar."
+msgstr "Προβολή ή απόκρυψη της γραμμής εργαλείων."
+
+#: ../src/ViewWindow.cpp:229
+msgid "Display or hide status bar."
+msgstr "Προβολή ή απόκρυψη της γραμμής κατάστασης."
+
+#: ../src/ViewWindow.cpp:286
+msgid "&About X File View"
+msgstr "&Σχετικά με το X File View"
+
+#: ../src/ViewWindow.cpp:286
+msgid "About X File View."
+msgstr "Σχετικά με το X File View."
+
+#: ../src/ViewWindow.cpp:411
+#, c-format
+msgid ""
+"X File View Version %s is a simple text viewer.\n"
+"\n"
+msgstr ""
+"Ο X File View,Έκδοσης %s,είναι ένας απλός προβολέας κειμένου.\n"
+"\n"
+
+#: ../src/ViewWindow.cpp:413
+msgid "About X File View"
+msgstr "Σχετικά με το X File View"
+
+#: ../src/ViewWindow.cpp:447
+msgid "Error Reading File"
+msgstr "Σφάλμα Κατά την Ανάγνωση του Αρχείου"
+
+#: ../src/ViewWindow.cpp:447
+#, c-format
+msgid "Unable to load entire file: %s"
+msgstr "Αδυναμία φόρτωσης ολόκληρου του αρχείου: %s"
+
+#: ../src/ViewWindow.cpp:710
+msgid "&Find"
+msgstr "&Αναζήτηση"
+
+#: ../src/ViewWindow.cpp:722
+msgid "Not Found"
+msgstr "Δε Βρέθηκε"
+
+#: ../src/ViewWindow.cpp:722
+#, c-format
+msgid "String '%s' not found"
+msgstr "Ο στοίχος '%s' δεν βρέθηκε"
+
+#. Usage message
+#: ../src/XFileWrite.cpp:123
+msgid ""
+"\n"
+"Usage: xfw [options] [file1] [file2] [file3]...\n"
+"\n"
+"    [options] can be any of the following:\n"
+"\n"
+"        -h, --help         Print (this) help screen and exit.\n"
+"        -v, --version      Print version information and exit.\n"
+"\n"
+"    [file1] [file2] [file3]... are the path(s) to the file(s) you want to "
+"open on start up.\n"
+"\n"
+msgstr ""
+"\n"
+"Χρήση: xfw [επιλογές] [αρχείο1] [αρχείο2] [αρχείο3]...\n"
+"\n"
+"    [επιλογές] μπορεί να είναι οποιαδήποτε από τις ακόλουθες:\n"
+"\n"
+"        -h, --help         Εκτύπωση (αυτής) της οθόνης βοήθειας, και μετά "
+"κλείσιμο.\n"
+"        -v, --version      Εκτύπωση των πληροφοριών έκδοσης, και μετά "
+"κλείσιμο.\n"
+"\n"
+"    [αρχείο1] [αρχείο2] [αρχείο3]... είναι οι διαδρομές των αρχείων, τα "
+"οποία θα ήθελες να ανοίξουν κατά την εκκίνηση.\n"
+"\n"
+
+#: ../src/foxhacks.cpp:36
+msgid "Root directory"
+msgstr "Βασικός Κατάλογος"
+
+#: ../src/foxhacks.cpp:466
+msgid "Ready."
+msgstr "Έτοιμο."
+
+#: ../src/foxhacks.cpp:493
+msgid "&Replace"
+msgstr "&Αντικατάσταση"
+
+#: ../src/foxhacks.cpp:494
+msgid "Re&place All"
+msgstr "Α&ντικατάσταση Όλων"
+
+#: ../src/foxhacks.cpp:503
+msgid "Search for:"
+msgstr "Αναζήτηση για:"
+
+#: ../src/foxhacks.cpp:515
+msgid "Replace with:"
+msgstr "Αντικατάσταση με:"
+
+#: ../src/foxhacks.cpp:528
+msgid "Ex&act"
+msgstr "Α&κριβές"
+
+#: ../src/foxhacks.cpp:529
+msgid "&Ignore Case"
+msgstr "&Χωρίς διάκριση πεζών/κεφαλαίων"
+
+#: ../src/foxhacks.cpp:530
+msgid "E&xpression"
+msgstr "Κανονική έ&κφραση"
+
+#: ../src/foxhacks.cpp:531
+msgid "&Backward"
+msgstr "&Πίσω"
+
+#: ../src/help.h:7
+#, c-format
+msgid ""
+"\n"
+" \n"
+" \n"
+"                                   XFE, X File Explorer File Manager\n"
+" \n"
+"                                     <http://roland65.free.fr/xfe>\n"
+"                                 <http://sourceforge.net/projects/xfe>\n"
+" \n"
+" \n"
+" \n"
+"  [This help file is best viewed using a fixed text font. You can set it by "
+"using the font tab of the Preferences dialog.]\n"
+" \n"
+" \n"
+" \n"
+"  This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU\n"
+"  General Public License as published by the Free Software Foundation; "
+"either version 2, or (at your option)\n"
+"  any later version.\n"
+" \n"
+"  This program is distributed in the hope that it will be useful, but "
+"WITHOUT ANY WARRANTY; \n"
+"  without even the implied warranty of MERCHANTABILITY or FITNESS FOR A "
+"PARTICULAR PURPOSE. \n"
+"  See the GNU General Public License for more details.\n"
+" \n"
+" \n"
+" \n"
+"   Description\n"
+"   =-=-=-=-=-=\n"
+" \n"
+"  X File Explorer (xfe) is a lightweight file manager for X11, written using "
+"the FOX toolkit.\n"
+"  It is desktop independent and can easily be customized.\n"
+"  It has Commander or Explorer styles and it is very fast and small.\n"
+"  Xfe is based on the popular, but discontinued X Win Commander, originally "
+"written by Maxim Baranov.\n"
+" \n"
+" \n"
+" \n"
+"   Features\n"
+"   =-=-=-=-=\n"
+" \n"
+"     - Very fast graphic user interface\n"
+"     - UTF-8 support\n"
+"     - Commander/Explorer interface with four file manager modes : a) one "
+"panel, b) a directory tree\n"
+"       and one panel, c) two panels and d) a directory tree and two panels\n"
+"     - Panels synchronization and switching\n"
+"     - Integrated text editor (X File Write, xfw)\n"
+"     - Integrated text viewer (X File View, xfv)\n"
+"     - Integrated image viewer (X File Image, xfi)\n"
+"     - Integrated package (rpm or deb) viewer / installer / uninstaller (X "
+"File Package, xfp)\n"
+"     - Copy/Cut/Paste files from and to your favorite desktop (GNOME/KDE/"
+"XFCE/ROX)\n"
+"     - Drag and Drop files from and to your favorite desktop (GNOME/KDE/XFCE/"
+"ROX)\n"
+"     - Root mode with authentication by su or sudo\n"
+"     - Status line\n"
+"     - File associations\n"
+"     - Optional trash can for file delete operations (compliant with "
+"freedesktop.org standards)\n"
+"     - Auto save registry\n"
+"     - Double click or single click files and directories navigation\n"
+"     - Mouse right click pop-up menu in tree list and file list\n"
+"     - Change file attributes\n"
+"     - Mount/Unmount devices (Linux only)\n"
+"     - Warn when mount point are not responding (Linux only)\n"
+"     - Toolbars\n"
+"     - Bookmarks\n"
+"     - Back and forward history lists for directory navigation\n"
+"     - Color themes (GNOME, KDE, Windows...)\n"
+"     - Icon themes (Xfe, GNOME, KDE, XFCE, Tango, Windows...)\n"
+"     - Control themes (Standard or Clearlooks like)\n"
+"     - Create/Extract archives (tar, compress, zip, gzip, bzip2, lzh, rar, "
+"ace, arj and 7zip formats are supported)\n"
+"     - Tooltips with file properties\n"
+"     - Progress bars or dialogs for lengthy file operations\n"
+"     - Thumbnails image previews\n"
+"     - Configurable key bindings\n"
+"     - Startup notification (optional)\n"
+"     - and much more...\n"
+" \n"
+" \n"
+" \n"
+"   Default Key bindings\n"
+"   =-=-=-=-=-=-=-=-=-=-=\n"
+" \n"
+"  Below are the global default key bindings. These key bindings are common "
+"to all X File applications.\n"
+" \n"
+"     * Select all                         - Ctrl-A\n"
+"     * Copy to clipboard                  - Ctrl-C\n"
+"     * Search                             - Ctrl-F\n"
+"     * Search previous                    - Shift-Ctrl-G\n"
+"     * Search next                        - Ctrl-G\n"
+"     * Go to home directory               - Ctrl-H\n"
+"     * Invert selection                   - Ctrl-I\n"
+"     * Open file                          - Ctrl-O\n"
+"     * Print file                         - Ctrl-P\n"
+"     * Quit application                   - Ctrl-Q\n"
+"     * Paste from clipboard               - Ctrl-V\n"
+"     * Close window                       - Ctrl-W\n"
+"     * Cut to clipboard                   - Ctrl-X\n"
+"     * Deselect all                       - Ctrl-Z\n"
+"     * Display help                       - F1\n"
+"     * Create new file                    - F2\n"
+"     * Create new folder                  - F7\n"
+"     * Big icon list                      - F10\n"
+"     * Small icon list                    - F11\n"
+"     * Detailed file list                 - F12\n"
+"     * Toggle display hidden files        - Ctrl-F6\n"
+"     * Toggle display thumbnails          - Ctrl-F7\n"
+"     * Go to working directory            - Shift-F2\n"
+"     * Go to parent directory             - Backspace\n"
+"     * Go to previous directory           - Ctrl-Backspace\n"
+"     * Go to next directory               - Shift-Backspace\n"
+" \n"
+" \n"
+"  Below are the default X File Explorer key bindings. These key bindings are "
+"specific to the xfe application.\n"
+" \n"
+"     * Add bookmark                      - Ctrl-B\n"
+"     * Filter files                      - ctrl-D\n"
+"     * Execute command                   - Ctrl-E\n"
+"     * Create new symbolic link          - Ctrl-J\n"
+"     * Switch panels                     - Ctrl-K\n"
+"     * Clear location bar                - Ctrl-L\n"
+"     * Mount file system (Linux only)    - Ctrl-M\n"
+"     * Rename file                       - Ctrl-N\n"
+"     * Refresh panels                    - Ctrl-R\n"
+"     * Symlink files to location         - Ctrl-S\n"
+"     * Launch terminal                   - Ctrl-T\n"
+"     * Unmount file system (Linux only)  - Ctrl-U\n"
+"     * Synchronize panels                - Ctrl-Y\n"
+"     * Create new window                 - F3\n"
+"     * Edit                              - F4\n"
+"     * Copy files to location            - F5\n"
+"     * Move files to location            - F6\n"
+"     * File properties                   - F9\n"
+"     * One panel mode                    - Ctrl-F1\n"
+"     * Tree and panel mode               - Ctrl-F2\n"
+"     * Two panels mode                   - Ctrl-F3\n"
+"     * Tree and two panels mode          - Ctrl-F4\n"
+"     * Toggle display hidden directories - Ctrl-F5\n"
+"     * Go to trash can                   - Ctrl-F8\n"
+"     * Create new root window            - Shift-F3\n"
+"     * View                              - Shift-F4\n"
+"     * Move files to trash can           - Del\n"
+"     * Restore files from trash can      - Alt-Del\n"
+"     * Delete files                      - Shift-Del\n"
+"     * Empty trash can                   - Ctrl-Del\n"
+" \n"
+" \n"
+"  Below are the default X File Image key bindings. These key bindings are "
+"specific to the xfi application.\n"
+" \n"
+"     * Zoom to fit window                - Ctrl-F\n"
+"     * Mirror image horizontally         - Ctrl-H\n"
+"     * Zoom image to 100%                - Ctrl-I\n"
+"     * Rotate image to left              - Ctrl-L\n"
+"     * Rotate image to right             - Ctrl-R\n"
+"     * Mirror image vertically           - Ctrl-V\n"
+" \n"
+" \n"
+"  Below are the default X File Write key bindings. These key bindings are "
+"specific to the xfw application.\n"
+" \n"
+"     * Toggle word wrap mode             - Ctrl-K\n"
+"     * Goto line                         - Ctrl-L\n"
+"     * Create new document               - Ctrl-N\n"
+"     * Replace string                    - Ctrl-R\n"
+"     * Save changes to file              - Ctrl-S\n"
+"     * Toggle line numbers mode          - Ctrl-T\n"
+"     * Toggle upper case mode            - Shift-Ctrl-U\n"
+"     * Toggle lower case mode            - Ctrl-U\n"
+"     * Redo last change                  - Ctrl-Y\n"
+"     * Undo last change                  - Ctrl-Z\n"
+" \n"
+" \n"
+"  X File View (xfv) and X File Package (xfp) only use some of the global key "
+"bindings.\n"
+" \n"
+"  Note that all the default key bindings listed above can be customized in "
+"the xfe Preferences dialog. However,\n"
+"  some key actions are hardcoded an cannot be changed. These include:\n"
+" \n"
+"     * Ctrl-+ and Ctrl--                 - zoom in and zoom out image in "
+"xfi\n"
+"     * Shift-F10                         - display context menus in xfe\n"
+"     * Return                            - enter directories in file lists, "
+"open files, select button actions, etc.\n"
+"     * Space                             - enter directories in file lists\n"
+"     * Esc                               - close current dialog, unselect "
+"files, etc.\n"
+" \n"
+" \n"
+" \n"
+"   Drag and Drop operations\n"
+"   =-=-=-=-=-=-=-=-=-=-=-=-=\n"
+" \n"
+"  Dragging a file or group or files (by moving the mouse while maintaining "
+"the left button pressed)\n"
+"  to a directory or a file panel optionally opens a dialog that allows to "
+"select the file operation: copy,\n"
+"  move, link or cancel.\n"
+" \n"
+" \n"
+" \n"
+"   Trash system\n"
+"   =-=-=-=-=-=-=\n"
+" \n"
+"  Starting with version 1.32, xfe implements a trash system that is fully "
+"compliant with the freedesktop.org standards.\n"
+"  This allows the user to move files to the trash can and to restore files "
+"from within xfe or your favorite\n"
+"  desktop.\n"
+"  Note that the trash files location is now: ~/.local/share/Trash/files\n"
+" \n"
+" \n"
+" \n"
+"   Configuration\n"
+"   =-=-=-=-=-=-=\n"
+" \n"
+"  You can perform any xfe customization (layout, file associations, key "
+"bindings, etc.) without editing any file\n"
+"  by hand. However, you may want to understand the configuration principles, "
+"because some customizations can also\n"
+"  easily be done by manually editing the configurations files.\n"
+"  Be careful to quit xfe before manually editing any configuration file, "
+"otherwise changes could not be taken\n"
+"  into account.\n"
+" \n"
+"  The system-wide configuration file xferc is located in /usr/share/xfe, /"
+"usr/local/share/xfe\n"
+"  or /opt/local/share/xfe, in the given order of precedence.\n"
+" \n"
+"  Starting with version 1.32, the location of the local configuration files "
+"has changed. This is to be compliant\n"
+"  with the freedesktop.org standards.\n"
+"  \n"
+"  The local configuration files for xfe, xfw, xfv, xfi, xfp are now located "
+"in the ~/.config/xfe directory.\n"
+"  They are named xferc, xfwrc, xfvrc, xfirc and xfprc.\n"
+"  \n"
+"  At the very first xfe run, the system-wide configuration file is copied "
+"into the local configuration file\n"
+"  ~/.config/xfe/xferc which does not exists yet. If the system-wide "
+"configuration file is not found\n"
+"  (in case of an unusal install place), a dialog asks the user to select the "
+"right place. It is thus easier to\n"
+"  customize xfe (this is particularly true for the file associations) by "
+"hand editing because all the local options are\n"
+"  located in the same file.\n"
+" \n"
+"  Default PNG icons are located in /usr/share/xfe/icons/xfe-theme or /usr/"
+"local/share/xfe/icons/xfe-theme, depending\n"
+"  on your installation. You can easily change the icon theme path in "
+"Preferences dialog.\n"
+"  \n"
+" \n"
+" \n"
+"   Tips\n"
+"   =-=-=\n"
+" \n"
+"  File list\n"
+"     - Select files and right click to open a context menu on the selected "
+"files\n"
+"     - Press Ctrl + right click to open a context menu on the file panel\n"
+"     - When dragging a file/folder to a folder, hold on the mouse on the "
+"folder to open it\n"
+" \n"
+"  Tree list\n"
+"     - Select a folder and right click to open a context menu on the "
+"selected folder\n"
+"     - Press Ctrl + right click to open a context menu on the tree panel\n"
+"     - When dragging a file/folder to a folder, hold on the mouse on the "
+"folder to expand it\n"
+" \n"
+"  Copy/paste file names\n"
+"     - Select a file and press Ctrl-C to copy its name into the clipboard. "
+"Then in a dialog,press Ctrl-V to paste\n"
+"       the file name.\n"
+"     - In a file operation dialog, select a filename in the line containing "
+"the source name and paste it directly\n"
+"       to the destination using the middle button of your mouse. Then modify "
+"it to suit your needs.\n"
+" \n"
+"  Startup notification\n"
+"     - If Xfe was compiled with startup notification support, the user can "
+"disable it for all applications at the global\n"
+"       Preferences level. He can also disable it for individual "
+"applications, by using the dedicated option in the first\n"
+"       tab of the Properties dialog. This latter way is only available when "
+"the file is an executable.\n"
+"       Disabling startup notification can be useful when starting an old "
+"application that doesn't support the startup\n"
+"       notification protocol (e.g. Xterm).\n"
+" \n"
+" \n"
+" \n"
+"   Bugs\n"
+"   =-=-=\n"
+" \n"
+"  Please report any found bug to Roland Baudin <roland65@free.fr>. Don't "
+"forget to mention the xfe version you use,\n"
+"  the FOX library version and your system name and version.\n"
+" \n"
+" \n"
+" \n"
+"   Translations\n"
+"   =-=-=-=-=-=-=\n"
+"  \n"
+"  xfe is now available in 19 languages but some translations are only "
+"partial. To translate xfe to your language,\n"
+"  open the xfe.pot file located in the po directory of the source tree with "
+"a software like poedit, kbabel\n"
+"  or gtranslator and fill it with your translated strings (be careful to the "
+"hotkeys and c-format characters),\n"
+"  and then send it back to me. I'll be pleased to integrate your work in the "
+"next xfe release.\n"
+" \n"
+" \n"
+" \n"
+"   Patches\n"
+"   =-=-=-=\n"
+" \n"
+"  If you have coded some interesting patch, please send it to me, I will try "
+"to include it in the next release...\n"
+" \n"
+" \n"
+"  Many thanks to Maxim Baranov for his excellent X Win Commander and to all "
+"people that have provided useful\n"
+"  patches, translations, tests and advices.\n"
+" \n"
+"  [Last revision: 9/11/2009]\n"
+" \n"
+"  "
+msgstr ""
+
+#. First tab is global key bindings
+#: ../src/Keybindings.cpp:87
+msgid "&Global Key Bindings"
+msgstr "&Καθολικές Συντομεύσεις Πληκτρολογίου"
+
+#: ../src/Keybindings.cpp:89
+msgid ""
+"These key bindings are common to all Xfe applications.\n"
+"Double click on an item to modify the selected key binding..."
+msgstr ""
+"Αυτές οι συντομεύσεις πληκτρολογίου είναι για όλες τις εφαρμογές του Xfe.\n"
+"Κάνε διπλό κλικ σε ένα αντικείμενο για να αλλάξεις τη συγκεκριμένη "
+"συντόμευση πληκτρολογίου..."
+
+#. Second tab is Xfe key bindings
+#: ../src/Keybindings.cpp:93
+msgid "Xf&e Key Bindings"
+msgstr "Συντομ&εύσεις Πληκτρολογίου του Xfe"
+
+#: ../src/Keybindings.cpp:95
+msgid ""
+"These key bindings are specific to the X File Explorer application.\n"
+"Double click on an item to modify the selected key binding..."
+msgstr ""
+"Αυτές οι συντομεύσεις πληκτρολογίου είναι αποκλειστικά για την εφαρμογή X "
+"File Explorer.\n"
+"Κάνε διπλό κλικ σε ένα αντικείμενο για να αλλάξεις τη συγκεκριμένη "
+"συντόμευση πληκτρολογίου..."
+
+#. Third tab is Xfi key bindings
+#: ../src/Keybindings.cpp:99
+msgid "Xf&i Key Bindings"
+msgstr "Συντομεύσε&ις Πληκτρολογίου του Xfi"
+
+#: ../src/Keybindings.cpp:101
+msgid ""
+"These key bindings are specific to the X File Image application.\n"
+"Double click on an item to modify the selected key binding..."
+msgstr ""
+"Αυτές οι συντομεύσεις πληκτρολο&γίου είναι αποκλειστικά για την εφαρμογή X "
+"File Image.\n"
+"Κάνε διπλό κλικ σε ένα αντικείμενο για να αλλάξεις τη συγκεκριμένη "
+"συντόμευση πληκτρολογίου..."
+
+#. Fourth tab is Xfw key bindings
+#: ../src/Keybindings.cpp:105
+msgid "Xf&w Key Bindings"
+msgstr "Xf&w Συντομεύσεις Πληκτρολογίου"
+
+#: ../src/Keybindings.cpp:107
+msgid ""
+"These key bindings are specific to the X File Write application.\n"
+"Double click on an item to modify the selected key binding..."
+msgstr ""
+"Αυτές οι συντομεύσεις πληκτρολογίου είναι αποκλειστικά για τον επεξεργαστή X "
+"File Write.\n"
+"Κάνε διπλό κλικ σε ένα αντικείμενο, για να αλλάξεις τη συγκεκριμένη "
+"συντόμευση πληκτρολογίου..."
+
+#: ../src/Keybindings.cpp:114 ../src/Keybindings.cpp:118
+#: ../src/Keybindings.cpp:122 ../src/Keybindings.cpp:126
+msgid "Action Name"
+msgstr "Όνομα Ενέργειας"
+
+#: ../src/Keybindings.cpp:115 ../src/Keybindings.cpp:119
+#: ../src/Keybindings.cpp:123 ../src/Keybindings.cpp:127
+msgid "Registry Key"
+msgstr "Κλειδί Μητρώου"
+
+#: ../src/Keybindings.cpp:116 ../src/Keybindings.cpp:120
+#: ../src/Keybindings.cpp:124 ../src/Keybindings.cpp:128
+msgid "Key Binding"
+msgstr "Συντόμευση πληκτρολογίου"
+
+#: ../src/Keybindings.cpp:785 ../src/Keybindings.cpp:925
+#: ../src/Keybindings.cpp:1029 ../src/Keybindings.cpp:1133
+#, c-format
+msgid "Press the combination of keys you want to use for the action: %s"
+msgstr ""
+"Πληκτρολόγησε το συνδυασμό πλήκτρων που θέλεις να χρησιμοποιείς για τη "
+"λειτουργία: %s"
+
+#: ../src/Keybindings.cpp:786 ../src/Keybindings.cpp:926
+#: ../src/Keybindings.cpp:1030 ../src/Keybindings.cpp:1134
+msgid "[Press space to disable the key binding for this action]"
+msgstr ""
+"[Πάτησε το πλήκτρο του Κενού (Space) για απενεργοποιήσεις την συντόμευση "
+"πληκτρολογίου για αυτή τη λειτουργία]"
+
+#: ../src/Keybindings.cpp:787 ../src/Keybindings.cpp:927
+#: ../src/Keybindings.cpp:1031 ../src/Keybindings.cpp:1135
+msgid "Modify Key Binding"
+msgstr "Μετατροπή των Συντομεύσεων Πληκτρολογίου"
+
+#: ../src/Keybindings.cpp:814 ../src/Keybindings.cpp:954
+#: ../src/Keybindings.cpp:1058 ../src/Keybindings.cpp:1162
+#, c-format
+msgid ""
+"The key binding %s is already used in the global section.\n"
+"\tYou should erase the existing key binding before assigning it again."
+msgstr ""
+"Η συντόμευση πληκτρολογίου %s χρησιμοποιείται, ήδη, στις καθολικές.\n"
+"\tΘα πρέπει να διαγράψεις την υπάρχουσα συντόμευση πληκτρολογίου, πριν την "
+"αναθέσεις ξανά."
+
+#: ../src/Keybindings.cpp:832 ../src/Keybindings.cpp:972
+#, c-format
+msgid ""
+"The key binding %s is already used in the Xfe section.\n"
+"\tYou should erase the existing key binding before assigning it again."
+msgstr ""
+"Η συντόμευση πληκτρολογίου %s χρησιμοποιείται, ήδη, στο Xfe.\n"
+"\tΘα πρέπει να διαγράψεις την υπάρχουσα συντόμευση πληκτρολογίου, πριν την "
+"αναθέσεις ξανά."
+
+#: ../src/Keybindings.cpp:850 ../src/Keybindings.cpp:1076
+#, c-format
+msgid ""
+"The key binding %s is already used in the Xfi section.\n"
+"\tYou should erase the existing key binding before assigning it again."
+msgstr ""
+"Η συντόμευση πληκτρολογίου %s χρησιμοποιείται, ήδη, στο Xfw.\n"
+"\tΘα πρέπει να διαγράψεις την υπάρχουσα συντόμευση πληκτρολογίου, πριν την "
+"αναθέσεις ξανά."
+
+#: ../src/Keybindings.cpp:868 ../src/Keybindings.cpp:1180
+#, c-format
+msgid ""
+"The key binding %s is already used in the Xfw section.\n"
+"\tYou should erase the existing key binding before assigning it again."
+msgstr ""
+"Η συντόμευση πληκτρολογίου %s χρησιμοποιείται, ήδη, στο Xfw.\n"
+"\tΘα πρέπει να διαγράψεις την υπάρχουσα συντόμευση πληκτρολογίου, πριν την "
+"αναθέσεις ξανά."
+
+#: ../src/startupnotification.cpp:92
+#, c-format
+msgid "Error! Can't open display\n"
+msgstr "Σφάλμα: Αδυναμία ανοίγματος του συστήματος προβολής\n"
+
+#: ../src/startupnotification.cpp:98
+#, c-format
+msgid "Start of %s"
+msgstr "Έναρξη του %s"
+
+# In Unix, to make a copy of a process for execution.
+#: ../src/startupnotification.cpp:117 ../src/xfeutils.cpp:1278
+#, c-format
+msgid "Error! Fork failed: %s\n"
+msgstr "Σφάλμα: Η δημιουργία εκτελέσιμου αντίγραφου (fork) απέτυχε: %s\n"
+
+#: ../src/xfeutils.cpp:673 ../src/xfeutils.cpp:728
+#, c-format
+msgid "Can't close folder %s\n"
+msgstr "Αδυναμία κλεισίματος του φακέλου %s\n"
+
+#: ../src/xfeutils.cpp:744
+msgid "bytes"
+msgstr "bytes"
+
+#: ../src/xfeutils.cpp:748
+msgid "GB"
+msgstr "GB"
+
+#: ../src/xfeutils.cpp:754
+msgid "MB"
+msgstr "MB"
+
+#: ../src/xfeutils.cpp:760
+msgid "KB"
+msgstr "KB"
+
+#: ../xfe.desktop.in.h:1
+msgid "A lightweight file manager for X Window"
+msgstr "Ένας ελαφρύς διαχειριστής αρχείων για τα X Window"
+
+#: ../xfe.desktop.in.h:2
+msgid "File Manager"
+msgstr "Διαχειριστής Αρχείων"
+
+#: ../xfe.desktop.in.h:3
+msgid "Xfe"
+msgstr "Xfe"
+
+#: ../xfi.desktop.in.h:1
+msgid "A simple image viewer for Xfe"
+msgstr "Ένας απλός προβολέας εικόνων για τον Xfe"
+
+#: ../xfi.desktop.in.h:2
+msgid "Image Viewer"
+msgstr "Προβολέας Εικόνων"
+
+#: ../xfi.desktop.in.h:3
+msgid "Xfi"
+msgstr "Xfi"
+
+#: ../xfw.desktop.in.h:1
+msgid "A simple text editor for Xfe"
+msgstr "Ένας απλός επεξεργαστής κειμένου για τον Xfe"
+
+#: ../xfw.desktop.in.h:2
+msgid "Text Editor"
+msgstr "Επεξεργαστής Κειμένου"
+
+#: ../xfw.desktop.in.h:3
+msgid "Xfw"
+msgstr "Xfw"
+
+#: ../xfv.desktop.in.h:1
+msgid "A simple text viewer for Xfe"
+msgstr "Ένας απλός προβολέας κειμένου για τον Xfe"
+
+#: ../xfv.desktop.in.h:2
+msgid "Text Viewer"
+msgstr "Προβολέας Κειμένου"
+
+#: ../xfv.desktop.in.h:3
+msgid "Xfv"
+msgstr "Xfv"
+
+#: ../xfp.desktop.in.h:1
+msgid "A simple package manager for Xfe"
+msgstr "Έναςς απλός διαχειριστής πακέτων για τον Xfe"
+
+#: ../xfp.desktop.in.h:2
+msgid "Package Manager"
+msgstr "Διαχειριστής Πακέτων"
+
+#: ../xfp.desktop.in.h:3
+msgid "Xfp"
+msgstr "Xfp"
+
+#~ msgid ""
+#~ "An error has occurred! \n"
+#~ "Please check that the xfvt program is in your path."
+#~ msgstr ""
+#~ "Παρουσιάστηκε κάποιο σφάλμα. \n"
+#~ "Παρακαλώ, ελέγξτε την εγκυρότητα της διαδρομής προς στο xfvt."
+
+#~ msgid "Folder %s is not empty, move it anyway to trash can?"
+#~ msgstr ""
+#~ "Ο φάκελος %s δεν είναι άδειος. Να μεταφερθεί στα απορρίμματα, έτσι κι "
+#~ "αλλιώς;"
+
+#~ msgid "Confirm delete/restore"
+#~ msgstr "Επιβεβαίωση των διαγραφών / αποκατάστασης"
+
+#~ msgid ""
+#~ "An error has occurred! \n"
+#~ "Please note that the root mode requires a working terminal installed on "
+#~ "your system."
+#~ msgstr ""
+#~ "Παρουσιάστηκε κάποιο σφάλμα. \n"
+#~ "Παρακαλώ, έχε υπόψη σου ότι η κατάσταση λειτουργίας υπερχρήστη, απαιτεί "
+#~ "την ύπαρξη μιας λειτουργικής εγκατάστασης ενός τερματικού, στο σύστημά "
+#~ "σου."
+
+#~ msgid "%d items including %d folder(s) and %d file(s)"
+#~ msgstr ""
+#~ "%d αντικείμενα, που περιλαμβάνουν %d φακέλους (-ο) και %d αρχεία (-ο)"
+
+#~ msgid "\tHide hidden folders (Ctrl-F5)"
+#~ msgstr "\tΑπόκρυψη κρυφών φακέλων  (Ctrl-F5)"
+
+#~ msgid "Folder "
+#~ msgstr "Φάκελος"
+
+#~ msgid "Move folder "
+#~ msgstr "Μετακίνηση φακέλου "
+
+#~ msgid "Folder is already in the trash can! Definitively delete folder "
+#~ msgstr ""
+#~ "Ο φάκελος είναι ήδη στο κάδο απορριμμάτων. Οριστική διαγραφή του φακέλου "
+
+#~ msgid "TRASH"
+#~ msgstr "ΑΠΟΡΡΙΜΜΑΤΑ"
+
+#~ msgid "Can't copy folder "
+#~ msgstr "Αδυναμία αντιγραφής του φακέλου "
+
+#~ msgid ": Permission denied"
+#~ msgstr ": Άρνηση πρόσβασης"
+
+#~ msgid "File "
+#~ msgstr "Το αρχείο "
+
+#~ msgid "\tGo to home folder\tBack to home folder."
+#~ msgstr "\tΜετάβαση στον αρχικό φάκελο\tΜετάβαση στον αρχικό φάκελο."
+
+#~ msgid "\tNew folder\tCreate new folder."
+#~ msgstr "\tΝέος φάκελος\tΔημιουργία νέου φακέλου."
+
+#~ msgid "\tShow hidden files\tShow hidden files and folders."
+#~ msgstr "\tΠροβολή κρυφών αρχείων\tΠροβολή κρυφών αρχείων και φακέλων."
+
+#~ msgid "\tHide hidden Files\tHide hidden files and folders."
+#~ msgstr "\tΑπόκρυψη κρυφών αρχείων\tΑπόκρυψη κρυφών αρχείων και φακέλων."
+
+#~ msgid " \tLaunch Xfe as root (Shift-F3)"
+#~ msgstr " \tΕκκίνηση του Xfe σαν υπερχρήστης (Shift-F3)"
+
+#~ msgid "\tHide hidden files (Ctrl-F6)"
+#~ msgstr "\tΑπόκρυψη κρυφών αρχείων (Ctrl-F6)"
+
+#~ msgid "\tShow thumbnails (Ctrl-F7)"
+#~ msgstr "\tΠροβολή εικόνων προεπισκόπησης (Ctrl-F7)"
+
+#~ msgid "\tHide thumbnails (Ctrl-F7)"
+#~ msgstr "\tΑπόκρυψη εικόνων προεπισκόπησης (Ctrl-F7)"
+
+#~ msgid "  Move "
+#~ msgstr "  Μετακίνηση των "
+
+#~ msgid "File is already in the trash can! Definitively delete file "
+#~ msgstr ""
+#~ "Το αρχείο είναι ήδη στο κάδο απορριμμάτων. Οριστική διαγραφή του αρχείου "
+
+#~ msgid "  Definitely delete "
+#~ msgstr "  Οριστική διαγραφή "
+
+#~ msgid " selected items?  "
+#~ msgstr " επιλεγμένα αντικείμενα;  "
+
+#~ msgid " in "
+#~ msgstr " σε "
+
+#~ msgid " selected items"
+#~ msgstr " επιλεγμένα αντικείμενα"
+
+#~ msgid "Foreground color"
+#~ msgstr "Χρώμα προσκηνίου"
+
+#~ msgid "File list foreground color"
+#~ msgstr "Χρώμα προσκηνίου της λίστας αρχείων"
+
+#~ msgid "Gradient effect and rounded corners"
+#~ msgstr "Εφέ διαβάθμισης και στρογγυλοποιημένες γωνίες"
+
+#~ msgid "\tGo back (Ctrl-Backspace)"
+#~ msgstr "\tΜετάβαση πίσω(Ctrl-Backspace)"
+
+#~ msgid "\tGo forward (Shift-Backspace)"
+#~ msgstr "\tΜετάβαση εμπρός (Shift-Backspace)"
+
+#~ msgid "\tGo up (Backspace)"
+#~ msgstr "\tΜετάβαση επάνω (Backspace)"
+
+#~ msgid "\tGo home (Ctrl-H)"
+#~ msgstr "\tΜετάβαση στην αρχή (Ctrl-H)"
+
+#~ msgid "\tPanel refresh (Ctrl-R)"
+#~ msgstr "\tΑνανέωση του πλαισίου (Ctrl-R)"
+
+#~ msgid "\tCreate new file (F2)"
+#~ msgstr "\tΔημιουργία νέου αρχείου (F2)"
+
+#~ msgid "\tCreate new folder (F7)"
+#~ msgstr "\tΔημιουργία νέου φακέλου (F7)"
+
+#~ msgid "\tCreate new symlink (Ctrl-J)"
+#~ msgstr "\tΔημιουργία νέου εσωτερικού δεσμού (Ctrl-J)"
+
+#~ msgid "\tExecute command (Ctrl-E)"
+#~ msgstr "\tΕκτέλεση εντολής (Ctrl-E)"
+
+#~ msgid "\tTerminal (Ctrl-T)"
+#~ msgstr "\tΤερματικό (Ctrl-T)"
+
+#~ msgid "\tMount (Ctrl-M)"
+#~ msgstr "\tΠροσάρτηση (Ctrl-M)"
+
+#~ msgid "\tUnmount (Ctrl-U)"
+#~ msgstr "\tΑποπροσάρτηση (Ctrl-U)"
+
+#~ msgid "\tBig icons (F10)"
+#~ msgstr "\tΜεγάλα εικονίδια (F10)"
+
+#~ msgid "\tSmall icons (F11)"
+#~ msgstr "\tΜικρά εικονίδια (F11)"
+
+#~ msgid "\tFull file list (F12)"
+#~ msgstr "\tΠλήρης λίστα αρχείων (F12)"
+
+#~ msgid "\tClear Location bar\tClear Location bar."
+#~ msgstr ""
+#~ "\tΚαθαρισμός της γραμμής εργαλείων τοποθεσίας\tΚαθαρισμός της γραμμής "
+#~ "εργαλείων τοποθεσίας."
+
+#~ msgid "New &file...\tF2"
+#~ msgstr "Νέο &αρχείο...\tF2"
+
+#~ msgid "New fo&lder...\tF7"
+#~ msgstr "Νέος &φάκελος...\tF7"
+
+#~ msgid "New s&ymlink...\tCtrl-J"
+#~ msgstr "Νέος εσωτερικός &δεσμός...\tCtrl-J"
+
+#~ msgid "Go &home\tCtrl-H"
+#~ msgstr "Μετάβαση στην &αρχή\tCtrl-H"
+
+#~ msgid "&Open...\tCtrl-O"
+#~ msgstr "Άν&οιγμα...tCtrl-O"
+
+#~ msgid "Re&name...\tCtrl-N"
+#~ msgstr "&Μετονομασία...\tCtrl-N"
+
+#~ msgid "&Copy to...\tCtrl-K"
+#~ msgstr "Αντι&γραφή στο...\tCtrl-K"
+
+#~ msgid "&Move to...\tCtrl-D"
+#~ msgstr "Μετα&κίνηση στο...\tCtrl-D"
+
+#~ msgid "&Symlink to...\tCtrl-S"
+#~ msgstr "&Εσωτερικός Δεσμός στο...\tCtrl-S"
+
+#~ msgid "Mo&ve to trash\tDel"
+#~ msgstr "Μετακίνηση στον &κάδο απορριμμάτων\tDel"
+
+#~ msgid "&Delete\tShift-Del"
+#~ msgstr "&Διαγραφή\tShift-Del"
+
+#~ msgid "&Properties...\tF9"
+#~ msgstr "&Ιδιότητες...\tF9"
+
+#~ msgid "&Quit\tCtrl-Q"
+#~ msgstr "&Τερματισμός\tCtrl-Q"
+
+#~ msgid "&Copy\tCtrl-C"
+#~ msgstr "&Αντιγραφή\tCtrl-C"
+
+#~ msgid "C&ut\tCtrl-X"
+#~ msgstr "Αποκο&πή\tCtrl-X"
+
+#~ msgid "&Paste\tCtrl-V"
+#~ msgstr "&Επικόλληση\tCtrl-V"
+
+#~ msgid "&Select all\tCtrl-A"
+#~ msgstr "Επιλογή &όλων\tCtrl-A"
+
+#~ msgid "&One panel\tCtrl-F1"
+#~ msgstr "&Ένα πλαίσιο\tCtrl-F1"
+
+#~ msgid "E&xecute command...\tCtrl-E"
+#~ msgstr "Εκ&τέλεση εντολής...\tCtrl-E"
+
+#~ msgid "&Terminal\tCtrl-T"
+#~ msgstr "&Τερματικό\tCtrl-T"
+
+#~ msgid "&Mount\tCtrl-M"
+#~ msgstr "&Προσάρτηση\tCtrl-M"
+
+#~ msgid "&Unmount\tCtrl-U"
+#~ msgstr "&Αποπροσάρτηση\tCtrl-U"
+
+#~ msgid "&Go to trash\tCtrl-F8"
+#~ msgstr "&Μετάβαση στον κάδο ανακύκλωσης\tCtrl-F8"
+
+#~ msgid "&Empty trash can\tCtrl-Del"
+#~ msgstr "&Άδειασμα του κάδου ανακύκλωσης\tCtrl-Del"
+
+#~ msgid "&Help\tF1"
+#~ msgstr "&Βοήθεια\tF1"
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)\n"
+#~ "\n"
+#~ "Based on X WinCommander by Maxim Baranov\n"
+#~ msgstr ""
+#~ "\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)\n"
+#~ "\n"
+#~ "Βασισμένος στον X WinCommander, από τον Maxim Baranov\n"
+
+#~ msgid "\tQuit Xfp (Ctrl-Q)"
+#~ msgstr "\tΤερματισμός του Xfp (Ctrl-Q)"
+
+#~ msgid "&Open file...\tCtrl-O"
+#~ msgstr "Άν&οιγμα αρχείου...\tCtrl-O"
+
+#~ msgid "&About X File Package\tF1"
+#~ msgstr "&Σχετικά με τον X File Package\tF1"
+
+#~ msgid "X File Package Version "
+#~ msgstr "Ο X File Package, έκδοση "
+
+#~ msgid ""
+#~ " is a simple rpm or deb package manager.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+#~ msgstr ""
+#~ ", είναι ένας απλός διαχειριστής πακέτων rpm ή deb.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+
+#~ msgid "\tOpen Image (Ctrl-O)\tOpen image file. (Ctrl-O)"
+#~ msgstr "\tΆνοιγμα Εικόνας (Ctrl-O)\tΆνοιγμα αρχείου εικόνας. (Ctrl-O)"
+
+#~ msgid "\tPrint image (Ctrl-P)\tPrint image file. (Ctrl-P)"
+#~ msgstr "\tΕκτύπωση εικόνας (Ctrl-P)\tΕκτύπωση αρχείου εικόνας. (Ctrl-P)"
+
+#~ msgid "\tQuit Xfi (Ctrl-Q)\tQuit Xfi. (Ctrl-Q)"
+#~ msgstr "\tΤερματισμός του Xfi (Ctrl-Q)\tΤερματισμός του Xfi. (Ctrl-Q)"
+
+#~ msgid "\tZoom in (Ctrl+)\tZoom in image. (Ctrl+)"
+#~ msgstr "\tΜεγέθυνση (Ctrl+)\tΜεγέθυνση της εικόνας. (Ctrl+)"
+
+#~ msgid "\tZoom out (Ctrl-)\tZoom out image. (Ctrl-)"
+#~ msgstr "\tΣμίκρυνση (Ctrl-)\tΣμίκρυνση της εικόνας. (Ctrl-)"
+
+#~ msgid "\tZoom 100% (Ctrl-I)\tZoom 100% image. (Ctrl-I)"
+#~ msgstr "\tΕστίαση στο 100% (Ctrl-I)\tΕστίαση της εικόνας στο 100%. (Ctrl-I)"
+
+#~ msgid "\tZoom to fit window (Ctrl-W)\tZoom to fit window. (Ctrl-W)"
+#~ msgstr ""
+#~ "\tΕστίαση για να ταιριάξει στο παράθυρο (Ctrl-W)\tΕστίαση ώστε να "
+#~ "ταιριάξει στο παράθυρο. (Ctrl-W)"
+
+#~ msgid "\tRotate left (Ctrl-L)\tRotate left image. (Ctrl-L)"
+#~ msgstr ""
+#~ "\tΠεριστροφή αριστερά (Ctrl-L)\tΠεριστροφή της εικόνας προς τα αριστερά. "
+#~ "(Ctrl-L)"
+
+#~ msgid "\tRotate right (Ctrl-R)\tRotate right image. (Ctrl-R)"
+#~ msgstr ""
+#~ "\tΠεριστροφή δεξιά (Ctrl-R)\tΠεριστροφή της εικόνας προς τα δεξιά. (Ctrl-"
+#~ "R)"
+
+#~ msgid "\tMirror horizontally (Ctrl-H)\tMirror image horizontally. (Ctrl-H)"
+#~ msgstr ""
+#~ "\tΚαθρεπτισμός, οριζόντια (Ctrl-H)\tΚαθρεπτισμός της εικόνας, οριζόντια. "
+#~ "(Ctrl-H)"
+
+#~ msgid "\tMirror vertically (Ctrl-V)\tMirror image vertically. (Ctrl-V)"
+#~ msgstr ""
+#~ "\tΚαθρεπτισμός, κάθετα (Ctrl-V)\tΚαθρεπτισμός της εικόνας, κάθετα. (Ctrl-"
+#~ "V)"
+
+#~ msgid "&Open...\tCtrl-O\tOpen image file. (Ctrl-O)"
+#~ msgstr "Άν&οιγμα...\tCtrl-O\tΆνοιγμα ενός αρχείου εικόνας. (Ctrl-O)"
+
+#~ msgid "&Print image...\tCtrl-P\tPrint image file. (Ctrl-P)"
+#~ msgstr ""
+#~ "&Εκτύπωση εικόνας...\tCtrl-P\tΕκτύπωση ενός αρχείου εικόνας. (Ctrl-P)"
+
+#~ msgid "&Clear recent files\t\tClear recent files."
+#~ msgstr ""
+#~ "&Καθαρισμός των πρόσφατων αρχείων\t\tΚαθαρισμός των πρόσφατων αρχείων."
+
+#~ msgid "&Quit\tCtrl-Q\tQuit Xfi. (Ctrl-Q)"
+#~ msgstr "&Τερματισμός\tCtrl-Q\tΤερματισμός του Xfi. (Ctrl-Q)"
+
+#~ msgid "Zoom &in\tCtrl+\tZoom in image. (Ctrl+)"
+#~ msgstr "&Μεγέθυνση\tCtrl+\tΜεγέθυνση της εικόνας. (Ctrl+)"
+
+#~ msgid "Zoom &out\tCtrl-\tZoom out image. (Ctrl-)"
+#~ msgstr "&Σμίκρυνση\tCtrl-\tΣμίκρυνση της εικόνας. (Ctrl-)"
+
+#~ msgid "Zoo&m 100%\tCtrl-I\tZoom image to 100%. (Ctrl-I)"
+#~ msgstr "Εστίαση στο &100%\tCtrl-I\tΕστίαση της εικόνας στο 100%. (Ctrl-I)"
+
+#~ msgid "Zoom to fit &window\tCtrl-F\tZoom to fit window. (Ctrl-F)"
+#~ msgstr ""
+#~ "Εστίαση για να ταιριάξει στο &παράθυρο\tCtrl-F\tΕστίαση ώστε να ταιριάξει "
+#~ "στο παράθυρο. (Ctrl-F)"
+
+#~ msgid "Rotate &right\tCtrl-R\tRotate right. (Ctrl-R)"
+#~ msgstr "Περιστροφή &δεξιά\tCtrl-R\tΠεριστροφή δεξιά. (Ctrl-R)"
+
+#~ msgid "Rotate &left\tCtrl-L\tRotate left. (Ctrl-L)"
+#~ msgstr "Περιστροφή &αριστερά\tCtrl-L\tΠεριστροφή αριστερά. (Ctrl-L)"
+
+#~ msgid "Mirror &horizontally\tCtrl-H\tMirror horizontally. (Ctrl-H)"
+#~ msgstr "Καθρεπτισμός &οριζόντια\tCtrl-H\tΚαθρεπτισμός οριζόντια. (Ctrl-H)"
+
+#~ msgid "Mirror &vertically\tCtrl-V\tMirror vertically. (Ctrl-V)"
+#~ msgstr "Καθρεπτισμός &κάθετα\tCtrl-V\tΚαθρεπτισμός κάθετα. (Ctrl-V)"
+
+#~ msgid "&Thumbnails\tCtrl-F7\tShow image thumbnails. (Ctrl-F7)"
+#~ msgstr ""
+#~ "&Εικόνες προεπισκόπησης\tCtrl-F7\tΠροβολή των εικόνων προεπισκόπησης. "
+#~ "(Ctrl-F7)"
+
+#~ msgid "&Big icons\tF10\tDisplay folders with big icons (F10)."
+#~ msgstr ""
+#~ "Με&γάλα εικονίδια\tF10\tΠροβολή των φακέλων με μεγάλα εικονίδια (F10)."
+
+#~ msgid "&Small icons\tF11\tDisplay folders with small icons (F11)."
+#~ msgstr ""
+#~ "Μι&κρά εικονίδια\tF11\tΠροβολή των φακέλων με μικρά εικονίδια (F11)."
+
+#~ msgid "&Full file list\tF12\tDisplay detailed folder listing (F12)."
+#~ msgstr ""
+#~ "&Πλήρης λίστα αρχείων\tF12\tΠροβολή των φακέλων με λεπτομέρειες (F12)."
+
+#~ msgid "&About X File Image\tF1\tAbout X File Image (F1)."
+#~ msgstr "&Σχετικά με το X File Image\tF1\tΣχετικά με το X File Image (F1)."
+
+#~ msgid "X File Image Version "
+#~ msgstr "Ο X File Image, έκδοση "
+
+#~ msgid ""
+#~ " is a simple image viewer.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+#~ msgstr ""
+#~ ", είναι ένας απλός προβολέας εικόνων.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+
+#~ msgid "\tNew (Ctrl-N)\tCreate new document. (Ctrl-N)"
+#~ msgstr "\tΝέο (Ctrl-N)\tΔημιουργία ενός νέου εγγράφου. (Ctrl-N)"
+
+#~ msgid "\tOpen (Ctrl-O)\tOpen document file. (Ctrl-O)"
+#~ msgstr "\tΆνοιγμα (Ctrl-O)\tΆνοιγμα ενός αρχείου εγγράφου. (Ctrl-O)"
+
+#~ msgid "\tSave (Ctrl-S)\tSave document. (Ctrl-S)"
+#~ msgstr "\tΑποθήκευση (Ctrl-S)\tΑποθήκευση του εγγράφου. (Ctrl-S)"
+
+#~ msgid "\tPrint (Ctrl-P)\tPrint document. (Ctrl-P)"
+#~ msgstr "\tΕκτύπωση (Ctrl-P)\tΕκτύπωση του εγγράφου. (Ctrl-P)"
+
+#~ msgid "\tQuit (Ctrl-Q)\tQuit X File Write. (Ctrl-Q)"
+#~ msgstr "\tΤερματισμός (Ctrl-Q)\tΤερματισμός του X File Write. (Ctrl-Q)"
+
+#~ msgid "\tCopy (Ctrl-C)\tCopy selection to clipboard. (Ctrl-C)"
+#~ msgstr "\tΑντιγραφή (Ctrl-C)\tΑντιγραφή της επιλογής στο πρόχειρο. (Ctrl-C)"
+
+#~ msgid "\tCut (Ctrl-X)\tCut selection to clipboard. (Ctrl-X)"
+#~ msgstr "\tΑποκοπή (Ctrl-X)\tΑποκοπή της επιλογής στο πρόχειρο. (Ctrl-X)"
+
+#~ msgid "\tPaste (Ctrl-V)\tPaste clipboard. (Ctrl-V)"
+#~ msgstr "\tΕπικόλληση (Ctrl-V)\tΕπικόλληση από το πρόχειρο. (Ctrl-V)"
+
+#~ msgid "\tGoto line (Ctrl-L)\tGoto line number. (Ctrl-L)"
+#~ msgstr ""
+#~ "\tΜετάβαση στη γραμμή... (Ctrl-L)\tΜετάβαση στην αριθμημένη γραμμή. (Ctrl-"
+#~ "L)"
+
+#~ msgid "\tUndo (Ctrl-Z)\tUndo last change. (Ctrl-Z)"
+#~ msgstr "\tΑναίρεση (Ctrl-Z)\tΑναίρεση της τελευταίας αλλαγής. (Ctrl-Z)"
+
+#~ msgid "\tRedo (Ctrl-Y)\tRedo last undo. (Ctrl-Y)"
+#~ msgstr "\tΕπαναφορά (Ctrl-Y)\tΕπαναφορά της τελευταίας αναίρεσης. (Ctrl-Y)"
+
+#~ msgid "\tSearch (Ctrl-F)\tSearch text. (Ctrl-F)"
+#~ msgstr "\tΑναζήτηση (Ctrl-F)\tΑναζήτηση κειμένου. (Ctrl-F)"
+
+#~ msgid ""
+#~ "\tSearch selection backward (Shift-Ctrl-G, Shift-F3)\tSearch backward for "
+#~ "selected text. (Shift-Ctrl-G, Shift-F3)"
+#~ msgstr ""
+#~ "\tΑναζήτηση για την επιλογή, προς τα πίσω (Shift-Ctrl-G, Shift-F3)"
+#~ "\tΑναζήτηση, προς τα πίσω, για το επιλεγμένο κείμενο. (Shift-Ctrl-G, "
+#~ "Shift-F3)"
+
+#~ msgid ""
+#~ "\tSearch selection forward (Ctrl-G, F3)\tSearch forward for selected "
+#~ "text. (Ctrl-G, F3)"
+#~ msgstr ""
+#~ "\tΑναζήτηση για την επιλογή, προς τα εμπρός (Ctrl-G, F3)\tΑναζήτηση, προς "
+#~ "τα εμπρός, για το επιλεγμένο κείμενο. (Ctrl-G, F3)"
+
+#~ msgid "\tWord wrap on (Ctrl-K)\tWord wrap on. (Ctrl-K)"
+#~ msgstr ""
+#~ "\tΑναδίπλωση λέξεων, ενεργοποιημένη (Ctrl-K)\tΕνεργοποίηση της αναδίπλωση "
+#~ "λέξεων. (Ctrl-K)"
+
+#~ msgid "\tWord wrap off (Ctrl-K)\tWord wrap off. (Ctrl-K)"
+#~ msgstr ""
+#~ "\t\tΑναδίπλωση λέξεων, απενεργοποιημένη (Ctrl-K)\tΑπνεργοποίηση της "
+#~ "αναδίπλωση λέξεων. (Ctrl-K)"
+
+#~ msgid "\tShow line numbers (Ctrl-T)\tShow line numbers. (Ctrl-T)"
+#~ msgstr ""
+#~ "\tΠροβολή των αριθμών των γραμμών (Ctrl-T)\tΠροβολή των αριθμών των "
+#~ "γραμμών. (Ctrl-T)"
+
+#~ msgid "\tHide line numbers (Ctrl-T)\tHide line numbers. (Ctrl-T)"
+#~ msgstr ""
+#~ "\tΑπόκρυψη των αριθμών των γραμμών (Ctrl-T)\tΑπόκρυψη των αριθμών των "
+#~ "γραμμών. (Ctrl-T)"
+
+#~ msgid "&New\tCtrl-N\tCreate new document. (Ctrl-N)"
+#~ msgstr "&Νέο\tCtrl-N\tΔημιουργία νέου εγγράφου. (Ctrl-N)"
+
+#~ msgid "&Open...\tCtrl-O\tOpen document file. (Ctrl-O)"
+#~ msgstr "Άν&οιγμα...\tCtrl-O\tΆνοιγμα αρχείου εγγράφου. (Ctrl-O)"
+
+#~ msgid "&Save\tCtrl-S\tSave changes to file. (Ctrl-S)"
+#~ msgstr "Α&ποθήκευση\tCtrl-S\tΑποθήκευση των αλλαγών στο αρχείο. (Ctrl-S)"
+
+#~ msgid "&Close\tCtrl-W\tClose document. (Ctrl-W)"
+#~ msgstr "&Κλείσιμο\tCtrl-W\tΚλείσιμο του εγγράφου. (Ctrl-W)"
+
+#~ msgid "&Print...\tCtrl-P\tPrint document. (Ctrl-P)"
+#~ msgstr "&Εκτύπωση...\tCtrl-P\tΕκτύπωση του εγγράφου. (Ctrl-P)"
+
+#~ msgid "&Quit\tCtrl-Q\tQuit X File Write. (Ctrl-Q)"
+#~ msgstr "&Τερματισμός\tCtrl-Q\tΤερματισμός του X File Write. (Ctrl-Q)"
+
+#~ msgid "&Redo\tCtrl-Y\tRedo last undo. (Ctrl-Y)"
+#~ msgstr "Επανα&φορά\tCtrl-Y\tΕπαναφορά της τελευταίας ανέραισης. (Ctrl-Y)"
+
+#~ msgid "&Paste\tCtrl-V\tPaste from clipboard. (Ctrl-V)"
+#~ msgstr "Επικό&λληση\tCtrl-V\tΕπικόλληση  από το πρόχειρο. (Ctrl-V)"
+
+#~ msgid "Lo&wer-case\tCtrl-U\tChange to lower case. (Ctrl-U)"
+#~ msgstr "&Πεζά\tCtrl-U\tΑλλαγή σε πεζά. (Ctrl-U)"
+
+#~ msgid "Upp&er-case\tShift-Ctrl-U\tChange to upper case. (Shift-Ctrl-U)"
+#~ msgstr "Κε&φαλαία\tShift-Ctrl-U\tΑλλαγή σε κεφαλαία. (Shift-Ctrl-U)"
+
+#~ msgid "&Goto line...\tCtrl-L\tGoto line number. (Ctrl-L)"
+#~ msgstr ""
+#~ "&Μετάβαση στη γραμμή...\tCtrl-L\tΜετάβαση στη γραμμή με το αντίστοιχο "
+#~ "νούμερο. (Ctrl-L)"
+
+#~ msgid "&Search...\tCtrl-F\tSearch for a string. (Ctrl-F)"
+#~ msgstr "&Αναζήτηση...\tCtrl-F\tΑναζήτηση για ένα στίχο. (Ctrl-F)"
+
+#~ msgid ""
+#~ "Search sel. &backward\tShift-Ctrl-G\tSearch backward for selected text. "
+#~ "(Shift-Ctrl-G, Shift-F3)"
+#~ msgstr ""
+#~ "Αναζήτηση για την επιλογή, προς τα &πίσω\tShift-Ctrl-G\tΑναζήτηση, προς "
+#~ "τα πίσω, για το επιλεγμένο κείμενο. (Shift-Ctrl-G, Shift-F3)"
+
+#~ msgid "&Lines numbering\tCtrl-T\tToggle lines numbering mode. (Ctrl-T)"
+#~ msgstr ""
+#~ "&Αρίθμηση Γραμμών\tCtrl-T\tΕναλλαγή της κατάστασης λειτουργίας αρίθμησης "
+#~ "γραμμών. (Ctrl-T)"
+
+#~ msgid "&Font...\t\tChange text font."
+#~ msgstr "&Γραμματοσειρά...\t\tΑλλαγή της γραμματοσειράς."
+
+#~ msgid "&About X File Write...\tF1\tAbout X File Write. (F1)"
+#~ msgstr ""
+#~ "&Σχετικά με το X File Write...\tF1\tΣχετικά με το X File Write. (F1)"
+
+#~ msgid "X File Write Version "
+#~ msgstr "Ο X File Write,  έκδοση "
+
+#~ msgid ""
+#~ " is a simple text editor.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+#~ msgstr ""
+#~ ", είναι ένας απλός επεξεργαστής κειμένου.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+
+#~ msgid "\tOpen document (Ctrl-O)\tOpen document file. (Ctrl-O)"
+#~ msgstr "\tΆνοιγμα εγγράφου (Ctrl-O)\tΆνοιγμα αρχείου εγγράφου. (Ctrl-O)"
+
+#~ msgid "\tPrint document (Ctrl-P)\tPrint document file. (Ctrl-P)"
+#~ msgstr ""
+#~ "\tΕκτύπωση του εγγράφου (Ctrl-P)\tΕκτύπωση του αρχείου εγγράφου. (Ctrl-P)"
+
+#~ msgid "\tQuit Xfv (Ctrl-Q)\tQuit Xfv. (Ctrl-Q)"
+#~ msgstr "\tΤερματισμός του Xfv (Ctrl-Q)\tΤερματισμός του Xfv. (Ctrl-Q)"
+
+#~ msgid "\tFind again (Ctrl-G)\tFind again. (Ctrl-G)"
+#~ msgstr "\tΑναζήτηση ξανά (Ctrl-G)\tΑναζήτηση ξανά. (Ctrl-G)"
+
+#~ msgid "&Open file...\tCtrl-O\tOpen document file. (Ctrl-O)"
+#~ msgstr "Άν&οιγμα εγγράφου...\tCtrl-O\tΆνοιγμα αρχείου εγγράφου. (Ctrl-O)"
+
+#~ msgid "&Print file...\tCtrl-P\tPrint document file. (Ctrl-P)"
+#~ msgstr ""
+#~ "&Εκτύπωση του αρχείου...\tCtrl-P\tΕκτύπωση του αρχείου εγγράφου. (Ctrl-P)"
+
+#~ msgid "&Quit\tCtrl-Q\tQuit Xfv. (Ctrl Q)"
+#~ msgstr "&Τερματισμός\tCtrl-Q\tΤερματισμός του Xfv. (Ctrl Q)"
+
+#~ msgid "&Find a string...\tCtrl-F\tFind a string in a document. (Ctrl-F)"
+#~ msgstr ""
+#~ "&Αναζήτηση για ένα στίχο...\tCtrl-F\tΑναζήτηση για ένα στίχο στο έγγραφο. "
+#~ "(Ctrl-F)"
+
+#~ msgid "Find &again\tCtrl-G\tFind again. (Ctrl-G)"
+#~ msgstr "Αναζήτηση &ξανά\tCtrl-G\tΑναζήτηση ξανά. (Ctrl-G)"
+
+#~ msgid "&About X File View\tF1\tAbout X File View. (F1)"
+#~ msgstr "&Σχετικά με το View\tF1\tΣχετικά με το View. (F1)"
+
+#~ msgid "X File View Version "
+#~ msgstr "Ο X File View, έκδοση "
+
+#~ msgid ""
+#~ " is a simple text viewer.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"
+#~ msgstr ""
+#~ ", είναι ένας απλός προβολέας κειμένου.\n"
+#~ "\n"
+#~ "Copyright (C) 2002-2008 Roland Baudin (roland65@free.fr)"

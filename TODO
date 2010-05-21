@@ -1,0 +1,47 @@
+TODO list and known issues
+--------------------------
+
+
+Critical bugs
+--------------
+
+
+
+Known issues
+------------
+
+- if the mouse pointer is on a menu title, then it is not possible to navigate using the keyboard on the menu titles.
+  This is a FOX issue.
+- in Xfw, if the wordwrap mode is selected an line numbers are displayed, then the line numbers are uncorrectly
+  displayed for wrapped lines. This is also a FOX issue.
+
+
+
+To do
+------
+
+- add a way to clean history lists (like the open file list, for example)
+- internationalization of man files
+- internationalization should handle multiple plural forms (required by languages like polish, czech, etc.)
+- at the command line, Xfe should handle file names (and URIs) and open the associated application to open the file names
+  (ex: xfe test.txt should edit the test.txt file, xfe /usr/bin/gimp should launch gimp, etc.)
+- places (home + trash + mtab entries) and bookmark items could be displayed as a tab pane in the tree panel
+- in detailed view, the user should have the ability to select the displayed columns
+- add an option to set the default archive format
+- file searching dialog (work already started but not completed yet) 
+- use of MIME types in complement to file associations
+- implement lenghty operations in background (directory size, thumbnails, copy...)
+- indicator of global progress of file operations when multiple items have been selected
+- simple archive program or implement VFS?
+- df command (disk usage, on Linux only?)
+
+
+User requests
+--------------
+
+- autosize file name header in detailed view
+- context menus on text dialogs
+- hotkeys to go directly to a directory
+- implement users scripts (like in Nautilus)
+- Samba support (network neighborhood, using Fuse?)
+
