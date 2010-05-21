@@ -34,45 +34,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = xfe$(EXEEXT) xfp$(EXEEXT) xfv$(EXEEXT) xfw$(EXEEXT) \
-	xfi$(EXEEXT)
+bin_PROGRAMS = xfe$(EXEEXT)
 @STARTUPNOTIFY_TRUE@am__append_1 = ../libsn/sn-common.c  \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launchee.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launcher.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-list.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-monitor.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-util.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xmessages.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xutils.c
-
-@STARTUPNOTIFY_TRUE@am__append_2 = ../libsn/sn-common.c  \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launchee.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launcher.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-list.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-monitor.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-util.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xmessages.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xutils.c
-
-@STARTUPNOTIFY_TRUE@am__append_3 = ../libsn/sn-common.c  \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launchee.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launcher.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-list.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-monitor.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-util.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xmessages.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xutils.c
-
-@STARTUPNOTIFY_TRUE@am__append_4 = ../libsn/sn-common.c  \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launchee.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launcher.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-list.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-monitor.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-util.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xmessages.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xutils.c
-
-@STARTUPNOTIFY_TRUE@am__append_5 = ../libsn/sn-common.c  \
 @STARTUPNOTIFY_TRUE@              ../libsn/sn-launchee.c \
 @STARTUPNOTIFY_TRUE@              ../libsn/sn-launcher.c \
 @STARTUPNOTIFY_TRUE@              ../libsn/sn-list.c \
@@ -84,22 +47,7 @@ bin_PROGRAMS = xfe$(EXEEXT) xfp$(EXEEXT) xfv$(EXEEXT) xfw$(EXEEXT) \
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/codeset.m4 \
-	$(top_srcdir)/m4/gettext.m4 $(top_srcdir)/m4/glibc2.m4 \
-	$(top_srcdir)/m4/glibc21.m4 $(top_srcdir)/m4/iconv.m4 \
-	$(top_srcdir)/m4/intdiv0.m4 $(top_srcdir)/m4/intl.m4 \
-	$(top_srcdir)/m4/intmax.m4 $(top_srcdir)/m4/inttypes-pri.m4 \
-	$(top_srcdir)/m4/inttypes_h.m4 $(top_srcdir)/m4/lcmessage.m4 \
-	$(top_srcdir)/m4/lib-ld.m4 $(top_srcdir)/m4/lib-link.m4 \
-	$(top_srcdir)/m4/lib-prefix.m4 $(top_srcdir)/m4/lock.m4 \
-	$(top_srcdir)/m4/longdouble.m4 $(top_srcdir)/m4/longlong.m4 \
-	$(top_srcdir)/m4/nls.m4 $(top_srcdir)/m4/po.m4 \
-	$(top_srcdir)/m4/printf-posix.m4 $(top_srcdir)/m4/progtest.m4 \
-	$(top_srcdir)/m4/size_max.m4 $(top_srcdir)/m4/stdint_h.m4 \
-	$(top_srcdir)/m4/uintmax_t.m4 $(top_srcdir)/m4/ulonglong.m4 \
-	$(top_srcdir)/m4/visibility.m4 $(top_srcdir)/m4/wchar_t.m4 \
-	$(top_srcdir)/m4/wint_t.m4 $(top_srcdir)/m4/xsize.m4 \
-	$(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -145,98 +93,6 @@ am_xfe_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
 	main.$(OBJEXT) $(am__objects_1)
 xfe_OBJECTS = $(am_xfe_OBJECTS)
 xfe_DEPENDENCIES =
-am__xfi_SOURCES_DIST = ../xvt/command.c ../xvt/screen.c \
-	../xvt/ttyinit.c ../xvt/xsetup.c ../xvt/xvt.c icons.cpp \
-	xfeutils.cpp startupnotification.cpp StringList.cpp \
-	CommandWindow.cpp InputDialog.cpp DialogBox.cpp \
-	OverwriteBox.cpp FileDict.cpp IconList.cpp File.cpp \
-	FileList.cpp DirList.cpp FileDialog.cpp MessageBox.cpp \
-	DirHistBox.cpp TextLabel.cpp PathLinker.cpp XFileImage.cpp \
-	../libsn/sn-common.c ../libsn/sn-launchee.c \
-	../libsn/sn-launcher.c ../libsn/sn-list.c \
-	../libsn/sn-monitor.c ../libsn/sn-util.c \
-	../libsn/sn-xmessages.c ../libsn/sn-xutils.c
-am_xfi_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
-	xsetup.$(OBJEXT) xvt.$(OBJEXT) icons.$(OBJEXT) \
-	xfeutils.$(OBJEXT) startupnotification.$(OBJEXT) \
-	StringList.$(OBJEXT) CommandWindow.$(OBJEXT) \
-	InputDialog.$(OBJEXT) DialogBox.$(OBJEXT) \
-	OverwriteBox.$(OBJEXT) FileDict.$(OBJEXT) IconList.$(OBJEXT) \
-	File.$(OBJEXT) FileList.$(OBJEXT) DirList.$(OBJEXT) \
-	FileDialog.$(OBJEXT) MessageBox.$(OBJEXT) DirHistBox.$(OBJEXT) \
-	TextLabel.$(OBJEXT) PathLinker.$(OBJEXT) XFileImage.$(OBJEXT) \
-	$(am__objects_1)
-xfi_OBJECTS = $(am_xfi_OBJECTS)
-xfi_DEPENDENCIES =
-am__xfp_SOURCES_DIST = ../xvt/command.c ../xvt/screen.c \
-	../xvt/ttyinit.c ../xvt/xsetup.c ../xvt/xvt.c icons.cpp \
-	xfeutils.cpp startupnotification.cpp StringList.cpp \
-	CommandWindow.cpp InputDialog.cpp DialogBox.cpp \
-	OverwriteBox.cpp FileDict.cpp IconList.cpp File.cpp \
-	FileList.cpp DirList.cpp FileDialog.cpp PathLinker.cpp \
-	TextLabel.cpp MessageBox.cpp DirHistBox.cpp XFilePackage.cpp \
-	../libsn/sn-common.c ../libsn/sn-launchee.c \
-	../libsn/sn-launcher.c ../libsn/sn-list.c \
-	../libsn/sn-monitor.c ../libsn/sn-util.c \
-	../libsn/sn-xmessages.c ../libsn/sn-xutils.c
-am_xfp_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
-	xsetup.$(OBJEXT) xvt.$(OBJEXT) icons.$(OBJEXT) \
-	xfeutils.$(OBJEXT) startupnotification.$(OBJEXT) \
-	StringList.$(OBJEXT) CommandWindow.$(OBJEXT) \
-	InputDialog.$(OBJEXT) DialogBox.$(OBJEXT) \
-	OverwriteBox.$(OBJEXT) FileDict.$(OBJEXT) IconList.$(OBJEXT) \
-	File.$(OBJEXT) FileList.$(OBJEXT) DirList.$(OBJEXT) \
-	FileDialog.$(OBJEXT) PathLinker.$(OBJEXT) TextLabel.$(OBJEXT) \
-	MessageBox.$(OBJEXT) DirHistBox.$(OBJEXT) \
-	XFilePackage.$(OBJEXT) $(am__objects_1)
-xfp_OBJECTS = $(am_xfp_OBJECTS)
-xfp_DEPENDENCIES =
-am__xfv_SOURCES_DIST = ../xvt/command.c ../xvt/screen.c \
-	../xvt/ttyinit.c ../xvt/xsetup.c ../xvt/xvt.c icons.cpp \
-	xfeutils.cpp startupnotification.cpp StringList.cpp \
-	CommandWindow.cpp InputDialog.cpp DialogBox.cpp \
-	OverwriteBox.cpp FileDict.cpp IconList.cpp File.cpp \
-	FileList.cpp DirList.cpp FileDialog.cpp PathLinker.cpp \
-	TextLabel.cpp MessageBox.cpp DirHistBox.cpp ViewWindow.cpp \
-	FontDialog.cpp XFileView.cpp ../libsn/sn-common.c \
-	../libsn/sn-launchee.c ../libsn/sn-launcher.c \
-	../libsn/sn-list.c ../libsn/sn-monitor.c ../libsn/sn-util.c \
-	../libsn/sn-xmessages.c ../libsn/sn-xutils.c
-am_xfv_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
-	xsetup.$(OBJEXT) xvt.$(OBJEXT) icons.$(OBJEXT) \
-	xfeutils.$(OBJEXT) startupnotification.$(OBJEXT) \
-	StringList.$(OBJEXT) CommandWindow.$(OBJEXT) \
-	InputDialog.$(OBJEXT) DialogBox.$(OBJEXT) \
-	OverwriteBox.$(OBJEXT) FileDict.$(OBJEXT) IconList.$(OBJEXT) \
-	File.$(OBJEXT) FileList.$(OBJEXT) DirList.$(OBJEXT) \
-	FileDialog.$(OBJEXT) PathLinker.$(OBJEXT) TextLabel.$(OBJEXT) \
-	MessageBox.$(OBJEXT) DirHistBox.$(OBJEXT) ViewWindow.$(OBJEXT) \
-	FontDialog.$(OBJEXT) XFileView.$(OBJEXT) $(am__objects_1)
-xfv_OBJECTS = $(am_xfv_OBJECTS)
-xfv_DEPENDENCIES =
-am__xfw_SOURCES_DIST = ../xvt/command.c ../xvt/screen.c \
-	../xvt/ttyinit.c ../xvt/xsetup.c ../xvt/xvt.c icons.cpp \
-	xfeutils.cpp startupnotification.cpp StringList.cpp \
-	CommandWindow.cpp OverwriteBox.cpp MessageBox.cpp IconList.cpp \
-	File.cpp FileList.cpp DirList.cpp InputDialog.cpp \
-	DialogBox.cpp FileDict.cpp FileDialog.cpp PathLinker.cpp \
-	TextLabel.cpp EditWindow.cpp DirHistBox.cpp FontDialog.cpp \
-	XFileWrite.cpp ../libsn/sn-common.c ../libsn/sn-launchee.c \
-	../libsn/sn-launcher.c ../libsn/sn-list.c \
-	../libsn/sn-monitor.c ../libsn/sn-util.c \
-	../libsn/sn-xmessages.c ../libsn/sn-xutils.c
-am_xfw_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
-	xsetup.$(OBJEXT) xvt.$(OBJEXT) icons.$(OBJEXT) \
-	xfeutils.$(OBJEXT) startupnotification.$(OBJEXT) \
-	StringList.$(OBJEXT) CommandWindow.$(OBJEXT) \
-	OverwriteBox.$(OBJEXT) MessageBox.$(OBJEXT) IconList.$(OBJEXT) \
-	File.$(OBJEXT) FileList.$(OBJEXT) DirList.$(OBJEXT) \
-	InputDialog.$(OBJEXT) DialogBox.$(OBJEXT) FileDict.$(OBJEXT) \
-	FileDialog.$(OBJEXT) PathLinker.$(OBJEXT) TextLabel.$(OBJEXT) \
-	EditWindow.$(OBJEXT) DirHistBox.$(OBJEXT) FontDialog.$(OBJEXT) \
-	XFileWrite.$(OBJEXT) $(am__objects_1)
-xfw_OBJECTS = $(am_xfw_OBJECTS)
-xfw_DEPENDENCIES =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -250,11 +106,8 @@ CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
-SOURCES = $(xfe_SOURCES) $(xfi_SOURCES) $(xfp_SOURCES) $(xfv_SOURCES) \
-	$(xfw_SOURCES)
-DIST_SOURCES = $(am__xfe_SOURCES_DIST) $(am__xfi_SOURCES_DIST) \
-	$(am__xfp_SOURCES_DIST) $(am__xfv_SOURCES_DIST) \
-	$(am__xfw_SOURCES_DIST)
+SOURCES = $(xfe_SOURCES)
+DIST_SOURCES = $(am__xfe_SOURCES_DIST)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -289,6 +142,7 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FOX_CONFIG = @FOX_CONFIG@
 GENCAT = @GENCAT@
+GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIBC2 = @GLIBC2@
 GLIBC21 = @GLIBC21@
@@ -296,6 +150,7 @@ GMSGFMT = @GMSGFMT@
 GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 HAVE_ASPRINTF = @HAVE_ASPRINTF@
+HAVE_NEWLOCALE = @HAVE_NEWLOCALE@
 HAVE_POSIX_PRINTF = @HAVE_POSIX_PRINTF@
 HAVE_SNPRINTF = @HAVE_SNPRINTF@
 HAVE_VISIBILITY = @HAVE_VISIBILITY@
@@ -313,6 +168,7 @@ INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
 INTLTOOL_MERGE = @INTLTOOL_MERGE@
 INTLTOOL_PERL = @INTLTOOL_PERL@
 INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
+INTL_DEFAULT_VERBOSITY = @INTL_DEFAULT_VERBOSITY@
 INTL_LIBTOOL_SUFFIX_PREFIX = @INTL_LIBTOOL_SUFFIX_PREFIX@
 INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 LDFLAGS = @LDFLAGS@
@@ -321,9 +177,11 @@ LIBINTL = @LIBINTL@
 LIBMULTITHREAD = @LIBMULTITHREAD@
 LIBOBJS = @LIBOBJS@
 LIBPTH = @LIBPTH@
+LIBPTH_PREFIX = @LIBPTH_PREFIX@
 LIBS = @LIBS@
 LIBTHREAD = @LIBTHREAD@
 LN_S = @LN_S@
+LTLIBC = @LTLIBC@
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBMULTITHREAD = @LTLIBMULTITHREAD@
@@ -354,9 +212,12 @@ STRIP = @STRIP@
 USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
+WINDRES = @WINDRES@
+WOE32 = @WOE32@
 WOE32DLL = @WOE32DLL@
 XGETTEXT = @XGETTEXT@
 XGETTEXT_015 = @XGETTEXT_015@
+XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 XMKMF = @XMKMF@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
@@ -424,39 +285,6 @@ xfe_SOURCES = ../xvt/command.c ../xvt/screen.c ../xvt/ttyinit.c \
 	TextLabel.cpp Keybindings.cpp KeybindingsDialog.cpp \
 	XFileExplorer.cpp main.cpp $(am__append_1)
 xfe_LDADD = @LIBINTL@ -lutil
-xfp_SOURCES = ../xvt/command.c ../xvt/screen.c ../xvt/ttyinit.c \
-	../xvt/xsetup.c ../xvt/xvt.c icons.cpp xfeutils.cpp \
-	startupnotification.cpp StringList.cpp CommandWindow.cpp \
-	InputDialog.cpp DialogBox.cpp OverwriteBox.cpp FileDict.cpp \
-	IconList.cpp File.cpp FileList.cpp DirList.cpp FileDialog.cpp \
-	PathLinker.cpp TextLabel.cpp MessageBox.cpp DirHistBox.cpp \
-	XFilePackage.cpp $(am__append_2)
-xfp_LDADD = @LIBINTL@ -lutil
-xfv_SOURCES = ../xvt/command.c ../xvt/screen.c ../xvt/ttyinit.c \
-	../xvt/xsetup.c ../xvt/xvt.c icons.cpp xfeutils.cpp \
-	startupnotification.cpp StringList.cpp CommandWindow.cpp \
-	InputDialog.cpp DialogBox.cpp OverwriteBox.cpp FileDict.cpp \
-	IconList.cpp File.cpp FileList.cpp DirList.cpp FileDialog.cpp \
-	PathLinker.cpp TextLabel.cpp MessageBox.cpp DirHistBox.cpp \
-	ViewWindow.cpp FontDialog.cpp XFileView.cpp $(am__append_3)
-xfv_LDADD = @LIBINTL@ -lutil
-xfw_SOURCES = ../xvt/command.c ../xvt/screen.c ../xvt/ttyinit.c \
-	../xvt/xsetup.c ../xvt/xvt.c icons.cpp xfeutils.cpp \
-	startupnotification.cpp StringList.cpp CommandWindow.cpp \
-	OverwriteBox.cpp MessageBox.cpp IconList.cpp File.cpp \
-	FileList.cpp DirList.cpp InputDialog.cpp DialogBox.cpp \
-	FileDict.cpp FileDialog.cpp PathLinker.cpp TextLabel.cpp \
-	EditWindow.cpp DirHistBox.cpp FontDialog.cpp XFileWrite.cpp \
-	$(am__append_4)
-xfw_LDADD = @LIBINTL@ -lutil
-xfi_SOURCES = ../xvt/command.c ../xvt/screen.c ../xvt/ttyinit.c \
-	../xvt/xsetup.c ../xvt/xvt.c icons.cpp xfeutils.cpp \
-	startupnotification.cpp StringList.cpp CommandWindow.cpp \
-	InputDialog.cpp DialogBox.cpp OverwriteBox.cpp FileDict.cpp \
-	IconList.cpp File.cpp FileList.cpp DirList.cpp FileDialog.cpp \
-	MessageBox.cpp DirHistBox.cpp TextLabel.cpp PathLinker.cpp \
-	XFileImage.cpp $(am__append_5)
-xfi_LDADD = @LIBINTL@ -lutil
 INCLUDES = -I. -I$(top_srcdir) -I$(top_srcdir)/intl
 EXTRA_DIST = ../libsn/sn-common.h	\
 	          ../libsn/sn-internals.h \
@@ -589,18 +417,6 @@ clean-binPROGRAMS:
 xfe$(EXEEXT): $(xfe_OBJECTS) $(xfe_DEPENDENCIES) 
 	@rm -f xfe$(EXEEXT)
 	$(CXXLINK) $(xfe_OBJECTS) $(xfe_LDADD) $(LIBS)
-xfi$(EXEEXT): $(xfi_OBJECTS) $(xfi_DEPENDENCIES) 
-	@rm -f xfi$(EXEEXT)
-	$(CXXLINK) $(xfi_OBJECTS) $(xfi_LDADD) $(LIBS)
-xfp$(EXEEXT): $(xfp_OBJECTS) $(xfp_DEPENDENCIES) 
-	@rm -f xfp$(EXEEXT)
-	$(CXXLINK) $(xfp_OBJECTS) $(xfp_LDADD) $(LIBS)
-xfv$(EXEEXT): $(xfv_OBJECTS) $(xfv_DEPENDENCIES) 
-	@rm -f xfv$(EXEEXT)
-	$(CXXLINK) $(xfv_OBJECTS) $(xfv_LDADD) $(LIBS)
-xfw$(EXEEXT): $(xfw_OBJECTS) $(xfw_DEPENDENCIES) 
-	@rm -f xfw$(EXEEXT)
-	$(CXXLINK) $(xfw_OBJECTS) $(xfw_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -616,7 +432,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DirHistBox.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DirList.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DirPanel.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/EditWindow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/File.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/FileDialog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/FileDict.Po@am__quote@
@@ -636,12 +451,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/StringList.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TextLabel.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TextWindow.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ViewWindow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XFileExplorer.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XFileImage.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XFilePackage.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XFileView.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XFileWrite.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/command.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icons.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
