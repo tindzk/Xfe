@@ -512,7 +512,7 @@ FXbool isUtf8(const FXchar* string, FXuint length)
 
 
 // Replacement of the stat function
-inline FXint statrep(const FXchar* filename, struct stat* buf)
+FXint statrep(const FXchar* filename, struct stat* buf)
 {
 #if defined(linux)
 
@@ -546,7 +546,7 @@ inline FXint statrep(const FXchar* filename, struct stat* buf)
 
 
 // Replacement of the lstat function
-inline FXint lstatrep(const FXchar* filename, struct stat* buf)
+FXint lstatrep(const FXchar* filename, struct stat* buf)
 {
 #if defined(linux)
 
