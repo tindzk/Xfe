@@ -1,9 +1,0 @@
-#!/usr/bin/make -f
-# example debian/rules for cdbs packages
-
-include /usr/share/cdbs/1/class/autotools.mk
-include /usr/share/cdbs/1/rules/debhelper.mk
-
-DEB_CONFIGURE_EXTRA_FLAGS += --enable-release
-
-
