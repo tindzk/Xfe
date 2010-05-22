@@ -76,66 +76,59 @@ ArchInputDialog::ArchInputDialog(FXWindow *win,FXString inp):
 	optionmenu = new FXOptionMenu(matrix4,popup,LAYOUT_TOP|FRAME_RAISED|FRAME_THICK|JUSTIFY_HZ_APART|ICON_AFTER_TEXT);
 }
 
-
-void ArchInputDialog::create()
-{
-    DialogBox::create();
-    input->setFocus();
+void ArchInputDialog::create() {
+	DialogBox::create();
+	input->setFocus();
 }
 
-
-ArchInputDialog::~ArchInputDialog()
-{
+ArchInputDialog::~ArchInputDialog() {
 	delete popup;
 }
 
-long ArchInputDialog::onCmdKeyPress(FXObject* sender,FXSelector sel,void* ptr)
-{	
-    FXEvent* event=(FXEvent*)ptr;
-    switch(event->code)
-    {
-    case KEY_Escape:
-        handle(this,FXSEL(SEL_COMMAND,ID_CANCEL),NULL);
-		return 1;
-    case KEY_KP_Enter:
-    case KEY_Return:
-        handle(this,FXSEL(SEL_COMMAND,ID_ACCEPT),NULL);
-		return 1;
-    default:
-        FXTopWindow::onKeyPress(sender,sel,ptr);
-		return 1;
-    }
+long ArchInputDialog::onCmdKeyPress(FXObject* sender,FXSelector sel,void* ptr) {
+	FXEvent* event=(FXEvent*)ptr;
+
+	switch(event->code) {
+		case KEY_Escape:
+			handle(this,FXSEL(SEL_COMMAND,ID_CANCEL),NULL);
+			return 1;
+		case KEY_KP_Enter:
+		case KEY_Return:
+			handle(this,FXSEL(SEL_COMMAND,ID_ACCEPT),NULL);
+			return 1;
+		default:
+			FXTopWindow::onKeyPress(sender,sel,ptr);
+			return 1;
+	}
+
 	return 0;
 }
 
+long ArchInputDialog::onCmdBrowsePath(FXObject* o,FXSelector s,void* p) {
+	FileDialog browse(this, "Select a destination file");
 
-long ArchInputDialog::onCmdBrowsePath(FXObject* o,FXSelector s,void* p)
-{
-	// File dialog
-	FileDialog browse(this,_("Select a destination folder"));	
+	const FXchar *patterns[] = {
+		"All Files", "*",
+		NULL
+	};
 
-	const FXchar *patterns[]=
-		{
-			_("All Files"),          "*",	NULL
-		};
-	FXString archname=FXPath::name(input->getText()); 
 	browse.setPatternList(patterns);
-	
+
 	// Browse files in mixed mode
-	browse.setSelectMode(SELECT_FILE_DIRECTORY);
-	if(browse.execute())
-	{
-	  FXString path=browse.getFilename();
-	  input->setText(path + PATHSEPSTRING + archname);
+	browse.setSelectMode(SELECT_FILE_ANY);
+
+	if (browse.execute()) {
+		FXString path = browse.getFilename();
+		FXString ext  = FXPath::name(input->getText());
+		input->setText(path + ext);
 	}
-		
+
+
 	return 1;
 }
 
-
 // Archive option
-long ArchInputDialog::onCmdOption(FXObject*,FXSelector sel,void*)
-{	
+long ArchInputDialog::onCmdOption(FXObject*,FXSelector sel,void*) {
 	// Get extensions of the archive name
 	FXString str=input->getText();
 	FXString ext1=str.rafter('.',1);
