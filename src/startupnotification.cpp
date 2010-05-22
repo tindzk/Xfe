@@ -19,9 +19,6 @@ FXint runcmd(FXString cmd)
 	// Run the command in background
 	cmd += " &";
 	system(cmd.text());
-	
-	// Very ugly simulation of a startup time!!!
-	sleep(SIMULATED_STARTUP_TIME);
-	
+
 	return 0;
 }

@@ -92,9 +92,6 @@
 #define STARTUP_TIMEOUT 15
 #endif
 
-// If startup notification is not used, we use an ugly simulation of a startup time (seconds)
-#define SIMULATED_STARTUP_TIME 3
-
 // Local Xfe directory path
 #ifndef LOCALPATH
 #define LOCALPATH ".config/xfe"
