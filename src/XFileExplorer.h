@@ -77,7 +77,7 @@ protected:
 	FXString		trashfileslocation;
 	FXString		trashinfolocation;
 	FXString		startlocation;
-	FXuint			listtype;
+	IconList_ListType			listtype;
 	FXColor			listbackcolor;
 	FXColor			listforecolor;
 	FXColor			highlightcolor;
@@ -121,6 +121,9 @@ public:
         ID_FILE_DELETE,
         ID_FILE_TRASH,
         ID_FILE_RESTORE,
+		ID_SHOW_SMALL_ICONS,
+		ID_SHOW_LARGE_ICONS,
+		ID_SHOW_DETAILS,
         ID_FILE_ASSOC,
 		ID_CLEAR_LOCATION,
 		ID_GOTO_LOCATION,
@@ -160,6 +163,9 @@ public:
     long onCmdRun(FXObject*,FXSelector,void*);
 	long onCmdSu(FXObject*,FXSelector,void*);
     long onCmdXTerm(FXObject*,FXSelector,void*);
+    long onShowSmallIcons(FXObject*,FXSelector,void*);
+	long onShowLargeIcons(FXObject* sender,FXSelector,void*);
+	long onShowDetails(FXObject* sender,FXSelector,void*);
 	long onCmdEmptyTrash(FXObject*,FXSelector,void*);
 	long onCmdTrashSize(FXObject*,FXSelector,void*);
 	long onCmdShowPanels(FXObject*,FXSelector,void*);

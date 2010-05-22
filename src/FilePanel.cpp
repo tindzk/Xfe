@@ -176,7 +176,7 @@ FilePanel::FilePanel(FXWindow *owner, const FXchar* nm,FXComposite *p, DirPanel*
 			
 	// File list
 
-	options=LAYOUT_FILL_X|LAYOUT_FILL_Y|_ICONLIST_MINI_ICONS;
+	options=LAYOUT_FILL_X|LAYOUT_FILL_Y;
 
     FXVerticalFrame* cont2=new FXVerticalFrame(cont,LAYOUT_FILL_Y|LAYOUT_FILL_X|FRAME_SUNKEN,0,0,0,0, 0,0,0,0, 0,0);
 	list=new FileList(owner,cont2,this,ID_FILELIST,showthumbs,options);
@@ -921,7 +921,7 @@ long FilePanel::onCmdItemClicked(FXObject* sender,FXSelector sel, void* ptr)
 		FXuint state;
 		getCursorPosition(x,y,state);
 		FXbool allow=TRUE;
-		if (!(list->getListStyle()&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS)) && (x-list->getXPosition())>list->getHeaderSize(0))
+		if (list->getListType() == IconList_ListType_Details && (x-list->getXPosition())>list->getHeaderSize(0))
 			allow=FALSE;
 		
 		// Single click with control or shift
@@ -3852,29 +3852,31 @@ long FilePanel::onCmdShow(FXObject* sender,FXSelector sel,void* ptr)
 }
 
 // Update show commands
-long FilePanel::onUpdShow(FXObject* sender,FXSelector sel,void* ptr)
-{	
-    FXuint msg=FXWindow::ID_UNCHECK;
-    FXuint style=current->list->getListStyle();
-		
-    switch(FXSELID(sel))
-    {
-    case ID_SHOW_BIG_ICONS:
-        if(style & _ICONLIST_BIG_ICONS)
-            msg=FXWindow::ID_CHECK;
-        break;
-    case ID_SHOW_MINI_ICONS:
-        if(style & _ICONLIST_MINI_ICONS)
-            msg=FXWindow::ID_CHECK;
-        break;
-    case ID_SHOW_DETAILS:
-       if(!(style & (_ICONLIST_MINI_ICONS | _ICONLIST_BIG_ICONS)))
-            msg=FXWindow::ID_CHECK;
-        break;
-    }
-    sender->handle(this,FXSEL(SEL_COMMAND,msg),ptr);
+long FilePanel::onUpdShow(FXObject* sender,FXSelector sel,void* ptr) {
+	FXuint msg=FXWindow::ID_UNCHECK;
+	IconList_ListType type = current->list->getListType();
 
-    return 1;
+	switch(FXSELID(sel)) {
+		case ID_SHOW_BIG_ICONS:
+			if (type == IconList_ListType_LargeIcons) {
+				msg = FXWindow::ID_CHECK;
+			}
+			break;
+
+		case ID_SHOW_MINI_ICONS:
+			if (type == IconList_ListType_SmallIcons) {
+				msg = FXWindow::ID_CHECK;
+			}
+			break;
+		case ID_SHOW_DETAILS:
+			if (type == IconList_ListType_Details) {
+				msg = FXWindow::ID_CHECK;
+			}
+			break;
+	}
+
+	sender->handle(this,FXSEL(SEL_COMMAND,msg),ptr);
+	return 1;
 }
 
 // Handle toggle hidden command

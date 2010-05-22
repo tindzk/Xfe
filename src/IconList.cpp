@@ -16,12 +16,9 @@
 #include "xfeutils.h"
 #include "IconList.h"
 
-
 // Number of columns in detailed view, in the general case
 // NB : when the deletion date and original path are displayed, two more columns are added
 #define NUM_HEADERS 8
-
-
 
 #define SIDE_SPACING             4    // Left or right spacing between items
 #define DETAIL_TEXT_SPACING      2    // Spacing between text and icon in detail icon mode
@@ -31,7 +28,7 @@
 #define ITEM_SPACE             100    // Default space for item name
 
 #define SELECT_MASK   (_ICONLIST_EXTENDEDSELECT|_ICONLIST_SINGLESELECT|_ICONLIST_BROWSESELECT|_ICONLIST_MULTIPLESELECT)
-#define ICONLIST_MASK (SELECT_MASK|_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS|_ICONLIST_COLUMNS|_ICONLIST_SEARCH|_ICONLIST_STANDARD|_ICONLIST_AUTOSIZE)
+#define ICONLIST_MASK (SELECT_MASK|_ICONLIST_SEARCH|_ICONLIST_STANDARD)
 
 extern FXuint single_click;
 extern FXbool file_tooltips;
@@ -49,15 +46,16 @@ inline FXbool IconItem::isOdd(FXint i) const
 }
 
 // Draw item
-void IconItem::draw(IconList* list,FXDC& dc,FXint x,FXint y,FXint w,FXint h) const
-{
-    register FXuint options=list->getListStyle();
-    if (options&_ICONLIST_BIG_ICONS)
-    	drawBigIcon(list,dc,x,y,w,h);
-    else if (options&_ICONLIST_MINI_ICONS)
-    	drawMiniIcon(list,dc,x,y,w,h);
-    else
-    	drawDetails(list,dc,x,y,w,h);
+void IconItem::draw(IconList* list,FXDC& dc,FXint x,FXint y,FXint w,FXint h) const {
+	IconList_ListType type = list->getListType();
+
+	if (type == IconList_ListType_LargeIcons) {
+		drawBigIcon(list,dc,x,y,w,h);
+	} else if (type == IconList_ListType_SmallIcons) {
+		drawMiniIcon(list,dc,x,y,w,h);
+	} else {
+		drawDetails(list,dc,x,y,w,h);
+	}
 }
 
 
@@ -302,8 +300,8 @@ FXint IconItem::hitItem(const IconList* list,FXint rx,FXint ry,FXint rw,FXint rh
     register FXuint options=list->getListStyle();
     register FXFont *font=list->getFont();
     for (tlen=0; tlen<label.length() && label[tlen]!='\t'; tlen++);
-    if (options&_ICONLIST_BIG_ICONS)
-    {
+	register IconList_ListType type = list->getListType();
+    if (type == IconList_ListType_LargeIcons) {
         w=list->getItemSpace();
         h=list->getItemHeight();
         sp=w-SIDE_SPACING;
@@ -326,8 +324,7 @@ FXint IconItem::hitItem(const IconList* list,FXint rx,FXint ry,FXint rw,FXint rh
         ix=(w-iw)/2;
         tx=(w-tw)/2;
     }
-    else if (options&_ICONLIST_MINI_ICONS)
-    {
+    else if (type == IconList_ListType_SmallIcons) {
         sp=list->getItemSpace()-SIDE_SPACING;
         ix=SIDE_SPACING/2;
         tx=SIDE_SPACING/2;
@@ -493,16 +490,15 @@ FXint IconItem::getWidth(const IconList* list) const
     register FXFont *font=list->getFont();
     register FXint iw=0,tw=0,w=0,tlen;
     for (tlen=0; tlen<label.length() && label[tlen]!='\t'; tlen++);
-    if (options&_ICONLIST_BIG_ICONS)
-    {
+
+	IconList_ListType type = list->getListType();
+    if (type == IconList_ListType_LargeIcons) {
         if (bigIcon)
         	iw=bigIcon->getWidth();
         if (!label.empty())
         	tw=4+font->getTextWidth(label.text(),tlen);
         w=SIDE_SPACING+FXMAX(tw,iw);
-    }
-    else if (options&_ICONLIST_MINI_ICONS)
-    {
+    } else if (type == IconList_ListType_SmallIcons) {
         if (miniIcon)
         	iw=miniIcon->getWidth();
         if (!label.empty())
@@ -522,8 +518,9 @@ FXint IconItem::getHeight(const IconList* list) const
 {
     register FXuint options=list->getListStyle();
     register FXint ih=0,th=0,h=0;
-    if (options&_ICONLIST_BIG_ICONS)
-    {
+
+	IconList_ListType type = list->getListType();
+    if (type == IconList_ListType_LargeIcons) {
         if (bigIcon)
         	ih=bigIcon->getHeight();
         if (!label.empty())
@@ -531,9 +528,7 @@ FXint IconItem::getHeight(const IconList* list) const
         if (ih && th)
         	ih+=BIG_TEXT_SPACING;
         h=BIG_LINE_SPACING+ih+th;
-    }
-    else if (options&_ICONLIST_MINI_ICONS)
-    {
+    } else if (type == IconList_ListType_SmallIcons) {
         if (miniIcon)
         	ih=miniIcon->getHeight();
         if (!label.empty())
@@ -652,8 +647,11 @@ FXIMPLEMENT(IconList,FXScrollArea,IconListMap,ARRAYNUMBER(IconListMap))
 IconList::IconList(FXComposite *p,FXObject* tgt,FXSelector sel,FXuint opts,FXint x,FXint y,FXint w,FXint h):
                    FXScrollArea(p,opts,x,y,w,h)
 {
-	//autosize=opts&_ICONLIST_AUTOSIZE; // Workaround for a bug (?)
-    flags|=FLAG_ENABLED;
+	flags |= FLAG_ENABLED;
+
+	this->autosize  = false;
+	this->listType  = IconList_ListType_SmallIcons;
+	this->alignment = IconList_Alignment_Rows;
 
 	// Headers look slightly different depending on the control theme 
 	FXbool use_clearlooks=getApp()->reg().readUnsignedEntry("SETTINGS","use_clearlooks",TRUE);
@@ -811,8 +809,8 @@ void IconList::moveContents(FXint x,FXint y)
     FXint top=0;
     pos_x=x;
     pos_y=y;
-    if (!(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS)))
-    {
+
+    if (this->listType == IconList_ListType_Details) {
         top=header->getDefaultHeight();
         header->setPosition(x);
     }
@@ -829,50 +827,49 @@ void IconList::recalc()
 
 
 // Recompute interior
-void IconList::recompute()
-{	
-    register FXint w,h,i;
+void IconList::recompute() {
+	register FXint w,h,i;
 
-    itemWidth=1;
-    itemHeight=1;
+	itemWidth=1;
+	itemHeight=1;
 
-    // Measure the items
-    for (i=0; i<items.no(); i++)
-    {
-        w=items[i]->getWidth(this);
-        h=items[i]->getHeight(this);
-        if (w>itemWidth)
-        	itemWidth=w;
-        if (h>itemHeight)
-        	itemHeight=h;
-    }
+	// Measure the items
+	for (i=0; i<items.no(); i++)
+	{
+		w=items[i]->getWidth(this);
+		h=items[i]->getHeight(this);
+		if (w>itemWidth)
+			itemWidth=w;
+		if (h>itemHeight)
+			itemHeight=h;
+	}
 
-    // Automatically size item spacing
-    //if (autosize)
-    if (options&_ICONLIST_AUTOSIZE)
-    	itemSpace=FXMAX(itemWidth,1);
-    else
-    	itemSpace=ITEM_SPACE;
-    	
-    // Adjust for detail mode
-    if (!(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS)))
-    	itemWidth=header->getDefaultWidth();
+	// Automatically size item spacing
+	if (this->autosize) {
+		itemSpace=FXMAX(itemWidth,1);
+	} else {
+		itemSpace=ITEM_SPACE;
+	}
 
-    // Get number of rows or columns
-    getrowscols(nrows,ncols,width,height);
+	// Adjust for detail mode
+	if (this->listType == IconList_ListType_Details) {
+		itemWidth=header->getDefaultWidth();
+	}
 
-    // Done
-    flags&=~FLAG_RECALC;
+	// Get number of rows or columns
+	getrowscols(nrows,ncols,width,height);
+
+	// Done
+	flags&=~FLAG_RECALC;
 }
 
 
 // Determine number of columns and number of rows
 void IconList::getrowscols(FXint& nr,FXint& nc,FXint w,FXint h) const
 {
-    if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-    {
-        if (options&_ICONLIST_COLUMNS)
-        {
+	if (this->listType == IconList_ListType_LargeIcons
+	 || this->listType == IconList_ListType_SmallIcons) {
+		if (this->alignment == IconList_Alignment_Columns) {
             nc=w/itemSpace;
             if (nc<1)
             	nc=1;
@@ -914,7 +911,12 @@ void IconList::getrowscols(FXint& nr,FXint& nc,FXint w,FXint h) const
 // Size of a possible column caption
 FXint IconList::getViewportHeight()
 {
-    return (options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS)) ? height : height-header->getDefaultHeight();
+	if (this->listType == IconList_ListType_LargeIcons
+	 || this->listType == IconList_ListType_SmallIcons) {
+		return height;
+	}
+
+	return height - header->getDefaultHeight();
 }
 
 
@@ -923,8 +925,12 @@ FXint IconList::getContentWidth()
 {
     if (flags&FLAG_RECALC)
     	recompute();
-    if (options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS))
-    	return ncols*itemSpace;
+
+	if (this->listType == IconList_ListType_LargeIcons
+	 || this->listType == IconList_ListType_SmallIcons) {
+		return ncols*itemSpace;
+	}
+
     return header->getDefaultWidth();
 }
 
@@ -945,15 +951,12 @@ void IconList::layout()
     FXScrollArea::layout();
 
     // In detail mode
-    if (!(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS)))
-    {
-        header->position(0,0,viewport_w,header->getDefaultHeight());
-        header->show();
-    }
-    else
-    {
-        header->hide();
-    }
+	if (this->listType == IconList_ListType_Details) {
+		header->position(0,0,viewport_w,header->getDefaultHeight());
+		header->show();
+	} else {
+		header->hide();
+	}
 
     // Set line size
     vertical->setLine(itemHeight);
@@ -1040,8 +1043,7 @@ long IconList::onHeaderResize(FXObject*,FXSelector,void* ptr)
     FXString text;
 
     // For detailed icon list
-    if (!(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS)))
-    {
+	if (this->listType == IconList_ListType_Details) {
         for (i=0; i<items.no(); i++)
         {
             w=0;
@@ -1314,10 +1316,10 @@ FXbool IconList::isItemVisible(FXint index) const
     {
         fxerror("%s::isItemVisible: index out of range.\n",getClassName());
     }
-    if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-    {
-        if (options&_ICONLIST_COLUMNS)
-        {
+
+	if (this->listType == IconList_ListType_LargeIcons
+	 || this->listType == IconList_ListType_SmallIcons) {
+		if (this->alignment == IconList_Alignment_Columns) {
             FXASSERT(ncols>0);
             x=pos_x+itemSpace*(index%ncols);
             y=pos_y+itemHeight*(index/ncols);
@@ -1362,10 +1364,9 @@ void IconList::makeItemVisible(FXint index)
             py=pos_y;
 
             // Showing icon view
-            if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-            {
-                if (options&_ICONLIST_COLUMNS)
-                {
+			if (this->listType == IconList_ListType_LargeIcons
+			 || this->listType == IconList_ListType_SmallIcons) {
+				if (this->alignment == IconList_Alignment_Columns) {
                     FXASSERT(ncols>0);
                     x=itemSpace*(index%ncols);
                     y=itemHeight*(index/ncols);
@@ -1429,16 +1430,20 @@ FXint IconList::getItemAt(FXint x,FXint y)
 		if (::setWaitCursor(getApp(),QUERY_CURSOR)==0)
 			setDefaultCursor(getApp()->getDefaultCursor(DEF_HAND_CURSOR));
 	}
-		
-	if(options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-	{		
+
+	if (this->listType == IconList_ListType_LargeIcons
+	 || this->listType == IconList_ListType_SmallIcons) {
 		c=x/itemSpace;
 		r=y/itemHeight;
 		
 		if(c<0 || c>=ncols || r<0 || r>=nrows)
 			return -1;
 
-		index=(options&_ICONLIST_COLUMNS) ? ncols*r+c : nrows*c+r;
+		if (this->alignment == IconList_Alignment_Columns) {
+			index = ncols*r+c;
+		} else {
+			index = nrows*c+r;
+		}
 
 		if(index<0 || index>=items.no())
 			return -1;
@@ -1625,12 +1630,14 @@ FXint IconList::hitItem(FXint index,FXint x,FXint y,FXint ww,FXint hh) const
     {
         x-=pos_x;
         y-=pos_y;
-        if (!(options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS)))
-        	y-=header->getDefaultHeight();
-        if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-        {
-            if (options&_ICONLIST_COLUMNS)
-            {
+
+		if (this->listType == IconList_ListType_Details) {
+			y -= header->getDefaultHeight();
+
+            r=index;
+            c=0;
+		} else {
+			if (this->alignment == IconList_Alignment_Columns) {
                 r=index/ncols;
                 c=index%ncols;
             }
@@ -1640,11 +1647,7 @@ FXint IconList::hitItem(FXint index,FXint x,FXint y,FXint ww,FXint hh) const
                 r=index%nrows;
             }
         }
-        else
-        {
-            r=index;
-            c=0;
-        }
+
         ix=itemSpace*c;
         iy=itemHeight*r;
         hit=items[index]->hitItem(this,x-ix,y-iy,ww,hh);
@@ -1658,10 +1661,9 @@ void IconList::updateItem(FXint index) const
 {
     if (xid && 0<=index && index<items.no())
     {
-        if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-        {
-            if (options&_ICONLIST_COLUMNS)
-            {
+        if (this->listType == IconList_ListType_LargeIcons
+		|| this->listType == IconList_ListType_SmallIcons) {
+			if (this->alignment == IconList_Alignment_Columns) {
                 FXASSERT(ncols>0);
                 update(pos_x+itemSpace*(index%ncols),pos_y+itemHeight*(index/ncols),itemSpace,itemHeight);
             }
@@ -1844,13 +1846,19 @@ FXbool IconList::selectInRectangle(FXint x,FXint y,FXint w,FXint h,FXbool notify
 {
     register FXint r,c,index;
     register FXbool changed=FALSE;
-    if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-    {
+
+        if (this->listType == IconList_ListType_LargeIcons
+		|| this->listType == IconList_ListType_SmallIcons) {
         for (r=0; r<nrows; r++)
         {
             for (c=0; c<ncols; c++)
             {
-                index=(options&_ICONLIST_COLUMNS) ? ncols*r+c : nrows*c+r;
+				if (this->alignment == IconList_Alignment_Columns) {
+					index = ncols*r+c;
+				} else {
+					index = nrows*c+r;
+				}
+
                 if (index<items.no())
                 {
                     if (hitItem(index,x,y,w,h))
@@ -2016,13 +2024,19 @@ void IconList::lassoChanged(FXint ox,FXint oy,FXint ow,FXint oh,FXint nx,FXint n
 {
     register FXint r,c;
     FXint ohit,nhit,index;
-    if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-    {
+
+        if (this->listType == IconList_ListType_LargeIcons
+		|| this->listType == IconList_ListType_SmallIcons) {
         for (r=0; r<nrows; r++)
         {
             for (c=0; c<ncols; c++)
             {
-                index=(options&_ICONLIST_COLUMNS) ? ncols*r+c : nrows*c+r;
+				if (this->alignment == IconList_Alignment_Columns) {
+					index=ncols*r+c;
+				} else {
+					index=nrows*c+r;
+				}
+
                 if (index<items.no())
                 {
                     ohit=hitItem(index,ox,oy,ow,oh);
@@ -2252,9 +2266,8 @@ long IconList::onPaint(FXObject*,FXSelector,void* ptr)
     dc.setFont(font);
 
     // Icon mode
-    if (options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS))
-    {
-
+        if (this->listType == IconList_ListType_LargeIcons
+		|| this->listType == IconList_ListType_SmallIcons) {
         // Exposed rows
         rlo=(event->rect.y-pos_y)/itemHeight;
         rhi=(event->rect.y+event->rect.h-pos_y)/itemHeight;
@@ -2272,15 +2285,20 @@ long IconList::onPaint(FXObject*,FXSelector,void* ptr)
         	chi=ncols-1;
 
         // Big Icons
-        if (options&_ICONLIST_BIG_ICONS)
-        {
+        if (this->listType == IconList_ListType_LargeIcons) {
             for (r=rlo; r<=rhi; r++)
             {
                 y=pos_y+r*itemHeight;
                 for (c=clo; c<=chi; c++)
                 {
                     x=pos_x+c*itemSpace;
-                    index=(options&_ICONLIST_COLUMNS) ? ncols*r+c : nrows*c+r;					
+
+					if (this->alignment == IconList_Alignment_Columns) {
+						index = ncols*r+c;
+					} else {
+						index = nrows*c+r;
+					}
+
 					dc.setForeground(backColor);
                     dc.fillRectangle(x,y,itemSpace,itemHeight);
                     if (index<items.no())
@@ -2300,7 +2318,13 @@ long IconList::onPaint(FXObject*,FXSelector,void* ptr)
                 for (c=clo; c<=chi; c++)
                 {
                     x=pos_x+c*itemSpace;
-                    index=(options&_ICONLIST_COLUMNS) ? ncols*r+c : nrows*c+r;
+
+					if (this->alignment == IconList_Alignment_Columns) {
+						index = ncols*r+c;
+					} else {
+						index = nrows*c+r;
+					}
+
                     dc.setForeground(backColor);
                     dc.fillRectangle(x,y,itemSpace,itemHeight);
                     if (index<items.no())
@@ -2377,25 +2401,35 @@ void IconList::drawLasso(FXint x0,FXint y0,FXint x1,FXint y1)
 // Arrange by rows
 long IconList::onCmdArrangeByRows(FXObject*,FXSelector,void*)
 {
-    options&=~_ICONLIST_COLUMNS;
-    recalc();
+	this->alignment = IconList_Alignment_Rows;
+	recalc();
+
     return 1;
 }
 
 
 // Update sender
-long IconList::onUpdArrangeByRows(FXObject* sender,FXSelector,void*)
-{
-    sender->handle(this,(options&_ICONLIST_COLUMNS)?FXSEL(SEL_COMMAND,ID_UNCHECK):FXSEL(SEL_COMMAND,ID_CHECK),NULL);
-    sender->handle(this,(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS))?FXSEL(SEL_COMMAND,ID_ENABLE):FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
-    return 1;
+long IconList::onUpdArrangeByRows(FXObject* sender,FXSelector,void*) {
+	if (this->alignment == IconList_Alignment_Columns) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),NULL);
+	}
+
+	if (this->listType == IconList_ListType_SmallIcons || this->listType == IconList_ListType_LargeIcons) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_ENABLE),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
+	}
+
+	return 1;
 }
 
 
 // Arrange by columns
 long IconList::onCmdArrangeByColumns(FXObject*,FXSelector,void*)
 {
-    options|=_ICONLIST_COLUMNS;
+	this->alignment = IconList_Alignment_Columns;
     recalc();
     return 1;
 }
@@ -2404,80 +2438,103 @@ long IconList::onCmdArrangeByColumns(FXObject*,FXSelector,void*)
 // Update sender
 long IconList::onUpdArrangeByColumns(FXObject* sender,FXSelector,void*)
 {
-    sender->handle(this,(options&_ICONLIST_COLUMNS)?FXSEL(SEL_COMMAND,ID_CHECK):FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
-    sender->handle(this,(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS))?FXSEL(SEL_COMMAND,ID_ENABLE):FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
-    return 1;
-}
+	if (this->alignment == IconList_Alignment_Columns) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
+	}
 
+	if (this->listType == IconList_ListType_SmallIcons || this->listType == IconList_ListType_LargeIcons) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_ENABLE),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
+	}
+
+	return 1;
+}
 
 // Toggle autosize items
-long IconList::onCmdToggleAutosize(FXObject*,FXSelector,void*)
-{
-	//autosize=!autosize;
-	//if (autosize)
-	if (options&_ICONLIST_AUTOSIZE)
-     	options&=~_ICONLIST_AUTOSIZE;
-    else
-    	options|=_ICONLIST_AUTOSIZE;
-    recalc();
-    return 1;
-}
+long IconList::onCmdToggleAutosize(FXObject*,FXSelector,void*) {
+	this->autosize = !this->autosize;
+	recalc();
 
+	return 1;
+}
 
 // Update sender
 long IconList::onUpdToggleAutosize(FXObject* sender,FXSelector,void*)
 {
-    sender->handle(this,(options&_ICONLIST_AUTOSIZE)?FXSEL(SEL_COMMAND,ID_CHECK):FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
-    sender->handle(this,(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS))?FXSEL(SEL_COMMAND,ID_ENABLE):FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
-    return 1;
+	if (this->autosize) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
+	}
+
+	if (this->listType == IconList_ListType_SmallIcons || this->listType == IconList_ListType_LargeIcons) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_ENABLE),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
+	}
+
+	return 1;
 }
 
 
 // Show detailed list
-long IconList::onCmdShowDetails(FXObject*,FXSelector,void*)
-{
-    setListType(IconList_Type_Details);
-    return 1;
+long IconList::onCmdShowDetails(FXObject*,FXSelector,void*) {
+	setListType(IconList_ListType_Details);
+	return 1;
 }
 
 
 // Update sender
-long IconList::onUpdShowDetails(FXObject* sender,FXSelector,void*)
-{
-    sender->handle(this,(options&(_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS))?FXSEL(SEL_COMMAND,ID_UNCHECK):FXSEL(SEL_COMMAND,ID_CHECK),NULL);
-    return 1;
+long IconList::onUpdShowDetails(FXObject* sender,FXSelector,void*) {
+	if (this->listType == IconList_ListType_SmallIcons || this->listType == IconList_ListType_LargeIcons) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),NULL);
+	}
+
+	return 1;
 }
 
 
 // Show big icons
-long IconList::onCmdShowBigIcons(FXObject*,FXSelector,void*)
-{
-    setListType(IconList_Type_LargeIcons);
-    return 1;
+long IconList::onCmdShowBigIcons(FXObject*,FXSelector,void*) {
+	setListType(IconList_ListType_LargeIcons);
+	return 1;
 }
 
 
 // Update sender
-long IconList::onUpdShowBigIcons(FXObject* sender,FXSelector,void*)
-{
-    sender->handle(this,(options&_ICONLIST_BIG_ICONS)?FXSEL(SEL_COMMAND,ID_CHECK):FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
-    return 1;
+long IconList::onUpdShowBigIcons(FXObject* sender,FXSelector,void*) {
+	if (this->listType == IconList_ListType_LargeIcons) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
+	}
+
+	return 1;
 }
 
 
 // Show small icons
-long IconList::onCmdShowMiniIcons(FXObject*,FXSelector,void*)
-{
-    setListType(IconList_Type_SmallIcons);
-    return 1;
+long IconList::onCmdShowMiniIcons(FXObject*,FXSelector,void*) {
+	setListType(IconList_ListType_SmallIcons);
+	return 1;
 }
 
 
 // Update sender
 long IconList::onUpdShowMiniIcons(FXObject* sender,FXSelector,void*)
 {
-    sender->handle(this,(options&_ICONLIST_MINI_ICONS)?FXSEL(SEL_COMMAND,ID_CHECK):FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
-    return 1;
+	if (this->listType == IconList_ListType_SmallIcons) {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_CHECK),NULL);
+	} else {
+		sender->handle(this,FXSEL(SEL_COMMAND,ID_UNCHECK),NULL);
+	}
+
+	return 1;
 }
 
 
@@ -2735,41 +2792,48 @@ long IconList::onKeyPress(FXObject*,FXSelector,void* ptr)
 		return 1;
     case KEY_Right:
     case KEY_KP_Right:
-        if (!(options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS)))
-        {
+		if (this->listType == IconList_ListType_Details) {
             setPosition(pos_x-10,pos_y);
             return 1;
         }
-        if (options&_ICONLIST_COLUMNS)
-            index+=1;
-        else
-            index+=nrows;
+
+		if (this->alignment == IconList_Alignment_Columns) {
+			index+=1;
+		} else {
+			index+=nrows;
+		}
+
         goto hop;
     case KEY_Left:
     case KEY_KP_Left:
-        if (!(options&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS)))
-        {
+		if (this->listType == IconList_ListType_Details) {
             setPosition(pos_x+10,pos_y);
             return 1;
         }
-        if (options&_ICONLIST_COLUMNS)
-            index-=1;
-        else
-            index-=nrows;
+
+		if (this->alignment == IconList_Alignment_Columns) {
+			index-=1;
+		} else {
+			index-=nrows;
+		}
+
         goto hop;
     case KEY_Up:
     case KEY_KP_Up:
-        if (options&_ICONLIST_COLUMNS)
-            index-=ncols;
-        else
-            index-=1;
+		if (this->alignment == IconList_Alignment_Columns) {
+			index-=ncols;
+		} else {
+			index-=1;
+		}
+
         goto hop;
     case KEY_Down:
     case KEY_KP_Down:
-        if (options&_ICONLIST_COLUMNS)
-            index+=ncols;
-        else
-            index+=1;
+		if (this->alignment == IconList_Alignment_Columns) {
+			index+=ncols;
+		} else {
+			index+=1;
+		}
         goto hop;
     case KEY_Home:
     case KEY_KP_Home:
@@ -3809,50 +3873,37 @@ void IconList::setItemSpace(FXint s)
     }
 }
 
-void IconList::setListType(IconList_Type type) {
-	if (type == IconList_Type_LargeIcons) {
-		options&=~_ICONLIST_MINI_ICONS;
-		options|=_ICONLIST_BIG_ICONS;
-		options|=_ICONLIST_COLUMNS;
-	} else if (type == IconList_Type_SmallIcons) {
-		options&=~_ICONLIST_BIG_ICONS;
-		options&=~_ICONLIST_COLUMNS;
-		options|=_ICONLIST_MINI_ICONS;
-	} else {
-		options&=~_ICONLIST_MINI_ICONS;
-		options&=~_ICONLIST_BIG_ICONS;
-		options&=~_ICONLIST_COLUMNS;
-	}
-
+void IconList::setListType(IconList_ListType type) {
+	this->listType = type;
 	recalc();
 }
 
-IconList_Type IconList::getListType(void) {
-	if (options & _ICONLIST_BIG_ICONS) {
-		return IconList_Type_LargeIcons;
-	} else if (options & _ICONLIST_MINI_ICONS) {
-		return IconList_Type_SmallIcons;
-	} else {
-		return IconList_Type_Details;
-	}
+IconList_ListType IconList::getListType(void) const {
+	return this->listType;
+}
+
+void IconList::setAlignment(IconList_Alignment alignment) {
+	this->alignment = alignment;
+	recalc();
+}
+
+IconList_Alignment IconList::getAlignment(void) const {
+	return this->alignment;
 }
 
 // Change list style
-void IconList::setListStyle(FXuint style)
-{
-    FXuint opts=(options&~ICONLIST_MASK) | (style&ICONLIST_MASK);
-    if (options!=opts)
-    {
-        options=opts;
-        recalc();
-    }
+void IconList::setListStyle(FXuint style) {
+	FXuint opts=(options&~ICONLIST_MASK) | (style&ICONLIST_MASK);
+
+	if (options != opts) {
+		options = opts;
+		recalc();
+	}
 }
 
-
 // Get list style
-FXuint IconList::getListStyle() const
-{
-    return (options&ICONLIST_MASK);
+FXuint IconList::getListStyle() const {
+	return (options & ICONLIST_MASK);
 }
 
 

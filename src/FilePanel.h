@@ -289,13 +289,13 @@ public:
 	}
 
 	// Get the current icon list style
-	IconList_Type getListType(void) const
+	IconList_ListType getListType(void) const
 	{
 		return list->getListType();
 	}
 
 	// Get the current icon list style
-	void setListType(IconList_Type type)
+	void setListType(IconList_ListType type)
 	{
 		list->setListType(type);
 	}

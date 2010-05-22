@@ -17,15 +17,12 @@
 #include "FileDialog.h"
 
 #define FILELISTMASK (_ICONLIST_EXTENDEDSELECT|_ICONLIST_SINGLESELECT|_ICONLIST_BROWSESELECT|_ICONLIST_MULTIPLESELECT)
-#define FILESTYLEMASK (_ICONLIST_DETAILED|_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS|_ICONLIST_ROWS|_ICONLIST_COLUMNS|_ICONLIST_AUTOSIZE)
 
 // Single click navigation
 extern FXuint single_click;
 
 // To allow keyboard scrolling in popup dialogs
 extern FXbool allowPopupScroll;
-
-
 
 // Map
 FXDEFMAP(FileSelector) FileSelectorMap[]=
@@ -78,9 +75,8 @@ FileSelector::FileSelector(FXComposite *p,FXObject* tgt,FXSelector sel,FXuint op
     // Container for the path linker
     FXHorizontalFrame* pathframe=new FXHorizontalFrame(cont,LAYOUT_FILL_X|FRAME_RAISED,0,0,0,0, 0,0,0,0, 0,0);
 
- 	// File list
- 	FXuint options;
-	options=_ICONLIST_MINI_ICONS|_ICONLIST_BROWSESELECT|LAYOUT_FILL_X|LAYOUT_FILL_Y;
+	// File list
+	FXuint options = _ICONLIST_BROWSESELECT|LAYOUT_FILL_X|LAYOUT_FILL_Y;
 
 	FXbool thumbnails=getApp()->reg().readUnsignedEntry("FILEDIALOG","thumbnails",FALSE);
     list=new FileList(this,cont,this,ID_FILELIST,thumbnails,options);
@@ -98,10 +94,11 @@ FileSelector::FileSelector(FXComposite *p,FXObject* tgt,FXSelector sel,FXuint op
     list->setHeaderSize(7,getApp()->reg().readUnsignedEntry("FILEDIALOG","attr_size",100));  	
 	
 	// Set file selector options
-	FXuint listmode=getApp()->reg().readUnsignedEntry("FILEDIALOG","listmode",_ICONLIST_MINI_ICONS);
 	FXbool hiddenfiles=getApp()->reg().readUnsignedEntry("FILEDIALOG","hiddenfiles",FALSE);
 	showHiddenFiles(hiddenfiles);
-	setFileBoxStyle	(listmode);
+
+	FXuint listmode=getApp()->reg().readUnsignedEntry("FILEDIALOG","listmode",0);
+	setFileBoxStyle(listmode);
 
     // Entry buttons
     FXMatrix* fields=new FXMatrix(cont,3,MATRIX_BY_COLUMNS|LAYOUT_SIDE_BOTTOM|LAYOUT_FILL_X);
@@ -303,8 +300,10 @@ long FileSelector::onCmdItemClicked(FXObject*,FXSelector,void* ptr)
 		FXuint state;
 		getCursorPosition(x,y,state);
 		FXbool allow=TRUE;
-		if (!(list->getListStyle()&(_ICONLIST_BIG_ICONS|_ICONLIST_MINI_ICONS)) && (x-list->getXPosition())>list->getHeaderSize(0))
+
+		if (list->getListType() == IconList_ListType_Details && (x-list->getXPosition())>list->getHeaderSize(0)) {
 			allow=FALSE;
+		}
 
 		// Single click with control or shift
 		if (state&(CONTROLMASK|SHIFTMASK))
@@ -1233,39 +1232,31 @@ void FileSelector::setPatternText(FXint patno,const FXString& text)
 FXString FileSelector::getPatternText(FXint patno) const
 {
 	if ((unsigned int)patno >= (unsigned int)filefilter->getNumItems())
-        fxerror("%s::getPatternText: index out of range.\n",getClassName());
-    return filefilter->getItemText(patno);
+		fxerror("%s::getPatternText: index out of range.\n",getClassName());
+
+	return filefilter->getItemText(patno);
 }
 
-
 // Change space for item
-void FileSelector::setItemSpace(FXint s)
-{
-    list->setItemSpace(s);
+void FileSelector::setItemSpace(FXint s) {
+	list->setItemSpace(s);
 }
 
 
 // Get space for item
-FXint FileSelector::getItemSpace() const
-{
-    return list->getItemSpace();
+FXint FileSelector::getItemSpace() const {
+	return list->getItemSpace();
 }
-
 
 // Change File List style
-void FileSelector::setFileBoxStyle(FXuint style)
-{
-	list->setListStyle((list->getListStyle()&~FILESTYLEMASK) | (style&FILESTYLEMASK));
+void FileSelector::setFileBoxStyle(FXuint style) {
+	list->setListStyle(style);
 }
-
 
 // Return File List style
-FXuint FileSelector::getFileBoxStyle() const
-{
-    return list->getListStyle()&FILESTYLEMASK;
+FXuint FileSelector::getFileBoxStyle() const {
+	return list->getListStyle();
 }
-
-
 
 // Change file selection mode
 void FileSelector::setSelectMode(FXuint mode)

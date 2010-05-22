@@ -7,7 +7,6 @@
 
 #include "xfedefs.h"
 #include "xfeutils.h"
-#include "XFileExplorer.h"
 #include "PathLinker.h"
 
 #define REFRESH_INTERVAL     1000

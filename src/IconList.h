@@ -10,30 +10,26 @@ class IconList;
 class FileList;
 
 typedef enum {
-	IconList_Type_LargeIcons = 0,
-	IconList_Type_SmallIcons,
-	IconList_Type_Details
-} IconList_Type;
+	IconList_ListType_LargeIcons = 0,
+	IconList_ListType_SmallIcons,
+	IconList_ListType_Details
+} IconList_ListType;
+
+typedef enum {
+	IconList_Alignment_Rows = 0,
+	IconList_Alignment_Columns
+} IconList_Alignment;
 
 // Icon List options (prefixed with an underscore to avoid conflict with the FOX library)
 enum {
-  _ICONLIST_EXTENDEDSELECT = 0,                // Extended selection mode
-  _ICONLIST_SINGLESELECT   = 0x00100000,       // At most one selected item
-  _ICONLIST_BROWSESELECT   = 0x00200000,       // Always exactly one selected item
-  _ICONLIST_MULTIPLESELECT = 0x00300000,       // Multiple selection mode
-  _ICONLIST_AUTOSIZE       = 0x00400000,       // Automatically size item spacing
-  _ICONLIST_DETAILED       = 0,                // List mode
-  _ICONLIST_MINI_ICONS     = 0x00800000,       // Mini Icon mode
-  _ICONLIST_BIG_ICONS      = 0x01000000,       // Big Icon mode
-  _ICONLIST_ROWS           = 0,                // Row-wise mode
-  _ICONLIST_COLUMNS        = 0x02000000,       // Column-wise mode
-  _ICONLIST_SEARCH	       = 0x10000000,       // Icon list is a search list (must be the same value as in FileList)
-  _ICONLIST_STANDARD       = 0x20000000,       // Icon list is a not a file list and not a search list
-  _ICONLIST_NORMAL         = _ICONLIST_EXTENDEDSELECT
-  };
-
-
-
+	_ICONLIST_EXTENDEDSELECT = 0,                // Extended selection mode
+	_ICONLIST_SINGLESELECT   = 0x00100000,       // At most one selected item
+	_ICONLIST_BROWSESELECT   = 0x00200000,       // Always exactly one selected item
+	_ICONLIST_MULTIPLESELECT = 0x00300000,       // Multiple selection mode
+	_ICONLIST_SEARCH         = 0x10000000,       // Icon list is a search list (must be the same value as in FileList)
+	_ICONLIST_STANDARD       = 0x20000000,       // Icon list is a not a file list and not a search list
+	_ICONLIST_NORMAL         = _ICONLIST_EXTENDEDSELECT
+};
 
 // Icon item
 class FXAPI IconItem : public FXObject
@@ -690,8 +686,14 @@ public:
     // Change maximum item space for each item
     void setItemSpace(FXint s);
 
-	void setListType(IconList_Type type);
-	IconList_Type getListType(void);
+	IconList_ListType listType;
+	IconList_Alignment alignment;
+
+	void setListType(IconList_ListType type);
+	IconList_ListType getListType(void) const;
+
+	void setAlignment(IconList_Alignment alignment);
+	IconList_Alignment getAlignment(void) const;
 
     // Return maximum item space
     FXint getItemSpace() const

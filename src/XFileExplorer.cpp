@@ -99,6 +99,9 @@ FXDEFMAP(XFileExplorer) XFileExplorerMap[]=
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_EMPTY_TRASH,XFileExplorer::onCmdEmptyTrash),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_TRASH_SIZE,XFileExplorer::onCmdTrashSize),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_XTERM,XFileExplorer::onCmdXTerm),
+	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_SHOW_SMALL_ICONS,XFileExplorer::onShowSmallIcons),
+	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_SHOW_LARGE_ICONS,XFileExplorer::onShowLargeIcons),
+	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_SHOW_DETAILS,XFileExplorer::onShowDetails),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_CLEAR_LOCATION,XFileExplorer::onCmdClearLocation),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_GOTO_LOCATION,XFileExplorer::onCmdGotoLocation),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_PREFS,XFileExplorer::onCmdPrefs),
@@ -532,17 +535,17 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 
     // Switch display modes
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","big_icons","F10");
-    btn=new FXButton(paneltoolbar,TAB+_("Big icon list")+PARS(key),bigiconsicon,lpanel,FilePanel::ID_SHOW_BIG_ICONS,BUTTON_TOOLBAR|LAYOUT_TOP|LAYOUT_LEFT|ICON_BEFORE_TEXT|FRAME_RAISED);
+    btn=new FXButton(paneltoolbar,TAB+_("Big icon list")+PARS(key),bigiconsicon,this,ID_SHOW_LARGE_ICONS,BUTTON_TOOLBAR|LAYOUT_TOP|LAYOUT_LEFT|ICON_BEFORE_TEXT|FRAME_RAISED);
 	hotkey=_parseAccel(key);
 	btn->addHotKey(hotkey);
 
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","small_icons","F11");
-    btn=new FXButton(paneltoolbar,TAB+_("Small icon list")+PARS(key),smalliconsicon,lpanel,FilePanel::ID_SHOW_MINI_ICONS,BUTTON_TOOLBAR|LAYOUT_TOP|LAYOUT_LEFT|ICON_BEFORE_TEXT|FRAME_RAISED);
+    btn=new FXButton(paneltoolbar,TAB+_("Small icon list")+PARS(key),smalliconsicon,this,ID_SHOW_SMALL_ICONS,BUTTON_TOOLBAR|LAYOUT_TOP|LAYOUT_LEFT|ICON_BEFORE_TEXT|FRAME_RAISED);
 	hotkey=_parseAccel(key);
 	btn->addHotKey(hotkey);
 
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","detailed_file_list","F12");
-    btn=new FXButton(paneltoolbar,TAB+_("Detailed file list")+PARS(key),detailsicon,lpanel,FilePanel::ID_SHOW_DETAILS,BUTTON_TOOLBAR|LAYOUT_TOP|LAYOUT_LEFT|ICON_BEFORE_TEXT|FRAME_RAISED);
+    btn=new FXButton(paneltoolbar,TAB+_("Detailed file list")+PARS(key),detailsicon,this,ID_SHOW_DETAILS,BUTTON_TOOLBAR|LAYOUT_TOP|LAYOUT_LEFT|ICON_BEFORE_TEXT|FRAME_RAISED);
 	hotkey=_parseAccel(key);
 	btn->addHotKey(hotkey);
 
@@ -1344,10 +1347,16 @@ void XFileExplorer::create()
 	dirpanel->setDirectory(startdirectory,TRUE);
 
 	// Set file panels list style
-	listtype=getApp()->reg().readUnsignedEntry("LEFT PANEL","listtype",(FXuint)IconList::ID_SHOW_DETAILS);
-	lpanel->setListType((IconList_Type) listtype);
-	listtype=getApp()->reg().readUnsignedEntry("RIGHT PANEL","listtype",(FXuint)IconList::ID_SHOW_DETAILS);
-	rpanel->setListType((IconList_Type) listtype);
+	listtype=(IconList_ListType) getApp()->reg().readUnsignedEntry("LEFT PANEL","listtype",(FXuint)IconList::ID_SHOW_DETAILS);
+	listtype=(IconList_ListType) getApp()->reg().readUnsignedEntry("RIGHT PANEL","listtype",(FXuint)IconList::ID_SHOW_DETAILS);
+
+	if (listtype == IconList_ListType_LargeIcons) {
+		this->onShowLargeIcons(this, 0, NULL);
+	} else if (listtype == IconList_ListType_SmallIcons) {
+		this->onShowSmallIcons(this, 0, NULL);
+	} else if (listtype == IconList_ListType_Details) {
+		this->onShowDetails(this, 0, NULL);
+	}
 
 	// Show or hide hidden files listed in panels
     FXbool hiddenfiles=getApp()->reg().readUnsignedEntry("LEFT PANEL","hiddenfiles",0);
@@ -2136,6 +2145,23 @@ long  XFileExplorer::onCmdNewWindow(FXObject*,FXSelector,void*)
 	FXString cmd="xfe " + homelocation + " &";
 	system(cmd.text());
     return 1;
+}
+
+long XFileExplorer::onShowSmallIcons(FXObject* sender,FXSelector,void*) {
+	lpanel->getList()->onCmdShowMiniIcons(sender, 0, NULL);
+	lpanel->getList()->onCmdArrangeByRows(sender, 0, NULL);
+	return 1;
+}
+
+long XFileExplorer::onShowLargeIcons(FXObject* sender,FXSelector,void*) {
+	lpanel->getList()->onCmdShowBigIcons(sender, 0, NULL);
+	lpanel->getList()->onCmdArrangeByColumns(sender, 0, NULL);
+	return 1;
+}
+
+long XFileExplorer::onShowDetails(FXObject* sender,FXSelector,void*) {
+	lpanel->getList()->onCmdShowDetails(sender, 0, NULL);
+	return 1;
 }
 
 // Run Terminal

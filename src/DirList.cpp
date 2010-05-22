@@ -16,7 +16,6 @@
 #include "FileDict.h"
 #include "InputDialog.h"
 #include "MessageBox.h"
-#include "XFileExplorer.h"
 #include "DirList.h"
 
 
