@@ -9,6 +9,11 @@
 class IconList;
 class FileList;
 
+typedef enum {
+	IconList_Type_LargeIcons = 0,
+	IconList_Type_SmallIcons,
+	IconList_Type_Details
+} IconList_Type;
 
 // Icon List options (prefixed with an underscore to avoid conflict with the FOX library)
 enum {
@@ -684,6 +689,9 @@ public:
 
     // Change maximum item space for each item
     void setItemSpace(FXint s);
+
+	void setListType(IconList_Type type);
+	IconList_Type getListType(void);
 
     // Return maximum item space
     FXint getItemSpace() const

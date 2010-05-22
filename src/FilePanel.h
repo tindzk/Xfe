@@ -289,15 +289,15 @@ public:
 	}
 
 	// Get the current icon list style
-	FXuint getListStyle(void) const
+	IconList_Type getListType(void) const
 	{
-		return list->getListStyle();
+		return list->getListType();
 	}
 
 	// Get the current icon list style
-	void setListStyle(FXuint style)
+	void setListType(IconList_Type type)
 	{
-		list->setListStyle(style);
+		list->setListType(type);
 	}
 
 	// Return pointer on the file list

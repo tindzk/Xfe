@@ -1005,7 +1005,7 @@ void XFileExplorer::saveConfig()
         getApp()->reg().writeUnsignedEntry("LEFT PANEL","attr_size",lpanel->getHeaderSize(7));
         getApp()->reg().writeUnsignedEntry("LEFT PANEL","deldate_size",lpanel->getHeaderSize(8));
         getApp()->reg().writeUnsignedEntry("LEFT PANEL","origpath_size",lpanel->getHeaderSize(9));
-		getApp()->reg().writeUnsignedEntry("LEFT PANEL","liststyle",lpanel->getListStyle());
+		getApp()->reg().writeUnsignedEntry("LEFT PANEL","listtype",lpanel->getListType());
         getApp()->reg().writeUnsignedEntry("LEFT PANEL","hiddenfiles",lpanel->shownHiddenFiles());
         getApp()->reg().writeUnsignedEntry("LEFT PANEL","showthumbnails",lpanel->shownThumbnails());
 
@@ -1099,7 +1099,7 @@ void XFileExplorer::saveConfig()
         getApp()->reg().writeUnsignedEntry("RIGHT PANEL","attr_size",rpanel->getHeaderSize(7));
 		getApp()->reg().writeUnsignedEntry("RIGHT PANEL","deldate_size",rpanel->getHeaderSize(8));
         getApp()->reg().writeUnsignedEntry("RIGHT PANEL","origpath_size",rpanel->getHeaderSize(9));
-        getApp()->reg().writeUnsignedEntry("RIGHT PANEL","liststyle",rpanel->getListStyle());
+        getApp()->reg().writeUnsignedEntry("RIGHT PANEL","listtype",rpanel->getListType());
         getApp()->reg().writeUnsignedEntry("RIGHT PANEL","hiddenfiles",rpanel->shownHiddenFiles());
         getApp()->reg().writeUnsignedEntry("RIGHT PANEL","showthumbnails",rpanel->shownThumbnails());
 
@@ -1344,10 +1344,10 @@ void XFileExplorer::create()
 	dirpanel->setDirectory(startdirectory,TRUE);
 
 	// Set file panels list style
-	liststyle=getApp()->reg().readUnsignedEntry("LEFT PANEL","liststyle",(FXuint)IconList::ID_SHOW_DETAILS);
-	lpanel->setListStyle(liststyle);
-    liststyle=getApp()->reg().readUnsignedEntry("RIGHT PANEL","liststyle",(FXuint)IconList::ID_SHOW_DETAILS);
-    rpanel->setListStyle(liststyle);
+	listtype=getApp()->reg().readUnsignedEntry("LEFT PANEL","listtype",(FXuint)IconList::ID_SHOW_DETAILS);
+	lpanel->setListType((IconList_Type) listtype);
+	listtype=getApp()->reg().readUnsignedEntry("RIGHT PANEL","listtype",(FXuint)IconList::ID_SHOW_DETAILS);
+	rpanel->setListType((IconList_Type) listtype);
 
 	// Show or hide hidden files listed in panels
     FXbool hiddenfiles=getApp()->reg().readUnsignedEntry("LEFT PANEL","hiddenfiles",0);

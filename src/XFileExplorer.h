@@ -77,7 +77,7 @@ protected:
 	FXString		trashfileslocation;
 	FXString		trashinfolocation;
 	FXString		startlocation;
-	FXuint			liststyle;
+	FXuint			listtype;
 	FXColor			listbackcolor;
 	FXColor			listforecolor;
 	FXColor			highlightcolor;

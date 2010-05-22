@@ -2436,9 +2436,7 @@ long IconList::onUpdToggleAutosize(FXObject* sender,FXSelector,void*)
 // Show detailed list
 long IconList::onCmdShowDetails(FXObject*,FXSelector,void*)
 {
-    options&=~_ICONLIST_MINI_ICONS;
-    options&=~_ICONLIST_BIG_ICONS;
-    recalc();
+    setListType(IconList_Type_Details);
     return 1;
 }
 
@@ -2454,9 +2452,7 @@ long IconList::onUpdShowDetails(FXObject* sender,FXSelector,void*)
 // Show big icons
 long IconList::onCmdShowBigIcons(FXObject*,FXSelector,void*)
 {
-    options&=~_ICONLIST_MINI_ICONS;
-    options|=_ICONLIST_BIG_ICONS;
-    recalc();
+    setListType(IconList_Type_LargeIcons);
     return 1;
 }
 
@@ -2472,9 +2468,7 @@ long IconList::onUpdShowBigIcons(FXObject* sender,FXSelector,void*)
 // Show small icons
 long IconList::onCmdShowMiniIcons(FXObject*,FXSelector,void*)
 {
-    options|=_ICONLIST_MINI_ICONS;
-    options&=~_ICONLIST_BIG_ICONS;
-    recalc();
+    setListType(IconList_Type_SmallIcons);
     return 1;
 }
 
@@ -3815,6 +3809,33 @@ void IconList::setItemSpace(FXint s)
     }
 }
 
+void IconList::setListType(IconList_Type type) {
+	if (type == IconList_Type_LargeIcons) {
+		options&=~_ICONLIST_MINI_ICONS;
+		options|=_ICONLIST_BIG_ICONS;
+		options|=_ICONLIST_COLUMNS;
+	} else if (type == IconList_Type_SmallIcons) {
+		options&=~_ICONLIST_BIG_ICONS;
+		options&=~_ICONLIST_COLUMNS;
+		options|=_ICONLIST_MINI_ICONS;
+	} else {
+		options&=~_ICONLIST_MINI_ICONS;
+		options&=~_ICONLIST_BIG_ICONS;
+		options&=~_ICONLIST_COLUMNS;
+	}
+
+	recalc();
+}
+
+IconList_Type IconList::getListType(void) {
+	if (options & _ICONLIST_BIG_ICONS) {
+		return IconList_Type_LargeIcons;
+	} else if (options & _ICONLIST_MINI_ICONS) {
+		return IconList_Type_SmallIcons;
+	} else {
+		return IconList_Type_Details;
+	}
+}
 
 // Change list style
 void IconList::setListStyle(FXuint style)
