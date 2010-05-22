@@ -47,7 +47,6 @@ private:
     IconItem& operator=(const IconItem&);
 protected:
     IconItem():bigIcon(NULL),miniIcon(NULL),data(NULL),state(0){}
-    virtual void draw(IconList* list,FXDC& dc,FXint x,FXint y,FXint w,FXint h) const;
     virtual FXint hitItem(const IconList* list,FXint rx,FXint ry,FXint rw=1,FXint rh=1) const;
 protected:
     virtual void drawBigIcon(const IconList* list,FXDC& dc,FXint x,FXint y,FXint w,FXint h) const;
