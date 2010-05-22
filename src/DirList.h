@@ -122,10 +122,8 @@ private:
 public:
     long onCmdRefresh(FXObject*,FXSelector,void*);
     long onCmdRefreshTimer(FXObject*,FXSelector,void*);
-#if defined(linux)
     long onMtdevicesRefresh(FXObject*,FXSelector,void*);
     long onUpdevicesRefresh(FXObject*,FXSelector,void*);
-#endif
     long onExpandTimer(FXObject*,FXSelector,void*);
     long onBeginDrag(FXObject*,FXSelector,void*);
     long onEndDrag(FXObject*,FXSelector,void*);
@@ -179,10 +177,8 @@ public:
         ID_SORT_REVERSE,
         ID_SORT_CASE,
         ID_EXPAND_TIMER,
-#if defined(linux)
         ID_UPDEVICES_REFRESH,
         ID_MTDEVICES_REFRESH,
-#endif
 		ID_DRAG_COPY,
 		ID_DRAG_MOVE,
 		ID_DRAG_LINK,

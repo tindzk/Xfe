@@ -42,10 +42,8 @@ extern FXuint clipboard_type;
 // Global variables
 extern FXMainWindow *mainWindow;
 extern FXbool allowPopupScroll;
-#if defined(linux)
 extern FXStringDict* fsdevices;
 extern FXStringDict* mtdevices;
-#endif
 
 extern FXuint single_click;
 
@@ -327,12 +325,10 @@ FXDEFMAP(DirPanel) DirPanelMap[]={
 	FXMAPFUNC(SEL_COMMAND,DirPanel::ID_TOGGLE_TREE,DirPanel::onCmdToggleTree),
 	FXMAPFUNC(SEL_TIMEOUT,DirPanel::ID_DIRSIZE_REFRESH,DirPanel::onCmdDirsizeRefresh),
 	FXMAPFUNC(SEL_FOCUSIN,DirPanel::ID_FILELIST,DirPanel::onCmdFocus),
-#if defined(linux)
 	FXMAPFUNC(SEL_COMMAND,DirPanel::ID_MOUNT,DirPanel::onCmdMount),
 	FXMAPFUNC(SEL_COMMAND,DirPanel::ID_UMOUNT,DirPanel::onCmdMount),
 	FXMAPFUNC(SEL_UPDATE,DirPanel::ID_MOUNT,DirPanel::onUpdMount),
 	FXMAPFUNC(SEL_UPDATE,DirPanel::ID_UMOUNT,DirPanel::onUpdUnmount),
-#endif
 	FXMAPFUNC(SEL_UPDATE,DirPanel::ID_PASTE_CLIPBOARD,DirPanel::onUpdPaste),
 	FXMAPFUNC(SEL_UPDATE,DirPanel::ID_TOGGLE_HIDDEN,DirPanel::onUpdToggleHidden),
 	FXMAPFUNC(SEL_UPDATE,DirPanel::ID_TOGGLE_TREE,DirPanel::onUpdToggleTree),
@@ -650,7 +646,6 @@ long DirPanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 		new FXMenuCascade(menu,_("Pane&l"),NULL,submenu);
 		new FXMenuSeparator(menu);
 
-#if defined(linux)
 		if (::isLink(dir))
 			dir=readlink(dir);
 		if(fsdevices->find(dir.text()) || mtdevices->find(dir.text()))
@@ -659,7 +654,6 @@ long DirPanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 			new FXMenuCommand(menu,_("Unmoun&t"),unmaphosticon,this,ID_UMOUNT);
 			new FXMenuSeparator(menu);
 		}
-#endif
 		new FXMenuCommand(menu,_("&Add to archive..."),archaddicon,this,DirPanel::ID_ARCHIVE);
 		new FXMenuSeparator(menu);
 		new FXMenuCommand(menu,_("&Copy"),copy_clpicon,this,DirPanel::ID_COPY_CLIPBOARD);
@@ -2201,7 +2195,6 @@ long DirPanel::onCmdXTerm(FXObject*,FXSelector,void*)
 }
 
 
-#if defined(linux)
 // Mount/Unmount directory
 long DirPanel::onCmdMount(FXObject*,FXSelector sel,void*)
 {
@@ -2297,8 +2290,6 @@ long DirPanel::onUpdUnmount(FXObject* o,FXSelector sel,void*)
 
     return 1;
 }
-#endif
-
 
 // Update the paste button
 long DirPanel::onUpdPaste(FXObject* o,FXSelector,void*)

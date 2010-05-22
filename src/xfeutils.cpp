@@ -22,10 +22,8 @@
 
 
 // Global variables
-#if defined(linux)
 extern FXStringDict* mtdevices;
 extern FXStringDict* updevices;
-#endif
 
 
 
@@ -514,8 +512,6 @@ FXbool isUtf8(const FXchar* string, FXuint length)
 // Replacement of the stat function
 FXint statrep(const FXchar* filename, struct stat* buf)
 {
-#if defined(linux)
-
 	static FXint ret;
 
 	// It's a mount point
@@ -540,7 +536,6 @@ FXint statrep(const FXchar* filename, struct stat* buf)
 		
 	// It's not a mount point
 	else
-#endif
 		return stat(filename,buf);
 }
 
@@ -548,8 +543,6 @@ FXint statrep(const FXchar* filename, struct stat* buf)
 // Replacement of the lstat function
 FXint lstatrep(const FXchar* filename, struct stat* buf)
 {
-#if defined(linux)
-
 	static FXint ret;
 
 	// It's a mount point
@@ -574,20 +567,15 @@ FXint lstatrep(const FXchar* filename, struct stat* buf)
 		
 	// It's not a mount point
 	else
-#endif
 		return lstat(filename,buf);
 }
 
-
-#if defined(linux)
 // Stat function used to test if a mount point is up or down
 // Actually, this is simply the lstat() function
 FXint lstatmt(const FXchar* filename, struct stat* buf)
 {
 	return lstat(filename,buf);
 }
-#endif
-
 
 // Safe strcpy function (Public domain, by C.B. Falconer)
 // The destination string is always null terminated
@@ -656,12 +644,10 @@ unsigned long long dirsize(const FXchar* path)
 		else
 			snprintf(buf,sizeof(buf)-1,"%s/%s",path,dirp->d_name);
 		
-#if defined(linux)
 		// Mount points are not processed to improve performances 
 		if(mtdevices->find(buf))
 			continue;
-#endif
-		
+
 		ret=lstatrep(buf,&statbuf);
 		if(ret==0)
 		{

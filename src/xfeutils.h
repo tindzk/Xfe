@@ -1,7 +1,6 @@
 #ifndef XFEUTILS_H
 #define XFEUTILS_H
 
-
 #include <errno.h>
 #include <unistd.h>
 #include <sys/stat.h>
@@ -11,10 +10,8 @@
 
 #include "xvt/xvt.h"
 
-
 // Single click types
-enum
-{
+enum {
 	SINGLE_CLICK_NONE,
 	SINGLE_CLICK_DIR,
 	SINGLE_CLICK_DIR_FILE,
@@ -69,9 +66,7 @@ FXString quote(FXString);
 FXbool isUtf8(const FXchar*, FXuint);
 int statrep(const FXchar*, struct stat*);
 int lstatrep(const FXchar*, struct stat*);
-#if defined(linux)
 int lstatmt(const FXchar*, struct stat*);
-#endif
 size_t strlcpy(FXchar*, const FXchar*, size_t);
 size_t strlcat(FXchar*, const FXchar*, size_t);
 unsigned long long dirsize(const FXchar*);

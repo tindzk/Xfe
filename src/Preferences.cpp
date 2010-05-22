@@ -242,10 +242,8 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
 	quit=new FXCheckButton(group,_("Confirm quit"));
 
 	group=new FXGroupBox(dialogs,_("Warnings"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
-#if defined(linux)
     mount=new FXCheckButton (group,_("Warn when mount points are not responding"));
 	show_mount=new FXCheckButton(group, _("Display mount/umount success messages"));
-#endif
     root_warning=new FXCheckButton (group,_("Warn if running as root"));
 
 	FXbool confirm_quit=getApp()->reg().readUnsignedEntry("OPTIONS","confirm_quit",TRUE);
@@ -263,12 +261,10 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
     FXbool confirm_dnd=getApp()->reg().readUnsignedEntry("OPTIONS","confirm_drag_and_drop",TRUE);
 	dnd->setCheck(confirm_dnd);
 
-#if defined(linux)
 	FXbool mount_warn=getApp()->reg().readUnsignedEntry("OPTIONS","mount_warn",TRUE);
 	FXbool mount_messages=getApp()->reg().readUnsignedEntry("OPTIONS","mount_messages",TRUE);
 	mount->setCheck(mount_warn);
 	show_mount->setCheck(mount_messages);
-#endif
 
 	FXbool root_warn=getApp()->reg().readUnsignedEntry("OPTIONS","root_warn",TRUE);
 	if(getuid()) // Simple user
@@ -635,16 +631,14 @@ long PreferencesBox::onCmdChangeKeyBindings(FXObject*,FXSelector,void*)
 	str=_("Launch terminal")+TAB+key;
 	xfeBindingsDict->insert("terminal",str.text());
 
-#if defined(linux)
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","mount","Ctrl-M");
- 	str=_("Mount file system (Linux only)")+TAB+key;
+ 	str=_("Mount file system")+TAB+key;
 	xfeBindingsDict->insert("mount",str.text());
 
  	key=getApp()->reg().readStringEntry("KEYBINDINGS","unmount","Ctrl-U");
- 	str=_("Unmount file system (Linux only)")+TAB+key;
+ 	str=_("Unmount file system")+TAB+key;
 	xfeBindingsDict->insert("unmount",str.text());
 
-#endif
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","one_panel","Ctrl-F1");
  	str=_("One panel mode")+TAB+key;
 	xfeBindingsDict->insert("one_panel",str.text());
@@ -851,10 +845,8 @@ long PreferencesBox::onCmdRestoreKeyBindings(FXObject*,FXSelector,void*)
  	getApp()->reg().writeStringEntry("KEYBINDINGS","new_root_window","Shift-F3");
  	getApp()->reg().writeStringEntry("KEYBINDINGS","execute_command","Ctrl-E");
  	getApp()->reg().writeStringEntry("KEYBINDINGS","terminal","Ctrl-T");
-#if defined(linux)
   	getApp()->reg().writeStringEntry("KEYBINDINGS","mount","Ctrl-M");
   	getApp()->reg().writeStringEntry("KEYBINDINGS","unmount","Ctrl-U");
-#endif
   	getApp()->reg().writeStringEntry("KEYBINDINGS","one_panel","Ctrl-F1");
   	getApp()->reg().writeStringEntry("KEYBINDINGS","tree_panel","Ctrl-F2");
   	getApp()->reg().writeStringEntry("KEYBINDINGS","two_panels","Ctrl-F3");
@@ -959,10 +951,8 @@ long PreferencesBox::onCmdAccept(FXObject* o,FXSelector s,void* p)
     getApp()->reg().writeUnsignedEntry("OPTIONS","confirm_drag_and_drop",dnd->getCheck());
     getApp()->reg().writeUnsignedEntry("OPTIONS","root_warn",root_warning->getCheck());
     getApp()->reg().writeUnsignedEntry("OPTIONS","root_mode",rootmode->getCheck());
-#if defined(linux)
     getApp()->reg().writeUnsignedEntry("OPTIONS","mount_warn",mount->getCheck());
 	getApp()->reg().writeUnsignedEntry("OPTIONS","mount_messages",show_mount->getCheck());
-#endif
 
     // Control themes
     getApp()->reg().writeUnsignedEntry("SETTINGS","use_clearlooks",use_clearlooks);
@@ -1124,10 +1114,8 @@ long PreferencesBox::onCmdCancel(FXObject* o,FXSelector s,void* p)
 	del_emptydir->setCheck(del_emptydir_prev);
 	overwrite->setCheck(overwrite_prev);
 	quit->setCheck(quit_prev);
-#if defined(linux)
 	mount->setCheck(mount_prev);
 	show_mount->setCheck(show_mount_prev);
-#endif
 	root_warning->setCheck(root_warning_prev);
 	
 	// Third tab - Programs
@@ -1178,10 +1166,8 @@ FXuint PreferencesBox::execute(FXuint placement)
 	del_emptydir_prev=del_emptydir->getCheck();
 	overwrite_prev=overwrite->getCheck();
 	quit_prev=quit->getCheck();
-#if defined(linux)
 	mount_prev=mount->getCheck();
 	show_mount_prev=show_mount->getCheck();
-#endif
 	root_warning_prev=root_warning->getCheck();
 
     // Third tab - Programs

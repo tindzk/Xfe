@@ -78,10 +78,8 @@ DirPanel(FXWindow *owner,FXComposite *p,FXColor listbackcolor=FXRGB(255,255,255)
 		ID_TITLE,
 		ID_DIRSIZE_REFRESH,
 		ID_POPUP_MENU,
-#if defined(linux)
         ID_MOUNT,
         ID_UMOUNT,
-#endif
         ID_LAST,
     	};
 	long exploreUp(DirItem *item, const DirItem *rootitem, const FXint task);
@@ -122,9 +120,7 @@ public:
 	long onKeyPress(FXObject*,FXSelector,void*);
 	long onCmdFocus(FXObject*,FXSelector,void*);
 	long onCmdStopListRefreshTimer(FXObject*,FXSelector,void*);
-#if defined(linux)
 	long onCmdMount(FXObject*,FXSelector,void*);
-#endif
 public:
 
 	void setActive();
@@ -210,14 +206,12 @@ public:
 		return list;
 	}
 
-#if defined(linux)
 	// Force devices refresh
 	void forceDevicesRefresh(void)
 	{
 		list->onMtdevicesRefresh(0,0,0);
 		list->onUpdevicesRefresh(0,0,0);
 	}
-#endif
 
 	// Toggle status bar
 	void toggleStatusbar(void)

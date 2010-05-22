@@ -18,10 +18,8 @@ enum
 	CHOWN,
 	EXTRACT,
 	ARCHIVE,
-#if defined(linux)
 	MOUNT,
 	UNMOUNT
-#endif
 };
 
 // To search visited inodes
@@ -114,9 +112,7 @@ public:
 	FXint extract(const FXString name, const FXString dir,const FXString cmd);
 	FXint archive(const FXString name, const FXString cmd);
 
-#if defined(linux)
 	FXint mount(const FXString dir, const FXString msg, const FXString cmd, const  FXuint op);
-#endif
 	long onCmdCancel(FXObject*, FXSelector,void*);
     long onTimeout(FXObject*,FXSelector,void*);
 };

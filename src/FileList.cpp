@@ -11,9 +11,7 @@
 #include <FXPNGIcon.h>
 #include <FXJPGIcon.h>
 #include <FXTIFIcon.h>
-#if defined(linux)
 #include <mntent.h>
-#endif
 
 #include "xfedefs.h"
 #include "icons.h"
@@ -46,13 +44,11 @@
 #define HASH2(x,n) (1|(((unsigned int)(x)*17)%((n)-1)))   // Probe Distance [1..n-1]
 
 
-#if defined(linux)
 #define FSTAB_PATH "/etc/fstab"
 #define MTAB_PATH "/proc/mounts"
 FXStringDict* fsdevices=NULL; // Devices from fstab
 FXStringDict* mtdevices=NULL; // Mounted devices
 FXStringDict* updevices=NULL; // Responding devices
-#endif
 
 extern FXbool allowPopupScroll;
 
@@ -162,8 +158,6 @@ FileList::FileList(FXWindow* focuswin, FXComposite *p, FXObject* tgt, FXSelector
 	backhist=NULL;
 	forwardhist=NULL;
 	focuswindow=focuswin;
-	
-#if defined(linux)
 
 	// Initialize the fsdevices, mtdevices and updevices lists
 	// if it was not done in DirList (useful for XFileView, XFileQuery and XFileImage) 
@@ -231,8 +225,7 @@ FileList::FileList(FXWindow* focuswin, FXComposite *p, FXObject* tgt, FXSelector
         	endmntent(mtab);
     	}
 	}
-#endif
-	
+
 	// Trahscan location (with trailing slash)
 	FXString homelocation=getenv("HOME");
     if(homelocation=="")
@@ -4658,7 +4651,6 @@ fnd:          	*pn=item;
 					item->cdate=filectime;
 					item->deldate=deldate;
 
-#if defined(linux)
 					// Mounted devices may have a specific icon
 					if(mtdevices->find(pathname.text()))
 					{
@@ -4712,7 +4704,6 @@ fnd:          	*pn=item;
 							item->setMiniIcon(zipicon);
 						}
 					}
-#endif
 
 					// Update item label
 					// NB : Item del is empty if we are not in trash can

@@ -13,9 +13,7 @@
 #include <signal.h>
 #include <pwd.h>
 #include <grp.h>
-#if defined(linux)
 #include <mntent.h>
-#endif
 
 #include <fx.h>
 #include <fxkeys.h>
@@ -295,7 +293,6 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
 		// Directory path
 		FXString dirpath=FXPath::absolute(parentdir,file);
 
-#if defined(linux)
 		FILE *mtab=setmntent("/etc/mtab","r");
         struct mntent *mnt;
         if(mtab)
@@ -315,7 +312,7 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
             }
             endmntent(mtab);
         }
-#endif
+
 		// If it is a mount point
 		if(isMountpoint)
 		{

@@ -5,9 +5,7 @@
 
 #include <fx.h>
 #include <FXPNGIcon.h>
-#if defined(linux)
 #include <mntent.h>
-#endif
 
 #include "xfedefs.h"
 #include "icons.h"
@@ -33,13 +31,11 @@
 #define EXPAND_INTERVAL		500
 
 // Global variables
-#if defined(linux)
 #define FSTAB_PATH "/etc/fstab"
 #define MTAB_PATH "/proc/mounts"
 extern FXStringDict* fsdevices;
 extern FXStringDict* mtdevices;
 extern FXStringDict* updevices;
-#endif
 
 extern FXbool allowPopupScroll;
 
@@ -54,10 +50,8 @@ FXDEFMAP(DirList) DirListMap[]=
 {
 	FXMAPFUNC(SEL_DRAGGED,0,DirList::onDragged),
 	FXMAPFUNC(SEL_TIMEOUT,DirList::ID_REFRESH_TIMER,DirList::onCmdRefreshTimer),
-#if defined(linux)
 	FXMAPFUNC(SEL_TIMEOUT,DirList::ID_MTDEVICES_REFRESH,DirList::onMtdevicesRefresh),
 	FXMAPFUNC(SEL_TIMEOUT,DirList::ID_UPDEVICES_REFRESH,DirList::onUpdevicesRefresh),
-#endif
 	FXMAPFUNC(SEL_TIMEOUT,DirList::ID_EXPAND_TIMER,DirList::onExpandTimer),
 	FXMAPFUNC(SEL_DND_ENTER,0,DirList::onDNDEnter),
 	FXMAPFUNC(SEL_DND_LEAVE,0,DirList::onDNDLeave),
@@ -116,8 +110,6 @@ DirList::DirList(FXWindow *focuswin,FXComposite *p,FXObject* tgt,FXSelector sel,
     counter=0;
 	prevSelItem=NULL;
 	focuswindow=focuswin;
-
-#if defined(linux)
 
     // Initialize the fsdevices, mtdevices and updevices lists
     struct mntent *mnt;
@@ -184,7 +176,6 @@ DirList::DirList(FXWindow *focuswin,FXComposite *p,FXObject* tgt,FXSelector sel,
             endmntent(mtab);
         }
     }
-#endif
 
 	// Trahscan location (without trailing slash)
 	FXString homelocation=getenv("HOME");
@@ -205,10 +196,8 @@ void DirList::create()
     if(!urilistType)
         urilistType=getApp()->registerDragType(urilistTypeName);
     getApp()->addTimeout(this,ID_REFRESH_TIMER,REFRESH_INTERVAL);
-#if defined(linux)
     getApp()->addTimeout(this,ID_MTDEVICES_REFRESH,MTDEVICES_INTERVAL*1000);
     getApp()->addTimeout(this,ID_UPDEVICES_REFRESH,UPDEVICES_INTERVAL*1000);
-#endif
     dropEnable();
 
     // Scan root directory
@@ -1055,7 +1044,6 @@ FXbool DirList::collapseTree(TreeItem* tree,FXbool notify)
 }
 
 
-#if defined(linux)
 // To periodically scan /proc/mounts and refresh the mtdevices list
 long DirList::onMtdevicesRefresh(FXObject*,FXSelector,void*)
 {
@@ -1149,7 +1137,6 @@ long DirList::onUpdevicesRefresh(FXObject*,FXSelector,void*)
     getApp()->addTimeout(this,ID_UPDEVICES_REFRESH,UPDEVICES_INTERVAL*1000);
     return 0;
 }
-#endif
 
 
 // Refresh with timer
@@ -1525,7 +1512,6 @@ fnd:
 					del=FXSystem::time("%x %X",deldate);
 			}
 
-#if defined(linux)
 			// Mounted devices may have a specific icon
 			if(mtdevices->find(pathname.text()))
 			{
@@ -1579,7 +1565,6 @@ fnd:
                     item->openIcon=zipicon;
                 }
             }
-#endif
 
             // Symbolic links have a specific icon
             if(islink)
@@ -1888,10 +1873,8 @@ DirList::~DirList()
     clearItems();
     getApp()->removeTimeout(this,ID_REFRESH_TIMER);
     getApp()->removeTimeout(this,ID_EXPAND_TIMER);
-#if defined(linux)
     getApp()->removeTimeout(this,ID_MTDEVICES_REFRESH);
     getApp()->removeTimeout(this,ID_UPDEVICES_REFRESH);
-#endif
     if(!(options&DIRLIST_NO_OWN_ASSOC))
         delete associations;
     associations=(FileDict*)-1;

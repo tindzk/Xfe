@@ -56,12 +56,8 @@ extern char** args;
 extern FXint panel_mode;
 
 // Global options
-#if defined(linux)
 extern FXStringDict* fsdevices;
 extern FXStringDict* updevices;
-#endif
-
-
 
 // Helper function to draw a toolbar separator
 void toolbarSeparator(FXToolBar* tb)
@@ -490,20 +486,18 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
  	key=getApp()->reg().readStringEntry("KEYBINDINGS","terminal","Ctrl-T");
     new FXButton(toolstoolbar,TAB+_("Launch terminal")+PARS(key),shellicon,this,XFileExplorer::ID_XTERM,BUTTON_TOOLBAR|FRAME_RAISED|LAYOUT_TOP|LAYOUT_LEFT);
 
-#if defined(linux)
 	toolbarSeparator(toolstoolbar);
 
     // Mount and unmount buttons
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","mount","Ctrl-M");
-	btn=new FXButton(toolstoolbar,TAB+_("Mount (Linux only)")+PARS(key),maphosticon,lpanel,FilePanel::ID_MOUNT,BUTTON_TOOLBAR|FRAME_RAISED|LAYOUT_TOP|LAYOUT_LEFT);
+	btn=new FXButton(toolstoolbar,TAB+_("Mount")+PARS(key),maphosticon,lpanel,FilePanel::ID_MOUNT,BUTTON_TOOLBAR|FRAME_RAISED|LAYOUT_TOP|LAYOUT_LEFT);
 	hotkey=_parseAccel(key);
 	btn->addHotKey(hotkey);
 
   	key=getApp()->reg().readStringEntry("KEYBINDINGS","unmount","Ctrl-U");
-    btn=new FXButton(toolstoolbar,TAB+_("Unmount (Linux only)")+PARS(key),unmaphosticon,lpanel,FilePanel::ID_UMOUNT,BUTTON_TOOLBAR|FRAME_RAISED|LAYOUT_TOP|LAYOUT_LEFT);
+    btn=new FXButton(toolstoolbar,TAB+_("Unmount")+PARS(key),unmaphosticon,lpanel,FilePanel::ID_UMOUNT,BUTTON_TOOLBAR|FRAME_RAISED|LAYOUT_TOP|LAYOUT_LEFT);
 	hotkey=_parseAccel(key);
 	btn->addHotKey(hotkey);
-#endif
 
 	// Panel toolbar
 	
@@ -871,7 +865,6 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 	hotkey=_parseAccel(key);
 	getAccelTable()->addAccel(hotkey,mc,FXSEL(SEL_COMMAND,FXMenuCommand::ID_ACCEL));
 
-#if defined(linux)
 	new FXMenuSeparator(toolsmenu);
     
 	mc=new FXMenuCommand(toolsmenu,_("&Mount"),maphosticon,lpanel,FilePanel::ID_MOUNT);
@@ -882,7 +875,6 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
  	key=getApp()->reg().readStringEntry("KEYBINDINGS","unmount","Ctrl-U");
 	mc->setAccelText(key);
 
-#endif
 	toolsmenutitle=new FXMenuTitle(menubar,_("&Tools"),NULL,toolsmenu);
 
 	// Trash menu
@@ -1424,7 +1416,6 @@ void XFileExplorer::create()
 	// Show window
     show();
 
-#if defined(linux)
 	// Warning message if a mount point is down
 	FXbool mount_warn=getApp()->reg().readUnsignedEntry("OPTIONS","mount_warn",TRUE);
 	if (mount_warn)
@@ -1436,8 +1427,6 @@ void XFileExplorer::create()
 				MessageBox::warning(this,BOX_OK,_("Warning"),_("Mount point %s is not responding..."),updevices->key(d));
 		}
 	}
-#endif
-
 
 	// If no Xfe local configuration exists (i.e. at first call or after a purge of the configuration files),
 	// copy the global xferc file to the local configuration directory, and read / write the registry
@@ -2236,10 +2225,7 @@ long XFileExplorer::onCmdFileAssoc(FXObject*,FXSelector s,void *p)
 long XFileExplorer::onCmdRefresh(FXObject*,FXSelector,void*)
 {
 	getApp()->beginWaitCursor();
-	
-#if defined(linux)
 	dirpanel->forceDevicesRefresh();
-#endif
 	lpanel->getCurrent()->onCmdRefresh(0,0,0);
 	dirpanel->forceRefresh();
 	getApp()->endWaitCursor();

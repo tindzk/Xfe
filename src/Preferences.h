@@ -110,10 +110,8 @@ private:
 	FXbool		   use_clearlooks;
 	FXbool		   use_clearlooks_prev;
 	FXbool         rootmode_prev;
-#if defined(linux)
 	FXbool		   mount_prev;
 	FXbool		   show_mount_prev;
-#endif
 	FXbool		   root_warning_prev;
 	FXuint		   themelist_prev;
 	KeybindingsBox 		*bindingsbox;

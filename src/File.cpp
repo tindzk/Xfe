@@ -5,9 +5,7 @@
 
 #include <fcntl.h>
 #include <utime.h>
-#if defined(linux)
 #include <sys/statfs.h>
-#endif
 
 // For Sun compatibility
 #ifdef __sun
@@ -145,7 +143,6 @@ File::File(FXWindow *owner, FXString title, const FXuint operation):DialogBox(ow
 			getApp()->addTimeout(this,File::ID_TIMEOUT,SHOW_PROGRESSBAR_DELAY);
 			break;
 
-#if defined(linux)
     	case MOUNT:
 	    	// Labels
 			uplabel=new FXLabel(contents,_("Mount file system..."),NULL,JUSTIFY_LEFT|LAYOUT_FILL_X);
@@ -157,7 +154,6 @@ File::File(FXWindow *owner, FXString title, const FXuint operation):DialogBox(ow
 			uplabel=new FXLabel(contents,_("Unmount file system..."),NULL,JUSTIFY_LEFT|LAYOUT_FILL_X);
     		downlabel=new FXLabel(contents,_("Unmount the folder:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_X);
 			break;
-#endif
 
 		default: // Other : RENAME, SYMLINK, ARCHIVE, EXTRACT
 			// Progress dialog not used
@@ -456,7 +452,6 @@ FXbool File::copyfile(const FXString& source, const FXString& target, const FXbo
 				}
             }
 
-#if defined(linux)
 			// If source file is on a ISO9660 file system (CD or DVD, thus read-only)
 			// then add to the target the write permission for the user
 			if (ok)
@@ -465,7 +460,6 @@ FXbool File::copyfile(const FXString& source, const FXString& target, const FXbo
 				if (statfs(source.text(),&fs)==0 && fs.f_type==0x9660)
 					::chmod(target.text(),info.st_mode|S_IWUSR);
 			}
-#endif
         }
         ::close(src);
     }
@@ -1515,7 +1509,6 @@ FXint File::archive(const FXString name, const FXString cmd)
 }
 
 
-#if defined(linux)
 FXint File::mount(const FXString dir, const FXString msg, const FXString cmd, const FXuint op)
 {
 	FXbool mount_messages=getApp()->reg().readUnsignedEntry("OPTIONS","mount_messages",TRUE);
@@ -1573,16 +1566,12 @@ FXint File::mount(const FXString dir, const FXString msg, const FXString cmd, co
 	return 1;
 }
 
-#endif
-
-
 // Handle cancel button in progress bar dialog
 long File::onCmdCancel(FXObject*, FXSelector,void*)
 {
 	cancelled=TRUE;
 	return 1;
 }
-
 
 // Handle timeout for progress bar
 long File::onTimeout(FXObject*, FXSelector,void*)

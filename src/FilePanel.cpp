@@ -56,10 +56,8 @@ extern FXchar OpenHistory[OPEN_HIST_SIZE][MAX_COMMAND_SIZE];
 extern FXint OpenNum;
 extern FXchar FilterHistory[FILTER_HIST_SIZE][MAX_PATTERN_SIZE];
 extern FXint FilterNum;
-#if defined(linux)
 extern FXStringDict* fsdevices;
 extern FXStringDict* mtdevices;
-#endif
 
 extern FXbool allowPopupScroll;
 extern FXuint single_click;
@@ -134,12 +132,10 @@ FXDEFMAP(FilePanel) FilePanelMap[]=
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_SHOW_DETAILS,FilePanel::onUpdShow),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_TOGGLE_HIDDEN,FilePanel::onUpdToggleHidden),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_TOGGLE_THUMBNAILS,FilePanel::onUpdToggleThumbnails),
-#if defined(linux)
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_MOUNT,FilePanel::onCmdMount),
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_UMOUNT,FilePanel::onCmdMount),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_MOUNT,FilePanel::onUpdMount),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_UMOUNT,FilePanel::onUpdUnmount),
-#endif
 };
 
 FXint runcmd(FXString cmd)
@@ -3087,7 +3083,6 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 		new FXMenuCascade(menu,_("Pane&l"),NULL,submenu);
         new FXMenuSeparator(menu);
 
-#if defined(linux)
 		FXString name=current->list->getItemPathname(itm);
     	if(num==1 && (fsdevices->find(name.text()) || mtdevices->find(name.text()) ) )
 		{
@@ -3095,7 +3090,6 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 			new FXMenuCommand(menu,_("Unmount"),unmaphosticon,current,FilePanel::ID_UMOUNT);
     		new FXMenuSeparator(menu);
 		}
-#endif
 
 		FXbool ar=FALSE;
 		if(current->list->getItem (itm) && current->list->isItemFile(itm))
@@ -3722,7 +3716,6 @@ long FilePanel::onUpdToggleThumbnails(FXObject* sender,FXSelector sel,void* ptr)
 }
 
 
-#if defined(linux)
 // Mount/Unmount file systems
 long FilePanel::onCmdMount(FXObject*,FXSelector sel,void*)
 {
@@ -3855,9 +3848,6 @@ long FilePanel::onUpdUnmount(FXObject* o,FXSelector sel,void*)
 
     return 1;
 }
-
-#endif // End #if defined(linux)
-
 
 // Update the status bar and the path linker
 long FilePanel::onUpdStatus(FXObject* sender,FXSelector,void*)

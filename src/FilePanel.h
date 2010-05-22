@@ -120,53 +120,51 @@ FilePanel(FXWindow *owner, const FXchar*,FXComposite*, DirPanel*, FXuint name_si
         ID_SHOW_DETAILS,
         ID_TOGGLE_HIDDEN,
         ID_TOGGLE_THUMBNAILS,
-#if defined(linux)
         ID_MOUNT,
         ID_UMOUNT,
-#endif
         ID_LAST,
     };
 public:
 	long onClipboardGained(FXObject*,FXSelector,void*);
 	long onClipboardLost(FXObject*,FXSelector,void*);
 	long onClipboardRequest(FXObject*,FXSelector,void*);
-    long onUpdStatus(FXObject*,FXSelector,void*);
-    long onCmdItemDoubleClicked(FXObject*,FXSelector,void*);
-    long onCmdItemClicked(FXObject*,FXSelector,void*);
+	long onUpdStatus(FXObject*,FXSelector,void*);
+	long onCmdItemDoubleClicked(FXObject*,FXSelector,void*);
+	long onCmdItemClicked(FXObject*,FXSelector,void*);
 	long onCmdFocus(FXObject*,FXSelector, void*);
-    long onCmdItemFilter(FXObject*,FXSelector,void*);
-    long onCmdCopyCut(FXObject*,FXSelector,void*);
-    long onCmdPaste(FXObject*,FXSelector,void*);
+	long onCmdItemFilter(FXObject*,FXSelector,void*);
+	long onCmdCopyCut(FXObject*,FXSelector,void*);
+	long onCmdPaste(FXObject*,FXSelector,void*);
 	long onCmdDirectoryUp(FXObject*,FXSelector,void*);
-    long onCmdGoHome(FXObject*,FXSelector,void*);
+	long onCmdGoHome(FXObject*,FXSelector,void*);
 	long onCmdGoTrash(FXObject*,FXSelector,void*);
-    long onCmdProperties(FXObject*,FXSelector,void*);
-    long onCmdFileMan(FXObject*,FXSelector,void*);
-    long onCmdFileTrash(FXObject*,FXSelector,void*);
-    long onCmdFileRestore(FXObject*,FXSelector,void*);
+	long onCmdProperties(FXObject*,FXSelector,void*);
+	long onCmdFileMan(FXObject*,FXSelector,void*);
+	long onCmdFileTrash(FXObject*,FXSelector,void*);
+	long onCmdFileRestore(FXObject*,FXSelector,void*);
 	long onCmdFileDelete(FXObject*,FXSelector,void*);
-    long onCmdFileAssoc(FXObject*,FXSelector,void*);
-    long onCmdNewDir(FXObject*,FXSelector,void*);
-    long onCmdNewFile(FXObject*,FXSelector,void*);
+	long onCmdFileAssoc(FXObject*,FXSelector,void*);
+	long onCmdNewDir(FXObject*,FXSelector,void*);
+	long onCmdNewFile(FXObject*,FXSelector,void*);
 	long onCmdNewSymlink(FXObject*,FXSelector,void*);
 	long onCmdOpen(FXObject*,FXSelector,void*);
-    long onCmdOpenWith(FXObject*,FXSelector,void*);
+	long onCmdOpenWith(FXObject*,FXSelector,void*);
 	long onCmdXTerm(FXObject*,FXSelector,void*);
-    long onCmdExtract(FXObject*,FXSelector,void*);
-    long onCmdExtractToFolder(FXObject*,FXSelector,void*);
-    long onCmdExtractHere(FXObject*,FXSelector,void*);
-    long onCmdRefresh(FXObject*,FXSelector,void*);
-    long onCmdSelect(FXObject*,FXSelector,void*);
-    long onCmdPopupMenu(FXObject*,FXSelector,void*);
-    long onCmdShow(FXObject*,FXSelector,void*);
-    long onUpdShow(FXObject*,FXSelector,void*);
-    long onUpdUp(FXObject*,FXSelector,void*);
-    long onUpdPaste(FXObject*,FXSelector,void*);
-    long onCmdToggleHidden(FXObject*,FXSelector,void*);
-    long onUpdToggleHidden(FXObject*,FXSelector,void*);
+	long onCmdExtract(FXObject*,FXSelector,void*);
+	long onCmdExtractToFolder(FXObject*,FXSelector,void*);
+	long onCmdExtractHere(FXObject*,FXSelector,void*);
+	long onCmdRefresh(FXObject*,FXSelector,void*);
+	long onCmdSelect(FXObject*,FXSelector,void*);
+	long onCmdPopupMenu(FXObject*,FXSelector,void*);
+	long onCmdShow(FXObject*,FXSelector,void*);
+	long onUpdShow(FXObject*,FXSelector,void*);
+	long onUpdUp(FXObject*,FXSelector,void*);
+	long onUpdPaste(FXObject*,FXSelector,void*);
+	long onCmdToggleHidden(FXObject*,FXSelector,void*);
+	long onUpdToggleHidden(FXObject*,FXSelector,void*);
 	long onCmdToggleThumbnails(FXObject*,FXSelector,void*);
 	long onUpdToggleThumbnails(FXObject*,FXSelector,void*);
-    long onCmdAddToArch(FXObject*,FXSelector,void*);
+	long onCmdAddToArch(FXObject*,FXSelector,void*);
 	long onUpdMenu(FXObject*,FXSelector,void*);
 	long onUpdOpen(FXObject*,FXSelector,void*);
 	long onUpdAddToArch(FXObject*,FXSelector,void*);
@@ -177,18 +175,15 @@ public:
 	long onUpdGoTrash(FXObject*,FXSelector,void*);
 	void updatePath();
 	long onCmdStopListRefreshTimer(FXObject*,FXSelector,void*);
+	long onCmdMount(FXObject*,FXSelector,void*);
+	long onUpdMount(FXObject*,FXSelector,void*);
+	long onUpdUnmount(FXObject*,FXSelector,void*);
+	long onCmdPkgQuery(FXObject*,FXSelector,void*);
+	long onUpdPkgQuery(FXObject*,FXSelector,void*);
+	long onCmdPkgInstall(FXObject*,FXSelector,void*);
+	long onCmdPkgUninstall(FXObject*,FXSelector,void*);
 
-#if defined(linux)
-    long onCmdMount(FXObject*,FXSelector,void*);
-    long onUpdMount(FXObject*,FXSelector,void*);
-    long onUpdUnmount(FXObject*,FXSelector,void*);
-    long onCmdPkgQuery(FXObject*,FXSelector,void*);
-    long onUpdPkgQuery(FXObject*,FXSelector,void*);
-    long onCmdPkgInstall(FXObject*,FXSelector,void*);
-    long onCmdPkgUninstall(FXObject*,FXSelector,void*);
-#endif
 public:
-
 	// Change path text
 	void setPathText(FXString title)
 	{
