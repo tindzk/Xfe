@@ -92,7 +92,6 @@ protected:
 	FXString		startdirectory;
 	FXbool			starticonic;
 	FXbool			startmaximized;
-	FXbool			smoothscroll;
 	FXdouble        twopanels_lpanel_pct;      // Panel sizes, relatively to the window width (in percent)
 	FXdouble        treepanel_tree_pct;
 	FXdouble        treetwopanels_tree_pct;

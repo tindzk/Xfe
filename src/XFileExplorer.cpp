@@ -199,11 +199,8 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 	pbarcolor=getApp()->reg().readColorEntry("SETTINGS","pbarcolor",FXRGB(0,0,255));
 	attentioncolor=getApp()->reg().readColorEntry("SETTINGS","attentioncolor",FXRGB(255,0,0));
 	
-	// Smooth scrolling
-	smoothscroll=getApp()->reg().readUnsignedEntry("SETTINGS","smooth_scroll",TRUE);
-
 	// Directory panel on the left (with minimum size)
-    dirpanel=new DirPanel(this,mainsplit,listbackcolor,listforecolor,smoothscroll,LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_NONE,0,0,0,0);
+    dirpanel=new DirPanel(this,mainsplit,listbackcolor,listforecolor,LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_NONE,0,0,0,0);
 
 	// File panels on the right : remembers size of each field
 	lpanel=new FilePanel(this,"LEFT PANEL",mainsplit,dirpanel,
@@ -218,7 +215,7 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
                      getApp()->reg().readUnsignedEntry("LEFT PANEL","deldate_size",150),
                      getApp()->reg().readUnsignedEntry("LEFT PANEL","origpath_size",200),
 					 getApp()->reg().readUnsignedEntry("LEFT PANEL","showthumbnails",0),
-					 listbackcolor,listforecolor,attentioncolor,smoothscroll,
+					 listbackcolor,listforecolor,attentioncolor,
 					 LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_NONE,0,0,0,0);
     rpanel=new FilePanel(this,"RIGHT PANEL",mainsplit,dirpanel,
                      getApp()->reg().readUnsignedEntry("RIGHT PANEL","name_size",200),
@@ -232,7 +229,7 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
                      getApp()->reg().readUnsignedEntry("RIGHT PANEL","deldate_size",150),
                      getApp()->reg().readUnsignedEntry("RIGHT PANEL","origpath_size",200),
 					 getApp()->reg().readUnsignedEntry("RIGHT PANEL","showthumbnails",0),
-					 listbackcolor,listforecolor,attentioncolor,smoothscroll,
+					 listbackcolor,listforecolor,attentioncolor,
 					 LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y|FRAME_NONE,0,0,0,0);
 
     lpanel->Next(rpanel);

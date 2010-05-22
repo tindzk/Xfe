@@ -62,7 +62,7 @@ public:
 
 FilePanel(FXWindow *owner, const FXchar*,FXComposite*, DirPanel*, FXuint name_size=200, FXuint size_size=60, FXuint type_size=100, FXuint ext_size=100, 
 	      FXuint modd_size=150, FXuint user_size=50, FXuint grou_size=50, FXuint attr_size=100, FXuint deldate_size=150, FXuint origpath_size=200, FXbool showthumbs=FALSE,
-          FXColor listbackcolor=FXRGB(255,255,255), FXColor listforecolor=FXRGB(0,0,0), FXColor attentioncolor=FXRGB(255,0,0), FXbool smoothscroll=TRUE,
+          FXColor listbackcolor=FXRGB(255,255,255), FXColor listforecolor=FXRGB(0,0,0), FXColor attentioncolor=FXRGB(255,0,0),
  		  FXuint opts=0,FXint x=0,FXint y=0,FXint w=0,FXint h=0);
     FilePanel()
     {}

@@ -80,11 +80,8 @@ FileSelector::FileSelector(FXComposite *p,FXObject* tgt,FXSelector sel,FXuint op
 
  	// File list
  	FXuint options;
-	FXbool smoothscroll=getApp()->reg().readUnsignedEntry("SETTINGS","smooth_scroll",TRUE);	
-	if (smoothscroll)
-		options=_ICONLIST_MINI_ICONS|_ICONLIST_BROWSESELECT|LAYOUT_FILL_X|LAYOUT_FILL_Y;
-	else
-		options=_ICONLIST_MINI_ICONS|_ICONLIST_BROWSESELECT|LAYOUT_FILL_X|LAYOUT_FILL_Y|SCROLLERS_DONT_TRACK;
+	options=_ICONLIST_MINI_ICONS|_ICONLIST_BROWSESELECT|LAYOUT_FILL_X|LAYOUT_FILL_Y;
+
 	FXbool thumbnails=getApp()->reg().readUnsignedEntry("FILEDIALOG","thumbnails",FALSE);
     list=new FileList(this,cont,this,ID_FILELIST,thumbnails,options);
     

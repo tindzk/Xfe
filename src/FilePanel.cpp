@@ -161,7 +161,7 @@ FXIMPLEMENT(FilePanel,FXVerticalFrame,FilePanelMap,ARRAYNUMBER(FilePanelMap))
 // Construct File Panel
 FilePanel::FilePanel(FXWindow *owner, const FXchar* nm,FXComposite *p, DirPanel* dp, FXuint name_size, FXuint size_size, FXuint type_size, FXuint ext_size,
              FXuint modd_size, FXuint user_size, FXuint grou_size, FXuint attr_size, FXuint deldate_size, FXuint origpath_size, FXbool showthumbs, FXColor listbackcolor, FXColor listforecolor,
-			 FXColor attentioncolor, FXbool smoothscroll,FXuint opts,FXint x,FXint y,FXint w,FXint h):
+			 FXColor attentioncolor, FXuint opts,FXint x,FXint y,FXint w,FXint h):
              FXVerticalFrame(p,opts,x,y,w,h,0,0,0,0)
 {
     name=nm;
@@ -175,13 +175,8 @@ FilePanel::FilePanel(FXWindow *owner, const FXchar* nm,FXComposite *p, DirPanel*
 	FXHorizontalFrame* pathframe=new FXHorizontalFrame(cont,LAYOUT_LEFT|JUSTIFY_LEFT|LAYOUT_FILL_X|FRAME_NONE,0,0,0,0, 0,0,0,0);
 			
 	// File list
-    
-    // Smooth scrolling
-	FXuint options;
-	if (smoothscroll)
-		options=LAYOUT_FILL_X|LAYOUT_FILL_Y|_ICONLIST_MINI_ICONS;
-	else
-		options=LAYOUT_FILL_X|LAYOUT_FILL_Y|_ICONLIST_MINI_ICONS|SCROLLERS_DONT_TRACK;
+
+	options=LAYOUT_FILL_X|LAYOUT_FILL_Y|_ICONLIST_MINI_ICONS;
 
     FXVerticalFrame* cont2=new FXVerticalFrame(cont,LAYOUT_FILL_Y|LAYOUT_FILL_X|FRAME_SUNKEN,0,0,0,0, 0,0,0,0, 0,0);
 	list=new FileList(owner,cont2,this,ID_FILELIST,showthumbs,options);

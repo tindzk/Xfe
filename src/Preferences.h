@@ -132,7 +132,6 @@ private:
 #endif
 	FXbool		   root_warning_prev;
 	FXuint		   themelist_prev;
-	FXbool		   smoothscroll_prev;
 	KeybindingsBox 		*bindingsbox;
 	FXStringDict		*glbBindingsDict;
 	FXStringDict		*xfeBindingsDict;

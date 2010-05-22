@@ -170,14 +170,6 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
     filetooltips=new FXCheckButton(group,_("Display tooltips in file and directory lists"),this,ID_FILE_TOOLTIPS);
     relativeresize=new FXCheckButton(group,_("Relative resizing of file lists"),this,ID_RELATIVE_RESIZE);
     showpathlink=new FXCheckButton(group,_("Display a path linker above file lists"),this,ID_SHOW_PATHLINK);
-	group=new FXGroupBox(options,_("Mouse"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
-    scroll=new FXCheckButton(group,_("Smooth scrolling in file lists and text windows"));
-    FXMatrix *matrix = new FXMatrix(group,2,MATRIX_BY_COLUMNS|LAYOUT_SIDE_TOP|LAYOUT_FILL_Y);
-	new FXLabel(matrix,_("Mouse scrolling speed:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    FXSpinner* spinner=new FXSpinner(matrix,3,this,PreferencesBox::ID_WHEELADJUST,JUSTIFY_RIGHT|LAYOUT_FILL_X|LAYOUT_FILL_ROW,0,0,0,0, 2,2,1,1);
-    spinner->setRange(1,100);
-	FXbool smoothscroll=getApp()->reg().readUnsignedEntry("SETTINGS","smooth_scroll",TRUE);
-	scroll->setCheck(smoothscroll);
 
 	group=new FXGroupBox(options,_("Root mode"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
 	rootmode=new FXCheckButton(group,_("Allow root mode"));
@@ -295,7 +287,7 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
     new FXTabItem(tabbook,_("&Programs"),NULL);
     FXVerticalFrame *programs=new FXVerticalFrame(tabbook,FRAME_THICK|FRAME_RAISED);
     group=new FXGroupBox(programs,_("Default programs"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
-    matrix = new FXMatrix(group,3,MATRIX_BY_COLUMNS|LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y);
+    FXMatrix *matrix = new FXMatrix(group,3,MATRIX_BY_COLUMNS|LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y);
 
     new FXLabel(matrix,_("Text editor:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
     txteditor = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
@@ -997,7 +989,6 @@ long PreferencesBox::onCmdRestoreKeyBindings(FXObject*,FXSelector,void*)
 long PreferencesBox::onCmdAccept(FXObject* o,FXSelector s,void* p)
 {
     FXbool restart_theme=FALSE;
-    FXbool restart_scroll=FALSE;
     FXbool restart_pathlink=FALSE;
     FXbool restart_controls=FALSE;
     FXbool restart_normalfont=FALSE;
@@ -1401,14 +1392,6 @@ long PreferencesBox::onCmdAccept(FXObject* o,FXSelector s,void* p)
 	getApp()->reg().writeUnsignedEntry("OPTIONS","mount_messages",show_mount->getCheck());
 #endif
 
-	// Smooth scrolling
-	getApp()->reg().writeUnsignedEntry("SETTINGS","smooth_scroll",scroll->getCheck());
-	if (scroll->getCheck()!=smoothscroll_prev)
-	{
- 		getApp()->reg().write();
-		restart_scroll=TRUE;
-	}
-		
     // Control themes
     getApp()->reg().writeUnsignedEntry("SETTINGS","use_clearlooks",use_clearlooks);
 
@@ -1506,12 +1489,6 @@ long PreferencesBox::onCmdAccept(FXObject* o,FXSelector s,void* p)
         restart_theme=TRUE;
     }
 	
-	// Restart application if necessary
-	if (restart_scroll)
-	{
-		if(BOX_CLICKED_CANCEL!=MessageBox::question(this,BOX_OK_CANCEL,_("Restart"),_("Scrolling mode will be changed after restart.\nRestart X File Explorer now?")))
-			mainWindow->handle(this,FXSEL(SEL_COMMAND,XFileExplorer::ID_RESTART),NULL);
-	}
 	if (restart_theme)
 	{
 		if(BOX_CLICKED_CANCEL!=MessageBox::question(this,BOX_OK_CANCEL,_("Restart"),_("Theme will be changed after restart.\nRestart X File Explorer now?")))
@@ -1565,7 +1542,6 @@ long PreferencesBox::onCmdCancel(FXObject* o,FXSelector s,void* p)
 	relativeresize->setCheck(relativeresize_prev);
 	showpathlink->setCheck(show_pathlink_prev);
 	getApp()->setWheelLines(value_prev);	
-	scroll->setCheck(smoothscroll_prev);
 	rootmode->setCheck(rootmode_prev);
 
 	// Second tab - Dialogs
@@ -1628,7 +1604,6 @@ FXuint PreferencesBox::execute(FXuint placement)
 	relativeresize_prev=relativeresize->getCheck();
 	show_pathlink_prev=showpathlink->getCheck();
 	value_prev=getApp()->getWheelLines();
-	smoothscroll_prev=scroll->getCheck();
 	rootmode_prev=rootmode->getCheck();
 
 	// Second tab - Dialogs

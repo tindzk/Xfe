@@ -351,7 +351,7 @@ FXDEFMAP(DirPanel) DirPanelMap[]={
 FXIMPLEMENT(DirPanel,FXVerticalFrame,DirPanelMap,ARRAYNUMBER(DirPanelMap))
 
 // Construct Directory Panel
-DirPanel::DirPanel(FXWindow *owner, FXComposite *p, FXColor listbackcolor, FXColor listforecolor, FXbool smoothscroll, FXuint opts, FXint x, FXint y, FXint w, FXint h):
+DirPanel::DirPanel(FXWindow *owner, FXComposite *p, FXColor listbackcolor, FXColor listforecolor, FXuint opts, FXint x, FXint y, FXint w, FXint h):
         FXVerticalFrame(p,opts,x,y,w,h,0,0,0,0)
 {
 	// Construct directory panel
@@ -367,10 +367,7 @@ DirPanel::DirPanel(FXWindow *owner, FXComposite *p, FXColor listbackcolor, FXCol
 	paneltitle->setBackColor(getApp()->getBaseColor());
 
 	FXuint options;
-	if (smoothscroll)
-		options=LAYOUT_FILL_X|LAYOUT_FILL_Y|TREELIST_BROWSESELECT|TREELIST_SHOWS_LINES|TREELIST_SHOWS_BOXES|FRAME_SUNKEN;
-	else
-		options=LAYOUT_FILL_X|LAYOUT_FILL_Y|TREELIST_BROWSESELECT|TREELIST_SHOWS_LINES|TREELIST_SHOWS_BOXES|SCROLLERS_DONT_TRACK;
+	options=LAYOUT_FILL_X|LAYOUT_FILL_Y|TREELIST_BROWSESELECT|TREELIST_SHOWS_LINES|TREELIST_SHOWS_BOXES|FRAME_SUNKEN;
 	
 	FXVerticalFrame* cont2=new FXVerticalFrame(cont,LAYOUT_FILL_Y|LAYOUT_FILL_X|FRAME_SUNKEN,0,0,0,0, 0,0,0,0, 0,0);
 	list=new DirList(owner,cont2,this,ID_FILELIST,options);

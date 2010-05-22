@@ -45,7 +45,7 @@ protected:
 
 
 public:
-DirPanel(FXWindow *owner,FXComposite *p,FXColor listbackcolor=FXRGB(255,255,255),FXColor listforecolor=FXRGB(0,0,0), FXbool smoothscroll=TRUE,
+DirPanel(FXWindow *owner,FXComposite *p,FXColor listbackcolor=FXRGB(255,255,255),FXColor listforecolor=FXRGB(0,0,0),
          FXuint opts=0,FXint x=0,FXint y=0,FXint w=0,FXint h=0);
     DirPanel()
     {}
