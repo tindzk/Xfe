@@ -16,7 +16,6 @@
 #include "xfedefs.h"
 #include "icons.h"
 #include "xfeutils.h"
-#include "startupnotification.h"
 #include "MessageBox.h"
 #include "FilePanel.h"
 #include "XFileExplorer.h"

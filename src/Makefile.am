@@ -8,7 +8,6 @@ xfe_SOURCES = ../xvt/command.c \
               ../xvt/xvt.c \
               icons.cpp \
 			  xfeutils.cpp \
-			  startupnotification.cpp \
 			  StringList.cpp \
               File.cpp \
 			  FileDict.cpp \
@@ -54,7 +53,6 @@ EXTRA_DIST =  ../xvt/command.h \
 			  xfedefs.h \
               icons.h \
 			  xfeutils.h \
-			  startupnotification.h \
 			  StringList.h \
 			  FileDialog.h \
 			  FileDict.h \

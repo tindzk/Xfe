@@ -16,7 +16,6 @@
 #include "xfedefs.h"
 #include "icons.h"
 #include "xfeutils.h"
-#include "startupnotification.h"
 #include "FileDialog.h"
 #include "FileList.h"
 #include "Properties.h"
@@ -146,6 +145,15 @@ FXDEFMAP(FilePanel) FilePanelMap[]=
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_UMOUNT,FilePanel::onUpdUnmount),
 #endif
 };
+
+FXint runcmd(FXString cmd)
+{
+	// Run the command in background
+	cmd += " &";
+	system(cmd.text());
+
+	return 0;
+}
 
 // Object implementation 
 FXIMPLEMENT(FilePanel,FXVerticalFrame,FilePanelMap,ARRAYNUMBER(FilePanelMap))

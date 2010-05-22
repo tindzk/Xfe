@@ -49,15 +49,14 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_xfe_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
 	xsetup.$(OBJEXT) xvt.$(OBJEXT) icons.$(OBJEXT) \
-	xfeutils.$(OBJEXT) startupnotification.$(OBJEXT) \
-	StringList.$(OBJEXT) File.$(OBJEXT) FileDict.$(OBJEXT) \
-	IconList.$(OBJEXT) FileList.$(OBJEXT) FileDialog.$(OBJEXT) \
-	DirList.$(OBJEXT) DialogBox.$(OBJEXT) MessageBox.$(OBJEXT) \
-	Bookmarks.$(OBJEXT) HistInputDialog.$(OBJEXT) \
-	InputDialog.$(OBJEXT) OverwriteBox.$(OBJEXT) \
-	CommandWindow.$(OBJEXT) Properties.$(OBJEXT) \
-	Preferences.$(OBJEXT) FilePanel.$(OBJEXT) DirPanel.$(OBJEXT) \
-	DirHistBox.$(OBJEXT) PathLinker.$(OBJEXT) \
+	xfeutils.$(OBJEXT) StringList.$(OBJEXT) File.$(OBJEXT) \
+	FileDict.$(OBJEXT) IconList.$(OBJEXT) FileList.$(OBJEXT) \
+	FileDialog.$(OBJEXT) DirList.$(OBJEXT) DialogBox.$(OBJEXT) \
+	MessageBox.$(OBJEXT) Bookmarks.$(OBJEXT) \
+	HistInputDialog.$(OBJEXT) InputDialog.$(OBJEXT) \
+	OverwriteBox.$(OBJEXT) CommandWindow.$(OBJEXT) \
+	Properties.$(OBJEXT) Preferences.$(OBJEXT) FilePanel.$(OBJEXT) \
+	DirPanel.$(OBJEXT) DirHistBox.$(OBJEXT) PathLinker.$(OBJEXT) \
 	BrowseInputDialog.$(OBJEXT) ArchInputDialog.$(OBJEXT) \
 	FontDialog.$(OBJEXT) TextLabel.$(OBJEXT) Keybindings.$(OBJEXT) \
 	KeybindingsDialog.$(OBJEXT) XFileExplorer.$(OBJEXT) \
@@ -250,7 +249,6 @@ xfe_SOURCES = ../xvt/command.c \
               ../xvt/xvt.c \
               icons.cpp \
 			  xfeutils.cpp \
-			  startupnotification.cpp \
 			  StringList.cpp \
               File.cpp \
 			  FileDict.cpp \
@@ -291,7 +289,6 @@ EXTRA_DIST = ../xvt/command.h \
 			  xfedefs.h \
               icons.h \
 			  xfeutils.h \
-			  startupnotification.h \
 			  StringList.h \
 			  FileDialog.h \
 			  FileDict.h \
@@ -439,7 +436,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icons.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/screen.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/startupnotification.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ttyinit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfeutils.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xsetup.Po@am__quote@

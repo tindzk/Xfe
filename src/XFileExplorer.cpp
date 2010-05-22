@@ -17,7 +17,6 @@
 #include "xfedefs.h"
 #include "icons.h"
 #include "xfeutils.h"
-#include "startupnotification.h"
 #include "File.h"
 #include "FileList.h"
 #include "FileDict.h"
