@@ -3086,7 +3086,7 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
    		new FXMenuCheck(submenu,_("Re&verse order"),current->list,FileList::ID_SORT_REVERSE);
 		new FXMenuCascade(menu,_("Pane&l"),NULL,submenu);
         new FXMenuSeparator(menu);
-		
+
 #if defined(linux)
 		FXString name=current->list->getItemPathname(itm);
     	if(num==1 && (fsdevices->find(name.text()) || mtdevices->find(name.text()) ) )
@@ -3097,11 +3097,11 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 		}
 #endif
 
-        FXbool ar=FALSE;
-        if(current->list->getItem (itm) && current->list->isItemFile(itm))
-        {
+		FXbool ar=FALSE;
+		if(current->list->getItem (itm) && current->list->isItemFile(itm))
+		{
+			new FXMenuCommand(menu,_("&Open"),fileopenicon,current,FilePanel::ID_OPEN);
 			new FXMenuCommand(menu,_("Open &with..."),fileopenicon,current,FilePanel::ID_OPEN_WITH);
-            new FXMenuCommand(menu,_("&Open"),fileopenicon,current,FilePanel::ID_OPEN);
 			FXString name=current->list->getItemText(itm).section('\t',0);
 			
 			// Last and before last file extensions
@@ -3109,7 +3109,7 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 			FXString ext2=name.rafter('.',2);
 			
 			// Convert these extensions to lower case
-			ext1.lower();			
+			ext1.lower();
 			ext2.lower();
 
 			// Destination folder name
