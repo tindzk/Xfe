@@ -142,21 +142,12 @@ long MessageBox::onCmdSu(FXObject*,FXSelector sel,void*)
 	// Wait cursor
 	getApp()->beginWaitCursor();
 
-	// Obtain preferred root mode
-	FXbool use_sudo=getApp()->reg().readUnsignedEntry("OPTIONS","use_sudo",FALSE);
-
 	// Use sudo or su to launch xfe as root
 	FXString title, sucmd;
-	if (use_sudo)
-	{
-		title = _("Enter the user password:");
-		sucmd = SUDOCMD;
-	}
-	else
-	{
-		title = _("Enter the root password:");
-		sucmd = SUCMD;
-	}
+
+	// Use su to launch xfe as root
+	title = _("Enter the root password:");
+	sucmd = SUCMD;
 	
 	// Use appropriate background and foreground colors for Xvt
 	FXchar color[64];
@@ -170,7 +161,7 @@ long MessageBox::onCmdSu(FXObject*,FXSelector sel,void*)
 	// Command string
 	FXString command = "xvt -title " + ::quote(title) + bg + fg + sucmd;
 
-	// Execute su or sudo command in an internal Xvt terminal
+	// Execute su command in an internal Xvt terminal
 	FXint status=runinxvt(command);
 	
 	// If error

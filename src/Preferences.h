@@ -105,8 +105,6 @@ private:
     Theme          Themes[NUM_THEMES];
     Theme          currTheme;
     Theme          currTheme_prev;
-	FXbool		   use_sudo;
-	FXbool		   use_sudo_prev;
 	FXbool		   trashcan_prev;
 	FXbool		   trashbypass_prev;
 	FXbool		   autosave_prev;
@@ -161,8 +159,6 @@ public:
 		ID_TRASH_BYPASS,
 		ID_CONFIRM_TRASH,
 		ID_CONFIRM_DEL_EMPTYDIR,
-		ID_SU_CMD,
-		ID_SUDO_CMD,
 		ID_STANDARD_CONTROLS,
 		ID_CLEARLOOKS_CONTROLS,
 		ID_WHEELADJUST,
@@ -187,8 +183,6 @@ public:
 	long onCmdTextFont(FXObject*,FXSelector,void*);
 	long onUpdTrash(FXObject*,FXSelector,void*);
 	long onUpdConfirmDelEmptyDir(FXObject*,FXSelector,void*);
-	long onCmdSuMode(FXObject*,FXSelector,void*);
-	long onUpdSuMode(FXObject*,FXSelector,void*);
 	long onCmdWheelAdjust(FXObject*,FXSelector,void*);
 	long onUpdWheelAdjust(FXObject*,FXSelector,void*);
 	long onUpdSingleClickFileopen(FXObject*,FXSelector,void*);

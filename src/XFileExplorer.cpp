@@ -1348,6 +1348,7 @@ void XFileExplorer::create()
     // Open left or right panel in starting directory (if specified) or in current directory
     if (startdirectory=="")
         startdirectory=FXSystem::getCurrentDirectory();
+
     lpanel->setDirectory(startdirectory);
 	lpanel->setPathLink(startdirectory);
 	lpanel->setPathText(startdirectory);
@@ -1547,12 +1548,7 @@ void XFileExplorer::create()
 	if (starticonic)
 		minimize();
 	if (startmaximized)
-		maximize();			
-
-#ifdef STARTUP_NOTIFICATION
-	startup_completed();
-#endif
-
+		maximize();
 }
 
 // Destructor
@@ -2665,22 +2661,11 @@ long XFileExplorer::onCmdSu(FXObject*,FXSelector,void*)
 	// Wait cursor
 	getApp()->beginWaitCursor();
 
-	// Obtain preferred root mode
-	FXbool use_sudo=getApp()->reg().readUnsignedEntry("OPTIONS","use_sudo",FALSE);
-
-	// Select sudo or su to launch xfe as root
+	// Select su to launch xfe as root
 	chdir(lpanel->getCurrent()->getDirectory().text());
 	FXString title, sucmd;
-	if (use_sudo)
-	{
-		title = _("Enter the user password:");
-		sucmd = SUDOCMD;
-	}
-	else
-	{
-		title = _("Enter the root password:");
-		sucmd = SUCMD;
-	}
+	title = _("Enter the root password:");
+	sucmd = SUCMD;
 	
 	// Use appropriate background and foreground colors for Xvt
 	FXchar color[64];
@@ -2694,7 +2679,7 @@ long XFileExplorer::onCmdSu(FXObject*,FXSelector,void*)
 	// Command string
 	FXString command = "xvt -title " + ::quote(title) + bg + fg + sucmd;
 	
-	// Execute su or sudo command in an internal Xvt terminal
+	// Execute su command in an internal Xvt terminal
 	FXint status=runinxvt(command);
 	
 	// If error

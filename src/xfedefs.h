@@ -87,11 +87,6 @@
 #define FILTER_HIST_SIZE 20
 #endif
 
-#ifdef STARTUP_NOTIFICATION
-// If startup notification is used, this is the timeout value (seconds)
-#define STARTUP_TIMEOUT 15
-#endif
-
 // Local Xfe directory path
 #ifndef LOCALPATH
 #define LOCALPATH ".config/xfe"
@@ -132,11 +127,7 @@
 #define DEFAULTICONPATH   "~/.config/xfe/icons/xfe-theme:/usr/local/share/xfe/icons/xfe-theme:/usr/share/xfe/icons/xfe-theme"
 #endif
 
-// Command to launch Xfe as root with sudo or su, using Xvt as a terminal
-#ifndef SUDOCMD
-#define SUDOCMD "-fn 7x14 -geometry 60x4 -e sudo su -c 'nohup xfe >& /dev/null & sleep 1'"
-#endif
-
+// Command to launch Xfe as root with su, using Xvt as a terminal
 #ifndef SUCMD
 #define SUCMD "-fn 7x14 -geometry 60x4 -e su -c 'nohup xfe >& /dev/null & sleep 1'"
 #endif

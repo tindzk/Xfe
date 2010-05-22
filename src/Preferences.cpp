@@ -91,8 +91,6 @@ FXDEFMAP(PreferencesBox) PreferencesMap[]=
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_TEXTFONT,PreferencesBox::onCmdTextFont),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_THEME,PreferencesBox::onCmdTheme),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_ICON_PATH,PreferencesBox::onCmdBrowsePath),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_SU_CMD,PreferencesBox::onCmdSuMode),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_SUDO_CMD,PreferencesBox::onCmdSuMode),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_STANDARD_CONTROLS,PreferencesBox::onCmdControls),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_CLEARLOOKS_CONTROLS,PreferencesBox::onCmdControls),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_WHEELADJUST,PreferencesBox::onCmdWheelAdjust),
@@ -106,8 +104,6 @@ FXDEFMAP(PreferencesBox) PreferencesMap[]=
 	FXMAPFUNC(SEL_UPDATE,PreferencesBox::ID_CONFIRM_TRASH,PreferencesBox::onUpdTrash),
 	FXMAPFUNC(SEL_UPDATE,PreferencesBox::ID_TRASH_BYPASS,PreferencesBox::onUpdTrash),
 	FXMAPFUNC(SEL_UPDATE,PreferencesBox::ID_CONFIRM_DEL_EMPTYDIR,PreferencesBox::onUpdConfirmDelEmptyDir),
-	FXMAPFUNC(SEL_UPDATE,PreferencesBox::ID_SU_CMD,PreferencesBox::onUpdSuMode),
-	FXMAPFUNC(SEL_UPDATE,PreferencesBox::ID_SUDO_CMD,PreferencesBox::onUpdSuMode),
 };
 
 // Object implementation
@@ -185,8 +181,6 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
 
 	group=new FXGroupBox(options,_("Root mode"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
 	rootmode=new FXCheckButton(group,_("Allow root mode"));
-	FXRadioButton* subutton=new FXRadioButton(group,_("Authentication using su (uses root password)"),this,ID_SU_CMD);
-	FXRadioButton* sudobutton=new FXRadioButton(group,_("Authentication using sudo (uses user password)"),this,ID_SUDO_CMD);
 
     FXbool root_mode=getApp()->reg().readUnsignedEntry("OPTIONS","root_mode",TRUE);
     rootmode->setCheck(root_mode);
@@ -194,10 +188,7 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
 	if (getuid()==0) // Super user
 	{
 		rootmode->disable();
-		subutton->disable();
-		sudobutton->disable();
 	}
-	use_sudo=getApp()->reg().readUnsignedEntry("OPTIONS","use_sudo",FALSE);
 
     FXbool use_trash_can=getApp()->reg().readUnsignedEntry("OPTIONS","use_trash_can",TRUE);
 	trashcan->setCheck(use_trash_can);
@@ -1574,8 +1565,6 @@ long PreferencesBox::onCmdCancel(FXObject* o,FXSelector s,void* p)
 	relativeresize->setCheck(relativeresize_prev);
 	showpathlink->setCheck(show_pathlink_prev);
 	getApp()->setWheelLines(value_prev);	
-	use_sudo=use_sudo_prev;
-	getApp()->reg().writeUnsignedEntry("OPTIONS","use_sudo",use_sudo);
 	scroll->setCheck(smoothscroll_prev);
 	rootmode->setCheck(rootmode_prev);
 
@@ -1639,7 +1628,6 @@ FXuint PreferencesBox::execute(FXuint placement)
 	relativeresize_prev=relativeresize->getCheck();
 	show_pathlink_prev=showpathlink->getCheck();
 	value_prev=getApp()->getWheelLines();
-	use_sudo_prev=use_sudo;
 	smoothscroll_prev=scroll->getCheck();
 	rootmode_prev=rootmode->getCheck();
 
@@ -1705,56 +1693,6 @@ long PreferencesBox::onUpdConfirmDelEmptyDir(FXObject* o,FXSelector,void*)
 		o->handle(this,FXSEL(SEL_COMMAND,FXWindow::ID_DISABLE),NULL);
     return 1;
 }
-
-
-// Set root mode
-long PreferencesBox::onCmdSuMode(FXObject*,FXSelector sel,void*)
-{
-	if (FXSELID(sel)==ID_SU_CMD)
-		use_sudo=FALSE;
-		
-	else if (FXSELID(sel)==ID_SUDO_CMD)
-		use_sudo=TRUE;
-
-	getApp()->reg().writeUnsignedEntry("OPTIONS","use_sudo",use_sudo);
-	getApp()->reg().write();
-
-	return 1;
-}
-
-
-// Update root mode radio button
-long PreferencesBox::onUpdSuMode(FXObject* sender,FXSelector sel,void*)
-{
-	if (!rootmode->getCheck())
-		sender->handle(this,FXSEL(SEL_COMMAND,ID_DISABLE),NULL);
-	else
-	{
-		if (getuid()) // Simple user
-			sender->handle(this,FXSEL(SEL_COMMAND,ID_ENABLE),NULL);
-		
-		FXSelector updatemessage=FXSEL(SEL_COMMAND,ID_UNCHECK);
-		
-		if (FXSELID(sel)==ID_SU_CMD)
-		{
-			if (use_sudo)
-				updatemessage=FXSEL(SEL_COMMAND,ID_UNCHECK);
-			else
-				updatemessage=FXSEL(SEL_COMMAND,ID_CHECK);
-		}
-		else if (FXSELID(sel)==ID_SUDO_CMD)
-		{
-			if (use_sudo)
-				updatemessage=FXSEL(SEL_COMMAND,ID_CHECK);
-			else
-				updatemessage=FXSEL(SEL_COMMAND,ID_UNCHECK);
-
-		}		
-		sender->handle(this,updatemessage,NULL);
-	}
-	return 1;
-}
-
 
 // Set root mode
 long PreferencesBox::onCmdControls(FXObject*,FXSelector sel,void*)
