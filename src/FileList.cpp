@@ -206,10 +206,7 @@ FileList::FileList(FXWindow* focuswin, FXComposite *p, FXObject* tgt, FXSelector
 		{
 			while((mnt=getmntent(mtab)))
 			{
-				// To fix an issue with some Linux distributions
-				FXString mntdir=mnt->mnt_dir;
-				if (mntdir!="/dev/.static/dev" &&   mntdir.rfind(".gvfs",5,mntdir.length())==-1)
-					mtdevices->insert(mnt->mnt_dir,mnt->mnt_type);
+				mtdevices->insert(mnt->mnt_dir,mnt->mnt_type);
 			}
 			endmntent(mtab);
 		}
@@ -225,16 +222,11 @@ FileList::FileList(FXWindow* focuswin, FXComposite *p, FXObject* tgt, FXSelector
     	{
         	while((mnt=getmntent(mtab)))
 			{
-				// To fix an issue with some Linux distributions
-				FXString mntdir=mnt->mnt_dir;
-				if (mntdir!="/dev/.static/dev" &&   mntdir.rfind(".gvfs",5,mntdir.length())==-1)
-				{
-					if (lstatmt(mnt->mnt_dir,&statbuf)==-1)
-						mtstate="down";
-					else
-						mtstate="up";	
-					updevices->insert(mnt->mnt_dir,mtstate.text());
-				}
+				if (lstatmt(mnt->mnt_dir,&statbuf)==-1)
+					mtstate="down";
+				else
+					mtstate="up";
+				updevices->insert(mnt->mnt_dir,mtstate.text());
 			}
         	endmntent(mtab);
     	}
