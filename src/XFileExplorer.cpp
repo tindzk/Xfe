@@ -27,11 +27,9 @@
 #include "HistInputDialog.h"
 #include "DirPanel.h"
 #include "MessageBox.h"
-#include "TextWindow.h"
 #include "CommandWindow.h"
 #include "Bookmarks.h"
 #include "FileDialog.h"
-#include "help.h"
 #include "DirHistBox.h"
 #include "XFileExplorer.h"
 
@@ -96,7 +94,6 @@ FXDEFMAP(XFileExplorer) XFileExplorerMap[]=
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_FILE_TRASH,XFileExplorer::onCmdFileTrash),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_FILE_RESTORE,XFileExplorer::onCmdFileRestore),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_QUIT,XFileExplorer::onQuit),
-	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_HELP,XFileExplorer::onCmdHelp),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_ABOUT,XFileExplorer::onCmdAbout),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_FILE_ASSOC,XFileExplorer::onCmdFileAssoc),
 	FXMAPFUNC(SEL_COMMAND,XFileExplorer::ID_REFRESH,XFileExplorer::onCmdRefresh),
@@ -911,13 +908,7 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 
 	// Help menu
     helpmenu=new FXMenuPane(this);
-    
-	mc=new FXMenuCommand(helpmenu,_("&Help"),helpicon,this,ID_HELP);
- 	key=getApp()->reg().readStringEntry("KEYBINDINGS","help","F1");
-	mc->setAccelText(key);
-	hotkey=_parseAccel(key);
-	getAccelTable()->addAccel(hotkey,mc,FXSEL(SEL_COMMAND,FXMenuCommand::ID_ACCEL));
-    
+
 	new FXMenuCommand(helpmenu,_("&About X File Explorer"),NULL,this,ID_ABOUT);
     helpmenutitle=new FXMenuTitle(menubar,_("&Help"),NULL,helpmenu);
 
@@ -960,7 +951,6 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 	// File operations dialog
     rundialog=NULL;
 	prefsdialog=NULL;
-	helpwindow=NULL;
 	
 	// Initial focus is on (left) file panel
 	panelfocus=FILEPANEL_FOCUS;
@@ -1585,7 +1575,6 @@ XFileExplorer::~XFileExplorer()
 	delete btnforwardhist;
 	delete rundialog;
 	delete prefsdialog;
-	delete helpwindow;
 }
 
 
@@ -2167,36 +2156,6 @@ long  XFileExplorer::onCmdXTerm(FXObject*,FXSelector,void*)
 	getApp()->endWaitCursor();
     return 1;
 }
-
-
-// Help menu
-long XFileExplorer::onCmdHelp(FXObject*,FXSelector,void*)
-{
-    // Display help window
-	if (helpwindow==NULL)
-		helpwindow=new TextWindow(getApp(),_("Help"),40,120);			
-	helpwindow->setIcon(helpicon);
-
-    // Set text font
-	FXString fontspec;
-	fontspec=getApp()->reg().readStringEntry("SETTINGS","textfont","Helvetica,100,normal,regular");
-	if(!fontspec.empty())
-	{
-    	FXFont* font=new FXFont(getApp(),fontspec);
-        font->create();
-        helpwindow->setFont(font);
-	}
-
-	// NB: The HELP_TEXT macro is defined in help.h
-	FXString str=(FXString)"                         "+COPYRIGHT+HELP_TEXT;
-	helpwindow->setText(str.text());
-	// Non modal window
-	helpwindow->create();
- 	helpwindow->show(PLACEMENT_OWNER);
-	lpanel->getCurrent()->setFocusOnList();
-    return 1;
-}
-
 
 // About menu
 long XFileExplorer::onCmdAbout(FXObject*,FXSelector,void*)

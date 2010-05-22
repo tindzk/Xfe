@@ -55,9 +55,9 @@ am_xfe_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
 	DirList.$(OBJEXT) DialogBox.$(OBJEXT) MessageBox.$(OBJEXT) \
 	Bookmarks.$(OBJEXT) HistInputDialog.$(OBJEXT) \
 	InputDialog.$(OBJEXT) OverwriteBox.$(OBJEXT) \
-	TextWindow.$(OBJEXT) CommandWindow.$(OBJEXT) \
-	Properties.$(OBJEXT) Preferences.$(OBJEXT) FilePanel.$(OBJEXT) \
-	DirPanel.$(OBJEXT) DirHistBox.$(OBJEXT) PathLinker.$(OBJEXT) \
+	CommandWindow.$(OBJEXT) Properties.$(OBJEXT) \
+	Preferences.$(OBJEXT) FilePanel.$(OBJEXT) DirPanel.$(OBJEXT) \
+	DirHistBox.$(OBJEXT) PathLinker.$(OBJEXT) \
 	BrowseInputDialog.$(OBJEXT) ArchInputDialog.$(OBJEXT) \
 	FontDialog.$(OBJEXT) TextLabel.$(OBJEXT) Keybindings.$(OBJEXT) \
 	KeybindingsDialog.$(OBJEXT) XFileExplorer.$(OBJEXT) \
@@ -264,7 +264,6 @@ xfe_SOURCES = ../xvt/command.c \
 			  HistInputDialog.cpp \
 			  InputDialog.cpp \
 			  OverwriteBox.cpp \
-			  TextWindow.cpp \
 			  CommandWindow.cpp \
               Properties.cpp \
 			  Preferences.cpp \
@@ -283,17 +282,7 @@ xfe_SOURCES = ../xvt/command.c \
 
 xfe_LDADD = @LIBINTL@ -lutil
 INCLUDES = -I. -I$(top_srcdir) -I$(top_srcdir)/intl
-EXTRA_DIST = ../libsn/sn-common.h	\
-	          ../libsn/sn-internals.h \
-	          ../libsn/sn-launchee.h \
-			  ../libsn/sn-launcher.h \
-	          ../libsn/sn-list.h \
-	          ../libsn/sn-monitor.h \
-	          ../libsn/sn-util.h \
-	          ../libsn/sn-xmessages.h \
-			  ../libsn/sn-xutils.h \
-			  ../libsn/sn.h \
-			  ../xvt/command.h \
+EXTRA_DIST = ../xvt/command.h \
 			  ../xvt/screen.h \
 			  ../xvt/token.h \
 			  ../xvt/xsetup.h \
@@ -302,7 +291,6 @@ EXTRA_DIST = ../libsn/sn-common.h	\
 			  xfedefs.h \
               icons.h \
 			  xfeutils.h \
-              help.h \
 			  startupnotification.h \
 			  StringList.h \
 			  FileDialog.h \
@@ -318,7 +306,6 @@ EXTRA_DIST = ../libsn/sn-common.h	\
 			  HistInputDialog.h \
 			  InputDialog.h \
 			  Preferences.h \
-			  TextWindow.h \
 			  CommandWindow.h \
 			  OverwriteBox.h \
 			  FilePanel.h \
@@ -447,7 +434,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Properties.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/StringList.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TextLabel.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TextWindow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/XFileExplorer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/command.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icons.Po@am__quote@

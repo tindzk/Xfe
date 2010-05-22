@@ -22,7 +22,6 @@
 #include "DirPanel.h"
 #include "Bookmarks.h"
 #include "Preferences.h"
-#include "TextWindow.h"
 
 
 // Helper function
@@ -88,7 +87,6 @@ protected:
 	FXArrowButton   *btnforwardhist;
 	HistInputDialog*   rundialog;
 	PreferencesBox*    prefsdialog;
-	TextWindow*		   helpwindow;
 	FXString 		message;
 	FXuint 			panelfocus;
 	FXString		startdirectory;
@@ -104,7 +102,6 @@ protected:
 public:
 	enum{
         ID_ABOUT=FXMainWindow::ID_LAST,
-		ID_HELP,
 		ID_REFRESH,
 		ID_EMPTY_TRASH,
 		ID_TRASH_SIZE,
@@ -155,7 +152,6 @@ public:
 	long onSigHarvest(FXObject*,FXSelector,void*);
     long onQuit(FXObject*,FXSelector,void*);
 	long onKeyPress(FXObject*,FXSelector,void*);
-	long onCmdHelp(FXObject*,FXSelector,void*);
     long onCmdAbout(FXObject*,FXSelector,void*);
     long onCmdFileAssoc(FXObject*,FXSelector,void*);
 	long onCmdRefresh(FXObject*,FXSelector,void*);

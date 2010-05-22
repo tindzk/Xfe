@@ -22,7 +22,6 @@ xfe_SOURCES = ../xvt/command.c \
 			  HistInputDialog.cpp \
 			  InputDialog.cpp \
 			  OverwriteBox.cpp \
-			  TextWindow.cpp \
 			  CommandWindow.cpp \
               Properties.cpp \
 			  Preferences.cpp \
@@ -46,17 +45,7 @@ localedir = $(datadir)/locale
 INCLUDES = -I. -I$(top_srcdir) -I$(top_srcdir)/intl
 DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
-EXTRA_DIST =  ../libsn/sn-common.h	\
-	          ../libsn/sn-internals.h \
-	          ../libsn/sn-launchee.h \
-			  ../libsn/sn-launcher.h \
-	          ../libsn/sn-list.h \
-	          ../libsn/sn-monitor.h \
-	          ../libsn/sn-util.h \
-	          ../libsn/sn-xmessages.h \
-			  ../libsn/sn-xutils.h \
-			  ../libsn/sn.h \
-			  ../xvt/command.h \
+EXTRA_DIST =  ../xvt/command.h \
 			  ../xvt/screen.h \
 			  ../xvt/token.h \
 			  ../xvt/xsetup.h \
@@ -65,7 +54,6 @@ EXTRA_DIST =  ../libsn/sn-common.h	\
 			  xfedefs.h \
               icons.h \
 			  xfeutils.h \
-              help.h \
 			  startupnotification.h \
 			  StringList.h \
 			  FileDialog.h \
@@ -81,7 +69,6 @@ EXTRA_DIST =  ../libsn/sn-common.h	\
 			  HistInputDialog.h \
 			  InputDialog.h \
 			  Preferences.h \
-			  TextWindow.h \
 			  CommandWindow.h \
 			  OverwriteBox.h \
 			  FilePanel.h \
@@ -102,4 +89,3 @@ EXTRA_DIST =  ../libsn/sn-common.h	\
 			  Keybindings.h \
 			  KeybindingsDialog.h \
 			  foxhacks.cpp
-
