@@ -441,7 +441,7 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 
 	toolbarSeparator(generaltoolbar);
 
-	key=getApp()->reg().readStringEntry("KEYBINDINGS","new_file","F2");
+	key=getApp()->reg().readStringEntry("KEYBINDINGS","new_file","CTRL-N");
 	new FXButton(generaltoolbar,TAB+_("Create new file")+PARS(key),newfileicon,lpanel,FilePanel::ID_NEW_FILE,BUTTON_TOOLBAR|FRAME_RAISED|LAYOUT_TOP|LAYOUT_LEFT);
 
 	key=getApp()->reg().readStringEntry("KEYBINDINGS","new_folder","F7");
@@ -602,7 +602,7 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
 	getAccelTable()->addAccel(hotkey,mc,FXSEL(SEL_COMMAND,FXMenuCommand::ID_ACCEL));
 
     mc=new FXMenuCommand(filemenu,_("Re&name..."),renameiticon,this,XFileExplorer::ID_FILE_RENAME);
-	key=getApp()->reg().readStringEntry("KEYBINDINGS","rename","Ctrl-N");
+	key=getApp()->reg().readStringEntry("KEYBINDINGS","rename","F2");
 	mc->setAccelText(key);
 	hotkey=_parseAccel(key);
 	getAccelTable()->addAccel(hotkey,mc,FXSEL(SEL_COMMAND,FXMenuCommand::ID_ACCEL));
