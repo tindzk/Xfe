@@ -219,7 +219,9 @@ protected:
 	FXColor			   highlightSortColor;// Highlight sort color
     FXint              itemWidth;         // Item width
     FXint              itemHeight;        // Item height
-    FXint              itemSpace;         // Space for item label
+    FXint              largeItemSpace;    // Space for large icon label
+    FXint              smallItemSpace;    // Space for small icon label
+    FXint              itemSpace;         // Space for current icon label
     FXint              anchorx;           // Rectangular selection
     FXint              anchory;
     FXint              currentx;
@@ -695,8 +697,7 @@ public:
 	IconList_Alignment getAlignment(void) const;
 
     // Return maximum item space
-    FXint getItemSpace() const
-    {
+    FXint getItemSpace() const {
         return itemSpace;
     }
 

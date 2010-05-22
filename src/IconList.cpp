@@ -25,7 +25,8 @@
 #define BIG_LINE_SPACING        10    // Line spacing in big icon mode
 #define BIG_TEXT_SPACING         2    // Spacing between text and icon in big icon mode
 
-#define ITEM_SPACE             100    // Default space for item name
+#define LARGE_ITEM_SPACE       100    // Default space for large icons' item name
+#define SMALL_ITEM_SPACE       150    // Default space for small icons' item name
 
 #define SELECT_MASK   (_ICONLIST_EXTENDEDSELECT|_ICONLIST_SINGLESELECT|_ICONLIST_BROWSESELECT|_ICONLIST_MULTIPLESELECT)
 #define ICONLIST_MASK (SELECT_MASK|_ICONLIST_SEARCH|_ICONLIST_STANDARD)
@@ -303,24 +304,30 @@ FXint IconItem::hitItem(const IconList* list,FXint rx,FXint ry,FXint rw,FXint rh
 	register FXFont *font=list->getFont();
 	for (tlen=0; tlen<label.length() && label[tlen]!='\t'; tlen++);
 	register IconList_ListType type = list->getListType();
+
 	if (type == IconList_ListType_LargeIcons) {
 		w=list->getItemSpace();
 		h=list->getItemHeight();
 		sp=w-SIDE_SPACING;
-		if (!label.empty())
-		{
+
+		if (!label.empty()) {
 			tw=4+font->getTextWidth(label.text(),tlen);
 			th=4+font->getFontHeight();
-			if (tw>sp)
+
+			if (tw>sp) {
 				tw=sp;
-			if (bigIcon)
+			}
+
+			if (bigIcon) {
 				ss=BIG_TEXT_SPACING;
+			}
 		}
-		if (bigIcon)
-		{
+
+		if (bigIcon) {
 			iw=bigIcon->getWidth();
 			ih=bigIcon->getHeight();
 		}
+
 		ty=h-th-BIG_LINE_SPACING/2;
 		iy=BIG_LINE_SPACING/2+(h-th-BIG_LINE_SPACING-ss-ih)/2;
 		ix=(w-iw)/2;
@@ -686,7 +693,9 @@ IconList::IconList(FXComposite *p,FXObject* tgt,FXSelector sel,FXuint opts,FXint
 	B=(FXuint)(DARKEN_SORT*FXBLUEVAL(highlightColor));
 	highlightSortColor=FXRGB(R,G,B);
 
-	itemSpace=ITEM_SPACE;
+	largeItemSpace = LARGE_ITEM_SPACE;
+	smallItemSpace = SMALL_ITEM_SPACE;
+
 	itemWidth=1;
 	itemHeight=1;
 	anchorx=0;
@@ -823,7 +832,6 @@ void IconList::recalc()
 	cursor=-1;
 }
 
-
 // Recompute interior
 void IconList::recompute() {
 	register FXint w,h,i;
@@ -844,9 +852,13 @@ void IconList::recompute() {
 
 	// Automatically size item spacing
 	if (this->autosize) {
-		itemSpace=FXMAX(itemWidth,1);
+		this->itemSpace = FXMAX(itemWidth,1);
 	} else {
-		itemSpace=ITEM_SPACE;
+		if (this->listType == IconList_ListType_LargeIcons) {
+			this->itemSpace = this->largeItemSpace;
+		} else if (this->listType == IconList_ListType_SmallIcons) {
+			this->itemSpace = this->smallItemSpace;
+		}
 	}
 
 	// Adjust for detail mode
@@ -860,7 +872,6 @@ void IconList::recompute() {
 	// Done
 	flags&=~FLAG_RECALC;
 }
-
 
 // Determine number of columns and number of rows
 void IconList::getrowscols(FXint& nr,FXint& nc,FXint w,FXint h) const
@@ -1652,7 +1663,6 @@ FXint IconList::hitItem(FXint index,FXint x,FXint y,FXint ww,FXint hh) const
 	}
 	return hit;
 }
-
 
 // Repaint
 void IconList::updateItem(FXint index) const
@@ -3766,17 +3776,15 @@ void IconList::removeItem(FXint index,FXbool notify)
 
 
 // Remove all items
-void IconList::clearItems(FXbool notify)
-{
+void IconList::clearItems(FXbool notify) {
 	register FXint old=current;
 
 	// Delete items
-	for (FXint index=items.no()-1; 0<=index; index--)
-	{
-		if (notify && target)
-		{
+	for (FXint index=items.no()-1; 0<=index; index--) {
+		if (notify && target) {
 			target->tryHandle(this,FXSEL(SEL_DELETED,message),(void*)(FXival)index);
 		}
+
 		delete items[index];
 	}
 
@@ -3804,15 +3812,13 @@ void IconList::clearItems(FXbool notify)
 
 
 // Change the font
-void IconList::setFont(FXFont* fnt)
-{
-	if (!fnt)
-	{
+void IconList::setFont(FXFont* fnt) {
+	if (!fnt) {
 		fxerror("%s::setFont: NULL font specified.\n",getClassName());
 	}
-	if (font!=fnt)
-	{
-		font=fnt;
+
+	if (font!=fnt) {
+		font = fnt;
 		recalc();
 		update();
 	}
@@ -3853,12 +3859,13 @@ void IconList::setSelTextColor(FXColor clr)
 
 
 // Set text width
-void IconList::setItemSpace(FXint s)
-{
-	if (s<1) s=1;
-	if (itemSpace!=s)
-	{
-		itemSpace=s;
+void IconList::setItemSpace(FXint s) {
+	if (s < 1) {
+		s = 1;
+	}
+
+	if (itemSpace != s) {
+		itemSpace = s;
 		recalc();
 	}
 }
@@ -3912,8 +3919,7 @@ void IconList::setIgnoreCase(FXbool icase)
 
 
 // Save data
-void IconList::save(FXStream& store) const
-{
+void IconList::save(FXStream& store) const {
 	FXScrollArea::save(store);
 	store << header;
 	items.save(store);
