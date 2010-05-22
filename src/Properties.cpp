@@ -140,9 +140,6 @@ FXDEFMAP(PropertiesBox) PropertiesBoxMap[]=
 	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_BROWSE_VIEW,PropertiesBox::onCmdBrowse),
 	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_BROWSE_EDIT,PropertiesBox::onCmdBrowse),
 	FXMAPFUNC(SEL_KEYPRESS,0,PropertiesBox::onCmdKeyPress),
-#ifdef STARTUP_NOTIFICATION
-	FXMAPFUNC(SEL_UPDATE,PropertiesBox::ID_SNDISABLE,PropertiesBox::onUpdSnDisable),
-#endif
 };
 
 // Object implementation
@@ -583,32 +580,6 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
   		new FXLabel(timematrix,_("Last Accessed:"),NULL,LAYOUT_LEFT);
   		fileAccessed=new FXLabel(timematrix,FXString::null,NULL,LAYOUT_LEFT|LAYOUT_FILL_COLUMN);
 
-#ifdef STARTUP_NOTIFICATION
-
-		sngroup=new FXGroupBox(generalframe,_("Startup Notification"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X);
-		snbutton=new FXCheckButton(sngroup,_("Disable startup notification for this file"),this,ID_SNDISABLE);
-
-		sndisable_prev=FALSE;
-		FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-		if(snexcepts != "")
-		{
-			FXString entry;
-			for(FXint i=0; ; i++)
-			{
-				entry=snexcepts.section(':',i);
-				if(streq(entry.text(),""))
-					break;
-				if(streq(entry.text(),filename.text()))
-				{
-					sndisable_prev=TRUE;
-					break;
-				}
-			}
-		}
-		snbutton->setCheck(sndisable_prev);
-
-#endif
-
 		// If the file is in the trash can
 		if (isInTrash)
 		{
@@ -933,75 +904,6 @@ long PropertiesBox::onCmdAcceptSingle(FXObject* o,FXSelector s,void* p)
 	// Don't proceed any task on the parent directory
 	if (streq(source.text(),".."))
 		return 1;
-
-#ifdef STARTUP_NOTIFICATION
-	
-	// If file is an executable file
-	if (executable)
-	{
-		FXbool sndisable=snbutton->getCheck();		
-		if (sndisable != sndisable_prev)
-		{
-			// List of startup notification exceptions
-			FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-
-			// Add to list if not already present
-			if (sndisable)
-			{
-				FXbool notinlist=TRUE;
-				if(snexcepts != "")
-				{
-					FXString entry;
-					for(FXint i=0; ; i++)
-					{
-						entry=snexcepts.section(':',i);
-						if(streq(entry.text(),""))
-							break;
-						if(streq(entry.text(),filename.text()))
-						{
-							notinlist=FALSE;
-							break;
-						}
-					}
-				}
-				
-				if (notinlist)
-					snexcepts += filename + ":";
-			}
-			
-			// Remove from list if already present
-			else
-			{
-				FXbool inlist=FALSE;
-				FXint pos=0;
-				if(snexcepts != "")
-				{
-					FXString entry;
-					for(FXint i=0; ; i++)
-					{
-						entry=snexcepts.section(':',i);
-						if(streq(entry.text(),""))
-							break;
-						if(streq(entry.text(),filename.text()))
-						{
-							inlist=TRUE;
-							break;
-						}
-						pos += entry.length()+1;
-					}
-				}
-				
-				if (inlist)
-					snexcepts.erase(pos,filename.length()+1);
-			}
-			
-			// Write updated list to the registry
-			getApp()->reg().writeStringEntry("OPTIONS","startup_notification_exceptions",snexcepts.text());
-			getApp()->reg().write();
-		}
-	}		
-
-#endif
 
 	// Handle association if related fields have changed
 	FXbool cond;
@@ -1700,23 +1602,3 @@ long PropertiesBox::onCmdKeyPress(FXObject* sender,FXSelector sel,void* ptr)
     }
 	return 0;
 }
-
-
-#ifdef STARTUP_NOTIFICATION
-// Update the startup notification button depending on the file exec status
-long PropertiesBox::onUpdSnDisable(FXObject*,FXSelector,void*)
-{
-	FXbool usesn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-	if (usesn && executable)
-	{
-		sngroup->enable();
-		snbutton->enable();
-	}
-	else
-	{
-		sngroup->disable();
-		snbutton->disable();
-	}
-    return 1;
-}
-#endif

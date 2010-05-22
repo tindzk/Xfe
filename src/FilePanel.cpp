@@ -802,12 +802,6 @@ long FilePanel::onCmdItemDoubleClicked(FXObject* sender,FXSelector sel, void* pt
 
  	// Wait cursor
     getApp()->beginWaitCursor();
-	
-#ifdef STARTUP_NOTIFICATION
-	// Startup notification option and exceptions (if any)
-	FXbool usesn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-	FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-#endif
 
 	long item= (long) ptr;
     if(item > -1)
@@ -861,11 +855,7 @@ long FilePanel::onCmdItemDoubleClicked(FXObject* sender,FXSelector sel, void* pt
 					if (::existCommand(cmdname))
 					{
 						cmd=cmdname+" "+::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-						runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 						runcmd(cmd);
-#endif					
 					}
 
 					// If command does not exist, call the "Open with..." dialog
@@ -881,11 +871,7 @@ long FilePanel::onCmdItemDoubleClicked(FXObject* sender,FXSelector sel, void* pt
                 {
                     cmdname=FXPath::name(pathname);
                     cmd=::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-					runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 					runcmd(cmd);
-#endif					
                	}
 				
 				// Or call the "Open with..." dialog
@@ -901,11 +887,7 @@ long FilePanel::onCmdItemDoubleClicked(FXObject* sender,FXSelector sel, void* pt
             {
 				cmdname=FXPath::name(pathname);
 				cmd=::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-				runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 				runcmd(cmd);
-#endif					
             }
 			
 			// Other cases
@@ -950,12 +932,6 @@ long FilePanel::onCmdItemClicked(FXObject* sender,FXSelector sel, void* ptr)
 
 			// Wait cursor
 			getApp()->beginWaitCursor();
-			
-#ifdef STARTUP_NOTIFICATION
-			// Startup notification option and exceptions (if any)
-			FXbool usesn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-			FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-#endif
 
 			long item= (long) ptr;
 			if(item > -1)
@@ -1011,11 +987,7 @@ long FilePanel::onCmdItemClicked(FXObject* sender,FXSelector sel, void* ptr)
 							if (::existCommand(cmdname))
 							{
 								cmd=cmdname+" "+::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-								runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 								runcmd(cmd);
-#endif					
 							}
 
 							// If command does not exist, call the "Open with..." dialog
@@ -1031,11 +1003,7 @@ long FilePanel::onCmdItemClicked(FXObject* sender,FXSelector sel, void* ptr)
 						{
 							cmdname=FXPath::name(pathname);
 							cmd=::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-							runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 							runcmd(cmd);
-#endif					
 						}
 						
 						// Or call the "Open with..." dialog
@@ -1051,11 +1019,7 @@ long FilePanel::onCmdItemClicked(FXObject* sender,FXSelector sel, void* ptr)
 					{
 						cmdname=FXPath::name(pathname);
 						cmd=::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-						runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 						runcmd(cmd);
-#endif					
 					}
 					
 					// Other cases
@@ -2414,12 +2378,6 @@ long FilePanel::onCmdEdit(FXObject*,FXSelector s,void*)
 			}
 		}
 	}
-	
-#ifdef STARTUP_NOTIFICATION
-	// Startup notification option and exceptions (if any)
-	FXbool usesn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-	FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-#endif
 
 	// Same association for all files : execute the associated or default editor or viewer
 	if (same)
@@ -2430,11 +2388,7 @@ long FilePanel::onCmdEdit(FXObject*,FXSelector s,void*)
 		if (::existCommand(cmdname))
 		{
 			cmd=cmdname+itemslist;
-#ifdef STARTUP_NOTIFICATION
-			runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 			runcmd(cmd);
-#endif					
 		}
 
 		// If command does not exist, call the "Open with..." dialog
@@ -2479,11 +2433,7 @@ long FilePanel::onCmdEdit(FXObject*,FXSelector s,void*)
 						if (::existCommand(cmdname))
 						{
 							cmd=cmdname+" "+::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-							runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 							runcmd(cmd);
-#endif					
 						}
 
 						// If command does not exist, call the "Open with..." dialog
@@ -2509,11 +2459,7 @@ long FilePanel::onCmdEdit(FXObject*,FXSelector s,void*)
 					if (::existCommand(cmdname))
 					{
 						cmd=cmdname+" "+::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-						runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 						runcmd(cmd);
-#endif					
 					}
 
 					// If command does not exist, call the "Open with..." dialog
@@ -2911,12 +2857,6 @@ long FilePanel::onCmdOpen(FXObject*,FXSelector,void*)
 			}
 		}
 	}
-	
-#ifdef STARTUP_NOTIFICATION
-	// Startup notification option and exceptions (if any)
-	FXbool usesn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-	FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-#endif
 
 	// Same command for all files : execute it
 	if (same)
@@ -2927,11 +2867,7 @@ long FilePanel::onCmdOpen(FXObject*,FXSelector,void*)
 		if (::existCommand(cmdname))
 		{
 			cmd=samecmd+itemslist;
-#ifdef STARTUP_NOTIFICATION
-			runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 			runcmd(cmd);
-#endif					
 		}
 
 		// If command does not exist, call the "Open with..." dialog
@@ -2970,11 +2906,7 @@ long FilePanel::onCmdOpen(FXObject*,FXSelector,void*)
 						if (::existCommand(cmdname))
 						{
 							cmd=cmdname+" "+::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-							runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 							runcmd(cmd);
-#endif					
 						}
 
 						// If command does not exist, call the "Open with..." dialog
@@ -2990,11 +2922,7 @@ long FilePanel::onCmdOpen(FXObject*,FXSelector,void*)
 					{
 						cmdname=FXPath::name(pathname);
 						cmd=::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-						runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 						runcmd(cmd);
-#endif					
 					}
 					
 					// or call the "Open with..." dialog
@@ -3010,11 +2938,7 @@ long FilePanel::onCmdOpen(FXObject*,FXSelector,void*)
 				{
 					cmdname=FXPath::name(pathname);
 					cmd=::quote(pathname);
-#ifdef STARTUP_NOTIFICATION
-					runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 					runcmd(cmd);
-#endif					
 				}
 				
 				// Other cases
@@ -3121,20 +3045,10 @@ long FilePanel::onCmdOpenWith(FXObject*,FXSelector,void*)
 		
 		// Run command if it exists
 		getApp()->beginWaitCursor();
-                
-#ifdef STARTUP_NOTIFICATION
-		// Startup notification option and exceptions (if any)
-		FXbool usesn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-		FXString snexcepts=getApp()->reg().readStringEntry("OPTIONS","startup_notification_exceptions","");
-#endif
 
 		// If command exists, run it
 		if (::existCommand(cmdname))
-#ifdef STARTUP_NOTIFICATION
-			runcmd(cmd,cmdname,usesn,snexcepts);
-#else
 			runcmd(cmd);
-#endif					
 
 		// If command does not exist, call the "Open with..." dialog
 		else

@@ -148,19 +148,6 @@ AC_CHECK_LIB(png, png_read_info,,AC_MSG_ERROR("libPNG not found"))
 AC_CHECK_HEADER(png.h,,AC_MSG_ERROR("png.h not found"))
 
 
-# Check for startup notification support
-AC_MSG_CHECKING(for startup notification)
-AC_ARG_ENABLE(sn,[  --disable-sn            compile without startup notification support])
-AC_MSG_RESULT([$enable_sn])
-AC_SUBST(STARTUPNOTIFY,false)
-if test "x$enable_sn" != "xno"; then
-	CXXFLAGS="${CXXFLAGS} -DSTARTUP_NOTIFICATION"
-	AC_SUBST(STARTUPNOTIFY,true)
-	enable_sn=yes
-fi
-AM_CONDITIONAL(STARTUPNOTIFY, [test x$enable_sn = xyes])
-
-
 # Building for debugging
 AC_MSG_CHECKING(for debugging)
 AC_ARG_ENABLE(debug,[  --enable-debug          compile for debugging])

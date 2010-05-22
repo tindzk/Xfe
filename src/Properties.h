@@ -84,11 +84,6 @@ private:
     FXCheckButton*    ow;
     FXCheckButton*    ox;
     FXbool			executable;
-#ifdef STARTUP_NOTIFICATION
-    FXCheckButton*	snbutton;
-    FXGroupBox*		sngroup;
-    FXbool			sndisable_prev;
-#endif
     FXTextField*	input;
     FXTextField*	username;
     FXTextField*	grpname;
@@ -150,9 +145,6 @@ public:
     long onCmdBrowse(FXObject*,FXSelector,void*);
 	long onUpdSizeAndPerm(FXObject*,FXSelector,void*);
     long onCmdKeyPress(FXObject*,FXSelector,void*);
-#ifdef STARTUP_NOTIFICATION
-	long onUpdSnDisable(FXObject*,FXSelector,void*);
-#endif
 };
 
 #endif

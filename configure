@@ -598,9 +598,6 @@ ac_func_list=
 ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
-STARTUPNOTIFY_FALSE
-STARTUPNOTIFY_TRUE
-STARTUPNOTIFY
 pkg_config
 xft_config
 freetype_config
@@ -792,7 +789,6 @@ with_included_gettext
 with_libintl_prefix
 with_x
 enable_largefile
-enable_sn
 enable_debug
 enable_release
 '
@@ -1441,7 +1437,6 @@ Optional Features:
   --disable-threads       build without multithread safety
   --disable-rpath         do not hardcode runtime library paths
   --disable-largefile     omit support for large files
-  --disable-sn            compile without startup notification support
   --enable-debug          compile for debugging
   --enable-release        compile for release (advanced optimizations)
 
@@ -14843,34 +14838,6 @@ fi
 
 
 
-# Check for startup notification support
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for startup notification" >&5
-$as_echo_n "checking for startup notification... " >&6; }
-# Check whether --enable-sn was given.
-if test "${enable_sn+set}" = set; then :
-  enableval=$enable_sn;
-fi
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_sn" >&5
-$as_echo "$enable_sn" >&6; }
-STARTUPNOTIFY=false
-
-if test "x$enable_sn" != "xno"; then
-	CXXFLAGS="${CXXFLAGS} -DSTARTUP_NOTIFICATION"
-	STARTUPNOTIFY=true
-
-	enable_sn=yes
-fi
- if test x$enable_sn = xyes; then
-  STARTUPNOTIFY_TRUE=
-  STARTUPNOTIFY_FALSE='#'
-else
-  STARTUPNOTIFY_TRUE='#'
-  STARTUPNOTIFY_FALSE=
-fi
-
-
-
 # Building for debugging
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for debugging" >&5
 $as_echo_n "checking for debugging... " >&6; }
@@ -15050,10 +15017,6 @@ fi
   ac_config_commands="$ac_config_commands po/stamp-it"
 
 
-if test -z "${STARTUPNOTIFY_TRUE}" && test -z "${STARTUPNOTIFY_FALSE}"; then
-  as_fn_error "conditional \"STARTUPNOTIFY\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
 
 : ${CONFIG_STATUS=./config.status}
 ac_write_fail=0

@@ -101,9 +101,6 @@ private:
 	FXCheckButton  *show_mount;
 	FXCheckButton  *scroll;
 	FXCheckButton  *controls;
-#ifdef STARTUP_NOTIFICATION
-	FXCheckButton  *usesn;
-#endif
 	FXColorWell    *cwell;
     Theme          Themes[NUM_THEMES];
     Theme          currTheme;
@@ -131,9 +128,6 @@ private:
 	FXbool		   use_clearlooks;
 	FXbool		   use_clearlooks_prev;
 	FXbool         rootmode_prev;
-#ifdef STARTUP_NOTIFICATION
-	FXbool		   usesn_prev;
-#endif
 #if defined(linux)
 	FXbool		   mount_prev;
 	FXbool		   show_mount_prev;

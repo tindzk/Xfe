@@ -174,9 +174,6 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
     filetooltips=new FXCheckButton(group,_("Display tooltips in file and directory lists"),this,ID_FILE_TOOLTIPS);
     relativeresize=new FXCheckButton(group,_("Relative resizing of file lists"),this,ID_RELATIVE_RESIZE);
     showpathlink=new FXCheckButton(group,_("Display a path linker above file lists"),this,ID_SHOW_PATHLINK);
-#ifdef STARTUP_NOTIFICATION
-	usesn=new FXCheckButton(group,_("Notify when applications start up"));
-#endif
 	group=new FXGroupBox(options,_("Mouse"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
     scroll=new FXCheckButton(group,_("Smooth scrolling in file lists and text windows"));
     FXMatrix *matrix = new FXMatrix(group,2,MATRIX_BY_COLUMNS|LAYOUT_SIDE_TOP|LAYOUT_FILL_Y);
@@ -256,11 +253,6 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
 	else
 		showpathlink->setCheck(TRUE);	
 
-#ifdef STARTUP_NOTIFICATION
-    FXbool use_sn=getApp()->reg().readUnsignedEntry("OPTIONS","use_startup_notification",TRUE);
-	usesn->setCheck(use_sn);
-#endif
-		
     // Second tab - Dialogs
     new FXTabItem(tabbook,_("&Dialogs"),NULL);
     FXVerticalFrame *dialogs=new FXVerticalFrame(tabbook,FRAME_THICK|FRAME_RAISED);
@@ -1413,9 +1405,6 @@ long PreferencesBox::onCmdAccept(FXObject* o,FXSelector s,void* p)
     getApp()->reg().writeUnsignedEntry("OPTIONS","confirm_drag_and_drop",dnd->getCheck());
     getApp()->reg().writeUnsignedEntry("OPTIONS","root_warn",root_warning->getCheck());
     getApp()->reg().writeUnsignedEntry("OPTIONS","root_mode",rootmode->getCheck());
-#ifdef STARTUP_NOTIFICATION
-    getApp()->reg().writeUnsignedEntry("OPTIONS","use_startup_notification",usesn->getCheck());
-#endif
 #if defined(linux)
     getApp()->reg().writeUnsignedEntry("OPTIONS","mount_warn",mount->getCheck());
 	getApp()->reg().writeUnsignedEntry("OPTIONS","mount_messages",show_mount->getCheck());
@@ -1589,10 +1578,7 @@ long PreferencesBox::onCmdCancel(FXObject* o,FXSelector s,void* p)
 	getApp()->reg().writeUnsignedEntry("OPTIONS","use_sudo",use_sudo);
 	scroll->setCheck(smoothscroll_prev);
 	rootmode->setCheck(rootmode_prev);
-#ifdef STARTUP_NOTIFICATION
-	usesn->setCheck(usesn_prev);
-#endif
-	
+
 	// Second tab - Dialogs
 	ask->setCheck(ask_prev);
 	dnd->setCheck(dnd_prev);
@@ -1656,10 +1642,7 @@ FXuint PreferencesBox::execute(FXuint placement)
 	use_sudo_prev=use_sudo;
 	smoothscroll_prev=scroll->getCheck();
 	rootmode_prev=rootmode->getCheck();
-#ifdef STARTUP_NOTIFICATION
-	usesn_prev=usesn->getCheck();
-#endif
-	
+
 	// Second tab - Dialogs
 	ask_prev=ask->getCheck();
 	dnd_prev=dnd->getCheck();

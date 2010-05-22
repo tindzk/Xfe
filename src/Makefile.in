@@ -35,15 +35,6 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = xfe$(EXEEXT)
-@STARTUPNOTIFY_TRUE@am__append_1 = ../libsn/sn-common.c  \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launchee.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-launcher.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-list.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-monitor.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-util.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xmessages.c \
-@STARTUPNOTIFY_TRUE@              ../libsn/sn-xutils.c
-
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -56,26 +47,6 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am__xfe_SOURCES_DIST = ../xvt/command.c ../xvt/screen.c \
-	../xvt/ttyinit.c ../xvt/xsetup.c ../xvt/xvt.c icons.cpp \
-	xfeutils.cpp startupnotification.cpp StringList.cpp File.cpp \
-	FileDict.cpp IconList.cpp FileList.cpp FileDialog.cpp \
-	DirList.cpp DialogBox.cpp MessageBox.cpp Bookmarks.cpp \
-	HistInputDialog.cpp InputDialog.cpp OverwriteBox.cpp \
-	TextWindow.cpp CommandWindow.cpp Properties.cpp \
-	Preferences.cpp FilePanel.cpp DirPanel.cpp DirHistBox.cpp \
-	PathLinker.cpp BrowseInputDialog.cpp ArchInputDialog.cpp \
-	FontDialog.cpp TextLabel.cpp Keybindings.cpp \
-	KeybindingsDialog.cpp XFileExplorer.cpp main.cpp \
-	../libsn/sn-common.c ../libsn/sn-launchee.c \
-	../libsn/sn-launcher.c ../libsn/sn-list.c \
-	../libsn/sn-monitor.c ../libsn/sn-util.c \
-	../libsn/sn-xmessages.c ../libsn/sn-xutils.c
-@STARTUPNOTIFY_TRUE@am__objects_1 = sn-common.$(OBJEXT) \
-@STARTUPNOTIFY_TRUE@	sn-launchee.$(OBJEXT) \
-@STARTUPNOTIFY_TRUE@	sn-launcher.$(OBJEXT) sn-list.$(OBJEXT) \
-@STARTUPNOTIFY_TRUE@	sn-monitor.$(OBJEXT) sn-util.$(OBJEXT) \
-@STARTUPNOTIFY_TRUE@	sn-xmessages.$(OBJEXT) sn-xutils.$(OBJEXT)
 am_xfe_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
 	xsetup.$(OBJEXT) xvt.$(OBJEXT) icons.$(OBJEXT) \
 	xfeutils.$(OBJEXT) startupnotification.$(OBJEXT) \
@@ -90,7 +61,7 @@ am_xfe_OBJECTS = command.$(OBJEXT) screen.$(OBJEXT) ttyinit.$(OBJEXT) \
 	BrowseInputDialog.$(OBJEXT) ArchInputDialog.$(OBJEXT) \
 	FontDialog.$(OBJEXT) TextLabel.$(OBJEXT) Keybindings.$(OBJEXT) \
 	KeybindingsDialog.$(OBJEXT) XFileExplorer.$(OBJEXT) \
-	main.$(OBJEXT) $(am__objects_1)
+	main.$(OBJEXT)
 xfe_OBJECTS = $(am_xfe_OBJECTS)
 xfe_DEPENDENCIES =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
@@ -107,7 +78,7 @@ CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
 SOURCES = $(xfe_SOURCES)
-DIST_SOURCES = $(am__xfe_SOURCES_DIST)
+DIST_SOURCES = $(xfe_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -207,7 +178,6 @@ PRI_MACROS_BROKEN = @PRI_MACROS_BROKEN@
 RANLIB = @RANLIB@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
-STARTUPNOTIFY = @STARTUPNOTIFY@
 STRIP = @STRIP@
 USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
 USE_NLS = @USE_NLS@
@@ -273,17 +243,44 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 xft_config = @xft_config@
-xfe_SOURCES = ../xvt/command.c ../xvt/screen.c ../xvt/ttyinit.c \
-	../xvt/xsetup.c ../xvt/xvt.c icons.cpp xfeutils.cpp \
-	startupnotification.cpp StringList.cpp File.cpp FileDict.cpp \
-	IconList.cpp FileList.cpp FileDialog.cpp DirList.cpp \
-	DialogBox.cpp MessageBox.cpp Bookmarks.cpp HistInputDialog.cpp \
-	InputDialog.cpp OverwriteBox.cpp TextWindow.cpp \
-	CommandWindow.cpp Properties.cpp Preferences.cpp FilePanel.cpp \
-	DirPanel.cpp DirHistBox.cpp PathLinker.cpp \
-	BrowseInputDialog.cpp ArchInputDialog.cpp FontDialog.cpp \
-	TextLabel.cpp Keybindings.cpp KeybindingsDialog.cpp \
-	XFileExplorer.cpp main.cpp $(am__append_1)
+xfe_SOURCES = ../xvt/command.c \
+              ../xvt/screen.c \
+              ../xvt/ttyinit.c \
+              ../xvt/xsetup.c \
+              ../xvt/xvt.c \
+              icons.cpp \
+			  xfeutils.cpp \
+			  startupnotification.cpp \
+			  StringList.cpp \
+              File.cpp \
+			  FileDict.cpp \
+			  IconList.cpp \
+			  FileList.cpp \
+			  FileDialog.cpp \
+			  DirList.cpp \
+			  DialogBox.cpp \
+			  MessageBox.cpp \
+			  Bookmarks.cpp \
+			  HistInputDialog.cpp \
+			  InputDialog.cpp \
+			  OverwriteBox.cpp \
+			  TextWindow.cpp \
+			  CommandWindow.cpp \
+              Properties.cpp \
+			  Preferences.cpp \
+			  FilePanel.cpp \
+			  DirPanel.cpp \
+			  DirHistBox.cpp \
+			  PathLinker.cpp \
+			  BrowseInputDialog.cpp \
+			  ArchInputDialog.cpp \
+			  FontDialog.cpp \
+			  TextLabel.cpp \
+			  Keybindings.cpp \
+			  KeybindingsDialog.cpp \
+			  XFileExplorer.cpp \
+              main.cpp
+
 xfe_LDADD = @LIBINTL@ -lutil
 INCLUDES = -I. -I$(top_srcdir) -I$(top_srcdir)/intl
 EXTRA_DIST = ../libsn/sn-common.h	\
@@ -456,14 +453,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icons.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/screen.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-common.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-launchee.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-launcher.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-list.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-monitor.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-util.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-xmessages.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sn-xutils.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/startupnotification.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ttyinit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfeutils.Po@am__quote@
@@ -553,118 +542,6 @@ xvt.obj: ../xvt/xvt.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../xvt/xvt.c' object='xvt.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o xvt.obj `if test -f '../xvt/xvt.c'; then $(CYGPATH_W) '../xvt/xvt.c'; else $(CYGPATH_W) '$(srcdir)/../xvt/xvt.c'; fi`
-
-sn-common.o: ../libsn/sn-common.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-common.o -MD -MP -MF $(DEPDIR)/sn-common.Tpo -c -o sn-common.o `test -f '../libsn/sn-common.c' || echo '$(srcdir)/'`../libsn/sn-common.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-common.Tpo $(DEPDIR)/sn-common.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-common.c' object='sn-common.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-common.o `test -f '../libsn/sn-common.c' || echo '$(srcdir)/'`../libsn/sn-common.c
-
-sn-common.obj: ../libsn/sn-common.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-common.obj -MD -MP -MF $(DEPDIR)/sn-common.Tpo -c -o sn-common.obj `if test -f '../libsn/sn-common.c'; then $(CYGPATH_W) '../libsn/sn-common.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-common.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-common.Tpo $(DEPDIR)/sn-common.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-common.c' object='sn-common.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-common.obj `if test -f '../libsn/sn-common.c'; then $(CYGPATH_W) '../libsn/sn-common.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-common.c'; fi`
-
-sn-launchee.o: ../libsn/sn-launchee.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-launchee.o -MD -MP -MF $(DEPDIR)/sn-launchee.Tpo -c -o sn-launchee.o `test -f '../libsn/sn-launchee.c' || echo '$(srcdir)/'`../libsn/sn-launchee.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-launchee.Tpo $(DEPDIR)/sn-launchee.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-launchee.c' object='sn-launchee.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-launchee.o `test -f '../libsn/sn-launchee.c' || echo '$(srcdir)/'`../libsn/sn-launchee.c
-
-sn-launchee.obj: ../libsn/sn-launchee.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-launchee.obj -MD -MP -MF $(DEPDIR)/sn-launchee.Tpo -c -o sn-launchee.obj `if test -f '../libsn/sn-launchee.c'; then $(CYGPATH_W) '../libsn/sn-launchee.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-launchee.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-launchee.Tpo $(DEPDIR)/sn-launchee.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-launchee.c' object='sn-launchee.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-launchee.obj `if test -f '../libsn/sn-launchee.c'; then $(CYGPATH_W) '../libsn/sn-launchee.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-launchee.c'; fi`
-
-sn-launcher.o: ../libsn/sn-launcher.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-launcher.o -MD -MP -MF $(DEPDIR)/sn-launcher.Tpo -c -o sn-launcher.o `test -f '../libsn/sn-launcher.c' || echo '$(srcdir)/'`../libsn/sn-launcher.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-launcher.Tpo $(DEPDIR)/sn-launcher.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-launcher.c' object='sn-launcher.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-launcher.o `test -f '../libsn/sn-launcher.c' || echo '$(srcdir)/'`../libsn/sn-launcher.c
-
-sn-launcher.obj: ../libsn/sn-launcher.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-launcher.obj -MD -MP -MF $(DEPDIR)/sn-launcher.Tpo -c -o sn-launcher.obj `if test -f '../libsn/sn-launcher.c'; then $(CYGPATH_W) '../libsn/sn-launcher.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-launcher.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-launcher.Tpo $(DEPDIR)/sn-launcher.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-launcher.c' object='sn-launcher.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-launcher.obj `if test -f '../libsn/sn-launcher.c'; then $(CYGPATH_W) '../libsn/sn-launcher.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-launcher.c'; fi`
-
-sn-list.o: ../libsn/sn-list.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-list.o -MD -MP -MF $(DEPDIR)/sn-list.Tpo -c -o sn-list.o `test -f '../libsn/sn-list.c' || echo '$(srcdir)/'`../libsn/sn-list.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-list.Tpo $(DEPDIR)/sn-list.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-list.c' object='sn-list.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-list.o `test -f '../libsn/sn-list.c' || echo '$(srcdir)/'`../libsn/sn-list.c
-
-sn-list.obj: ../libsn/sn-list.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-list.obj -MD -MP -MF $(DEPDIR)/sn-list.Tpo -c -o sn-list.obj `if test -f '../libsn/sn-list.c'; then $(CYGPATH_W) '../libsn/sn-list.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-list.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-list.Tpo $(DEPDIR)/sn-list.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-list.c' object='sn-list.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-list.obj `if test -f '../libsn/sn-list.c'; then $(CYGPATH_W) '../libsn/sn-list.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-list.c'; fi`
-
-sn-monitor.o: ../libsn/sn-monitor.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-monitor.o -MD -MP -MF $(DEPDIR)/sn-monitor.Tpo -c -o sn-monitor.o `test -f '../libsn/sn-monitor.c' || echo '$(srcdir)/'`../libsn/sn-monitor.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-monitor.Tpo $(DEPDIR)/sn-monitor.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-monitor.c' object='sn-monitor.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-monitor.o `test -f '../libsn/sn-monitor.c' || echo '$(srcdir)/'`../libsn/sn-monitor.c
-
-sn-monitor.obj: ../libsn/sn-monitor.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-monitor.obj -MD -MP -MF $(DEPDIR)/sn-monitor.Tpo -c -o sn-monitor.obj `if test -f '../libsn/sn-monitor.c'; then $(CYGPATH_W) '../libsn/sn-monitor.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-monitor.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-monitor.Tpo $(DEPDIR)/sn-monitor.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-monitor.c' object='sn-monitor.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-monitor.obj `if test -f '../libsn/sn-monitor.c'; then $(CYGPATH_W) '../libsn/sn-monitor.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-monitor.c'; fi`
-
-sn-util.o: ../libsn/sn-util.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-util.o -MD -MP -MF $(DEPDIR)/sn-util.Tpo -c -o sn-util.o `test -f '../libsn/sn-util.c' || echo '$(srcdir)/'`../libsn/sn-util.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-util.Tpo $(DEPDIR)/sn-util.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-util.c' object='sn-util.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-util.o `test -f '../libsn/sn-util.c' || echo '$(srcdir)/'`../libsn/sn-util.c
-
-sn-util.obj: ../libsn/sn-util.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-util.obj -MD -MP -MF $(DEPDIR)/sn-util.Tpo -c -o sn-util.obj `if test -f '../libsn/sn-util.c'; then $(CYGPATH_W) '../libsn/sn-util.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-util.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-util.Tpo $(DEPDIR)/sn-util.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-util.c' object='sn-util.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-util.obj `if test -f '../libsn/sn-util.c'; then $(CYGPATH_W) '../libsn/sn-util.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-util.c'; fi`
-
-sn-xmessages.o: ../libsn/sn-xmessages.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-xmessages.o -MD -MP -MF $(DEPDIR)/sn-xmessages.Tpo -c -o sn-xmessages.o `test -f '../libsn/sn-xmessages.c' || echo '$(srcdir)/'`../libsn/sn-xmessages.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-xmessages.Tpo $(DEPDIR)/sn-xmessages.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-xmessages.c' object='sn-xmessages.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-xmessages.o `test -f '../libsn/sn-xmessages.c' || echo '$(srcdir)/'`../libsn/sn-xmessages.c
-
-sn-xmessages.obj: ../libsn/sn-xmessages.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-xmessages.obj -MD -MP -MF $(DEPDIR)/sn-xmessages.Tpo -c -o sn-xmessages.obj `if test -f '../libsn/sn-xmessages.c'; then $(CYGPATH_W) '../libsn/sn-xmessages.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-xmessages.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-xmessages.Tpo $(DEPDIR)/sn-xmessages.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-xmessages.c' object='sn-xmessages.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-xmessages.obj `if test -f '../libsn/sn-xmessages.c'; then $(CYGPATH_W) '../libsn/sn-xmessages.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-xmessages.c'; fi`
-
-sn-xutils.o: ../libsn/sn-xutils.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-xutils.o -MD -MP -MF $(DEPDIR)/sn-xutils.Tpo -c -o sn-xutils.o `test -f '../libsn/sn-xutils.c' || echo '$(srcdir)/'`../libsn/sn-xutils.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-xutils.Tpo $(DEPDIR)/sn-xutils.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-xutils.c' object='sn-xutils.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-xutils.o `test -f '../libsn/sn-xutils.c' || echo '$(srcdir)/'`../libsn/sn-xutils.c
-
-sn-xutils.obj: ../libsn/sn-xutils.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT sn-xutils.obj -MD -MP -MF $(DEPDIR)/sn-xutils.Tpo -c -o sn-xutils.obj `if test -f '../libsn/sn-xutils.c'; then $(CYGPATH_W) '../libsn/sn-xutils.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-xutils.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/sn-xutils.Tpo $(DEPDIR)/sn-xutils.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../libsn/sn-xutils.c' object='sn-xutils.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o sn-xutils.obj `if test -f '../libsn/sn-xutils.c'; then $(CYGPATH_W) '../libsn/sn-xutils.c'; else $(CYGPATH_W) '$(srcdir)/../libsn/sn-xutils.c'; fi`
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

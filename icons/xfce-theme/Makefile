@@ -89,7 +89,7 @@ CPPFLAGS = -I/usr/include -I/usr/include/freetype2 -I/usr/include/freetype2
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -I/usr/include/fox-1.6 -DHAVE_XFT_H -DSTARTUP_NOTIFICATION -O2
+CXXFLAGS = -g -O2 -I/usr/include/fox-1.6 -DHAVE_XFT_H -O2
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DHAVE_CONFIG_H
@@ -166,7 +166,6 @@ PRI_MACROS_BROKEN = 0
 RANLIB = ranlib
 SET_MAKE = 
 SHELL = /bin/sh
-STARTUPNOTIFY = true
 STRIP = 
 USE_INCLUDED_LIBINTL = no
 USE_NLS = yes

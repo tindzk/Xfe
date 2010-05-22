@@ -39,17 +39,6 @@ xfe_SOURCES = ../xvt/command.c \
 			  XFileExplorer.cpp \
               main.cpp
 
-if STARTUPNOTIFY
-xfe_SOURCES += ../libsn/sn-common.c  \
-              ../libsn/sn-launchee.c \
-              ../libsn/sn-launcher.c \
-              ../libsn/sn-list.c \
-              ../libsn/sn-monitor.c \
-              ../libsn/sn-util.c \
-              ../libsn/sn-xmessages.c \
-              ../libsn/sn-xutils.c
-endif
-
 xfe_LDADD = @LIBINTL@ -lutil
 
 localedir = $(datadir)/locale
