@@ -10,9 +10,6 @@
 #include <FXPNGIcon.h>
 #include <FXJPGIcon.h>
 #include <FXTIFIcon.h>
-#if defined(linux)
-#include <mntent.h>
-#endif
 
 #include "xfedefs.h"
 #include "icons.h"
@@ -29,9 +26,9 @@
 #define SIDE_SPACING             4    // Left or right spacing between items
 #define DETAIL_TEXT_SPACING      2    // Spacing between text and icon in detail icon mode
 #define MINI_TEXT_SPACING        2    // Spacing between text and icon in mini icon mode
-#define BIG_LINE_SPACING         6    // Line spacing in big icon mode
+#define BIG_LINE_SPACING        10    // Line spacing in big icon mode
 #define BIG_TEXT_SPACING         2    // Spacing between text and icon in big icon mode
-#define ITEM_SPACE             192    // Default space for item name
+#define ITEM_SPACE             100    // Default space for item name
 
 #define SELECT_MASK   (_ICONLIST_EXTENDEDSELECT|_ICONLIST_SINGLESELECT|_ICONLIST_BROWSESELECT|_ICONLIST_MULTIPLESELECT)
 #define ICONLIST_MASK (SELECT_MASK|_ICONLIST_MINI_ICONS|_ICONLIST_BIG_ICONS|_ICONLIST_COLUMNS|_ICONLIST_SEARCH|_ICONLIST_STANDARD|_ICONLIST_AUTOSIZE)
