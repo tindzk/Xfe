@@ -78,13 +78,6 @@ FXDEFMAP(PreferencesBox) PreferencesMap[]=
 {
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_ACCEPT,PreferencesBox::onCmdAccept),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_CANCEL,PreferencesBox::onCmdCancel),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_TXTEDIT,PreferencesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_TXTVIEW,PreferencesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_IMGVIEW,PreferencesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_ARCHIVER,PreferencesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_PDFVIEW,PreferencesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_VIDEOVIEW,PreferencesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_AUDIOVIEW,PreferencesBox::onCmdBrowse),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_BROWSE_XTERM,PreferencesBox::onCmdBrowse),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_COLOR,PreferencesBox::onCmdColor),
 	FXMAPFUNC(SEL_COMMAND,PreferencesBox::ID_NORMALFONT,PreferencesBox::onCmdNormalFont),
@@ -289,54 +282,6 @@ PreferencesBox::PreferencesBox(FXWindow *win, FXColor listbackcolor, FXColor lis
     group=new FXGroupBox(programs,_("Default programs"),GROUPBOX_TITLE_LEFT|FRAME_GROOVE|LAYOUT_FILL_X|LAYOUT_FILL_Y);
     FXMatrix *matrix = new FXMatrix(group,3,MATRIX_BY_COLUMNS|LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y);
 
-    new FXLabel(matrix,_("Text editor:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    txteditor = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-    new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_TXTEDIT,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldtxteditor=getApp()->reg().readStringEntry("PROGS","txteditor",DEFAULT_TXTEDITOR);
-    txteditor->setText(oldtxteditor);
-
-	new FXLabel(matrix,_("Text viewer:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    txtviewer = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_TXTVIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldtxtviewer=getApp()->reg().readStringEntry("PROGS","txtviewer",DEFAULT_TXTVIEWER);
-    txtviewer->setText(oldtxtviewer);
-
-	new FXLabel(matrix,_("Image editor:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    imgeditor = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_IMGVIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldimgeditor=getApp()->reg().readStringEntry("PROGS","imgeditor",DEFAULT_IMGEDITOR);
-    imgeditor->setText(oldimgeditor);
-
-	new FXLabel(matrix,_("Image viewer:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    imgviewer = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_IMGVIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldimgviewer=getApp()->reg().readStringEntry("PROGS","imgviewer",DEFAULT_IMGVIEWER);
-    imgviewer->setText(oldimgviewer);
-
-	new FXLabel(matrix,_("Archiver:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    archiver = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_ARCHIVER,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldarchiver=getApp()->reg().readStringEntry("PROGS","archiver",DEFAULT_ARCHIVER);
-    archiver->setText(oldarchiver);
-
-	new FXLabel(matrix,_("Pdf viewer:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    pdfviewer = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_PDFVIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldpdfviewer=getApp()->reg().readStringEntry("PROGS","pdfviewer",DEFAULT_PDFVIEWER);
-    pdfviewer->setText(oldpdfviewer);
-
-	new FXLabel(matrix,_("Audio player:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    audioviewer = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_AUDIOVIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldaudioviewer=getApp()->reg().readStringEntry("PROGS","audioviewer",DEFAULT_AUDIOVIEWER);
-    audioviewer->setText(oldaudioviewer);
-
-	new FXLabel(matrix,_("Video player:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    videoviewer = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-	new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_VIDEOVIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    oldvideoviewer=getApp()->reg().readStringEntry("PROGS","videoviewer",DEFAULT_VIDEOVIEWER);
-    videoviewer->setText(oldvideoviewer);
-
 	new FXLabel(matrix,_("Terminal:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
     xterm = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
     new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_XTERM,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
@@ -478,38 +423,12 @@ long PreferencesBox::onCmdBrowse(FXObject* o,FXSelector s,void* p)
 	browse.setFilename(ROOTDIR);
 	browse.setPatternList(patterns);
 	browse.setSelectMode(SELECT_FILE_EXISTING);
-    if(browse.execute())
-    {
+
+	if(browse.execute()) {
 		FXString path=browse.getFilename();
-		
-		switch(FXSELID(s))
-        {
-        case ID_BROWSE_TXTEDIT:
-            txteditor->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_TXTVIEW:
-            txtviewer->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_IMGVIEW:
-            imgviewer->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_ARCHIVER:
-            archiver->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_PDFVIEW:
-            pdfviewer->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_AUDIOVIEW:
-            audioviewer->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_VIDEOVIEW:
-            videoviewer->setText(FXPath::name(path));
-            break;
-        case ID_BROWSE_XTERM:
-            xterm->setText(FXPath::name(path));
-            break;
-        }
-    }
+		xterm->setText(FXPath::name(path));
+	}
+
     return 1;
 }
 
@@ -1021,357 +940,10 @@ long PreferencesBox::onCmdAccept(FXObject* o,FXSelector s,void* p)
 		restart_textfont=TRUE;
 	}
 
-    // Text editor has changed
-	if(oldtxteditor != txteditor->getText())
-	{
-        // Update the txteditor string
-		FXString newtxteditor=txteditor->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","txteditor",newtxteditor.text());
-		
-		// Update each filetype where the old txteditor was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old txteditor string with the new one
-			if (value.contains(oldtxteditor))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace only the open and edit strings, if needed
-				if (open==oldtxteditor)
-					open=newtxteditor;
-				if (edit==oldtxteditor)
-					edit=newtxteditor;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // Text viewer has changed
-	if(oldtxtviewer != txtviewer->getText())
-	{
-        // Update the txtviewer string
-		FXString newtxtviewer=txtviewer->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","txtviewer",newtxtviewer.text());
-		
-		// Update each filetype where the old txtviewer was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old txtviewer string with the new one
-			if (value.contains(oldtxtviewer))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace only the view string, if needed
-				if (view==oldtxtviewer)
-					view=newtxtviewer;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // Image editor has changed
-	if(oldimgeditor != imgeditor->getText())
-	{
-        // Update the imgeditor string
-		FXString newimgeditor=imgeditor->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","imgeditor",newimgeditor.text());
-		
-		// Update each filetype where the old imgeditor was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old imgeditor string with the new one
-			if (value.contains(oldimgeditor))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace only the open and edit strings, if needed
-				if (open==oldimgeditor)
-					open=newimgeditor;
-				if (edit==oldimgeditor)
-					edit=newimgeditor;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // Image viewer has changed
-	if(oldimgviewer != imgviewer->getText())
-	{
-        // Update the imgviewer string
-		FXString newimgviewer=imgviewer->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","imgviewer",newimgviewer.text());
-		
-		// Update each filetype where the old imgviewer was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old imgviewer string with the new one
-			if (value.contains(oldimgviewer))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace only the view string, if needed
-				if (view==oldimgviewer)
-					view=newimgviewer;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // Archiver has changed
-	if(oldarchiver != archiver->getText())
-	{
-        // Update the archiver string
-		FXString newarchiver=archiver->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","archiver",newarchiver.text());
-		
-		// Update each filetype where the old archiver was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old archiver string with the new one
-			if (value.contains(oldarchiver))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace the open, view and edit strings, if needed
-				if (open==oldarchiver)
-					open=newarchiver;
-				if (view==oldarchiver)
-					view=newarchiver;
-				if (edit==oldarchiver)
-					edit=newarchiver;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // PDF viewer has changed
-	if(oldpdfviewer != pdfviewer->getText())
-	{
-        // Update the PDF viewer string
-		FXString newpdfviewer=pdfviewer->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","pdfviewer",newpdfviewer.text());
-		
-		// Update each filetype where the old PDF viewer was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old PDF viewer string with the new one
-			if (value.contains(oldpdfviewer))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace the open, view and edit strings, if needed
-				if (open==oldpdfviewer)
-					open=newpdfviewer;
-				if (view==oldpdfviewer)
-					view=newpdfviewer;
-				if (edit==oldpdfviewer)
-					edit=newpdfviewer;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // Audio viewer has changed
-	if(oldaudioviewer != audioviewer->getText())
-	{
-        // Update the audio viewer string
-		FXString newaudioviewer=audioviewer->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","audioviewer",newaudioviewer.text());
-		
-		// Update each filetype where the old audio viewer was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old audio viewer string with the new one
-			if (value.contains(oldaudioviewer))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace the open, view and edit strings, if needed
-				if (open==oldaudioviewer)
-					open=newaudioviewer;
-				if (view==oldaudioviewer)
-					view=newaudioviewer;
-				if (edit==oldaudioviewer)
-					edit=newaudioviewer;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
-    // Video viewer has changed
-	if(oldvideoviewer != videoviewer->getText())
-	{
-        // Update the video viewer string
-		FXString newvideoviewer=videoviewer->getText().text();
-		getApp()->reg().writeStringEntry("PROGS","videoviewer",newvideoviewer.text());
-		
-		// Update each filetype where the old video viewer was used
-		FXStringDict *strdict = getApp()->reg().find("FILETYPES");
-		FileDict *assoc=new FileDict(getApp());
-
-		FXint i;
-		FXString key, value, newvalue;
-		FXString strtmp, open, view, edit, command;
-		for (i=strdict->first(); i<strdict->size(); i=strdict->next(i))
-		{
-			// Read key and value of each filetype
-			key=strdict->key(i);
-			value=strdict->data(i);
-			
-			// Replace the old video viewer string with the new one
-			if (value.contains(oldvideoviewer))
-			{
-				// Obtain the open, view, edit and command strings
-				strtmp=value.before(';',1);
-				command=value.after(';',1);
-				open=strtmp.section(',',0);
-				view=strtmp.section(',',1);
-				edit=strtmp.section(',',2);
-				
-				// Replace the open, view and edit strings, if needed
-				if (open==oldvideoviewer)
-					open=newvideoviewer;
-				if (view==oldvideoviewer)
-					view=newvideoviewer;
-				if (edit==oldvideoviewer)
-					edit=newvideoviewer;
-				
-				// Replace with the new value
-				value=open + "," + view + "," + edit + ";" + command;
-				assoc->replace(key.text(),value.text());
-			}
-		}
-	}
-
 	// Terminal has changed
-	if(oldxterm != xterm->getText())
-        getApp()->reg().writeStringEntry("PROGS","xterm",xterm->getText().text());
+	if(oldxterm != xterm->getText()) {
+		getApp()->reg().writeStringEntry("PROGS","xterm",xterm->getText().text());
+	}
 
 	getApp()->reg().writeUnsignedEntry("OPTIONS","auto_save_layout",autosave->getCheck());
 	getApp()->reg().writeUnsignedEntry("SETTINGS","save_win_pos",savewinpos->getCheck());
@@ -1559,14 +1131,6 @@ long PreferencesBox::onCmdCancel(FXObject* o,FXSelector s,void* p)
 	root_warning->setCheck(root_warning_prev);
 	
 	// Third tab - Programs
-	txteditor->setText(oldtxteditor);	
-	txtviewer->setText(oldtxtviewer);	
-	imgeditor->setText(oldimgeditor);	
-	imgviewer->setText(oldimgviewer);	
-	archiver->setText(oldarchiver);	
-	pdfviewer->setText(oldpdfviewer);	
-	audioviewer->setText(oldaudioviewer);	
-	videoviewer->setText(oldvideoviewer);	
 	xterm->setText(oldxterm);
 
 	// Fourth tab - Visual
@@ -1621,16 +1185,8 @@ FXuint PreferencesBox::execute(FXuint placement)
 	root_warning_prev=root_warning->getCheck();
 
     // Third tab - Programs
-	oldtxteditor=txteditor->getText();
-	oldtxtviewer=txtviewer->getText();
-	oldimgeditor=imgeditor->getText();
-	oldimgviewer=imgviewer->getText();
-	oldarchiver=archiver->getText();
-	oldpdfviewer=pdfviewer->getText();
-	oldaudioviewer=audioviewer->getText();
-	oldvideoviewer=videoviewer->getText();
 	oldxterm=xterm->getText();
-	
+
 	// Fourth tab - Visual
 	themelist_prev=themesList->getCurrentItem();
     currTheme_prev = currTheme;

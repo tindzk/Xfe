@@ -912,14 +912,6 @@ XFileExplorer::XFileExplorer(FXApp *app, const FXbool iconic, const FXbool maxim
     helpmenutitle=new FXMenuTitle(menubar,_("&Help"),NULL,helpmenu);
 
   	// Other accelerators
-	
- 	key=getApp()->reg().readStringEntry("KEYBINDINGS","edit","F4");
-	hotkey=_parseAccel(key);	
-	getAccelTable()->addAccel(hotkey,lpanel,FXSEL(SEL_COMMAND,FilePanel::ID_EDIT));
-
- 	key=getApp()->reg().readStringEntry("KEYBINDINGS","view","Shift-F4");
-	hotkey=_parseAccel(key);	
-	getAccelTable()->addAccel(hotkey,lpanel,FXSEL(SEL_COMMAND,FilePanel::ID_VIEW));
 
  	key=getApp()->reg().readStringEntry("KEYBINDINGS","hidden_dirs","Ctrl-F5");
 	hotkey=_parseAccel(key);	

@@ -146,55 +146,10 @@
 #define DARKEN_SORT 0.96
 #endif
 
-
 // Default terminal program
 #ifndef DEFAULT_TERMINAL
 #define DEFAULT_TERMINAL "xterm -sb"
 #endif
-
-
-// These have to be the same as in xferc.in
-
-// Default text editor program
-#ifndef DEFAULT_TXTEDITOR
-#define DEFAULT_TXTEDITOR "xfw"
-#endif
-
-// Default text viewer program
-#ifndef DEFAULT_TXTVIEWER
-#define DEFAULT_TXTVIEWER "xfv"
-#endif
-
-// Default image editor program
-#ifndef DEFAULT_IMGEDITOR
-#define DEFAULT_IMGEDITOR "gimp"
-#endif
-
-// Default image viewer program
-#ifndef DEFAULT_IMGVIEWER
-#define DEFAULT_IMGVIEWER "xfi"
-#endif
-
-// Default archiver program
-#ifndef DEFAULT_ARCHIVER
-#define DEFAULT_ARCHIVER "xarchiver"
-#endif
-
-// Default PDF viewer program
-#ifndef DEFAULT_PDFVIEWER
-#define DEFAULT_PDFVIEWER "xpdf"
-#endif
-
-// Default audio viewer program
-#ifndef DEFAULT_AUDIOVIEWER
-#define DEFAULT_AUDIOVIEWER "xmms"
-#endif
-
-// Default video viewer program
-#ifndef DEFAULT_VIDEOVIEWER
-#define DEFAULT_VIDEOVIEWER "xine"
-#endif
-
 
 // Common macros
 
@@ -207,4 +162,3 @@
 
 // Macro to add parentheses before and after a given string
 #define PARS(s) ((FXString)" ("+(s)+(FXString)")")
-

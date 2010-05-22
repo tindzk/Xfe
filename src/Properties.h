@@ -66,8 +66,6 @@ private:
     FXString 	oldgrp;
     FXString	descr_prev;
     FXString	open_prev;
-    FXString	view_prev;
-    FXString	edit_prev;
     FXString	bigic_prev;
     FXString	miniic_prev;
     FXint 		num;
@@ -88,8 +86,6 @@ private:
     FXTextField*	username;
     FXTextField*	grpname;
     FXTextField*	open;
-    FXTextField*	view;
-    FXTextField*	edit;
     FXTextField*	descr;
     FXTextField*	bigic;
     FXTextField*	miniic;
@@ -114,8 +110,6 @@ public:
         ID_BIG_ICON,
         ID_MINI_ICON,
         ID_BROWSE_OPEN,
-        ID_BROWSE_VIEW,
-        ID_BROWSE_EDIT,
 		ID_RUSR,
         ID_WUSR,
         ID_XUSR,

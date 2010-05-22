@@ -55,29 +55,13 @@ private:
     FXComboBox *themesBox;
     FXList     *themesList;
     FXTextField *iconpath;
-    FXTextField *txteditor;
-    FXTextField *txtviewer;
-    FXTextField *imgviewer;
     FXTextField *xterm;
-    FXTextField *imgeditor;
-    FXTextField *archiver;
-    FXTextField *pdfviewer;
-    FXTextField *videoviewer;
-    FXTextField *audioviewer;
     FXTextField *normalfont;
     FXTextField *textfont;
     FXString    oldiconpath;
-    FXString    oldtxteditor;
-    FXString    oldtxtviewer;
-    FXString    oldimgviewer;
     FXString    oldxterm;
     FXString    oldnormalfont;
     FXString    oldtextfont;
-    FXString    oldimgeditor;
-    FXString    oldarchiver;
-    FXString    oldpdfviewer;
-    FXString    oldvideoviewer;
-    FXString    oldaudioviewer;
     FXCheckButton  *autosave;
     FXCheckButton  *savewinpos;
     FXCheckButton  *diropen;
@@ -142,13 +126,6 @@ public:
 	{
         ID_ACCEPT=DialogBox::ID_LAST,
 		ID_CANCEL,
-        ID_BROWSE_TXTEDIT,
-        ID_BROWSE_TXTVIEW,
-		ID_BROWSE_IMGVIEW,
-		ID_BROWSE_ARCHIVER,
-		ID_BROWSE_PDFVIEW,
-		ID_BROWSE_VIDEOVIEW,
-		ID_BROWSE_AUDIOVIEW,
         ID_BROWSE_XTERM,
         ID_COLOR,
 		ID_NORMALFONT,

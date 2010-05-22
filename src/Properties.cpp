@@ -137,8 +137,6 @@ FXDEFMAP(PropertiesBox) PropertiesBoxMap[]=
 	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_BIG_ICON,PropertiesBox::onCmdBrowseIcon),
 	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_MINI_ICON,PropertiesBox::onCmdBrowseIcon),
 	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_BROWSE_OPEN,PropertiesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_BROWSE_VIEW,PropertiesBox::onCmdBrowse),
-	FXMAPFUNC(SEL_COMMAND,PropertiesBox::ID_BROWSE_EDIT,PropertiesBox::onCmdBrowse),
 	FXMAPFUNC(SEL_KEYPRESS,0,PropertiesBox::onCmdKeyPress),
 };
 
@@ -219,33 +217,6 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
     new FXLabel(matrix,_("Open:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
     open = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
     new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_OPEN,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-
-    int is_ar = FALSE;
-
-    FXString viewlbl=_("View:");
-    FXString editlbl=_("Edit:");
-
-	extension=file.rafter('.',1);
-	extension=extension.lower();
-	if (extension=="gz" || extension=="tgz" || extension=="tar" || extension=="bz2" ||
-		extension=="tbz2" || extension=="zip" || extension=="7z" || extension=="Z" ||
-		extension=="lzh" || extension=="rar" || extension=="ace" || extension=="arj")
-	{
-		is_ar = TRUE; // archive
-		viewlbl = _("Extract:");
-	}
-    new FXLabel(matrix,viewlbl,NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-    view = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-    new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_VIEW,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-
-    if(!is_ar)
-    {
-        new FXLabel(matrix,editlbl,NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
-        edit = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
-        new FXButton(matrix,_("\tSelect file..."),filedialogicon,this,ID_BROWSE_EDIT,FRAME_RAISED|FRAME_THICK|LAYOUT_RIGHT|LAYOUT_CENTER_Y,0,0,0,0,20,20);
-    }
-    else
-        edit = NULL;
 
     new FXLabel(matrix,_("Big Icon:"),NULL,JUSTIFY_LEFT|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW);
     bigic = new FXTextField(matrix,30,NULL,0,FRAME_THICK|FRAME_SUNKEN|LAYOUT_FILL_COLUMN|LAYOUT_FILL_ROW|LAYOUT_FILL_X);
@@ -407,9 +378,6 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
             c=fileassoc.section(';',0);
             descr->setText(fileassoc.section(';',1));
             open->setText(c.section(',',0));
-            view->setText(c.section(',',1));
-            if(edit)
-                edit->setText(c.section(',',2));
             bigic->setText(fileassoc.section(';',2));
             miniic->setText(fileassoc.section(';',3));
             if (!isLink)
@@ -702,9 +670,6 @@ PropertiesBox::PropertiesBox(FXWindow *win,FXString file,FXString path): DialogB
 
 	descr_prev=descr->getText();
 	open_prev=open->getText();
-	view_prev=view->getText();
-	if (edit)
-		edit_prev=edit->getText();
 	bigic_prev=bigic->getText();
 	miniic_prev=miniic->getText();
 
@@ -899,41 +864,19 @@ long PropertiesBox::onCmdAcceptSingle(FXObject* o,FXSelector s,void* p)
     FXint rc=0;
 	File *f=NULL;
 	FXchar file[MAXPATHLEN];
-    FXString oldfileassoc,fileassoc,op,v,e;
+    FXString oldfileassoc,fileassoc,op;
 
 	// Don't proceed any task on the parent directory
 	if (streq(source.text(),".."))
 		return 1;
 
 	// Handle association if related fields have changed
-	FXbool cond;
-	if (edit) // Condition is not the same if edit exist or not
-	{
-		cond= (open->getText()!=open_prev || view->getText()!=view_prev || edit->getText()!=edit_prev
-	    || descr->getText()!=descr_prev || bigic->getText()!=bigic_prev || miniic->getText()!=miniic_prev);
-	}
-	else
-	{
-		cond= (open->getText()!=open_prev || view->getText()!=view_prev || descr->getText()!=descr_prev
-		|| bigic->getText()!=bigic_prev || miniic->getText()!=miniic_prev);
-	}
-	
-	if (cond)
-	{
+	if (open->getText()!=open_prev || descr->getText()!=descr_prev || bigic->getText()!=bigic_prev || miniic->getText()!=miniic_prev) {
 		op = open->getText();
-		v = view->getText();
-		if(!v.empty())
-			v = "," + v;
-		if(edit)
-		{
-			e = edit->getText();
-			if(!e.empty())
-				e = "," + e;
-		}
 
 		fileassoc = ext->getText();
 		fileassoc += "=";
-		fileassoc += op + v + e + ";";
+		fileassoc += op + ";";
 		fileassoc += descr->getText() + ";";
 		fileassoc += bigic->getText() + ";" + miniic->getText() + ";;";
 
@@ -1376,52 +1319,45 @@ long PropertiesBox::onCmdCheck(FXObject* o,FXSelector s,void* p)
 }
 
 
-long PropertiesBox::onCmdBrowse(FXObject* o,FXSelector s,void* p)
-{
-    FileDialog browseProgram(this,_("Select an executable file"));
-    const FXchar *patterns[]=
-        {
-            _("All files"),     "*",NULL
-        };
+long PropertiesBox::onCmdBrowse(FXObject* o,FXSelector s,void* p) {
+	FileDialog browseProgram(this, "Select an executable file");
+
+	const FXchar *patterns[]= {
+		"All files", "*",
+		NULL
+	};
+
 	browseProgram.setFilename(ROOTDIR);
 	browseProgram.setPatternList(patterns);
 	browseProgram.setSelectMode(SELECT_FILE_EXISTING);
-	if(browseProgram.execute())
-    {
-        FXString path=browseProgram.getFilename();
-        switch(FXSELID(s))
-        {
-        	case ID_BROWSE_OPEN:
-            	open->setText(FXPath::name(path));
-            	break;
-        	case ID_BROWSE_VIEW:
-            	view->setText(FXPath::name(path));
-            	break;
-        	case ID_BROWSE_EDIT:
-            	if(edit)
-                	edit->setText(FXPath::name(path));
-            	break;
-        }
-    }
-    return 1;
+
+	if (browseProgram.execute()) {
+		FXString path=browseProgram.getFilename();
+		open->setText(FXPath::name(path));
+	}
+
+	return 1;
 }
 
 
-long PropertiesBox::onCmdBrowseIcon(FXObject* o,FXSelector s,void* p)
-{
-    FXString icon;
-    if(FXSELID(s)==ID_BIG_ICON)
-        icon = bigic->getText();
-    else
-        icon= miniic->getText();
+long PropertiesBox::onCmdBrowseIcon(FXObject* o,FXSelector s,void* p) {
+	FXString icon;
+
+	if(FXSELID(s)==ID_BIG_ICON) {
+		icon = bigic->getText();
+	} else {
+		icon= miniic->getText();
+	}
 
 	FXString iconpath=getApp()->reg().readStringEntry("SETTINGS","iconpath",DEFAULTICONPATH);
-    const FXchar *patterns[]=
-        {
-            _("PNG Images"),     "*.png",
-			_("GIF Images"),     "*.gif",
-            _("BMP Images"),     "*.bmp",NULL
-        };
+
+    const FXchar *patterns[]= {
+		"PNG Images", "*.png",
+		"GIF Images", "*.gif",
+		"BMP Images", "*.bmp",
+		NULL
+	};
+
 	FileDialog browseIcon(this,_("Select an icon file"));
     browseIcon.setFilename(iconpath+PATHSEPSTRING+icon);
     browseIcon.setPatternList(patterns);

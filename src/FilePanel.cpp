@@ -77,8 +77,6 @@ FXDEFMAP(FilePanel) FilePanelMap[]=
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_FILTER_CURRENT,FilePanel::onCmdItemFilter),
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_GO_HOME,FilePanel::onCmdGoHome),
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_GO_TRASH,FilePanel::onCmdGoTrash),
-	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_VIEW,FilePanel::onCmdEdit),
-	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_EDIT,FilePanel::onCmdEdit),
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_PROPERTIES,FilePanel::onCmdProperties),
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_XTERM,FilePanel::onCmdXTerm),
 	FXMAPFUNC(SEL_COMMAND,FilePanel::ID_NEW_DIR,FilePanel::onCmdNewDir),
@@ -129,8 +127,6 @@ FXDEFMAP(FilePanel) FilePanelMap[]=
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_FILE_MOVETO,FilePanel::onUpdMenu),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_FILE_COPYTO,FilePanel::onUpdMenu),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_FILE_RENAME,FilePanel::onUpdSelMult),
-	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_EDIT,FilePanel::onUpdOpen),
-	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_VIEW,FilePanel::onUpdOpen),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_OPEN,FilePanel::onUpdOpen),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_ADD_TO_ARCH,FilePanel::onUpdAddToArch),
 	FXMAPFUNC(SEL_UPDATE,FilePanel::ID_SHOW_BIG_ICONS,FilePanel::onUpdShow),
@@ -2296,192 +2292,6 @@ end:
 	return 1;
 }
 
-
-// Edit file
-long FilePanel::onCmdEdit(FXObject*,FXSelector s,void*)
-{
-    // Wait cursor
-    getApp()->beginWaitCursor();
-
-	FXString txteditor=getApp()->reg().readStringEntry("PROGS","txteditor","xfw");
-    FXString txtviewer=getApp()->reg().readStringEntry("PROGS","txtviewer","xfv");
-
-    FXString pathname, samecmd, cmd, cmdname, itemslist=" "; 
-	FileAssoc* association;
-	FXbool same=TRUE;
-	FXbool first=TRUE;
-	
-	current->list->setFocus();
-
-	if (current->list->getNumSelectedItems()==0)
-	{
-		getApp()->endWaitCursor();
-		return 0;
-	}
-    
-	// Update associations dictionary
-	FileDict *assocdict=new FileDict(getApp());			
-	
-	// Check if all files have the same association
-	for (FXint u=0; u< current->list->getNumItems (); u++)
-	{
-		if (current->list->isItemSelected(u))
-		{
-			// Increment number of selected items
-			pathname=current->list->getItemPathname(u);
-			association=assocdict->findFileBinding(pathname.text());
-		
-			// If there is an association
-			if (association)
-			{
-				// Use it to edit/view the files
-				if(FXSELID(s)==ID_EDIT)
-				{
-					cmd=association->command.section(',',2);
-					if(cmd.length()==0)
-						cmd=txteditor;
-				}
-				else
-				{
-					cmd=association->command.section(',',1);
-					if(cmd.length()==0)
-						cmd=txtviewer;
-				}
-				if (cmd.text() != NULL)
-				{
-					
-					// First selected item
-					if (first)
-					{
-						samecmd = cmd;
-						first=FALSE;
-					}
-					
-					if (samecmd != cmd)
-					{
-						same=FALSE;
-						break;
-					}
-					
-					// List of selected items
-					itemslist += ::quote(pathname) + " ";
-				}
-				else
-				{
-					same=FALSE;
-					break;
-				}
-			}
-			
-			// No association
-			else
-			{
-				same=FALSE;
-				break;
-			}
-		}
-	}
-
-	// Same association for all files : execute the associated or default editor or viewer
-	if (same)
-	{
-		cmdname=samecmd;
-		
-		// If command exists, run it
-		if (::existCommand(cmdname))
-		{
-			cmd=cmdname+itemslist;
-			runcmd(cmd);
-		}
-
-		// If command does not exist, call the "Open with..." dialog
-		else
-		{
-			getApp()->endWaitCursor();
-			current->handle(this,FXSEL(SEL_COMMAND,ID_OPEN_WITH),NULL);
-		}
-	}
-	
-	// Files have different associations : handle them separately
-	else
-	{
-		for (int u=0; u< current->list->getNumItems (); u++)
-		{
-			if (current->list->isItemSelected(u))
-			{
-				pathname=current->list->getItemPathname(u);
-				association=assocdict->findFileBinding(pathname.text());
-				
-				// If there is an association
-				if(association)
-				{
-					// Use it to edit/view the file
-					if(FXSELID(s)==ID_EDIT)
-					{
-						cmd=association->command.section(',',2);
-						if(cmd.length()==0)
-							cmd=txteditor;
-					}
-					else
-					{
-						cmd=association->command.section(',',1);
-						if(cmd.length()==0)
-							cmd=txtviewer;
-					}
-					if(cmd.text() != NULL)
-					{
-						cmdname=cmd;
-						
-						// If command exists, run it
-						if (::existCommand(cmdname))
-						{
-							cmd=cmdname+" "+::quote(pathname);
-							runcmd(cmd);
-						}
-
-						// If command does not exist, call the "Open with..." dialog
-						else
-						{
-							getApp()->endWaitCursor();
-							current->handle(this,FXSEL(SEL_COMMAND,ID_OPEN_WITH),NULL);
-						}
-					}
-				}
-				
-				// No association
-				else
-				{
-					if(FXSELID(s)==ID_EDIT)
-						cmd=txteditor;
-					else
-						cmd=txtviewer;
-					
-					cmdname=cmd;
-					
-					// If command exists, run it
-					if (::existCommand(cmdname))
-					{
-						cmd=cmdname+" "+::quote(pathname);
-						runcmd(cmd);
-					}
-
-					// If command does not exist, call the "Open with..." dialog
-					else
-					{
-						getApp()->endWaitCursor();
-						current->handle(this,FXSEL(SEL_COMMAND,ID_OPEN_WITH),NULL);
-					}
-				}
-			}
-		}
-	}
-	
-	getApp()->endWaitCursor();
-
-    return 1;
-}
-
-
 // File or directory properties 
 long FilePanel::onCmdProperties(FXObject* sender,FXSelector,void*)
 {
@@ -3328,12 +3138,6 @@ long FilePanel::onCmdPopupMenu(FXObject* o,FXSelector s,void* p)
 				new FXMenuCommand(menu,_("&Extract here"),archexticon,current,FilePanel::ID_EXTRACT_HERE);
 				new FXMenuCommand(menu,extract_to_folder,archexticon,current,FilePanel::ID_EXTRACT_TO_FOLDER);
 				new FXMenuCommand(menu,_("E&xtract to..."),archexticon,current,FilePanel::ID_EXTRACT);
-			}
-			// Not archive nor package
-			if(!ar)
-			{
-				new FXMenuCommand(menu,_("&View"),viewicon,current,FilePanel::ID_VIEW);
-				new FXMenuCommand(menu,_("&Edit"),editicon,current,FilePanel::ID_EDIT);
 			}
         }
         if(!ar)

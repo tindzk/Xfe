@@ -80,8 +80,6 @@ FilePanel(FXWindow *owner, const FXchar*,FXComposite*, DirPanel*, FXuint name_si
         ID_FILELIST=FXVerticalFrame::ID_LAST,
 		ID_STOP_LIST_REFRESH_TIMER,
         ID_DIRECTORY_UP,
-        ID_VIEW,
-        ID_EDIT,
         ID_PROPERTIES,
         ID_FILE_COPY,
 		ID_FILE_CUT,
@@ -142,7 +140,6 @@ public:
 	long onCmdDirectoryUp(FXObject*,FXSelector,void*);
     long onCmdGoHome(FXObject*,FXSelector,void*);
 	long onCmdGoTrash(FXObject*,FXSelector,void*);
-    long onCmdEdit(FXObject*,FXSelector,void*);
     long onCmdProperties(FXObject*,FXSelector,void*);
     long onCmdFileMan(FXObject*,FXSelector,void*);
     long onCmdFileTrash(FXObject*,FXSelector,void*);
