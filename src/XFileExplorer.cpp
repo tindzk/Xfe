@@ -1317,7 +1317,9 @@ void XFileExplorer::create()
 	// Wheel scrolling
     FXint wheellines=getApp()->reg().readUnsignedEntry("SETTINGS","wheellines",5);
 	getApp()->setWheelLines(wheellines);
-	
+	getApp()->setScrollSpeed(0);
+	getApp()->setScrollDelay(0);
+
     // Open left or right panel in starting directory (if specified) or in current directory
     if (startdirectory=="")
         startdirectory=FXSystem::getCurrentDirectory();
