@@ -2131,19 +2131,36 @@ long  XFileExplorer::onCmdNewWindow(FXObject*,FXSelector,void*)
 }
 
 long XFileExplorer::onShowSmallIcons(FXObject* sender,FXSelector,void*) {
-	lpanel->getList()->onCmdShowMiniIcons(sender, 0, NULL);
-	lpanel->getList()->onCmdArrangeByRows(sender, 0, NULL);
+	if (lpanel->isActive()) {
+		lpanel->getList()->onCmdShowMiniIcons(sender, 0, NULL);
+		lpanel->getList()->onCmdArrangeByRows(sender, 0, NULL);
+	} else if (rpanel->isActive()) {
+		rpanel->getList()->onCmdShowMiniIcons(sender, 0, NULL);
+		rpanel->getList()->onCmdArrangeByRows(sender, 0, NULL);
+	}
+
 	return 1;
 }
 
 long XFileExplorer::onShowLargeIcons(FXObject* sender,FXSelector,void*) {
-	lpanel->getList()->onCmdShowBigIcons(sender, 0, NULL);
-	lpanel->getList()->onCmdArrangeByColumns(sender, 0, NULL);
+	if (lpanel->isActive()) {
+		lpanel->getList()->onCmdShowBigIcons(sender, 0, NULL);
+		lpanel->getList()->onCmdArrangeByColumns(sender, 0, NULL);
+	} else if (rpanel->isActive()) {
+		rpanel->getList()->onCmdShowBigIcons(sender, 0, NULL);
+		rpanel->getList()->onCmdArrangeByColumns(sender, 0, NULL);
+	}
+
 	return 1;
 }
 
 long XFileExplorer::onShowDetails(FXObject* sender,FXSelector,void*) {
-	lpanel->getList()->onCmdShowDetails(sender, 0, NULL);
+	if (lpanel->isActive()) {
+		lpanel->getList()->onCmdShowDetails(sender, 0, NULL);
+	} else if (rpanel->isActive()) {
+		rpanel->getList()->onCmdShowDetails(sender, 0, NULL);
+	}
+
 	return 1;
 }
 
